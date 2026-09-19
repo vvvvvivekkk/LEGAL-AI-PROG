@@ -5,6 +5,7 @@ with pipeline dependencies overridden so tests run offline and quickly.
 from __future__ import annotations
 
 import hashlib
+import re
 from pathlib import Path
 
 import numpy as np
@@ -53,6 +54,26 @@ class FakeReranker:
         return out
 
 
+class CitingStubAdapter:
+    """Stub LLM that cites the first chunk id present in the built prompt, so
+    generated citations always resolve against the real retrieved context.
+    """
+
+    def complete(self, system: str, user: str) -> str:
+        m = re.search(r"\[([^\]]+)\]", user)
+        cid = m.group(1) if m else "none"
+        return f"The statute addresses the question [{cid}]."
+
+
+class FakeNLI:
+    """Always ENTAILS — lets the /query wiring produce a confident VCS offline."""
+
+    def classify(self, premise: str, hypothesis: str):
+        from src.verification.types import Entailment
+
+        return Entailment.ENTAILS, 0.95
+
+
 @pytest.fixture
 def client(tmp_path):
     db_path = str(tmp_path / "lancedb")
@@ -68,3 +89,22 @@ def client(tmp_path):
 def sample_txt_bytes() -> tuple[str, bytes]:
     path = SAMPLE_DIR / "urban_tenancy_act_2019.txt"
     return path.name, path.read_bytes()
+
+
+@pytest.fixture
+def query_client(client):
+    """Base client plus stubbed generation + verification backends for /query."""
+    app.dependency_overrides[deps.get_adapter_factory] = lambda: (lambda: CitingStubAdapter())
+    app.dependency_overrides[deps.get_nli_factory] = lambda: (lambda: FakeNLI())
+    return client  # base `client` fixture clears overrides on teardown
+
+
+@pytest.fixture
+def client_no_llm(client):
+    """Client whose LLM adapter factory raises, to exercise the 503 path."""
+    def boom():
+        raise ValueError("missing LLM_API_KEY")
+
+    app.dependency_overrides[deps.get_adapter_factory] = lambda: boom
+    app.dependency_overrides[deps.get_nli_factory] = lambda: (lambda: FakeNLI())
+    return client
