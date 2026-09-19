@@ -91,3 +91,35 @@ table.chunks th { color: var(--muted); font-weight: 500; }
 .score { color: var(--accent); font-size: 12px; font-family: var(--mono); }
 .hit-act { color: var(--muted); font-size: 11px; margin: 2px 0 4px; }
 .hit-text { font-size: 13px; line-height: 1.4; }
+
+/* Proof viewer */
+.proof { margin-top: 20px; }
+.proof-head { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.decision { font-weight: 600; padding: 4px 12px; border-radius: 999px; font-size: 13px; }
+.decision.answer { background: #14311f; color: #4ade80; border: 1px solid #1f5133; }
+.decision.abstain { background: #33260f; color: #fbbf24; border: 1px solid #5a441a; }
+.vcs { color: var(--muted); font-family: var(--mono); font-size: 13px; }
+.answer-text { background: #12151b; border: 1px solid var(--border); border-radius: 8px; padding: 14px; white-space: pre-wrap; line-height: 1.5; }
+
+.claim-card { margin-top: 14px; background: #12151b; border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
+.claim-top { display: flex; justify-content: space-between; gap: 12px; }
+.claim-text { font-size: 14px; }
+.contribution { color: var(--muted); font-family: var(--mono); font-size: 12px; white-space: nowrap; }
+.cited { margin: 8px 0; display: flex; gap: 6px; flex-wrap: wrap; }
+.chip { background: var(--accent-weak); border: 1px solid var(--border); border-radius: 6px; padding: 2px 6px; }
+.span { margin: 8px 0; padding: 8px 12px; border-left: 3px solid var(--accent); color: var(--text); background: #0f1319; font-size: 13px; }
+
+.verdicts { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.badge { font-size: 11px; padding: 3px 8px; border-radius: 6px; border: 1px solid var(--border); }
+.badge.ok { background: #14311f; color: #4ade80; border-color: #1f5133; }
+.badge.bad { background: #2a1416; color: var(--error); border-color: #5b2327; }
+.badge.neutral { background: #12151b; color: var(--muted); }
+.badge.muted-badge { background: #12151b; color: var(--muted); border-style: dashed; }
+
+/* Evaluation */
+.run-card { margin-top: 14px; background: #12151b; border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
+.run-card h3 { margin: 0 0 4px; font-size: 13px; }
+.run-config { margin-bottom: 10px; font-size: 12px; }
+table.metrics { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.metrics th, table.metrics td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--border); }
+table.metrics th { color: var(--muted); font-weight: 500; }

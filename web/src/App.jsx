@@ -1,23 +1,14 @@
 import { useState } from 'react'
 import Ingestion from './views/Ingestion.jsx'
 import Retrieval from './views/Retrieval.jsx'
-
-function ComingSoon({ label, endpoint }) {
-  return (
-    <div className="panel">
-      <h2>{label}</h2>
-      <p className="muted">
-        This view lands with the <code>{endpoint}</code> endpoint in the next step of phase 7.
-      </p>
-    </div>
-  )
-}
+import Evaluation from './views/Evaluation.jsx'
+import ProofViewer from './views/ProofViewer.jsx'
 
 const TABS = [
   { id: 'ingestion', label: 'Ingestion', render: () => <Ingestion /> },
   { id: 'retrieval', label: 'Retrieval', render: () => <Retrieval /> },
-  { id: 'evaluation', label: 'Evaluation', render: () => <ComingSoon label="Evaluation" endpoint="GET /evaluation" /> },
-  { id: 'proof', label: 'Proof viewer', render: () => <ComingSoon label="Proof viewer" endpoint="POST /query" /> },
+  { id: 'evaluation', label: 'Evaluation', render: () => <Evaluation /> },
+  { id: 'proof', label: 'Proof viewer', render: () => <ProofViewer /> },
 ]
 
 export default function App() {
