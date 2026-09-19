@@ -1,125 +1,66 @@
-:root {
-  --bg: #0f1115;
-  --panel: #171a21;
-  --border: #262b36;
-  --text: #e6e8ec;
-  --muted: #8b93a1;
-  --accent: #4f8cff;
-  --accent-weak: #21304d;
-  --error: #ff6b6b;
-  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+@import 'tailwindcss';
+
+/* Design tokens — a dark, evidence-first palette. Status colors are
+   functional: they map to verification outcomes, not decoration. */
+@theme {
+  --color-canvas: #0b0f17;
+  --color-surface: #121826;
+  --color-raised: #172033;
+  --color-line: #243044;
+  --color-line-soft: #1b2436;
+  --color-ink: #e8ecf3;
+  --color-muted: #94a3b8;
+  --color-faint: #64748b;
+
+  --color-primary: #6d7cff;
+  --color-primary-weak: #1c2440;
+
+  --color-verified: #34d399;
+  --color-verified-weak: #0f2a22;
+  --color-caution: #fbbf24;
+  --color-caution-weak: #2a2110;
+  --color-danger: #f87171;
+  --color-danger-weak: #2a1416;
+  --color-info: #38bdf8;
+  --color-info-weak: #0c2537;
+
+  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --radius: 0.625rem;
 }
 
-* { box-sizing: border-box; }
+html {
+  color-scheme: dark;
+}
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
-.app { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
-
-.topbar { padding: 20px 0 0; }
-.topbar h1 { margin: 0 0 12px; font-size: 22px; }
-
-.tabs { display: flex; gap: 6px; border-bottom: 1px solid var(--border); }
-.tab {
-  background: none; border: none; color: var(--muted);
-  padding: 10px 14px; cursor: pointer; font-size: 14px;
-  border-bottom: 2px solid transparent;
-}
-.tab:hover { color: var(--text); }
-.tab.active { color: var(--text); border-bottom-color: var(--accent); }
-
-.content { padding-top: 24px; }
-
-.panel { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 22px; }
-.panel h2 { margin: 0 0 6px; }
-.muted { color: var(--muted); font-size: 14px; }
-.mono { font-family: var(--mono); font-size: 12px; }
-
-.dropzone {
-  margin: 18px 0; padding: 26px; text-align: center;
-  border: 1.5px dashed var(--border); border-radius: 10px; background: #12151b;
-}
-.dropzone.dragging { border-color: var(--accent); background: var(--accent-weak); }
-.dropzone input { display: block; margin: 12px auto 0; color: var(--muted); }
-
-button.primary {
-  background: var(--accent); color: white; border: none; border-radius: 8px;
-  padding: 9px 16px; font-size: 14px; cursor: pointer;
-}
-button.primary:disabled { opacity: 0.5; cursor: not-allowed; }
-
-.error {
-  margin-top: 16px; padding: 10px 12px; border-radius: 8px;
-  background: #2a1416; border: 1px solid #5b2327; color: var(--error); font-size: 14px;
+/* A faint grid texture on the canvas — evokes a ruled case-file page without
+   shouting. Applied once, globally, not per-card. */
+.canvas-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-line) 40%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-line) 40%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: center top;
 }
 
-.result { margin-top: 22px; }
-.totals { display: flex; gap: 14px; margin-bottom: 18px; }
-.metric {
-  flex: 1; background: #12151b; border: 1px solid var(--border);
-  border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 4px;
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
-.metric-value { font-size: 26px; font-weight: 600; }
-.metric-label { color: var(--muted); font-size: 12px; }
 
-table.chunks { width: 100%; border-collapse: collapse; font-size: 13px; }
-table.chunks th, table.chunks td {
-  text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top;
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
-table.chunks th { color: var(--muted); font-weight: 500; }
-
-.query-bar { display: flex; gap: 10px; align-items: center; margin: 16px 0; flex-wrap: wrap; }
-.query-bar input[type='text'] {
-  flex: 1; min-width: 260px; padding: 9px 12px; border-radius: 8px;
-  border: 1px solid var(--border); background: #12151b; color: var(--text);
-}
-.k-field, .rerank-field { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 13px; }
-.k-field input { width: 56px; padding: 6px 8px; border-radius: 6px; border: 1px solid var(--border); background: #12151b; color: var(--text); }
-
-.columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 12px; }
-.column { background: #12151b; border: 1px solid var(--border); border-radius: 10px; padding: 12px; }
-.column h3 { margin: 0 0 10px; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
-
-.hit { border-top: 1px solid var(--border); padding: 10px 0; }
-.hit:first-of-type { border-top: none; }
-.hit-head { display: flex; justify-content: space-between; gap: 8px; }
-.score { color: var(--accent); font-size: 12px; font-family: var(--mono); }
-.hit-act { color: var(--muted); font-size: 11px; margin: 2px 0 4px; }
-.hit-text { font-size: 13px; line-height: 1.4; }
-
-/* Proof viewer */
-.proof { margin-top: 20px; }
-.proof-head { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
-.decision { font-weight: 600; padding: 4px 12px; border-radius: 999px; font-size: 13px; }
-.decision.answer { background: #14311f; color: #4ade80; border: 1px solid #1f5133; }
-.decision.abstain { background: #33260f; color: #fbbf24; border: 1px solid #5a441a; }
-.vcs { color: var(--muted); font-family: var(--mono); font-size: 13px; }
-.answer-text { background: #12151b; border: 1px solid var(--border); border-radius: 8px; padding: 14px; white-space: pre-wrap; line-height: 1.5; }
-
-.claim-card { margin-top: 14px; background: #12151b; border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
-.claim-top { display: flex; justify-content: space-between; gap: 12px; }
-.claim-text { font-size: 14px; }
-.contribution { color: var(--muted); font-family: var(--mono); font-size: 12px; white-space: nowrap; }
-.cited { margin: 8px 0; display: flex; gap: 6px; flex-wrap: wrap; }
-.chip { background: var(--accent-weak); border: 1px solid var(--border); border-radius: 6px; padding: 2px 6px; }
-.span { margin: 8px 0; padding: 8px 12px; border-left: 3px solid var(--accent); color: var(--text); background: #0f1319; font-size: 13px; }
-
-.verdicts { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
-.badge { font-size: 11px; padding: 3px 8px; border-radius: 6px; border: 1px solid var(--border); }
-.badge.ok { background: #14311f; color: #4ade80; border-color: #1f5133; }
-.badge.bad { background: #2a1416; color: var(--error); border-color: #5b2327; }
-.badge.neutral { background: #12151b; color: var(--muted); }
-.badge.muted-badge { background: #12151b; color: var(--muted); border-style: dashed; }
-
-/* Evaluation */
-.run-card { margin-top: 14px; background: #12151b; border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
-.run-card h3 { margin: 0 0 4px; font-size: 13px; }
-.run-config { margin-bottom: 10px; font-size: 12px; }
-table.metrics { width: 100%; border-collapse: collapse; font-size: 13px; }
-table.metrics th, table.metrics td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--border); }
-table.metrics th { color: var(--muted); font-weight: 500; }
