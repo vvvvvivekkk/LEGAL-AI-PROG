@@ -32,11 +32,29 @@ def test_ingest_rejects_unsupported_extension(client):
     assert resp.status_code == 415
 
 
-def test_ingest_unparseable_file_returns_422(client):
-    resp = client.post(
-        "/ingest",
-        files={"file": ("junk.txt", b"random text with no statute structure at all", "text/plain")},
-    )
+def test_ingest_unstructured_file_uses_fallback(client):
+    body = b"Meeting notes.\n\nWe discussed the roadmap.\n\nAction items were assigned."
+    resp = client.post("/ingest", files={"file": ("memo.txt", body, "text/plain")})
+    assert resp.status_code == 200, resp.text
+    data = resp.json()
+    assert data["used_fallback"] is True
+    assert data["note"] and "fallback" in data["note"].lower()
+    assert data["new_chunk_count"] == 3
+    assert data["new_chunks"][0]["chunk_id"].startswith("memo::p")
+    assert data["new_chunks"][0]["metadata"]["structure"] == "fallback"
+
+
+def test_ingest_statute_does_not_use_fallback(client, sample_txt_bytes):
+    name, data = sample_txt_bytes
+    resp = client.post("/ingest", files={"file": (name, data, "text/plain")})
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["used_fallback"] is False
+    assert body["note"] is None
+
+
+def test_ingest_empty_file_returns_422(client):
+    resp = client.post("/ingest", files={"file": ("empty.txt", b"   \n\n  ", "text/plain")})
     assert resp.status_code == 422
 
 

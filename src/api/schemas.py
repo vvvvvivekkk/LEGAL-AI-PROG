@@ -32,6 +32,8 @@ class IngestResponse(BaseModel):
     new_chunk_count: int
     new_chunks: list[NewChunk]
     totals: IndexTotals
+    used_fallback: bool = False
+    note: str | None = None
 
 
 class RetrieveResponse(BaseModel):
