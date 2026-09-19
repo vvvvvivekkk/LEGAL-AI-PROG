@@ -32,3 +32,17 @@ experiments/*/artifacts/
 
 # Streamlit
 .streamlit/
+
+# Node (frontend tooling, if ever added)
+node_modules/
+npm-debug.log*
+
+# Claude Code local state (never shared/pushed)
+.claude/
+.claude-session*
+.mcp.json
+
+# Secrets / env
+.env
+.env.*
+*.local
