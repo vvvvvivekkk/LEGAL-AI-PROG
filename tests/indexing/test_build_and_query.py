@@ -7,8 +7,10 @@ from src.ingestion.pipeline import ingest_directory
 
 
 @pytest.fixture(scope="module")
-def sample_chunks(sample_data_dir):
-    documents = ingest_directory(sample_data_dir)
+def sample_chunks():
+    # Path resolved directly (not via the function-scoped sample_data_dir
+    # fixture) so this can be module-scoped without a ScopeMismatch.
+    documents = ingest_directory("data/sample")
     return [c.to_dict() for c in chunk_corpus(documents)]
 
 
