@@ -1,4 +1,13 @@
-"""V2 tests: entailment/support with a controllable fake NLI."""
+"""V2 tests: entailment/support with a controllable fake NLI.
+
+The rule-driven fake NLI covers the combination logic deterministically. A real
+roberta-large-mnli test is gated behind LEGALRAG_RUN_REAL_NLI=1 so the ~1.4GB
+model download isn't pulled into every run; set it to validate the real backend.
+"""
+
+import os
+
+import pytest
 
 from src.generation.parser import Claim
 from src.verification.types import Entailment
@@ -59,3 +68,19 @@ def test_missing_citation_text_skipped(context_chunks, make_nli):
     result = check_entailment(claim, context_chunks, nli)
     assert result.verdict == Entailment.ENTAILS
     assert len(result.per_chunk) == 1  # only the resolvable cited chunk was scored
+
+
+@pytest.mark.skipif(
+    os.environ.get("LEGALRAG_RUN_REAL_NLI") != "1",
+    reason="set LEGALRAG_RUN_REAL_NLI=1 to exercise the real roberta-large-mnli backend",
+)
+def test_real_nli_entails_supported_claim(context_chunks):
+    from src.verification.nli import RobertaMNLI
+
+    nli = RobertaMNLI()
+    claim = Claim(
+        "The landlord must return the deposit within thirty days.",
+        ["urban_tenancy_act_2019::s4:b"],
+    )
+    result = check_entailment(claim, context_chunks, nli)
+    assert result.verdict == Entailment.ENTAILS
