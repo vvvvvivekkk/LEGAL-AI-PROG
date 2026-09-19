@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import { evaluation } from '../api.js'
+import { evaluation, embeddingMap } from '../api.js'
 import Banner from '../components/Banner.jsx'
 import Card, { CardHeader } from '../components/Card.jsx'
+import EmbeddingScatter from '../components/EmbeddingScatter.jsx'
 import { FileIcon } from '../components/icons.jsx'
 
 function pct(x) {
@@ -47,12 +48,16 @@ function RunCard({ run }) {
 
 export default function Evaluation() {
   const [state, setState] = useState({ loading: true, error: null, data: null })
+  const [map, setMap] = useState(null)
 
   useEffect(() => {
     let alive = true
     evaluation()
       .then((data) => alive && setState({ loading: false, error: null, data }))
       .catch((err) => alive && setState({ loading: false, error: err.message, data: null }))
+    embeddingMap()
+      .then((m) => alive && setMap(m))
+      .catch(() => alive && setMap({ points: [], sources: [] }))
     return () => {
       alive = false
     }
@@ -62,6 +67,19 @@ export default function Evaluation() {
 
   return (
     <div className="space-y-6">
+      <Card tone="input">
+        <CardHeader
+          icon={FileIcon}
+          title="Embedding space"
+          subtitle="Every indexed chunk projected to 2D with PCA, colored by source document — the vector space the retriever searches, made visible."
+        />
+        {map ? (
+          <EmbeddingScatter points={map.points} sources={map.sources} />
+        ) : (
+          <p className="text-sm text-muted">Loading embedding map…</p>
+        )}
+      </Card>
+
       <Card tone="input">
         <CardHeader
           icon={FileIcon}
