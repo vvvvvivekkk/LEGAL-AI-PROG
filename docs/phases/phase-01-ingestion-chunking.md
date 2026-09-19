@@ -3,7 +3,7 @@
 **Goal:** turn raw legal documents into SAC chunks with metadata, correctly, on the sample corpus, before scaling to a real one.
 
 **Tasks**
-- `src/ingestion/`: loaders for txt/HTML/PDF, text cleaning, structural parsing (act → chapter → section → clause where present), metadata extraction (source id, act/section ref, jurisdiction, date).
+- `src/ingestion/`: a real PDF loader (text extraction via `pypdf`/`pdfplumber`, not stubbed — this is the primary real-world input format) plus a `.txt` loader, text cleaning, structural parsing (act → chapter → section → clause where present), metadata extraction (source id, act/section ref, jurisdiction, date). HTML loader can stay a stub for now.
 - `src/chunking/`: SAC implementation —
   1. split by structural boundaries first (not fixed windows),
   2. attach a contextual summary of each chunk's parent section,
