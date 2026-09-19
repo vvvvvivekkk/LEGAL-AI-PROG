@@ -1,0 +1,69 @@
+"""Shared API dependencies.
+
+Everything the routes need from the pipeline is provided through these
+functions so tests can override them (FastAPI dependency_overrides) with fakes
+— a hashing embedder, a stub LLM adapter, a rule-based NLI — and run fast and
+offline without downloading models or needing an API key.
+"""
+
+from __future__ import annotations
+
+from functools import lru_cache
+
+from src.embedding.base import EmbeddingModel
+from src.indexing.build import DEFAULT_DB_PATH
+
+
+class ApiState:
+    """Process-wide, overridable settings (the LanceDB location)."""
+
+    db_path: str = DEFAULT_DB_PATH
+
+
+def get_db_path() -> str:
+    return ApiState.db_path
+
+
+@lru_cache(maxsize=4)
+def _cached_embedder(model_marker: str) -> EmbeddingModel:
+    from src.embedding.sentence_transformer import SentenceTransformerEmbedder
+
+    return SentenceTransformerEmbedder()
+
+
+def get_embedder() -> EmbeddingModel:
+    """Default embedding backend (cached). Overridden with a fake in tests."""
+    return _cached_embedder("default")
+
+
+# The reranker / LLM adapter / NLI model are heavy and only some routes use
+# them. They're exposed as zero-arg factories so a route resolves them lazily
+# (inside the handler, only when actually needed) rather than on every request
+# — FastAPI otherwise resolves declared dependencies eagerly. Tests override
+# these factories to return fakes.
+
+def get_reranker_factory():
+    def _make():
+        from src.retrieval.rerank import CrossEncoderReranker
+
+        return CrossEncoderReranker()
+
+    return _make
+
+
+def get_adapter_factory():
+    def _make():
+        from src.generation.factory import get_adapter as _factory
+
+        return _factory()
+
+    return _make
+
+
+def get_nli_factory():
+    def _make():
+        from src.verification.nli import RobertaMNLI
+
+        return RobertaMNLI()
+
+    return _make

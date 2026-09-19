@@ -3,6 +3,8 @@ sentence-transformers
 rank_bm25
 fastapi
 uvicorn
+python-multipart
+httpx
 streamlit
 pytest
 pypdf
