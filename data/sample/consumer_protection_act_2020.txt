@@ -1,0 +1,43 @@
+THE FICTIONAL CONSUMER PROTECTION ACT, 2020
+Jurisdiction: Republic of Veridia
+Enacted: 9 November 2020
+
+CHAPTER I — PRELIMINARY
+
+Section 1. Short title and commencement.
+(1) This Act may be called the Consumer Protection Act, 2020.
+(2) It shall come into force on the date of its publication in the Official Gazette of Veridia.
+
+Section 2. Definitions.
+(1) "Consumer" means a person who buys goods or hires services for consideration, other than for resale or commercial purpose.
+(2) "Unfair trade practice" means a deceptive practice adopted by a seller for the purpose of promoting the sale of goods or services.
+
+CHAPTER II — CONSUMER RIGHTS
+
+Section 3. Right to information.
+This section grants every consumer the right to be informed of the quality, quantity, purity, standard, and price of goods or services before purchase.
+Clause (a): Sellers must display the maximum retail price on all packaged goods offered for sale.
+Clause (b): Withholding material information about a defect known to the seller constitutes an unfair trade practice under Section 2(2).
+
+Section 4. Right to redress against defective goods.
+This section entitles a consumer to seek replacement, repair, or refund for goods found to be defective within the warranty period.
+Clause (a): A seller must respond to a redress request within fifteen days of receipt.
+Clause (b): Failure to respond within the prescribed period entitles the consumer to approach the Consumer Disputes Redressal Commission established under Section 6.
+
+CHAPTER III — UNFAIR TRADE PRACTICES
+
+Section 5. Prohibition of unfair trade practices.
+This section prohibits any seller from engaging in an unfair trade practice as defined under Section 2(2), including false advertising and misleading claims of quality.
+Clause (a): A seller found to have engaged in an unfair trade practice is liable to a penalty of up to one lakh Veridian Marks for a first offence.
+Clause (b): A repeat offence within two years is liable to a penalty of up to five lakh Veridian Marks and suspension of trading license.
+
+CHAPTER IV — CONSUMER DISPUTES REDRESSAL COMMISSION
+
+Section 6. Establishment of the Commission.
+This section establishes the Consumer Disputes Redressal Commission to adjudicate complaints filed by consumers under this Act.
+
+Section 7. Jurisdiction of the Commission.
+This section defines the pecuniary and territorial jurisdiction of the Consumer Disputes Redressal Commission for complaints filed under Sections 4 and 5.
+
+Section 8. Appeals.
+This section allows any party aggrieved by an order of the Commission to appeal to the State Consumer Appellate Tribunal within thirty days of the order.

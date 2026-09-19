@@ -89,5 +89,3 @@ data/                 small sample corpora only (gitignored: large corpora, mode
 experiments/          per-run configs + results
 tests/                mirrors src/
 ```
-
-Module ownership mirrors the team's role split: Vivek — ingestion/chunking; Akshith — embedding/indexing/retrieval; Uday — generation/verification.

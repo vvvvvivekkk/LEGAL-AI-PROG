@@ -2,9 +2,6 @@
 
 A Retrieval-Augmented Generation system for legal Q&A where every answer is checked against its sources before it's shown, and ships with a structured, auditable proof of where each claim came from.
 
-Mini Project (Review 1) — Dept. of Artificial Intelligence, Anurag University, AY 2026–27.
-Team: A. Vivek Reddy (23EG106C04) · N. Akshith Sai (23G106C03) · K. Uday (23EG106C30). Guide: Ms. S. Hemasri.
-
 ## The problem
 
 LLMs answering legal questions hallucinate: invented facts, misattributed case law, citations to provisions that don't actually say what's claimed. Plain RAG helps but doesn't fix this — fixed-size chunking destroys legal context, retrieval doesn't check that a source *supports* a claim, and prior work (chunking, retrieval, citation auditing) tends to improve one piece in isolation rather than the full pipeline.

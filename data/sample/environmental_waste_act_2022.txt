@@ -1,0 +1,45 @@
+THE FICTIONAL ENVIRONMENTAL WASTE MANAGEMENT ACT, 2022
+Jurisdiction: State of Larenthia
+Enacted: 15 September 2022
+
+CHAPTER I — PRELIMINARY
+
+Section 1. Short title and commencement.
+(1) This Act may be called the Environmental Waste Management Act, 2022.
+(2) It shall come into force on 1 January 2023.
+
+Section 2. Definitions.
+(1) "Waste generator" means any person or establishment that produces solid or liquid waste as a by-product of its activity.
+(2) "Hazardous waste" means waste that, by reason of its chemical, physical, or biological composition, poses a substantial threat to public health or the environment.
+
+CHAPTER II — SEGREGATION AND DISPOSAL
+
+Section 3. Duty to segregate waste at source.
+This section requires every waste generator to segregate waste into biodegradable, non-biodegradable, and hazardous categories at the point of generation.
+Clause (a): Mixed disposal of segregated categories is prohibited and constitutes an offence under Section 7.
+Clause (b): Local bodies must provide separate collection facilities for each category within their jurisdiction.
+
+Section 4. Disposal of hazardous waste.
+This section governs how a waste generator must handle and dispose of hazardous waste identified under Section 2(2).
+Clause (a): Hazardous waste must be handed over only to a disposal agency authorized under Section 5.
+Clause (b): Storage of hazardous waste on the generator's premises shall not exceed ninety days without written permission from the State Pollution Control Board.
+
+CHAPTER III — AUTHORIZATION OF DISPOSAL AGENCIES
+
+Section 5. Authorization of disposal agencies.
+This section requires any agency engaged in the collection, transport, or disposal of hazardous waste to obtain authorization from the State Pollution Control Board.
+Clause (a): Authorization is valid for a period of three years and must be renewed at least sixty days before expiry.
+Clause (b): The Board may inspect an authorized agency's facilities at any time without prior notice.
+
+CHAPTER IV — OFFENCES AND PENALTIES
+
+Section 6. Penalty for improper segregation.
+This section fixes the fine payable by a waste generator found in violation of the segregation duty under Section 3.
+Clause (a): A first violation attracts a fine of up to ten thousand Veridian Marks.
+Clause (b): A repeat violation within one year attracts a fine of up to fifty thousand Veridian Marks.
+
+Section 7. Offence of mixed disposal.
+This section makes it an offence for any waste generator to dispose of mixed, unsegregated waste in violation of Section 3(a), punishable with the fine prescribed under Section 6.
+
+Section 8. Appeals.
+This section allows any person aggrieved by an order of the State Pollution Control Board under this Act to appeal to the Environmental Appellate Tribunal within thirty days.

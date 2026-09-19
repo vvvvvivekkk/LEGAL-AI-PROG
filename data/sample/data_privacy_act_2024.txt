@@ -1,0 +1,54 @@
+THE FICTIONAL DATA PRIVACY ACT, 2024
+Jurisdiction: Republic of Veridia
+Enacted: 12 March 2024
+
+CHAPTER I — PRELIMINARY
+
+Section 1. Short title and commencement.
+(1) This Act may be called the Data Privacy Act, 2024.
+(2) It shall come into force on the date of its publication in the Official Gazette of Veridia.
+
+Section 2. Definitions.
+(1) In this Act, unless the context otherwise requires, "personal data" means any information relating to an identified or identifiable natural person.
+(2) "Data fiduciary" means any person who, alone or in conjunction with others, determines the purpose and means of processing personal data.
+(3) "Data principal" means the natural person to whom the personal data relates.
+
+CHAPTER II — OBLIGATIONS OF DATA FIDUCIARIES
+
+Section 3. Grounds for processing personal data.
+This section sets out the lawful grounds on which a data fiduciary may process personal data belonging to a data principal.
+Clause (a): Processing is permitted where the data principal has given clear and specific consent.
+Clause (b): Processing is permitted where necessary for compliance with a legal obligation imposed on the data fiduciary.
+Clause (c): Processing is permitted where necessary to respond to a medical emergency involving a threat to the life of the data principal.
+
+Section 4. Notice requirements.
+This section requires every data fiduciary to give the data principal a clear notice before or at the time of collecting personal data.
+Clause (a): The notice must describe the personal data being collected and the purpose of processing.
+Clause (b): The notice must describe the manner in which the data principal may exercise their rights under Section 7.
+Clause (c): The notice must identify the grievance officer designated under Section 9.
+
+CHAPTER III — DATA BREACH AND PENALTIES
+
+Section 5. Duty to report personal data breach.
+This section requires a data fiduciary to notify the Data Protection Board of Veridia and affected data principals without undue delay upon becoming aware of a personal data breach.
+Clause (a): Notification to the Board must occur within seventy-two hours of the data fiduciary becoming aware of the breach.
+Clause (b): Notification must describe the nature of the breach and the categories of personal data affected.
+
+Section 6. Penalty for failure to report a breach.
+This section fixes the monetary penalty a data fiduciary must pay for failing to notify a personal data breach as required under Section 5.
+Clause (a): Failure to notify within the prescribed period attracts a penalty of up to two hundred fifty crore Veridian Marks.
+Clause (b): The Board may reduce the penalty where the data fiduciary demonstrates reasonable efforts at compliance.
+
+CHAPTER IV — RIGHTS OF DATA PRINCIPALS
+
+Section 7. Right to access and correction.
+This section grants every data principal the right to obtain confirmation of whether their personal data is being processed, and to request correction of inaccurate personal data.
+Clause (a): A data fiduciary must respond to an access request within thirty days.
+Clause (b): A data fiduciary must correct inaccurate personal data within fifteen days of a verified request.
+
+Section 8. Right to erasure.
+This section grants a data principal the right to request erasure of personal data that is no longer necessary for the purpose it was collected.
+Clause (a): The data fiduciary must comply with an erasure request unless retention is required by another law.
+
+Section 9. Grievance officer.
+This section requires every data fiduciary to designate a grievance officer to address complaints from data principals within thirty days of receipt.

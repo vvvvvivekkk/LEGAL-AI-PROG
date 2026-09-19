@@ -1,7 +1,5 @@
 # Phase 3 — Hybrid retrieval: fusion + reranking
 
-**Owner:** Akshith
-
 **Goal:** turn phase 2's raw hybrid search into a retrieval stage with a quality bar, evaluated on its own before generation touches it.
 
 **Tasks**

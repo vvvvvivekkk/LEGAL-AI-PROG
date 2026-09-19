@@ -1,7 +1,5 @@
 # Phase 5 — Verification chain (V1–V6) + Proof Object
 
-**Owner:** Uday
-
 **Goal:** the core contribution. Build and test each layer independently, in order, since later layers consume earlier ones' outputs. See `docs/architecture.md` §4 for what each layer checks.
 
 **Tasks, in order**

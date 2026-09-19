@@ -1,0 +1,40 @@
+THE FICTIONAL SMALL BUSINESS LICENSING ACT, 2021
+Jurisdiction: Republic of Veridia
+Enacted: 21 January 2021
+
+CHAPTER I — PRELIMINARY
+
+Section 1. Short title and application.
+(1) This Act may be called the Small Business Licensing Act, 2021.
+(2) It applies to every business enterprise employing fewer than fifty persons within the Republic of Veridia.
+
+Section 2. Definitions.
+(1) "Licensing authority" means the municipal office designated to grant, renew, or revoke business licenses under this Act.
+(2) "Small enterprise" means a business enterprise employing fewer than fifty persons and having annual turnover below fifty lakh Veridian Marks.
+
+CHAPTER II — LICENSING PROCEDURE
+
+Section 3. Requirement to obtain a license.
+This section requires every small enterprise to obtain a license from the licensing authority before commencing operations.
+Clause (a): An application for a license must be submitted at least thirty days before the intended date of commencement.
+Clause (b): The licensing authority must issue a decision within twenty-one days of receiving a complete application.
+
+Section 4. Fees for licensing.
+This section fixes the fee schedule payable by a small enterprise when applying for or renewing a license.
+Clause (a): The initial license fee is capped at five thousand Veridian Marks for enterprises employing fewer than ten persons.
+Clause (b): The renewal fee, payable annually, shall not exceed half the initial license fee.
+
+Section 5. Grounds for refusal.
+This section lists the grounds on which the licensing authority may refuse a license application.
+Clause (a): The premises fail to meet the fire safety standards prescribed by the Municipal Safety Code.
+Clause (b): The applicant has had a prior license revoked under Section 6 within the preceding three years.
+
+CHAPTER III — REVOCATION AND APPEALS
+
+Section 6. Revocation of license.
+This section empowers the licensing authority to revoke a license where the small enterprise is found operating in violation of the conditions attached to the license.
+Clause (a): The licensing authority must give the enterprise fourteen days written notice and an opportunity to be heard before revocation.
+Clause (b): A revoked license may not be reissued to the same applicant for a period of one year.
+
+Section 7. Appeal against refusal or revocation.
+This section allows a small enterprise aggrieved by a refusal under Section 5 or a revocation under Section 6 to appeal to the Municipal Licensing Tribunal within forty-five days.

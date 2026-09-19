@@ -1,0 +1,34 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# Data / generated artifacts
+data/lancedb/
+data/raw/
+data/processed/
+
+# Model weight caches
+.cache/
+models/
+*.bin
+*.safetensors
+sentence_transformers_cache/
+hf_cache/
+
+# Experiment artifacts (keep configs + result JSON)
+experiments/*/artifacts/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Streamlit
+.streamlit/

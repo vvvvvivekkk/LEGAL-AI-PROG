@@ -1,0 +1,56 @@
+THE FICTIONAL URBAN TENANCY ACT, 2019
+Jurisdiction: State of Larenthia
+Enacted: 4 July 2019
+
+CHAPTER I — PRELIMINARY
+
+Section 1. Short title, extent and commencement.
+(1) This Act may be called the Urban Tenancy Act, 2019.
+(2) It extends to all urban local body areas within the State of Larenthia.
+
+Section 2. Definitions.
+(1) "Landlord" means a person who leases residential premises to a tenant in exchange for rent.
+(2) "Tenant" means a person who occupies residential premises under a lease from a landlord.
+(3) "Rent authority" means the officer appointed under Section 11 to adjudicate tenancy disputes.
+
+CHAPTER II — RENT AGREEMENTS
+
+Section 3. Written rent agreement mandatory.
+This section requires every tenancy exceeding thirty days to be recorded in a written rent agreement registered with the rent authority.
+Clause (a): The agreement must state the monthly rent, the security deposit, and the duration of the tenancy.
+Clause (b): An unregistered rent agreement exceeding thirty days is not enforceable against the tenant for the purpose of eviction proceedings.
+
+Section 4. Security deposit limits.
+This section caps the security deposit a landlord may collect from a tenant of residential premises.
+Clause (a): The security deposit shall not exceed two months' rent for residential premises.
+Clause (b): The landlord must refund the security deposit within thirty days of the tenant vacating the premises, less any lawful deductions.
+
+CHAPTER III — EVICTION AND DISPUTES
+
+Section 5. Grounds for eviction.
+This section lists the exclusive grounds on which a landlord may seek eviction of a tenant through the rent authority.
+Clause (a): Non-payment of rent for two consecutive months after written notice.
+Clause (b): Use of the premises for a purpose materially different from that agreed in the rent agreement.
+Clause (c): Bona fide requirement of the premises by the landlord for personal occupation.
+
+Section 6. Notice period before eviction.
+This section requires a landlord to give the tenant no less than ninety days written notice before filing an eviction application with the rent authority, except in cases of non-payment of rent.
+
+Section 7. Penalty for illegal eviction.
+This section fixes the penalty payable by a landlord who forcibly evicts a tenant without an order from the rent authority.
+Clause (a): A landlord found to have carried out an illegal eviction shall pay the tenant compensation equal to six months' rent.
+Clause (b): Repeated violations may result in suspension of the landlord's registration under Section 3.
+
+CHAPTER IV — RENT AUTHORITY
+
+Section 8. Appointment of rent authority.
+This section provides for the State Government to appoint one or more rent authorities for each urban local body area.
+
+Section 9. Powers of the rent authority.
+This section empowers the rent authority to summon parties, examine documents, and pass binding orders on tenancy disputes referred to it under this Act.
+
+Section 10. Appeals.
+This section allows any party aggrieved by an order of the rent authority to appeal to the District Court within sixty days of the order.
+
+Section 11. Appointment procedure.
+This section describes the qualifications and procedure for appointing officers as rent authorities under Section 8.

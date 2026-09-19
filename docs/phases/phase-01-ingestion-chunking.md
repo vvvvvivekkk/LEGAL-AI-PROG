@@ -1,7 +1,5 @@
 # Phase 1 — Ingestion + Summary-Augmented Chunking (SAC)
 
-**Owner:** Vivek
-
 **Goal:** turn raw legal documents into SAC chunks with metadata, correctly, on the sample corpus, before scaling to a real one.
 
 **Tasks**

@@ -1,7 +1,5 @@
 # Phase 4 — Citation-forced generation
 
-**Owner:** Uday
-
 **Goal:** generate answers from retrieved context where every claim is attributed to a chunk id, using a pluggable LLM backend (no API keys required to build/test the interface).
 
 **Tasks**

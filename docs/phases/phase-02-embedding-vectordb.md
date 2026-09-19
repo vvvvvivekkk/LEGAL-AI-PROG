@@ -1,7 +1,5 @@
 # Phase 2 — Embedding + LanceDB hybrid index
 
-**Owner:** Akshith
-
 **Goal:** embed SAC chunks and index them in LanceDB so both vector and keyword queries work locally, no server.
 
 **Tasks**
