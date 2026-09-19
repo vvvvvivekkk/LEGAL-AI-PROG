@@ -1,30 +1,43 @@
 import { useState } from 'react'
 import { retrieve } from '../api.js'
+import Banner from '../components/Banner.jsx'
+import Button from '../components/Button.jsx'
+import Card, { CardHeader } from '../components/Card.jsx'
+import { SearchIcon } from '../components/icons.jsx'
 
 const BASE_VARIANTS = ['dense', 'fts', 'hybrid']
 const LABELS = {
-  dense: 'Dense (vector)',
-  fts: 'FTS (keyword)',
-  hybrid: 'Hybrid (RRF)',
-  hybrid_reranked: 'Hybrid + rerank',
+  dense: 'Dense · vector',
+  fts: 'Lexical · keyword',
+  hybrid: 'Hybrid · fused',
+  hybrid_reranked: 'Hybrid · reranked',
 }
 
-function Column({ label, rows }) {
+function Hit({ row }) {
   return (
-    <div className="column">
-      <h3>{label}</h3>
-      {(!rows || rows.length === 0) && <p className="muted">No results.</p>}
-      {rows &&
-        rows.map((r, i) => (
-          <div className="hit" key={`${r.chunk_id}-${i}`}>
-            <div className="hit-head">
-              <span className="mono">{r.metadata?.section_ref || r.chunk_id}</span>
-              {r.score != null && <span className="score">{r.score.toFixed(3)}</span>}
-            </div>
-            <div className="hit-act">{r.metadata?.act || ''}</div>
-            <div className="hit-text">{r.text}</div>
-          </div>
-        ))}
+    <li className="border-t border-line-soft py-3 first:border-0 first:pt-0">
+      <div className="flex items-baseline justify-between gap-2">
+        <span className="font-mono text-xs text-primary">{row.metadata?.section_ref || row.chunk_id}</span>
+        {row.score != null && <span className="font-mono text-xs text-faint">{row.score.toFixed(3)}</span>}
+      </div>
+      {row.metadata?.act && <div className="mt-0.5 truncate text-xs text-muted">{row.metadata.act}</div>}
+      <p className="mt-1 text-[13px] leading-relaxed text-ink/90">{row.text}</p>
+    </li>
+  )
+}
+
+function Column({ label, rows, highlight }) {
+  return (
+    <div className={`rounded-lg border p-4 ${highlight ? 'border-primary/40 bg-primary-weak/30' : 'border-line-soft bg-surface'}`}>
+      <div className="mb-3 flex items-center justify-between">
+        <h3 className="text-[13px] font-semibold text-ink">{label}</h3>
+        <span className="font-mono text-[11px] text-faint">{rows?.length ?? 0}</span>
+      </div>
+      {!rows || rows.length === 0 ? (
+        <p className="text-xs text-muted">No results.</p>
+      ) : (
+        <ul>{rows.map((r, i) => <Hit key={`${r.chunk_id}-${i}`} row={r} />)}</ul>
+      )}
     </div>
   )
 }
@@ -52,39 +65,61 @@ export default function Retrieval() {
     }
   }
 
-  const columns = data ? [...BASE_VARIANTS, ...(data.variants.hybrid_reranked ? ['hybrid_reranked'] : [])] : []
+  const columns = data
+    ? [...BASE_VARIANTS, ...(data.variants.hybrid_reranked ? ['hybrid_reranked'] : [])]
+    : []
 
   return (
-    <div className="panel">
-      <h2>Retrieval</h2>
-      <p className="muted">Compare dense, keyword (FTS), and hybrid retrieval for the same query.</p>
-
-      <form className="query-bar" onSubmit={run}>
-        <input
-          type="text"
-          value={q}
-          placeholder="e.g. how long does a landlord have to refund a deposit?"
-          onChange={(e) => setQ(e.target.value)}
+    <div className="space-y-6">
+      <Card tone="input">
+        <CardHeader
+          icon={SearchIcon}
+          title="Compare retrieval strategies"
+          subtitle="The same query run three ways — vector, keyword, and fused hybrid — so you can see where each finds the right passage."
         />
-        <label className="k-field">
-          top-k
-          <input type="number" min="1" max="20" value={k} onChange={(e) => setK(Number(e.target.value))} />
-        </label>
-        <label className="rerank-field">
-          <input type="checkbox" checked={rerank} onChange={(e) => setRerank(e.target.checked)} />
-          rerank
-        </label>
-        <button className="primary" disabled={busy || !q.trim()}>
-          {busy ? 'Searching…' : 'Search'}
-        </button>
-      </form>
+        <form onSubmit={run} className="flex flex-wrap items-center gap-3">
+          <input
+            type="text"
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder="How long does a landlord have to refund a deposit?"
+            className="min-w-[240px] flex-1 rounded-lg border border-line bg-surface px-3.5 py-2.5 text-sm text-ink placeholder:text-faint focus:border-primary"
+          />
+          <label className="flex items-center gap-2 text-xs text-muted">
+            top-k
+            <input
+              type="number"
+              min="1"
+              max="20"
+              value={k}
+              onChange={(e) => setK(Number(e.target.value))}
+              className="w-16 rounded-lg border border-line bg-surface px-2.5 py-2 text-sm text-ink focus:border-primary"
+            />
+          </label>
+          <label className="flex items-center gap-2 text-xs text-muted">
+            <input
+              type="checkbox"
+              checked={rerank}
+              onChange={(e) => setRerank(e.target.checked)}
+              className="h-4 w-4 accent-[var(--color-primary)]"
+            />
+            rerank
+          </label>
+          <Button disabled={busy || !q.trim()}>{busy ? 'Searching…' : 'Search'}</Button>
+        </form>
+      </Card>
 
-      {error && <div className="error">{error}</div>}
+      {error && <Banner variant="error" title="Search failed">{error}</Banner>}
 
       {data && (
-        <div className="columns">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {columns.map((key) => (
-            <Column key={key} label={LABELS[key]} rows={data.variants[key]} />
+            <Column
+              key={key}
+              label={LABELS[key]}
+              rows={data.variants[key]}
+              highlight={key === 'hybrid_reranked'}
+            />
           ))}
         </div>
       )}

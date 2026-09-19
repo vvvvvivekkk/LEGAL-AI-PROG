@@ -1,32 +1,32 @@
 import { useState } from 'react'
 import { ingest } from '../api.js'
+import Banner from '../components/Banner.jsx'
+import Button from '../components/Button.jsx'
+import Card, { CardHeader } from '../components/Card.jsx'
+import Dropzone from '../components/Dropzone.jsx'
+import { UploadIcon } from '../components/icons.jsx'
+
+function Stat({ value, label }) {
+  return (
+    <div className="rounded-lg border border-line-soft bg-surface px-4 py-3">
+      <div className="font-mono text-2xl font-medium text-ink">{value}</div>
+      <div className="mt-1 text-xs text-muted">{label}</div>
+    </div>
+  )
+}
 
 export default function Ingestion() {
   const [file, setFile] = useState(null)
-  const [dragging, setDragging] = useState(false)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState(null)
   const [result, setResult] = useState(null)
-
-  function pick(f) {
-    setError(null)
-    setFile(f)
-  }
-
-  function onDrop(e) {
-    e.preventDefault()
-    setDragging(false)
-    const f = e.dataTransfer.files?.[0]
-    if (f) pick(f)
-  }
 
   async function submit() {
     if (!file) return
     setBusy(true)
     setError(null)
     try {
-      const data = await ingest(file)
-      setResult(data)
+      setResult(await ingest(file))
     } catch (err) {
       setError(err.message)
       setResult(null)
@@ -36,71 +36,63 @@ export default function Ingestion() {
   }
 
   return (
-    <div className="panel">
-      <h2>Ingestion</h2>
-      <p className="muted">
-        Upload a statute (.txt or .pdf). It runs ingestion → SAC chunking → embedding → LanceDB append,
-        then shows the new chunks and the running index totals.
-      </p>
-
-      <div
-        className={dragging ? 'dropzone dragging' : 'dropzone'}
-        onDragOver={(e) => {
-          e.preventDefault()
-          setDragging(true)
-        }}
-        onDragLeave={() => setDragging(false)}
-        onDrop={onDrop}
-      >
-        <p>{file ? file.name : 'Drag a .txt / .pdf here, or choose a file'}</p>
-        <input
-          type="file"
-          accept=".txt,.pdf"
-          onChange={(e) => pick(e.target.files?.[0] ?? null)}
+    <div className="space-y-6">
+      <Card tone="input">
+        <CardHeader
+          icon={UploadIcon}
+          title="Add a document to the index"
+          subtitle="Ingestion → summary-augmented chunking → embedding → LanceDB. Statutes chunk by section; other documents fall back to paragraph chunking."
         />
-      </div>
+        <Dropzone file={file} onFile={(f) => { setError(null); setFile(f) }} disabled={busy} />
+        <div className="mt-4 flex justify-end">
+          <Button onClick={submit} disabled={!file || busy}>
+            {busy ? 'Indexing…' : 'Ingest and index'}
+          </Button>
+        </div>
+      </Card>
 
-      <button className="primary" disabled={!file || busy} onClick={submit}>
-        {busy ? 'Ingesting…' : 'Ingest and index'}
-      </button>
-
-      {error && <div className="error">{error}</div>}
+      {error && <Banner variant="error" title="Ingestion failed">{error}</Banner>}
 
       {result && (
-        <div className="result">
-          <div className="totals">
-            <div className="metric">
-              <span className="metric-value">{result.totals.chunks}</span>
-              <span className="metric-label">indexed chunks</span>
-            </div>
-            <div className="metric">
-              <span className="metric-value">{result.totals.documents}</span>
-              <span className="metric-label">indexed documents</span>
-            </div>
-            <div className="metric">
-              <span className="metric-value">{result.new_chunk_count}</span>
-              <span className="metric-label">new from “{result.filename}”</span>
-            </div>
+        <div className="space-y-5">
+          {result.used_fallback ? (
+            <Banner variant="info" title="No legal structure detected">
+              Used fallback paragraph chunking, so this document is still searchable.
+            </Banner>
+          ) : (
+            <Banner variant="success" title="Indexed by legal structure">
+              Parsed the Act/Chapter/Section hierarchy and indexed {result.new_chunk_count} chunks.
+            </Banner>
+          )}
+
+          <div className="grid grid-cols-3 gap-3">
+            <Stat value={result.totals.chunks} label="chunks indexed" />
+            <Stat value={result.totals.documents} label="documents indexed" />
+            <Stat value={result.new_chunk_count} label={`new from ${result.filename}`} />
           </div>
 
-          <table className="chunks">
-            <thead>
-              <tr>
-                <th>Chunk id</th>
-                <th>Section</th>
-                <th>Text</th>
-              </tr>
-            </thead>
-            <tbody>
-              {result.new_chunks.map((c) => (
-                <tr key={c.chunk_id}>
-                  <td className="mono">{c.chunk_id}</td>
-                  <td>{c.metadata.section_ref || ''}</td>
-                  <td>{c.text}</td>
+          <Card tone="flat" className="!p-0 overflow-hidden">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-line text-left text-xs text-muted">
+                  <th className="px-4 py-3 font-medium">Chunk</th>
+                  <th className="px-4 py-3 font-medium">Reference</th>
+                  <th className="px-4 py-3 font-medium">Text</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {result.new_chunks.map((c) => (
+                  <tr key={c.chunk_id} className="border-b border-line-soft last:border-0 align-top">
+                    <td className="px-4 py-3">
+                      <span className="font-mono text-xs text-primary">{c.chunk_id}</span>
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-3 text-muted">{c.metadata.section_ref || '—'}</td>
+                    <td className="px-4 py-3 leading-relaxed text-ink/90">{c.text}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </Card>
         </div>
       )}
     </div>
