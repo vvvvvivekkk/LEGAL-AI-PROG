@@ -42,3 +42,13 @@ export async function evaluation() {
   const res = await fetch(`${BASE}/evaluation`)
   return unwrap(res, 'Evaluation')
 }
+
+export async function stats() {
+  const res = await fetch(`${BASE}/stats`)
+  return unwrap(res, 'Stats')
+}
+
+export async function embeddingMap() {
+  const res = await fetch(`${BASE}/embedding-map`)
+  return unwrap(res, 'Embedding map')
+}

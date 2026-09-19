@@ -15,7 +15,7 @@ function Stat({ value, label }) {
   )
 }
 
-export default function Ingestion() {
+export default function Ingest() {
   const [file, setFile] = useState(null)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState(null)

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { retrieve } from '../api.js'
 import Banner from '../components/Banner.jsx'
 import Button from '../components/Button.jsx'
@@ -26,9 +27,14 @@ function Hit({ row }) {
   )
 }
 
-function Column({ label, rows, highlight }) {
+function Column({ label, rows, highlight, index }) {
   return (
-    <div className={`rounded-lg border p-4 ${highlight ? 'border-primary/40 bg-primary-weak/30' : 'border-line-soft bg-surface'}`}>
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.05, duration: 0.2 }}
+      className={`rounded-lg border p-4 ${highlight ? 'border-primary/40 bg-primary-weak/30' : 'border-line-soft bg-surface'}`}
+    >
       <div className="mb-3 flex items-center justify-between">
         <h3 className="text-[13px] font-semibold text-ink">{label}</h3>
         <span className="font-mono text-[11px] text-faint">{rows?.length ?? 0}</span>
@@ -38,11 +44,11 @@ function Column({ label, rows, highlight }) {
       ) : (
         <ul>{rows.map((r, i) => <Hit key={`${r.chunk_id}-${i}`} row={r} />)}</ul>
       )}
-    </div>
+    </motion.div>
   )
 }
 
-export default function Retrieval() {
+export default function Search() {
   const [q, setQ] = useState('')
   const [k, setK] = useState(5)
   const [rerank, setRerank] = useState(false)
@@ -113,9 +119,10 @@ export default function Retrieval() {
 
       {data && (
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {columns.map((key) => (
+          {columns.map((key, i) => (
             <Column
               key={key}
+              index={i}
               label={LABELS[key]}
               rows={data.variants[key]}
               highlight={key === 'hybrid_reranked'}
