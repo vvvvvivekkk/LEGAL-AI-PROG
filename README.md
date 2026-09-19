@@ -12,7 +12,7 @@ LLMs answering legal questions hallucinate: invented facts, misattributed case l
 2. **Hybrid retrieval on a local, file-based vector DB** — [LanceDB](https://lancedb.github.io/lancedb/) stores the index as on-disk Lance files (no server process, fully local), and natively combines dense vector search with full-text search + reciprocal rank fusion, which is exactly the hybrid semantic+keyword retrieval this problem needs. Followed by cross-encoder reranking.
 3. **Citation-forced generation** — the LLM must attribute every claim to a specific chunk id; unattributed claims are treated as violations, not accepted.
 4. **A 6-layer verification/proof chain (V1–V6)** — not one hallucination check, a pipeline of them: citation existence → NLI entailment → atomic claim fidelity scoring → self-consistency cross-check → a single calibrated **Verification Confidence Score (VCS)** with abstention → a structured **Proof Object** per answer (claim → source chunk → verbatim quote → verdict). See `docs/architecture.md` §4.
-5. **A UI built around the pipeline's actual stages**, not a generic chat box: dedicated Ingestion, Retrieval, Evaluation, and Hallucination-Check/Proof pages. See `docs/architecture.md` §6.
+5. **A React UI built around the pipeline's actual stages**, not a generic chat box: dedicated Ingestion, Retrieval, Evaluation, and Hallucination-Check/Proof views, talking to a FastAPI backend over HTTP. See `docs/architecture.md` §6.
 
 This is designed to produce a real ablation study (SAC on/off, hybrid vs dense-only, each verification layer on/off) so results can go directly into a research paper — see `docs/architecture.md` §5.
 
@@ -21,7 +21,7 @@ This is designed to produce a real ablation study (SAC on/off, hybrid vs dense-o
 ```
 Ingestion → SAC Chunking → Embedding → LanceDB (hybrid: vector + FTS + RRF) → Rerank
     → Citation-forced Generation → Verification chain V1–V6 → VCS gate (answer | abstain)
-    → FastAPI backend ⇄ multi-page UI (Ingestion / Retrieval / Evaluation / Proof viewer)
+    → FastAPI backend ⇄ React SPA (Ingestion / Retrieval / Evaluation / Proof viewer)
 ```
 
 ## Tech stack
@@ -37,7 +37,7 @@ Ingestion → SAC Chunking → Embedding → LanceDB (hybrid: vector + FTS + RRF
 | Generation LLM | pluggable — Claude / GPT-4o / Llama 3.1 / Gemini |
 | NLI (verification) | roberta-large-mnli or legal-domain NLI model |
 | Backend | FastAPI |
-| UI | Streamlit multi-page app (Ingestion / Retrieval / Evaluation / Proof viewer) |
+| UI | React (Vite) SPA — Ingestion / Retrieval / Evaluation / Proof viewer; talks only to the FastAPI backend |
 | Experiment tracking | plain JSON/YAML configs + results under `/experiments` |
 
 ## Repo layout
@@ -53,8 +53,9 @@ src/
   generation/         citation-forced prompting, pluggable LLM backend
   verification/       V1–V6 proof-chain modules, VCS scoring
   evaluation/         metrics + ablation runners
-  api/                FastAPI app
-  ui/                 Streamlit multi-page app
+  api/                FastAPI app (the only thing the UI talks to)
+  ui/                 legacy Streamlit debug app (optional, not the product UI)
+web/                  React SPA — the product UI, calls src/api/ over HTTP
 data/                 small sample corpora only (large corpora/model weights are gitignored)
 experiments/          per-run configs + results
 tests/                mirrors src/
@@ -73,7 +74,7 @@ Each phase has its own doc under `docs/phases/` with goals, tasks, and a definit
 | 4 | [phase-04-generation.md](docs/phases/phase-04-generation.md) | citation-forced answer generation |
 | 5 | [phase-05-verification-proof.md](docs/phases/phase-05-verification-proof.md) | V1–V6 verification chain + VCS + proof objects |
 | 6 | [phase-06-evaluation.md](docs/phases/phase-06-evaluation.md) | metrics + ablation runs |
-| 7 | [phase-07-api-ui.md](docs/phases/phase-07-api-ui.md) | FastAPI backend + 4-page UI |
+| 7 | [phase-07-api-ui.md](docs/phases/phase-07-api-ui.md) | FastAPI backend + React UI |
 | 8 | [phase-08-paper.md](docs/phases/phase-08-paper.md) | consolidating results into a paper |
 
 ## Running locally
@@ -86,8 +87,13 @@ pip install -r requirements.txt
 python -m src.ingestion.run --input data/sample --out data/processed
 python -m src.indexing.build --chunks data/processed --db data/lancedb
 
-# backend + UI
+# backend
 uvicorn src.api.main:app --reload
+
+# React UI (separate terminal)
+cd web && npm install && npm run dev
+
+# optional: legacy Streamlit debug app, doesn't need the backend running
 streamlit run src/ui/app.py
 ```
 

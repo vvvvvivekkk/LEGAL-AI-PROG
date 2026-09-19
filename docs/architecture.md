@@ -61,14 +61,14 @@ The VCS + Proof Object pair is the paper-worthy contribution: one interpretable,
 
 ## 6. UI architecture
 
-A Streamlit multi-page app (`src/ui/`), one page per pipeline concern rather than a single generic chat box:
+A React SPA (`web/`) talking to a FastAPI service (`src/api/`) — the API is the only thing that touches the pipeline; the UI is a pure client over HTTP, so the frontend can be replaced or restyled without ever touching pipeline code. One view per pipeline concern rather than a single generic chat box:
 
-1. **Ingestion** — upload/point at documents, watch them get cleaned, chunked (SAC), and indexed; inspect the resulting chunks + metadata.
-2. **Retrieval** — a query box that shows, side by side: dense results, lexical (FTS) results, and the final hybrid-fused + reranked set — for debugging retrieval quality directly.
-3. **Evaluation** — reads `/experiments` results and renders the ablation tables/metrics (retrieval quality, hallucination rate, VCS distribution) as they're produced; shows "no runs yet" until phase 6 lands.
-4. **Proof viewer** (hallucination check) — run a query end-to-end and see the final answer alongside its full Proof Object: each claim, its supporting chunk, the verbatim quoted span, and the V1–V5 verdicts that produced its VCS.
+1. **Ingestion** — drag-and-drop a document, watch it get cleaned, chunked (SAC), and indexed; inspect the resulting chunks + metadata. Calls `POST /ingest`.
+2. **Retrieval** — a query box that shows, side by side: dense results, lexical (FTS) results, and the final hybrid-fused + reranked set — for debugging retrieval quality directly. Calls `GET /retrieve`.
+3. **Evaluation** — reads `/experiments` results (via `GET /evaluation`) and renders the ablation tables/metrics (retrieval quality, hallucination rate, VCS distribution) as they're produced; shows "no runs yet" until phase 6 lands.
+4. **Proof viewer** (hallucination check) — run a query end-to-end (`POST /query`) and see the final answer alongside its full Proof Object: each claim, its supporting chunk, the verbatim quoted span, and the V1–V5 verdicts that produced its VCS.
 
-Backed by a FastAPI service (`src/api/`) exposing ingestion, query, and evaluation-read endpoints — the UI is a thin client over it, so the same API can serve a different frontend later without touching the pipeline.
+An early Streamlit multi-page app served this same role during phases 1-2 development and can stay around as a quick internal debugging tool, but it is not the product UI — React is. Nothing in `src/` (ingestion, chunking, embedding, indexing, retrieval, generation, verification, evaluation) depends on either frontend; both just call the FastAPI service.
 
 ## 7. Repo layout
 
@@ -83,8 +83,9 @@ src/
   generation/         citation-forced prompting, pluggable LLM backend
   verification/       V1–V6 modules, VCS scoring, proof object builder
   evaluation/         metrics + ablation runners
-  api/                FastAPI app
-  ui/                 Streamlit multi-page app (pages/ = Ingestion, Retrieval, Evaluation, Proof viewer)
+  api/                FastAPI app (the only thing the UI talks to)
+  ui/                 legacy Streamlit debug app (optional, not the product UI)
+web/                  React SPA — Ingestion / Retrieval / Evaluation / Proof viewer views, calls src/api/ over HTTP
 data/                 small sample corpora only (gitignored: large corpora, model weights, lancedb data)
 experiments/          per-run configs + results
 tests/                mirrors src/
