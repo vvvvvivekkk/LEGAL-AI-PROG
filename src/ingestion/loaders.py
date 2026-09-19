@@ -10,6 +10,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from pypdf import PdfReader
+
 
 def load_txt(path: str | Path, encoding: str = "utf-8") -> str:
     """Load a plain-text document and return its raw contents."""
@@ -20,11 +22,13 @@ def load_txt(path: str | Path, encoding: str = "utf-8") -> str:
 
 
 def load_pdf(path: str | Path) -> str:
-    """Load a PDF document. Not implemented yet — no PDF support in phase 1."""
-    raise NotImplementedError(
-        "PDF ingestion is not implemented yet. Only .txt loaders exist so far "
-        "(see docs/phases/phase-01-ingestion-chunking.md)."
-    )
+    """Load a PDF document and extract its text, page by page, via pypdf."""
+    path = Path(path)
+    if not path.is_file():
+        raise FileNotFoundError(f"No such file: {path}")
+    reader = PdfReader(str(path))
+    pages_text = [page.extract_text() or "" for page in reader.pages]
+    return "\n".join(pages_text)
 
 
 def load_html(path: str | Path) -> str:
