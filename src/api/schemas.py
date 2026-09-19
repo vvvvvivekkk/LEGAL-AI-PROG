@@ -26,6 +26,31 @@ class IndexTotals(BaseModel):
     documents: int
 
 
+class SourceStat(BaseModel):
+    source_id: str
+    chunks: int
+
+
+class StatsResponse(BaseModel):
+    chunks: int
+    documents: int
+    sources: list[SourceStat] = []
+
+
+class EmbeddingPoint(BaseModel):
+    x: float
+    y: float
+    chunk_id: str
+    source_id: str
+    section_ref: str = ""
+
+
+class EmbeddingMapResponse(BaseModel):
+    method: str
+    points: list[EmbeddingPoint] = []
+    sources: list[str] = []
+
+
 class IngestResponse(BaseModel):
     source_id: str
     filename: str

@@ -12,7 +12,7 @@ from __future__ import annotations
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from src.api.routes import evaluation, ingest, query, retrieve
+from src.api.routes import embedding_map, evaluation, ingest, query, retrieve, stats
 
 # Vite dev server default origins.
 DEV_ORIGINS = [
@@ -40,6 +40,8 @@ def create_app() -> FastAPI:
     app.include_router(retrieve.router, tags=["retrieve"])
     app.include_router(query.router, tags=["query"])
     app.include_router(evaluation.router, tags=["evaluation"])
+    app.include_router(stats.router, tags=["stats"])
+    app.include_router(embedding_map.router, tags=["embedding-map"])
     return app
 
 
