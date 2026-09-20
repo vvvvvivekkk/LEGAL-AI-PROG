@@ -9,3 +9,4 @@ streamlit
 pytest
 pypdf
 python-dotenv
+google-genai
