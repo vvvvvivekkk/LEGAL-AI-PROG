@@ -28,7 +28,7 @@ export default function Ingest() {
     try {
       setResult(await ingest(file))
     } catch (err) {
-      setError(err.message)
+      setError({ message: err.message, status: err.status ?? null, kind: err.kind ?? 'http' })
       setResult(null)
     } finally {
       setBusy(false)
@@ -51,7 +51,15 @@ export default function Ingest() {
         </div>
       </Card>
 
-      {error && <Banner variant="error" title="Ingestion failed">{error}</Banner>}
+      {error && (
+        <Banner variant="error" title={error.message}>
+          {error.kind === 'network'
+            ? 'Nothing was indexed — the request never reached the API.'
+            : `Nothing was indexed. The API answered with HTTP ${error.status ?? '?'}${
+                error.status === 503 ? ' — the embedding model could not be loaded; check the backend log.' : '.'
+              }`}
+        </Banner>
+      )}
 
       {result && (
         <div className="space-y-5">

@@ -2,16 +2,38 @@
 // never touch the pipeline directly. Override the base URL with VITE_API_BASE.
 const BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8000'
 
-async function unwrap(res, label) {
+// Every failure surfaces as an ApiError with the backend's real `detail`
+// string (or a concrete network explanation) — never a bare "Failed to fetch".
+export class ApiError extends Error {
+  constructor(message, { status = null, kind = 'http' } = {}) {
+    super(message)
+    this.name = 'ApiError'
+    this.status = status
+    this.kind = kind // 'http' (server answered) | 'network' (never reached it)
+  }
+}
+
+async function request(path, init, label) {
+  let res
+  try {
+    res = await fetch(`${BASE}${path}`, init)
+  } catch (err) {
+    // fetch() only rejects when no HTTP response arrived at all: server down,
+    // wrong port, or a response the browser refused (CORS).
+    throw new ApiError(
+      `Could not reach the Legal AI backend at ${BASE} — is \`uvicorn src.api.main:app\` running? (${err.message})`,
+      { kind: 'network' },
+    )
+  }
   if (!res.ok) {
-    let detail = `${label} failed (${res.status})`
+    let detail = `${label} failed with HTTP ${res.status}`
     try {
       const body = await res.json()
       if (body.detail) detail = typeof body.detail === 'string' ? body.detail : JSON.stringify(body.detail)
     } catch {
       /* non-JSON error body */
     }
-    throw new Error(detail)
+    throw new ApiError(detail, { status: res.status })
   }
   return res.json()
 }
@@ -19,36 +41,30 @@ async function unwrap(res, label) {
 export async function ingest(file) {
   const form = new FormData()
   form.append('file', file)
-  const res = await fetch(`${BASE}/ingest`, { method: 'POST', body: form })
-  return unwrap(res, 'Ingest')
+  return request('/ingest', { method: 'POST', body: form }, 'Ingest')
 }
 
 export async function retrieve(q, k = 5, rerank = false) {
   const params = new URLSearchParams({ q, k: String(k), rerank: String(rerank) })
-  const res = await fetch(`${BASE}/retrieve?${params.toString()}`)
-  return unwrap(res, 'Retrieve')
+  return request(`/retrieve?${params.toString()}`, undefined, 'Retrieve')
 }
 
 export async function query(payload) {
-  const res = await fetch(`${BASE}/query`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-  })
-  return unwrap(res, 'Query')
+  return request(
+    '/query',
+    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) },
+    'Query',
+  )
 }
 
 export async function evaluation() {
-  const res = await fetch(`${BASE}/evaluation`)
-  return unwrap(res, 'Evaluation')
+  return request('/evaluation', undefined, 'Evaluation')
 }
 
 export async function stats() {
-  const res = await fetch(`${BASE}/stats`)
-  return unwrap(res, 'Stats')
+  return request('/stats', undefined, 'Stats')
 }
 
 export async function embeddingMap() {
-  const res = await fetch(`${BASE}/embedding-map`)
-  return unwrap(res, 'Embedding map')
+  return request('/embedding-map', undefined, 'Embedding map')
 }
