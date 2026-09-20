@@ -18,7 +18,7 @@ function Hit({ row }) {
   return (
     <li className="border-t border-line-soft py-3 first:border-0 first:pt-0">
       <div className="flex items-baseline justify-between gap-2">
-        <span className="font-mono text-xs text-primary">{row.metadata?.section_ref || row.chunk_id}</span>
+        <span className="font-mono text-xs text-accent">{row.metadata?.section_ref || row.chunk_id}</span>
         {row.score != null && <span className="font-mono text-xs text-faint">{row.score.toFixed(3)}</span>}
       </div>
       {row.metadata?.act && <div className="mt-0.5 truncate text-xs text-muted">{row.metadata.act}</div>}
@@ -33,7 +33,7 @@ function Column({ label, rows, highlight, index }) {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05, duration: 0.2 }}
-      className={`rounded-lg border p-4 ${highlight ? 'border-primary/40 bg-primary-weak/30' : 'border-line-soft bg-surface'}`}
+      className={`rounded-lg border p-4 ${highlight ? 'border-accent/40 bg-accent-weak/40 shadow-[var(--shadow-glow)]' : 'border-line-soft bg-surface shadow-[var(--shadow-flat)]'}`}
     >
       <div className="mb-3 flex items-center justify-between">
         <h3 className="text-[13px] font-semibold text-ink">{label}</h3>
@@ -89,7 +89,7 @@ export default function Search() {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="How long does a landlord have to refund a deposit?"
-            className="min-w-[240px] flex-1 rounded-lg border border-line bg-surface px-3.5 py-2.5 text-sm text-ink placeholder:text-faint focus:border-primary"
+            className="min-w-[240px] flex-1 rounded-lg border border-line bg-surface px-3.5 py-2.5 text-sm text-ink placeholder:text-faint focus:border-accent"
           />
           <label className="flex items-center gap-2 text-xs text-muted">
             top-k
@@ -99,7 +99,7 @@ export default function Search() {
               max="20"
               value={k}
               onChange={(e) => setK(Number(e.target.value))}
-              className="w-16 rounded-lg border border-line bg-surface px-2.5 py-2 text-sm text-ink focus:border-primary"
+              className="w-16 rounded-lg border border-line bg-surface px-2.5 py-2 text-sm text-ink focus:border-accent"
             />
           </label>
           <label className="flex items-center gap-2 text-xs text-muted">
@@ -107,7 +107,7 @@ export default function Search() {
               type="checkbox"
               checked={rerank}
               onChange={(e) => setRerank(e.target.checked)}
-              className="h-4 w-4 accent-[var(--color-primary)]"
+              className="h-4 w-4 accent-[var(--accent)]"
             />
             rerank
           </label>

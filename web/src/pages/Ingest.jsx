@@ -8,8 +8,8 @@ import { UploadIcon } from '../components/icons.jsx'
 
 function Stat({ value, label }) {
   return (
-    <div className="rounded-lg border border-line-soft bg-surface px-4 py-3">
-      <div className="font-mono text-2xl font-medium text-ink">{value}</div>
+    <div className="rounded-lg border border-line-soft bg-surface px-4 py-3 shadow-[var(--shadow-flat)]">
+      <div className="font-mono text-2xl font-medium text-accent">{value}</div>
       <div className="mt-1 text-xs text-muted">{label}</div>
     </div>
   )
@@ -92,7 +92,7 @@ export default function Ingest() {
                 {result.new_chunks.map((c) => (
                   <tr key={c.chunk_id} className="border-b border-line-soft last:border-0 align-top">
                     <td className="px-4 py-3">
-                      <span className="font-mono text-xs text-primary">{c.chunk_id}</span>
+                      <span className="font-mono text-xs text-accent">{c.chunk_id}</span>
                     </td>
                     <td className="whitespace-nowrap px-4 py-3 text-muted">{c.metadata.section_ref || '—'}</td>
                     <td className="px-4 py-3 leading-relaxed text-ink/90">{c.text}</td>

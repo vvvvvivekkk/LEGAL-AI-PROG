@@ -11,10 +11,10 @@ export default function Dropzone({ file, onFile, accept = '.txt,.pdf', disabled 
   }
 
   const state = dragging
-    ? 'border-primary bg-primary-weak'
+    ? 'border-accent bg-accent-weak shadow-[var(--shadow-glow)]'
     : file
       ? 'border-verified/50 bg-verified-weak/40'
-      : 'border-line hover:border-faint hover:bg-raised/60'
+      : 'border-line hover:border-accent/60 hover:bg-accent-weak/40'
 
   return (
     <div
@@ -36,7 +36,7 @@ export default function Dropzone({ file, onFile, accept = '.txt,.pdf', disabled 
       className={`flex cursor-pointer flex-col items-center justify-center gap-3 rounded-[var(--radius)] border border-dashed px-6 py-10 text-center transition-colors ${state} ${disabled ? 'pointer-events-none opacity-60' : ''}`}
     >
       <span
-        className={`flex h-12 w-12 items-center justify-center rounded-full ${file ? 'bg-verified/15 text-verified' : 'bg-primary-weak text-primary'}`}
+        className={`flex h-12 w-12 items-center justify-center rounded-full ${file ? 'bg-verified/15 text-verified' : 'bg-accent-weak text-accent'}`}
       >
         {file ? <FileIcon className="h-6 w-6" /> : <UploadIcon className="h-6 w-6" />}
       </span>
@@ -48,7 +48,7 @@ export default function Dropzone({ file, onFile, accept = '.txt,.pdf', disabled 
       ) : (
         <div>
           <div className="text-sm text-ink">
-            Drop a statute here, or <span className="text-primary">browse</span>
+            Drop a statute here, or <span className="text-accent">browse</span>
           </div>
           <div className="mt-1 text-xs text-muted">.txt or .pdf — statutes chunk by section, anything else by paragraph</div>
         </div>

@@ -66,24 +66,36 @@
     0 10px 24px -10px color-mix(in oklab, var(--color-brand-violet) 70%, transparent);
 }
 
-/* Per-page accent. Layout.jsx stamps data-page from the current route. */
+/* Per-page accent. Layout.jsx stamps data-page from the current route.
+   Both --accent (used by the shadow tokens) and --color-accent (what the
+   Tailwind `accent` utilities read) are set here: a custom property that
+   references another resolves where it's declared, so re-pointing --accent
+   alone on a descendant would leave --color-accent stuck at the root value. */
 :root,
 [data-page='home'],
 [data-page='ask'] {
   --accent: #818cf8;
   --accent-weak: #1a1f3d;
+  --color-accent: #818cf8;
+  --color-accent-weak: #1a1f3d;
 }
 [data-page='ingest'] {
   --accent: #2dd4bf;
   --accent-weak: #0d2b28;
+  --color-accent: #2dd4bf;
+  --color-accent-weak: #0d2b28;
 }
 [data-page='search'] {
   --accent: #fbbf24;
   --accent-weak: #2b2210;
+  --color-accent: #fbbf24;
+  --color-accent-weak: #2b2210;
 }
 [data-page='evaluation'] {
   --accent: #fb7185;
   --accent-weak: #2e1520;
+  --color-accent: #fb7185;
+  --color-accent-weak: #2e1520;
 }
 
 html {

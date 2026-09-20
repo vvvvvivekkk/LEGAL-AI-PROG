@@ -61,14 +61,14 @@ function ClaimProof({ claim }) {
       <div className="mt-2 rounded-lg border border-line bg-canvas/50 p-3">
         <div className="mb-2 flex flex-wrap gap-1.5">
           {claim.supporting_chunk_ids.map((id) => (
-            <span key={id} className="rounded-md border border-line bg-primary-weak/50 px-2 py-1 font-mono text-[11px] text-primary">
+            <span key={id} className="rounded-md border border-line bg-accent-weak/60 px-2 py-1 font-mono text-[11px] text-accent">
               {id}
             </span>
           ))}
           <span className="ml-auto font-mono text-[11px] text-faint">contributes {claim.vcs_contribution.toFixed(2)}</span>
         </div>
         {claim.quoted_span && (
-          <blockquote className="border-l-2 border-primary/60 px-3 py-1 text-[13px] leading-relaxed text-ink/80">
+          <blockquote className="border-l-2 border-accent/60 px-3 py-1 text-[13px] leading-relaxed text-ink/80">
             “{claim.quoted_span}”
           </blockquote>
         )}
@@ -94,7 +94,7 @@ function ClaimLine({ claim }) {
             key={id}
             onClick={() => setOpen((o) => !o)}
             className={`ml-1 inline-flex items-center rounded-md border px-1.5 py-0.5 align-middle font-mono text-[11px] transition-colors ${
-              open ? 'border-primary bg-primary text-white' : 'border-primary/40 bg-primary-weak/60 text-primary hover:bg-primary-weak'
+              open ? 'border-accent bg-accent text-canvas' : 'border-accent/40 bg-accent-weak/60 text-accent hover:bg-accent-weak'
             }`}
             title="Show proof for this claim"
           >
@@ -119,9 +119,9 @@ function AssistantTurn({ turn }) {
   const abstainedOrNoClaims = data.abstained || claims.length === 0
 
   return (
-    <div className="rounded-2xl rounded-tl-sm border border-line bg-surface p-4">
+    <div className="rounded-2xl rounded-tl-sm border border-line bg-surface p-4 shadow-[var(--shadow-card)]">
       <div className="mb-2 flex items-center gap-2">
-        <span className="flex h-6 w-6 items-center justify-center rounded-md bg-primary-weak text-primary">
+        <span className="flex h-6 w-6 items-center justify-center rounded-md bg-accent-weak text-accent">
           <ShieldIcon className="h-4 w-4" />
         </span>
         <DecisionPill decision={data.decision} vcs={data.vcs} />
@@ -144,7 +144,7 @@ function AssistantTurn({ turn }) {
             </motion.div>
           ))}
           {revealed < claims.length && (
-            <span className="inline-block h-4 w-2 animate-pulse rounded-sm bg-primary/70 align-middle" aria-hidden />
+            <span className="inline-block h-4 w-2 animate-pulse rounded-sm bg-accent/70 align-middle" aria-hidden />
           )}
           <p className="mt-2 text-[11px] text-faint">Click a citation to see the source, quote, and verification verdicts.</p>
         </div>
@@ -183,7 +183,7 @@ export default function Ask() {
     <div className="flex min-h-[70vh] flex-col">
       <div className="flex-1 space-y-4">
         {turns.length === 0 && (
-          <div className="rounded-2xl border border-line bg-surface p-6">
+          <div className="rounded-2xl border border-line bg-raised p-6 shadow-[var(--shadow-card),var(--shadow-glow)]">
             <h2 className="text-[15px] font-semibold text-ink">Ask a question about the indexed documents</h2>
             <p className="mt-1 text-sm text-muted">
               Every answer is broken into claims, each checked against its source. Click a citation in the reply to
@@ -194,7 +194,7 @@ export default function Ask() {
                 <button
                   key={ex}
                   onClick={() => ask(ex)}
-                  className="rounded-lg border border-line bg-canvas/40 px-3 py-2 text-left text-sm text-muted transition-colors hover:border-primary/50 hover:text-ink"
+                  className="rounded-lg border border-line bg-canvas/40 px-3 py-2 text-left text-sm text-muted transition-colors hover:border-accent/50 hover:text-ink"
                 >
                   {ex}
                 </button>
@@ -211,7 +211,7 @@ export default function Ask() {
               animate={{ opacity: 1, y: 0 }}
               className="flex justify-end"
             >
-              <div className="max-w-[80%] rounded-2xl rounded-tr-sm bg-primary px-4 py-2.5 text-sm text-white">
+              <div className="bg-gradient-brand max-w-[80%] rounded-2xl rounded-tr-sm px-4 py-2.5 text-sm text-white shadow-[var(--shadow-button)]">
                 {turn.text}
               </div>
             </motion.div>
@@ -222,9 +222,9 @@ export default function Ask() {
 
         {busy && (
           <div className="flex items-center gap-2 text-sm text-muted">
-            <span className="h-2 w-2 animate-bounce rounded-full bg-primary [animation-delay:-0.2s]" />
-            <span className="h-2 w-2 animate-bounce rounded-full bg-primary [animation-delay:-0.1s]" />
-            <span className="h-2 w-2 animate-bounce rounded-full bg-primary" />
+            <span className="h-2 w-2 animate-bounce rounded-full bg-brand-indigo [animation-delay:-0.2s]" />
+            <span className="h-2 w-2 animate-bounce rounded-full bg-brand-violet [animation-delay:-0.1s]" />
+            <span className="h-2 w-2 animate-bounce rounded-full bg-brand-cyan" />
             <span className="ml-1">Retrieving, generating, and verifying…</span>
           </div>
         )}
@@ -242,12 +242,12 @@ export default function Ask() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask about a statute you've indexed…"
-          className="flex-1 rounded-xl border border-line bg-surface px-4 py-3 text-sm text-ink placeholder:text-faint focus:border-primary"
+          className="flex-1 rounded-xl border border-line bg-surface px-4 py-3 text-sm text-ink shadow-[var(--shadow-flat)] placeholder:text-faint focus:border-accent"
         />
         <button
           type="submit"
           disabled={busy || !input.trim()}
-          className="rounded-xl bg-primary px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:bg-primary/40"
+          className="bg-gradient-brand rounded-xl px-5 py-3 text-sm font-medium text-white shadow-[var(--shadow-button)] transition-[filter,opacity] hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none"
         >
           Ask
         </button>

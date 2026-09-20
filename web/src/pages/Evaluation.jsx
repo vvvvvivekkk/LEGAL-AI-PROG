@@ -22,7 +22,7 @@ function RunCard({ run }) {
   return (
     <Card tone="flat">
       <div className="flex items-center justify-between">
-        <h3 className="font-mono text-sm text-ink">{run.name}</h3>
+        <h3 className="font-mono text-sm text-accent">{run.name}</h3>
         <span className="text-xs text-muted">
           {cfg.mode ?? '?'} · rerank {String(cfg.use_reranker ?? '?')} · k{cfg.k ?? '?'}/N{cfg.n ?? '?'}
         </span>
@@ -30,8 +30,8 @@ function RunCard({ run }) {
       {agg ? (
         <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
           {METRICS.map(([key, label]) => (
-            <div key={key} className="rounded-lg border border-line-soft bg-raised px-3 py-2.5">
-              <div className="font-mono text-xl text-ink">{pct(agg[key])}</div>
+            <div key={key} className="rounded-lg border border-line-soft bg-raised px-3 py-2.5 shadow-[var(--shadow-flat)]">
+              <div className="font-mono text-xl text-accent">{pct(agg[key])}</div>
               <div className="mt-0.5 text-[11px] text-muted">{label}</div>
             </div>
           ))}
