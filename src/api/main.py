@@ -16,6 +16,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from src.api.routes import embedding_map, evaluation, ingest, query, retrieve, stats
+from src.config import load_env
+
+# Pull LLM_PROVIDER / LLM_API_KEY / LLM_MODEL from the repo-root .env (if any)
+# before any route resolves the LLM adapter.
+load_env()
 
 # Vite dev server default origins.
 DEV_ORIGINS = [

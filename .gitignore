@@ -42,7 +42,8 @@ npm-debug.log*
 .claude-session*
 .mcp.json
 
-# Secrets / env
+# Secrets / env (the example template is tracked)
 .env
 .env.*
+!.env.example
 *.local

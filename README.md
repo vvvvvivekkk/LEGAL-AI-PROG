@@ -87,6 +87,9 @@ pip install -r requirements.txt
 python -m src.ingestion.run --input data/sample --out data/processed
 python -m src.indexing.build --chunks data/processed --db data/lancedb
 
+# LLM key for /query (ingest, retrieve and search work without one)
+cp .env.example .env   # then set LLM_PROVIDER / LLM_API_KEY (and optionally LLM_MODEL)
+
 # backend
 uvicorn src.api.main:app --reload
 

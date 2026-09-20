@@ -8,3 +8,4 @@ httpx
 streamlit
 pytest
 pypdf
+python-dotenv
