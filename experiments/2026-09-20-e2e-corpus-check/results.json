@@ -1,0 +1,1559 @@
+{
+ "config": {
+  "corpus": "C:\\Users\\11020\\Desktop\\LEGAL-AI-PROG\\data\\corpus",
+  "db": "C:\\Users\\11020\\Desktop\\LEGAL-AI-PROG\\data\\lancedb_corpus_check",
+  "files": 2,
+  "k": 3,
+  "embedder": "SentenceTransformerEmbedder",
+  "model": "sentence-transformers/all-MiniLM-L6-v2"
+ },
+ "totals": {
+  "files": 2,
+  "indexed": 2,
+  "chunks": 1444,
+  "structured": 0,
+  "fallback": 2,
+  "failed": []
+ },
+ "ingestion": [
+  {
+   "file": "data\\corpus\\civil_law\\cuad\\CUAD_v1\\full_contract_pdf\\Part_I\\License_Agreements\\CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement.pdf",
+   "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+   "bytes": 346013,
+   "status": "ok",
+   "chunks": 308,
+   "chunking": "fallback",
+   "sections": 308,
+   "seconds": 14.07
+  },
+  {
+   "file": "data\\corpus\\civil_law\\maud\\contracts\\contract_0.txt",
+   "source_id": "contract_0",
+   "bytes": 332412,
+   "status": "ok",
+   "chunks": 1136,
+   "chunking": "fallback",
+   "sections": 1136,
+   "seconds": 30.76
+  }
+ ],
+ "queries": [
+  {
+   "query": "limitation period for filing a suit to recover property",
+   "top": {
+    "dense": {
+     "source_id": "contract_0",
+     "section_ref": "Paragraph 822",
+     "chunk_id": "contract_0::p822",
+     "score": 1.1436,
+     "overlap": [
+      "suit"
+     ],
+     "snippet": "ny such case, other than the settlement of any action, suit, proceeding, claim, arbitration or investigation (but not a criminal proceeding) that requires payments by the Company (net of insurance proceeds received and i"
+    },
+    "fts": {
+     "source_id": "contract_0",
+     "section_ref": "Paragraph 939",
+     "chunk_id": "contract_0::p939",
+     "score": 7.5739,
+     "overlap": [
+      "limitation",
+      "period"
+     ],
+     "snippet": "Without limiting Parent’s cooperation obligations described in this Section 5.6 (subject to the limitations herein), Parent will control the ultimate strategy (including with respect to negotiating any remedies) for secu"
+    },
+    "hybrid": {
+     "source_id": "contract_0",
+     "section_ref": "Paragraph 822",
+     "chunk_id": "contract_0::p822",
+     "score": 0.0164,
+     "overlap": [
+      "suit"
+     ],
+     "snippet": "ny such case, other than the settlement of any action, suit, proceeding, claim, arbitration or investigation (but not a criminal proceeding) that requires payments by the Company (net of insurance proceeds received and i"
+    }
+   },
+   "counts": {
+    "dense": 3,
+    "fts": 3,
+    "hybrid": 3
+   },
+   "flags": [],
+   "all": {
+    "dense": [
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 822",
+      "chunk_id": "contract_0::p822",
+      "score": 1.1436,
+      "overlap": [
+       "suit"
+      ],
+      "snippet": "ny such case, other than the settlement of any action, suit, proceeding, claim, arbitration or investigation (but not a criminal proceeding) that requires payments by the Company (net of insurance proceeds received and i"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 289",
+      "chunk_id": "contract_0::p289",
+      "score": 1.1967,
+      "overlap": [
+       "property"
+      ],
+      "snippet": "“Property” 2.10(a)(iv)"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 587",
+      "chunk_id": "contract_0::p587",
+      "score": 1.1976,
+      "overlap": [
+       "property"
+      ],
+      "snippet": "(iv) “Property” means all material real property leased or owned by the Company or any Subsidiary either currently or in the past."
+     }
+    ],
+    "fts": [
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 939",
+      "chunk_id": "contract_0::p939",
+      "score": 7.5739,
+      "overlap": [
+       "limitation",
+       "period"
+      ],
+      "snippet": "Without limiting Parent’s cooperation obligations described in this Section 5.6 (subject to the limitations herein), Parent will control the ultimate strategy (including with respect to negotiating any remedies) for secu"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 534",
+      "chunk_id": "contract_0::p534",
+      "score": 7.4894,
+      "overlap": [
+       "filing",
+       "property"
+      ],
+      "snippet": "(d) Schedule 2.9(d) of the Company Disclosure Letter lists, as of the Original Agreement Date, all Company Registered Intellectual Property Rights, including the jurisdictions in which each such Company Registered Intell"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 535",
+      "chunk_id": "contract_0::p535",
+      "score": 6.8203,
+      "overlap": [
+       "property"
+      ],
+      "snippet": "Each item of Company Registered Intellectual Property Rights is, (i) to the knowledge of the Company, valid (or in the case of applications, applied for) and subsisting, and (ii) all registration, maintenance and renewal"
+     }
+    ],
+    "hybrid": [
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 822",
+      "chunk_id": "contract_0::p822",
+      "score": 0.0164,
+      "overlap": [
+       "suit"
+      ],
+      "snippet": "ny such case, other than the settlement of any action, suit, proceeding, claim, arbitration or investigation (but not a criminal proceeding) that requires payments by the Company (net of insurance proceeds received and i"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 939",
+      "chunk_id": "contract_0::p939",
+      "score": 0.0164,
+      "overlap": [
+       "limitation",
+       "period"
+      ],
+      "snippet": "Without limiting Parent’s cooperation obligations described in this Section 5.6 (subject to the limitations herein), Parent will control the ultimate strategy (including with respect to negotiating any remedies) for secu"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 289",
+      "chunk_id": "contract_0::p289",
+      "score": 0.0161,
+      "overlap": [
+       "property"
+      ],
+      "snippet": "“Property” 2.10(a)(iv)"
+     }
+    ]
+   }
+  },
+  {
+   "query": "remedies available for breach of contract",
+   "top": {
+    "dense": {
+     "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+     "section_ref": "Paragraph 231",
+     "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p231",
+     "score": 1.0893,
+     "overlap": [
+      "breach"
+     ],
+     "snippet": "Either Party (the “Non-Breaching Party”) may terminate this Agreement in the event the other Party (the “Breaching Party”) commits a material breach of this Agreement, and such material breach (excluding breaches of paym"
+    },
+    "fts": {
+     "source_id": "contract_0",
+     "section_ref": "Paragraph 1115",
+     "chunk_id": "contract_0::p1115",
+     "score": 11.5546,
+     "overlap": [],
+     "snippet": "The parties hereto agree that irreparable damage for which monetary damages, even if available, would not be an adequate remedy, would occur in the event that any of the provisions of this Agreement were not performed in"
+    },
+    "hybrid": {
+     "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+     "section_ref": "Paragraph 217",
+     "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p217",
+     "score": 0.032,
+     "overlap": [
+      "breach",
+      "remedie"
+     ],
+     "snippet": "Given the nature of the Confidential Information and the competitive damage that could result to a Party upon unauthorized disclosure, use or transfer of its Confidential Information to any Third Party, the Parties agree"
+    }
+   },
+   "counts": {
+    "dense": 3,
+    "fts": 3,
+    "hybrid": 3
+   },
+   "flags": [],
+   "all": {
+    "dense": [
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 231",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p231",
+      "score": 1.0893,
+      "overlap": [
+       "breach"
+      ],
+      "snippet": "Either Party (the “Non-Breaching Party”) may terminate this Agreement in the event the other Party (the “Breaching Party”) commits a material breach of this Agreement, and such material breach (excluding breaches of paym"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 233",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p233",
+      "score": 1.1202,
+      "overlap": [
+       "breach"
+      ],
+      "snippet": "Any termination of this Agreement pursuant to this Section 11.4 shall become effective at the end of the Cure Period, unless the Breaching Party has cured any such material breach prior to the expiration of such Cure Per"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 217",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p217",
+      "score": 1.1344,
+      "overlap": [
+       "breach",
+       "remedie"
+      ],
+      "snippet": "Given the nature of the Confidential Information and the competitive damage that could result to a Party upon unauthorized disclosure, use or transfer of its Confidential Information to any Third Party, the Parties agree"
+     }
+    ],
+    "fts": [
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 1115",
+      "chunk_id": "contract_0::p1115",
+      "score": 11.5546,
+      "overlap": [],
+      "snippet": "The parties hereto agree that irreparable damage for which monetary damages, even if available, would not be an adequate remedy, would occur in the event that any of the provisions of this Agreement were not performed in"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 217",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p217",
+      "score": 9.9883,
+      "overlap": [
+       "breach",
+       "remedie"
+      ],
+      "snippet": "Given the nature of the Confidential Information and the competitive damage that could result to a Party upon unauthorized disclosure, use or transfer of its Confidential Information to any Third Party, the Parties agree"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 717",
+      "chunk_id": "contract_0::p717",
+      "score": 9.0203,
+      "overlap": [
+       "breach",
+       "contract"
+      ],
+      "snippet": "Since January 1, 2018 through the Original Agreement Date, neither the Company nor any Subsidiary has received written or, to the knowledge of the Company, oral notice regarding any material violation or breach of, mater"
+     }
+    ],
+    "hybrid": [
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 217",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p217",
+      "score": 0.032,
+      "overlap": [
+       "breach",
+       "remedie"
+      ],
+      "snippet": "Given the nature of the Confidential Information and the competitive damage that could result to a Party upon unauthorized disclosure, use or transfer of its Confidential Information to any Third Party, the Parties agree"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 231",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p231",
+      "score": 0.0164,
+      "overlap": [
+       "breach"
+      ],
+      "snippet": "Either Party (the “Non-Breaching Party”) may terminate this Agreement in the event the other Party (the “Breaching Party”) commits a material breach of this Agreement, and such material breach (excluding breaches of paym"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 1115",
+      "chunk_id": "contract_0::p1115",
+      "score": 0.0164,
+      "overlap": [],
+      "snippet": "The parties hereto agree that irreparable damage for which monetary damages, even if available, would not be an adequate remedy, would occur in the event that any of the provisions of this Agreement were not performed in"
+     }
+    ]
+   }
+  },
+  {
+   "query": "when is specific performance granted instead of damages",
+   "top": {
+    "dense": {
+     "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+     "section_ref": "Paragraph 264",
+     "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p264",
+     "score": 1.0315,
+     "overlap": [
+      "damage",
+      "performance"
+     ],
+     "snippet": "The arbitrators shall have no Source: CYTODYN INC., 10-Q, 1/9/2020 authority to award punitive or any other type of damages not measured by a Party’s compensatory damages. The Parties further agree that the decision of t"
+    },
+    "fts": {
+     "source_id": "contract_0",
+     "section_ref": "Paragraph 1115",
+     "chunk_id": "contract_0::p1115",
+     "score": 14.5977,
+     "overlap": [
+      "damage",
+      "specific"
+     ],
+     "snippet": "The parties hereto agree that irreparable damage for which monetary damages, even if available, would not be an adequate remedy, would occur in the event that any of the provisions of this Agreement were not performed in"
+    },
+    "hybrid": {
+     "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+     "section_ref": "Paragraph 264",
+     "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p264",
+     "score": 0.0164,
+     "overlap": [
+      "damage",
+      "performance"
+     ],
+     "snippet": "The arbitrators shall have no Source: CYTODYN INC., 10-Q, 1/9/2020 authority to award punitive or any other type of damages not measured by a Party’s compensatory damages. The Parties further agree that the decision of t"
+    }
+   },
+   "counts": {
+    "dense": 3,
+    "fts": 3,
+    "hybrid": 3
+   },
+   "flags": [],
+   "all": {
+    "dense": [
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 264",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p264",
+      "score": 1.0315,
+      "overlap": [
+       "damage",
+       "performance"
+      ],
+      "snippet": "The arbitrators shall have no Source: CYTODYN INC., 10-Q, 1/9/2020 authority to award punitive or any other type of damages not measured by a Party’s compensatory damages. The Parties further agree that the decision of t"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 294",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p294",
+      "score": 1.1806,
+      "overlap": [
+       "performance"
+      ],
+      "snippet": "14.5 Force Majeure. Both Parties shall be excused from the performance of their obligations under this Agreement to the extent that such performance is prevented by Force Majeure and the nonperforming Party promptly prov"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 80",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p80",
+      "score": 1.1834,
+      "overlap": [
+       "damage"
+      ],
+      "snippet": "The balance, if any remaining after the Parties have been compensated for such costs and expenses shall be allocated between the Parties with any recovery of ordinary damages based upon Licensed Product Infringement (whe"
+     }
+    ],
+    "fts": [
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 1115",
+      "chunk_id": "contract_0::p1115",
+      "score": 14.5977,
+      "overlap": [
+       "damage",
+       "specific"
+      ],
+      "snippet": "The parties hereto agree that irreparable damage for which monetary damages, even if available, would not be an adequate remedy, would occur in the event that any of the provisions of this Agreement were not performed in"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 1117",
+      "chunk_id": "contract_0::p1117",
+      "score": 13.9874,
+      "overlap": [
+       "performance",
+       "specific"
+      ],
+      "snippet": "Each of the parties agrees that it will not oppose the granting of an injunction, specific performance or other equitable relief on the basis that the other party has an adequate remedy at law or an award of specific per"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 217",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p217",
+      "score": 11.1204,
+      "overlap": [
+       "damage",
+       "performance",
+       "specific"
+      ],
+      "snippet": "Given the nature of the Confidential Information and the competitive damage that could result to a Party upon unauthorized disclosure, use or transfer of its Confidential Information to any Third Party, the Parties agree"
+     }
+    ],
+    "hybrid": [
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 264",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p264",
+      "score": 0.0164,
+      "overlap": [
+       "damage",
+       "performance"
+      ],
+      "snippet": "The arbitrators shall have no Source: CYTODYN INC., 10-Q, 1/9/2020 authority to award punitive or any other type of damages not measured by a Party’s compensatory damages. The Parties further agree that the decision of t"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 1115",
+      "chunk_id": "contract_0::p1115",
+      "score": 0.0164,
+      "overlap": [
+       "damage",
+       "specific"
+      ],
+      "snippet": "The parties hereto agree that irreparable damage for which monetary damages, even if available, would not be an adequate remedy, would occur in the event that any of the provisions of this Agreement were not performed in"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 294",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p294",
+      "score": 0.0161,
+      "overlap": [
+       "performance"
+      ],
+      "snippet": "14.5 Force Majeure. Both Parties shall be excused from the performance of their obligations under this Agreement to the extent that such performance is prevented by Force Majeure and the nonperforming Party promptly prov"
+     }
+    ]
+   }
+  },
+  {
+   "query": "registration requirements for a sale deed",
+   "top": {
+    "dense": {
+     "source_id": "contract_0",
+     "section_ref": "Paragraph 519",
+     "chunk_id": "contract_0::p519",
+     "score": 1.2112,
+     "overlap": [
+      "registration"
+     ],
+     "snippet": "(v) “Company Registered Intellectual Property Rights” means all United States, international and foreign: (A) patents and patent applications (including provisional applications), (B) registered trademarks or service mar"
+    },
+    "fts": {
+     "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+     "section_ref": "Paragraph 154",
+     "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p154",
+     "score": 7.1276,
+     "overlap": [
+      "sale"
+     ],
+     "snippet": "on is solely related to the sale, offer for sale or use of a Licensed Product in the Field in the Territory, and the provisions of Section 13.2 shall not apply if Vyera is the Party that did not agree to pursue such Requ"
+    },
+    "hybrid": {
+     "source_id": "contract_0",
+     "section_ref": "Paragraph 519",
+     "chunk_id": "contract_0::p519",
+     "score": 0.0164,
+     "overlap": [
+      "registration"
+     ],
+     "snippet": "(v) “Company Registered Intellectual Property Rights” means all United States, international and foreign: (A) patents and patent applications (including provisional applications), (B) registered trademarks or service mar"
+    }
+   },
+   "counts": {
+    "dense": 3,
+    "fts": 3,
+    "hybrid": 3
+   },
+   "flags": [],
+   "all": {
+    "dense": [
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 519",
+      "chunk_id": "contract_0::p519",
+      "score": 1.2112,
+      "overlap": [
+       "registration"
+      ],
+      "snippet": "(v) “Company Registered Intellectual Property Rights” means all United States, international and foreign: (A) patents and patent applications (including provisional applications), (B) registered trademarks or service mar"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 213",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p213",
+      "score": 1.3046,
+      "overlap": [
+       "registration"
+      ],
+      "snippet": "Notwithstanding anything to the contrary in this Article 10, in the event either Party proposes to file with the Securities and Exchange Commission or the securities regulators of any state or other jurisdiction a regist"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 535",
+      "chunk_id": "contract_0::p535",
+      "score": 1.3177,
+      "overlap": [
+       "registration"
+      ],
+      "snippet": "Each item of Company Registered Intellectual Property Rights is, (i) to the knowledge of the Company, valid (or in the case of applications, applied for) and subsisting, and (ii) all registration, maintenance and renewal"
+     }
+    ],
+    "fts": [
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 154",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p154",
+      "score": 7.1276,
+      "overlap": [
+       "sale"
+      ],
+      "snippet": "on is solely related to the sale, offer for sale or use of a Licensed Product in the Field in the Territory, and the provisions of Section 13.2 shall not apply if Vyera is the Party that did not agree to pursue such Requ"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 149",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p149",
+      "score": 6.5379,
+      "overlap": [
+       "sale"
+      ],
+      "snippet": "If the Parties agree in good faith that it is reasonable to enter into a license with such Third Party to avoid infringement of such Third Party patent(s)by the sale, offer for sale or use of a Licensed Product in the Fi"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 153",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p153",
+      "score": 5.979,
+      "overlap": [
+       "sale"
+      ],
+      "snippet": "If the Parties disagree in good faith as to whether it is reasonable to enter into a license agreement with a Third Party to avoid infringement by the sale, offer for sale or use of a Licensed Product in the Field in the"
+     }
+    ],
+    "hybrid": [
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 519",
+      "chunk_id": "contract_0::p519",
+      "score": 0.0164,
+      "overlap": [
+       "registration"
+      ],
+      "snippet": "(v) “Company Registered Intellectual Property Rights” means all United States, international and foreign: (A) patents and patent applications (including provisional applications), (B) registered trademarks or service mar"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 154",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p154",
+      "score": 0.0164,
+      "overlap": [
+       "sale"
+      ],
+      "snippet": "on is solely related to the sale, offer for sale or use of a Licensed Product in the Field in the Territory, and the provisions of Section 13.2 shall not apply if Vyera is the Party that did not agree to pursue such Requ"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 213",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p213",
+      "score": 0.0161,
+      "overlap": [
+       "registration"
+      ],
+      "snippet": "Notwithstanding anything to the contrary in this Article 10, in the event either Party proposes to file with the Securities and Exchange Commission or the securities regulators of any state or other jurisdiction a regist"
+     }
+    ]
+   }
+  },
+  {
+   "query": "termination of the agreement for material breach and cure period",
+   "top": {
+    "dense": {
+     "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+     "section_ref": "Paragraph 233",
+     "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p233",
+     "score": 0.6512,
+     "overlap": [
+      "agreement",
+      "breach",
+      "cure",
+      "material",
+      "period",
+      "termination"
+     ],
+     "snippet": "Any termination of this Agreement pursuant to this Section 11.4 shall become effective at the end of the Cure Period, unless the Breaching Party has cured any such material breach prior to the expiration of such Cure Per"
+    },
+    "fts": {
+     "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+     "section_ref": "Paragraph 233",
+     "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p233",
+     "score": 23.0747,
+     "overlap": [
+      "agreement",
+      "breach",
+      "cure",
+      "material",
+      "period",
+      "termination"
+     ],
+     "snippet": "Any termination of this Agreement pursuant to this Section 11.4 shall become effective at the end of the Cure Period, unless the Breaching Party has cured any such material breach prior to the expiration of such Cure Per"
+    },
+    "hybrid": {
+     "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+     "section_ref": "Paragraph 233",
+     "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p233",
+     "score": 0.0328,
+     "overlap": [
+      "agreement",
+      "breach",
+      "cure",
+      "material",
+      "period",
+      "termination"
+     ],
+     "snippet": "Any termination of this Agreement pursuant to this Section 11.4 shall become effective at the end of the Cure Period, unless the Breaching Party has cured any such material breach prior to the expiration of such Cure Per"
+    }
+   },
+   "counts": {
+    "dense": 3,
+    "fts": 3,
+    "hybrid": 3
+   },
+   "flags": [],
+   "all": {
+    "dense": [
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 233",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p233",
+      "score": 0.6512,
+      "overlap": [
+       "agreement",
+       "breach",
+       "cure",
+       "material",
+       "period",
+       "termination"
+      ],
+      "snippet": "Any termination of this Agreement pursuant to this Section 11.4 shall become effective at the end of the Cure Period, unless the Breaching Party has cured any such material breach prior to the expiration of such Cure Per"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 231",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p231",
+      "score": 0.7194,
+      "overlap": [
+       "agreement",
+       "breach",
+       "cure",
+       "material",
+       "period"
+      ],
+      "snippet": "Either Party (the “Non-Breaching Party”) may terminate this Agreement in the event the other Party (the “Breaching Party”) commits a material breach of this Agreement, and such material breach (excluding breaches of paym"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 1064",
+      "chunk_id": "contract_0::p1064",
+      "score": 0.8815,
+      "overlap": [
+       "agreement",
+       "breach",
+       "material"
+      ],
+      "snippet": "For purposes of this Agreement, “willful and material breach” shall mean a material breach that is a consequence of an act undertaken, or a failure to act, which the breaching party knew, or reasonably should have known,"
+     }
+    ],
+    "fts": [
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 233",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p233",
+      "score": 23.0747,
+      "overlap": [
+       "agreement",
+       "breach",
+       "cure",
+       "material",
+       "period",
+       "termination"
+      ],
+      "snippet": "Any termination of this Agreement pursuant to this Section 11.4 shall become effective at the end of the Cure Period, unless the Breaching Party has cured any such material breach prior to the expiration of such Cure Per"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 231",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p231",
+      "score": 20.9108,
+      "overlap": [
+       "agreement",
+       "breach",
+       "cure",
+       "material",
+       "period"
+      ],
+      "snippet": "Either Party (the “Non-Breaching Party”) may terminate this Agreement in the event the other Party (the “Breaching Party”) commits a material breach of this Agreement, and such material breach (excluding breaches of paym"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 1052",
+      "chunk_id": "contract_0::p1052",
+      "score": 19.4011,
+      "overlap": [
+       "agreement",
+       "breach",
+       "period"
+      ],
+      "snippet": "of such breach or inaccuracy (it being understood that the Company may not terminate this Agreement pursuant to this Section 7.1(e) if such breach or inaccuracy is cured during such period);"
+     }
+    ],
+    "hybrid": [
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 233",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p233",
+      "score": 0.0328,
+      "overlap": [
+       "agreement",
+       "breach",
+       "cure",
+       "material",
+       "period",
+       "termination"
+      ],
+      "snippet": "Any termination of this Agreement pursuant to this Section 11.4 shall become effective at the end of the Cure Period, unless the Breaching Party has cured any such material breach prior to the expiration of such Cure Per"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 231",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p231",
+      "score": 0.0323,
+      "overlap": [
+       "agreement",
+       "breach",
+       "cure",
+       "material",
+       "period"
+      ],
+      "snippet": "Either Party (the “Non-Breaching Party”) may terminate this Agreement in the event the other Party (the “Breaching Party”) commits a material breach of this Agreement, and such material breach (excluding breaches of paym"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 1064",
+      "chunk_id": "contract_0::p1064",
+      "score": 0.0159,
+      "overlap": [
+       "agreement",
+       "breach",
+       "material"
+      ],
+      "snippet": "For purposes of this Agreement, “willful and material breach” shall mean a material breach that is a consequence of an act undertaken, or a failure to act, which the breaching party knew, or reasonably should have known,"
+     }
+    ]
+   }
+  },
+  {
+   "query": "indemnification obligations of the licensee",
+   "top": {
+    "dense": {
+     "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+     "section_ref": "Paragraph 245",
+     "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p245",
+     "score": 0.8216,
+     "overlap": [
+      "obligation"
+     ],
+     "snippet": "materials in its legal files to be used to verify compliance with its obligations hereunder and as otherwise required to comply with Applicable Law or such Party’s bona fide document retention policy; (d) Vyera shall hav"
+    },
+    "fts": {
+     "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+     "section_ref": "Paragraph 272",
+     "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p272",
+     "score": 8.2047,
+     "overlap": [
+      "indemnification"
+     ],
+     "snippet": "ARTICLE 13 INDEMNIFICATION AND INSURANCE 13.1 Indemnification by Vyera."
+    },
+    "hybrid": {
+     "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+     "section_ref": "Paragraph 245",
+     "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p245",
+     "score": 0.0164,
+     "overlap": [
+      "obligation"
+     ],
+     "snippet": "materials in its legal files to be used to verify compliance with its obligations hereunder and as otherwise required to comply with Applicable Law or such Party’s bona fide document retention policy; (d) Vyera shall hav"
+    }
+   },
+   "counts": {
+    "dense": 3,
+    "fts": 3,
+    "hybrid": 3
+   },
+   "flags": [],
+   "all": {
+    "dense": [
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 245",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p245",
+      "score": 0.8216,
+      "overlap": [
+       "obligation"
+      ],
+      "snippet": "materials in its legal files to be used to verify compliance with its obligations hereunder and as otherwise required to comply with Applicable Law or such Party’s bona fide document retention policy; (d) Vyera shall hav"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 109",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p109",
+      "score": 0.8684,
+      "overlap": [],
+      "snippet": "Without limiting the foregoing, Vyera shall have the exclusive right and responsibility throughout the Territory for the following: (a) receiving and accepting orders for the Licensed Product from customers; (b) distribu"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 244",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p244",
+      "score": 0.9102,
+      "overlap": [
+       "obligation"
+      ],
+      "snippet": "in accordance with Applicable Law and on a schedule mutually agreed by the Parties; (b) All payment obligations hereunder with respect to the Licensed Product shall terminate, other than those that are accrued and unpaid"
+     }
+    ],
+    "fts": [
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 272",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p272",
+      "score": 8.2047,
+      "overlap": [
+       "indemnification"
+      ],
+      "snippet": "ARTICLE 13 INDEMNIFICATION AND INSURANCE 13.1 Indemnification by Vyera."
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 278",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p278",
+      "score": 7.7604,
+      "overlap": [
+       "indemnification",
+       "obligation"
+      ],
+      "snippet": "Source: CYTODYN INC., 10-Q, 1/9/2020 13.3 Indemnification Procedures. (a) Notice. Promptly after a CytoDyn Indemnitee or a Vyera Indemnitee (each, an “Indemnitee”) receives notice of a pending or threatened Claim, such I"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 983",
+      "chunk_id": "contract_0::p983",
+      "score": 7.4729,
+      "overlap": [
+       "indemnification"
+      ],
+      "snippet": "5.13. D&O Indemnification."
+     }
+    ],
+    "hybrid": [
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 245",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p245",
+      "score": 0.0164,
+      "overlap": [
+       "obligation"
+      ],
+      "snippet": "materials in its legal files to be used to verify compliance with its obligations hereunder and as otherwise required to comply with Applicable Law or such Party’s bona fide document retention policy; (d) Vyera shall hav"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 272",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p272",
+      "score": 0.0164,
+      "overlap": [
+       "indemnification"
+      ],
+      "snippet": "ARTICLE 13 INDEMNIFICATION AND INSURANCE 13.1 Indemnification by Vyera."
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 109",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p109",
+      "score": 0.0161,
+      "overlap": [],
+      "snippet": "Without limiting the foregoing, Vyera shall have the exclusive right and responsibility throughout the Territory for the following: (a) receiving and accepting orders for the Licensed Product from customers; (b) distribu"
+     }
+    ]
+   }
+  },
+  {
+   "query": "governing law and jurisdiction for disputes",
+   "top": {
+    "dense": {
+     "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+     "section_ref": "Paragraph 267",
+     "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p267",
+     "score": 1.0338,
+     "overlap": [
+      "dispute"
+     ],
+     "snippet": "(i) By agreeing to this binding arbitration provision, the Parties understand that they are waiving certain rights and protections which may otherwise be available if a dispute between the Parties were determined by liti"
+    },
+    "fts": {
+     "source_id": "contract_0",
+     "section_ref": "Paragraph 1118",
+     "chunk_id": "contract_0::p1118",
+     "score": 13.2664,
+     "overlap": [
+      "governing",
+      "jurisdiction",
+      "law"
+     ],
+     "snippet": "8.9. Governing Law. This Agreement shall be governed by and construed in accordance with the laws of the State of Delaware without giving effect to any choice or conflict of laws, provision or rule (whether of the State "
+    },
+    "hybrid": {
+     "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+     "section_ref": "Paragraph 267",
+     "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p267",
+     "score": 0.0164,
+     "overlap": [
+      "dispute"
+     ],
+     "snippet": "(i) By agreeing to this binding arbitration provision, the Parties understand that they are waiving certain rights and protections which may otherwise be available if a dispute between the Parties were determined by liti"
+    }
+   },
+   "counts": {
+    "dense": 3,
+    "fts": 3,
+    "hybrid": 3
+   },
+   "flags": [],
+   "all": {
+    "dense": [
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 267",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p267",
+      "score": 1.0338,
+      "overlap": [
+       "dispute"
+      ],
+      "snippet": "(i) By agreeing to this binding arbitration provision, the Parties understand that they are waiving certain rights and protections which may otherwise be available if a dispute between the Parties were determined by liti"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 253",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p253",
+      "score": 1.1429,
+      "overlap": [
+       "dispute"
+      ],
+      "snippet": "The Parties agree that the procedures set forth in this Article 12 shall be the exclusive mechanism for resolving any dispute, controversy, or claim between the Parties that may arise from time to time pursuant to this A"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 268",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p268",
+      "score": 1.154,
+      "overlap": [
+       "dispute",
+       "jurisdiction"
+      ],
+      "snippet": "In such cases, the executive officer of that Party shall make his or her decision with regard to the Reserved Dispute within twenty (20) days of its referral and such decision shall be final and binding and shall not be "
+     }
+    ],
+    "fts": [
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 1118",
+      "chunk_id": "contract_0::p1118",
+      "score": 13.2664,
+      "overlap": [
+       "governing",
+       "jurisdiction",
+       "law"
+      ],
+      "snippet": "8.9. Governing Law. This Agreement shall be governed by and construed in accordance with the laws of the State of Delaware without giving effect to any choice or conflict of laws, provision or rule (whether of the State "
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 291",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p291",
+      "score": 11.5208,
+      "overlap": [
+       "dispute",
+       "jurisdiction",
+       "law"
+      ],
+      "snippet": "This Agreement and all disputes arising out of or related to this Agreement or any breach hereof shall be governed by and construed in accordance with the laws of the State of New York, without giving effect to any choic"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 725",
+      "chunk_id": "contract_0::p725",
+      "score": 10.4285,
+      "overlap": [
+       "jurisdiction",
+       "law"
+      ],
+      "snippet": "(iv) customs and import control laws and regulations administered or enforced by (A) the U.S. government (including the U.S. Customs and Border Protection, U.S. Immigration and Customs Enforcement and their predecessor a"
+     }
+    ],
+    "hybrid": [
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 267",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p267",
+      "score": 0.0164,
+      "overlap": [
+       "dispute"
+      ],
+      "snippet": "(i) By agreeing to this binding arbitration provision, the Parties understand that they are waiving certain rights and protections which may otherwise be available if a dispute between the Parties were determined by liti"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 1118",
+      "chunk_id": "contract_0::p1118",
+      "score": 0.0164,
+      "overlap": [
+       "governing",
+       "jurisdiction",
+       "law"
+      ],
+      "snippet": "8.9. Governing Law. This Agreement shall be governed by and construed in accordance with the laws of the State of Delaware without giving effect to any choice or conflict of laws, provision or rule (whether of the State "
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 253",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p253",
+      "score": 0.0161,
+      "overlap": [
+       "dispute"
+      ],
+      "snippet": "The Parties agree that the procedures set forth in this Article 12 shall be the exclusive mechanism for resolving any dispute, controversy, or claim between the Parties that may arise from time to time pursuant to this A"
+     }
+    ]
+   }
+  },
+  {
+   "query": "confidential information disclosure obligations",
+   "top": {
+    "dense": {
+     "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+     "section_ref": "Paragraph 199",
+     "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p199",
+     "score": 0.722,
+     "overlap": [
+      "confidential",
+      "disclosure",
+      "information"
+     ],
+     "snippet": "Each Party agrees that, during the Term and for a period of ten (10) years thereafter, a Party (the “ Receiving Party”) receiving Confidential Information of the other Party (the “ Disclosing Party”) shall: (a) maintain "
+    },
+    "fts": {
+     "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+     "section_ref": "Paragraph 209",
+     "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p209",
+     "score": 13.5977,
+     "overlap": [
+      "confidential",
+      "disclosure",
+      "information"
+     ],
+     "snippet": "(g) If and whenever any Confidential Information is disclosed in accordance with this Section 10.3, such disclosure shall not cause any such information to cease to be Confidential Information except to the extent that s"
+    },
+    "hybrid": {
+     "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+     "section_ref": "Paragraph 199",
+     "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p199",
+     "score": 0.0164,
+     "overlap": [
+      "confidential",
+      "disclosure",
+      "information"
+     ],
+     "snippet": "Each Party agrees that, during the Term and for a period of ten (10) years thereafter, a Party (the “ Receiving Party”) receiving Confidential Information of the other Party (the “ Disclosing Party”) shall: (a) maintain "
+    }
+   },
+   "counts": {
+    "dense": 3,
+    "fts": 3,
+    "hybrid": 3
+   },
+   "flags": [],
+   "all": {
+    "dense": [
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 199",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p199",
+      "score": 0.722,
+      "overlap": [
+       "confidential",
+       "disclosure",
+       "information"
+      ],
+      "snippet": "Each Party agrees that, during the Term and for a period of ten (10) years thereafter, a Party (the “ Receiving Party”) receiving Confidential Information of the other Party (the “ Disclosing Party”) shall: (a) maintain "
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 202",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p202",
+      "score": 0.8003,
+      "overlap": [
+       "confidential",
+       "disclosure",
+       "information",
+       "obligation"
+      ],
+      "snippet": "The obligations in Section 10.1 shall not apply with respect to any portion of the Confidential Information to the extent that the Receiving Party can show by competent evidence: (a) is publicly disclosed by the Disclosi"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 101",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p101",
+      "score": 0.809,
+      "overlap": [
+       "confidential",
+       "disclosure",
+       "information"
+      ],
+      "snippet": "Either Party may propose topics for inclusion in the agenda for a meeting of the JC; provided that that the chairperson of the JC shall have the authority to determine in which order such topics are discussed in the subj"
+     }
+    ],
+    "fts": [
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 209",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p209",
+      "score": 13.5977,
+      "overlap": [
+       "confidential",
+       "disclosure",
+       "information"
+      ],
+      "snippet": "(g) If and whenever any Confidential Information is disclosed in accordance with this Section 10.3, such disclosure shall not cause any such information to cease to be Confidential Information except to the extent that s"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 210",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p210",
+      "score": 12.8771,
+      "overlap": [
+       "confidential",
+       "disclosure",
+       "information"
+      ],
+      "snippet": "Notwithstanding the foregoing, in the event a Party is required to make a disclosure of the other Party’s Confidential Information pursuant to clauses (a) through (e) of this Section 10.3, it will, except where impractic"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 558",
+      "chunk_id": "contract_0::p558",
+      "score": 11.5652,
+      "overlap": [
+       "confidential",
+       "information",
+       "obligation"
+      ],
+      "snippet": "(o) The Company and the Subsidiaries have taken commercially reasonable steps to protect and preserve the confidentiality of all confidential or trade secret information of the Company or provided by any third party to t"
+     }
+    ],
+    "hybrid": [
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 199",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p199",
+      "score": 0.0164,
+      "overlap": [
+       "confidential",
+       "disclosure",
+       "information"
+      ],
+      "snippet": "Each Party agrees that, during the Term and for a period of ten (10) years thereafter, a Party (the “ Receiving Party”) receiving Confidential Information of the other Party (the “ Disclosing Party”) shall: (a) maintain "
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 209",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p209",
+      "score": 0.0164,
+      "overlap": [
+       "confidential",
+       "disclosure",
+       "information"
+      ],
+      "snippet": "(g) If and whenever any Confidential Information is disclosed in accordance with this Section 10.3, such disclosure shall not cause any such information to cease to be Confidential Information except to the extent that s"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 202",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p202",
+      "score": 0.0161,
+      "overlap": [
+       "confidential",
+       "disclosure",
+       "information",
+       "obligation"
+      ],
+      "snippet": "The obligations in Section 10.1 shall not apply with respect to any portion of the Confidential Information to the extent that the Receiving Party can show by competent evidence: (a) is publicly disclosed by the Disclosi"
+     }
+    ]
+   }
+  },
+  {
+   "query": "conditions precedent to closing the merger",
+   "top": {
+    "dense": {
+     "source_id": "contract_0",
+     "section_ref": "Paragraph 1087",
+     "chunk_id": "contract_0::p1087",
+     "score": 0.7973,
+     "overlap": [
+      "merger"
+     ],
+     "snippet": "If the Merger is consummated, the representations and warranties of Parent, Sub and the Company contained in the Original Agreement, this Agreement, the Company Disclosure Letter (including any exhibit, schedule or annex"
+    },
+    "fts": {
+     "source_id": "contract_0",
+     "section_ref": "Paragraph 1018",
+     "chunk_id": "contract_0::p1018",
+     "score": 10.2879,
+     "overlap": [
+      "closing",
+      "condition",
+      "merger"
+     ],
+     "snippet": "6.1. Conditions to Obligations of Each Party to Effect the Merger. The respective obligations of each party hereto to consummate the Merger and the other Transactions shall be subject to the satisfaction at or prior to t"
+    },
+    "hybrid": {
+     "source_id": "contract_0",
+     "section_ref": "Paragraph 1018",
+     "chunk_id": "contract_0::p1018",
+     "score": 0.0325,
+     "overlap": [
+      "closing",
+      "condition",
+      "merger"
+     ],
+     "snippet": "6.1. Conditions to Obligations of Each Party to Effect the Merger. The respective obligations of each party hereto to consummate the Merger and the other Transactions shall be subject to the satisfaction at or prior to t"
+    }
+   },
+   "counts": {
+    "dense": 3,
+    "fts": 3,
+    "hybrid": 3
+   },
+   "flags": [],
+   "all": {
+    "dense": [
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 1087",
+      "chunk_id": "contract_0::p1087",
+      "score": 0.7973,
+      "overlap": [
+       "merger"
+      ],
+      "snippet": "If the Merger is consummated, the representations and warranties of Parent, Sub and the Company contained in the Original Agreement, this Agreement, the Company Disclosure Letter (including any exhibit, schedule or annex"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 1018",
+      "chunk_id": "contract_0::p1018",
+      "score": 0.8107,
+      "overlap": [
+       "closing",
+       "condition",
+       "merger"
+      ],
+      "snippet": "6.1. Conditions to Obligations of Each Party to Effect the Merger. The respective obligations of each party hereto to consummate the Merger and the other Transactions shall be subject to the satisfaction at or prior to t"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 993",
+      "chunk_id": "contract_0::p993",
+      "score": 0.8453,
+      "overlap": [
+       "merger"
+      ],
+      "snippet": "(c) This Section 5.13 shall survive the consummation of the Merger, is intended to benefit each of the Indemnified Parties, shall be binding on all successors and assigns of the Surviving Corporation and Parent and shall"
+     }
+    ],
+    "fts": [
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 1018",
+      "chunk_id": "contract_0::p1018",
+      "score": 10.2879,
+      "overlap": [
+       "closing",
+       "condition",
+       "merger"
+      ],
+      "snippet": "6.1. Conditions to Obligations of Each Party to Effect the Merger. The respective obligations of each party hereto to consummate the Merger and the other Transactions shall be subject to the satisfaction at or prior to t"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 1023",
+      "chunk_id": "contract_0::p1023",
+      "score": 9.7868,
+      "overlap": [
+       "closing",
+       "condition",
+       "merger"
+      ],
+      "snippet": "6.2. Additional Conditions to Obligations of the Company. The obligations of the Company to consummate the Merger and the other Transactions shall be subject to the satisfaction at or prior to the Closing of each of the "
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 312",
+      "chunk_id": "contract_0::p312",
+      "score": 9.1941,
+      "overlap": [
+       "closing",
+       "condition"
+      ],
+      "snippet": "1.3. Closing. Unless this Agreement is earlier and validly terminated in accordance with Section 7.1, the closing of the Transactions (the “Closing”) shall take place (i) at a time and date to be specified by the parties"
+     }
+    ],
+    "hybrid": [
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 1018",
+      "chunk_id": "contract_0::p1018",
+      "score": 0.0325,
+      "overlap": [
+       "closing",
+       "condition",
+       "merger"
+      ],
+      "snippet": "6.1. Conditions to Obligations of Each Party to Effect the Merger. The respective obligations of each party hereto to consummate the Merger and the other Transactions shall be subject to the satisfaction at or prior to t"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 1087",
+      "chunk_id": "contract_0::p1087",
+      "score": 0.0164,
+      "overlap": [
+       "merger"
+      ],
+      "snippet": "If the Merger is consummated, the representations and warranties of Parent, Sub and the Company contained in the Original Agreement, this Agreement, the Company Disclosure Letter (including any exhibit, schedule or annex"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 1023",
+      "chunk_id": "contract_0::p1023",
+      "score": 0.0161,
+      "overlap": [
+       "closing",
+       "condition",
+       "merger"
+      ],
+      "snippet": "6.2. Additional Conditions to Obligations of the Company. The obligations of the Company to consummate the Merger and the other Transactions shall be subject to the satisfaction at or prior to the Closing of each of the "
+     }
+    ]
+   }
+  },
+  {
+   "query": "assignment of the contract without prior written consent",
+   "top": {
+    "dense": {
+     "source_id": "contract_0",
+     "section_ref": "Paragraph 1111",
+     "chunk_id": "contract_0::p1111",
+     "score": 1.1037,
+     "overlap": [
+      "assignment",
+      "consent",
+      "written"
+     ],
+     "snippet": "8.6. Assignment. Neither this Agreement nor any of the rights, interests or obligations under this Agreement may be assigned or delegated, in whole or in part, by operation of law or otherwise by any of the parties heret"
+    },
+    "fts": {
+     "source_id": "contract_0",
+     "section_ref": "Paragraph 1111",
+     "chunk_id": "contract_0::p1111",
+     "score": 19.4541,
+     "overlap": [
+      "assignment",
+      "consent",
+      "written"
+     ],
+     "snippet": "8.6. Assignment. Neither this Agreement nor any of the rights, interests or obligations under this Agreement may be assigned or delegated, in whole or in part, by operation of law or otherwise by any of the parties heret"
+    },
+    "hybrid": {
+     "source_id": "contract_0",
+     "section_ref": "Paragraph 1111",
+     "chunk_id": "contract_0::p1111",
+     "score": 0.0328,
+     "overlap": [
+      "assignment",
+      "consent",
+      "written"
+     ],
+     "snippet": "8.6. Assignment. Neither this Agreement nor any of the rights, interests or obligations under this Agreement may be assigned or delegated, in whole or in part, by operation of law or otherwise by any of the parties heret"
+    }
+   },
+   "counts": {
+    "dense": 3,
+    "fts": 3,
+    "hybrid": 3
+   },
+   "flags": [],
+   "all": {
+    "dense": [
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 1111",
+      "chunk_id": "contract_0::p1111",
+      "score": 1.1037,
+      "overlap": [
+       "assignment",
+       "consent",
+       "written"
+      ],
+      "snippet": "8.6. Assignment. Neither this Agreement nor any of the rights, interests or obligations under this Agreement may be assigned or delegated, in whole or in part, by operation of law or otherwise by any of the parties heret"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 296",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p296",
+      "score": 1.1828,
+      "overlap": [
+       "assignment"
+      ],
+      "snippet": "A Change of Control shall be deemed an assignment for purposes of this Agreement. Any permitted successor or assignee of rights and/or obligations permitted hereunder shall, in writing to the other Party, expressly assum"
+     },
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 151",
+      "chunk_id": "contract_0::p151",
+      "score": 1.281,
+      "overlap": [
+       "contract"
+      ],
+      "snippet": "“Contract” means any legally binding agreement, contract, subcontract, lease, obligation, promise, instrument, indenture, mortgage, note, option, guarantee, warranty, purchase order, license, sublicense, insurance policy"
+     }
+    ],
+    "fts": [
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 1111",
+      "chunk_id": "contract_0::p1111",
+      "score": 19.4541,
+      "overlap": [
+       "assignment",
+       "consent",
+       "written"
+      ],
+      "snippet": "8.6. Assignment. Neither this Agreement nor any of the rights, interests or obligations under this Agreement may be assigned or delegated, in whole or in part, by operation of law or otherwise by any of the parties heret"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 297",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p297",
+      "score": 17.3154,
+      "overlap": [
+       "assignment",
+       "consent",
+       "written"
+      ],
+      "snippet": "CytoDyn may assign this Agreement and its rights and obligations hereunder, in whole but not in part, to any Third Party not in a materially worse (financially and otherwise) of performing CytoDyn’s obligations hereunder"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 295",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p295",
+      "score": 15.4711,
+      "overlap": [
+       "assignment",
+       "consent",
+       "written"
+      ],
+      "snippet": "If a Force Majeure persists for more than [***], then the Parties shall discuss in good faith the modification of the Parties’ obligations under this Agreement in order to mitigate the delays caused by such Force Majeure"
+     }
+    ],
+    "hybrid": [
+     {
+      "source_id": "contract_0",
+      "section_ref": "Paragraph 1111",
+      "chunk_id": "contract_0::p1111",
+      "score": 0.0328,
+      "overlap": [
+       "assignment",
+       "consent",
+       "written"
+      ],
+      "snippet": "8.6. Assignment. Neither this Agreement nor any of the rights, interests or obligations under this Agreement may be assigned or delegated, in whole or in part, by operation of law or otherwise by any of the parties heret"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 296",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p296",
+      "score": 0.0161,
+      "overlap": [
+       "assignment"
+      ],
+      "snippet": "A Change of Control shall be deemed an assignment for purposes of this Agreement. Any permitted successor or assignee of rights and/or obligations permitted hereunder shall, in writing to the other Party, expressly assum"
+     },
+     {
+      "source_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+      "section_ref": "Paragraph 297",
+      "chunk_id": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement::p297",
+      "score": 0.0161,
+      "overlap": [
+       "assignment",
+       "consent",
+       "written"
+      ],
+      "snippet": "CytoDyn may assign this Agreement and its rights and obligations hereunder, in whole but not in part, to any Third Party not in a materially worse (financially and otherwise) of performing CytoDyn’s obligations hereunder"
+     }
+    ]
+   }
+  }
+ ]
+}
