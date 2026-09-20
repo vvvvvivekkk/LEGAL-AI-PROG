@@ -1,4 +1,4 @@
-# Legal-RAG: Hallucination-Resistant Legal AI
+# Legal AI: Hallucination-Resistant Legal RAG
 
 A Retrieval-Augmented Generation system for legal Q&A where every answer is checked against its sources before it's shown, and ships with a structured, auditable proof of where each claim came from.
 
@@ -12,7 +12,7 @@ LLMs answering legal questions hallucinate: invented facts, misattributed case l
 2. **Hybrid retrieval on a local, file-based vector DB** — [LanceDB](https://lancedb.github.io/lancedb/) stores the index as on-disk Lance files (no server process, fully local), and natively combines dense vector search with full-text search + reciprocal rank fusion, which is exactly the hybrid semantic+keyword retrieval this problem needs. Followed by cross-encoder reranking.
 3. **Citation-forced generation** — the LLM must attribute every claim to a specific chunk id; unattributed claims are treated as violations, not accepted.
 4. **A 6-layer verification/proof chain (V1–V6)** — not one hallucination check, a pipeline of them: citation existence → NLI entailment → atomic claim fidelity scoring → self-consistency cross-check → a single calibrated **Verification Confidence Score (VCS)** with abstention → a structured **Proof Object** per answer (claim → source chunk → verbatim quote → verdict). See `docs/architecture.md` §4.
-5. **A React UI built around the pipeline's actual stages**, not a generic chat box: dedicated Ingestion, Retrieval, Evaluation, and Hallucination-Check/Proof views, talking to a FastAPI backend over HTTP. See `docs/architecture.md` §6.
+5. **A React UI ("Legal AI") built around the pipeline's actual stages**, not a generic chat box: routed Home, Ingest, Ask, Search, and Evaluation pages, with the per-claim verification proof folded into each Ask answer — talking to a FastAPI backend over HTTP. See `docs/architecture.md` §6.
 
 This is designed to produce a real ablation study (SAC on/off, hybrid vs dense-only, each verification layer on/off) so results can go directly into a research paper — see `docs/architecture.md` §5.
 
@@ -21,7 +21,7 @@ This is designed to produce a real ablation study (SAC on/off, hybrid vs dense-o
 ```
 Ingestion → SAC Chunking → Embedding → LanceDB (hybrid: vector + FTS + RRF) → Rerank
     → Citation-forced Generation → Verification chain V1–V6 → VCS gate (answer | abstain)
-    → FastAPI backend ⇄ React SPA (Ingestion / Retrieval / Evaluation / Proof viewer)
+    → FastAPI backend ⇄ React SPA "Legal AI" (Home / Ingest / Ask / Search / Evaluation)
 ```
 
 ## Tech stack
@@ -37,7 +37,7 @@ Ingestion → SAC Chunking → Embedding → LanceDB (hybrid: vector + FTS + RRF
 | Generation LLM | pluggable — Claude / GPT-4o / Llama 3.1 / Gemini |
 | NLI (verification) | roberta-large-mnli or legal-domain NLI model |
 | Backend | FastAPI |
-| UI | React (Vite) SPA — Ingestion / Retrieval / Evaluation / Proof viewer; talks only to the FastAPI backend |
+| UI | React (Vite + React Router) SPA "Legal AI" — Home / Ingest / Ask / Search / Evaluation; talks only to the FastAPI backend |
 | Experiment tracking | plain JSON/YAML configs + results under `/experiments` |
 
 ## Repo layout
