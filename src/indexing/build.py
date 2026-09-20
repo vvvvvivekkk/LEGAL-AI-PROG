@@ -82,8 +82,22 @@ def append_chunks(
     Falls back to build_index if the table doesn't exist yet. The FTS index
     is rebuilt afterwards so newly-added rows are searchable by keyword too.
     """
-    db = connect(db_path)
     rows = chunks_to_rows(chunks, embedder)
+    return append_rows(rows, db_path=db_path, table_name=table_name)
+
+
+def append_rows(
+    rows: list[dict],
+    db_path: str | Path = DEFAULT_DB_PATH,
+    table_name: str = TABLE_NAME,
+) -> lancedb.table.Table:
+    """Append already-embedded rows (from chunks_to_rows) to the table.
+
+    Split out from append_chunks so callers can run the embedding step and the
+    index write separately -- the API uses this to report an embedding-model
+    failure distinctly from an index-write failure.
+    """
+    db = connect(db_path)
 
     if table_name in db.table_names():
         table = db.open_table(table_name)

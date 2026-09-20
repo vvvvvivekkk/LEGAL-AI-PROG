@@ -32,8 +32,21 @@ def _cached_embedder(model_marker: str) -> EmbeddingModel:
 
 
 def get_embedder() -> EmbeddingModel:
-    """Default embedding backend (cached). Overridden with a fake in tests."""
-    return _cached_embedder("default")
+    """Default embedding backend (cached). Overridden with a fake in tests.
+
+    Constructing the backend can fail before any request work happens (e.g.
+    sentence-transformers not installed). Surface that as a 503 with the real
+    reason instead of an unhandled dependency error.
+    """
+    try:
+        return _cached_embedder("default")
+    except Exception as exc:  # noqa: BLE001
+        from fastapi import HTTPException
+
+        raise HTTPException(
+            status_code=503,
+            detail=f"embedding model unavailable: {type(exc).__name__}: {exc}",
+        ) from exc
 
 
 # The reranker / LLM adapter / NLI model are heavy and only some routes use

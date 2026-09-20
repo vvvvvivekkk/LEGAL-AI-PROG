@@ -101,3 +101,32 @@ def test_retrieve_empty_query_returns_400(client, sample_txt_bytes):
     client.post("/ingest", files={"file": (name, data, "text/plain")})
     resp = client.get("/retrieve", params={"q": "   "})
     assert resp.status_code == 400
+
+
+def test_ingest_embedding_failure_returns_503_with_reason(client_broken_embedder, sample_txt_bytes):
+    name, data = sample_txt_bytes
+    resp = client_broken_embedder.post("/ingest", files={"file": (name, data, "text/plain")})
+    assert resp.status_code == 503
+    detail = resp.json()["detail"]
+    assert detail.startswith("embedding model unavailable:")
+    assert "could not download" in detail
+    # a failed ingest must not leave a half-written index behind
+    assert client_broken_embedder.get("/retrieve", params={"q": "deposit"}).status_code == 409
+
+
+def test_unhandled_route_error_is_json_with_cors_headers(client):
+    """Any exception a route doesn't catch must still come back as JSON with
+    CORS headers — otherwise the browser reports a bare "Failed to fetch"."""
+    from src.api.main import app as _app
+
+    @_app.get("/_boom")
+    def boom():
+        raise RuntimeError("kaboom")
+
+    try:
+        resp = client.get("/_boom", headers={"Origin": "http://localhost:5173"})
+    finally:
+        _app.router.routes[:] = [r for r in _app.router.routes if getattr(r, "path", None) != "/_boom"]
+    assert resp.status_code == 500
+    assert resp.json()["detail"] == "internal error: RuntimeError: kaboom"
+    assert resp.headers.get("access-control-allow-origin") == "http://localhost:5173"

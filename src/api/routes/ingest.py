@@ -17,12 +17,18 @@ from src.api.index_stats import index_totals
 from src.api.schemas import IngestResponse
 from src.api.serialization import new_chunk
 from src.chunking.fallback import chunk_document_or_fallback
-from src.indexing.build import append_chunks
+from src.indexing.build import append_rows, chunks_to_rows
 from src.ingestion.pipeline import ingest_file_with_text
 
 router = APIRouter()
 
 _SUPPORTED = {".txt", ".pdf"}
+
+
+def _describe(exc: BaseException) -> str:
+    """Short, human-readable reason for an exception (type name if no message)."""
+    text = str(exc).strip()
+    return f"{type(exc).__name__}: {text}" if text else type(exc).__name__
 
 
 @router.post("/ingest", response_model=IngestResponse)
@@ -57,7 +63,24 @@ async def ingest(
             detail="No chunks produced — the file appears to be empty.",
         )
 
-    append_chunks(chunk_dicts, db_path=db_path, embedder=embedder)
+    # Embedding is the step most likely to fail at runtime (model not
+    # downloaded, no network, out of memory). Report it as a clean 503 with the
+    # real reason rather than letting the exception escape the route.
+    try:
+        rows = chunks_to_rows(chunk_dicts, embedder)
+    except Exception as exc:  # noqa: BLE001 - any backend failure is "unavailable" to the client
+        raise HTTPException(
+            status_code=503,
+            detail=f"embedding model unavailable: {_describe(exc)}",
+        ) from exc
+
+    try:
+        append_rows(rows, db_path=db_path)
+    except Exception as exc:  # noqa: BLE001
+        raise HTTPException(
+            status_code=500,
+            detail=f"could not write to the index: {_describe(exc)}",
+        ) from exc
 
     note = (
         "No legal structure detected — used fallback paragraph chunking."

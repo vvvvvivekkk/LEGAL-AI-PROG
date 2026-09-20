@@ -108,3 +108,20 @@ def client_no_llm(client):
     app.dependency_overrides[deps.get_adapter_factory] = lambda: boom
     app.dependency_overrides[deps.get_nli_factory] = lambda: (lambda: FakeNLI())
     return client
+
+
+class BrokenEmbedder:
+    """Embedder whose model load fails — exercises the /ingest 503 path."""
+
+    def embed(self, texts):
+        raise RuntimeError("could not download sentence-transformers/all-MiniLM-L6-v2")
+
+    @property
+    def dimension(self) -> int:
+        return 32
+
+
+@pytest.fixture
+def client_broken_embedder(client):
+    app.dependency_overrides[deps.get_embedder] = lambda: BrokenEmbedder()
+    return client  # base `client` fixture clears overrides on teardown
