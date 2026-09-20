@@ -64,18 +64,6 @@ export const FileIcon = (p) => (
   </Svg>
 )
 
-// Brand mark: scales of justice fused with a verification check.
-export const ScaleCheckIcon = (p) => (
-  <Svg {...p}>
-    <path d="M12 3v18" />
-    <path d="M7 21h10" />
-    <path d="M5 7h14" />
-    <path d="M5 7 3 13h4z" />
-    <path d="M19 7l-2 6h4z" />
-    <path d="m9.5 5 1.5 1.5L14 3.5" />
-  </Svg>
-)
-
 export const ShieldIcon = (p) => (
   <Svg {...p}>
     <path d="M12 3 5 6v5c0 4.2 2.8 7.5 7 9 4.2-1.5 7-4.8 7-9V6z" />
