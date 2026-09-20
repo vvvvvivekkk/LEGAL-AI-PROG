@@ -31,7 +31,7 @@ function useCountUp(target, ms = 900) {
 function StatChip({ value, label }) {
   const shown = useCountUp(value)
   return (
-    <div className="rounded-xl border border-line bg-surface/70 px-4 py-3">
+    <div className="rounded-xl border border-line bg-surface/70 px-4 py-3 shadow-[var(--shadow-flat)]">
       <div className="font-mono text-2xl font-medium text-ink">{shown}</div>
       <div className="mt-0.5 text-xs text-muted">{label}</div>
     </div>
@@ -65,20 +65,26 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <p className="text-sm text-primary">Retrieval-augmented, verification-gated</p>
-          <h1 className="mt-2 text-4xl font-semibold leading-tight tracking-tight text-ink">
+          <p className="text-sm text-muted">Retrieval-augmented, verification-gated</p>
+          <h1 className="text-gradient mt-2 text-[2.75rem] font-bold leading-[1.08] tracking-[-0.02em] md:text-5xl">
             Legal answers you can audit.
           </h1>
-          <p className="mt-3 max-w-md text-[15px] leading-relaxed text-muted">
+          <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted">
             Ask questions over your indexed statutes and get answers where every claim is checked
             against its source — with the proof attached, not promised.
           </p>
 
           <div className="mt-6 flex gap-3">
-            <Link to="/ask" className="rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-primary/90">
+            <Link
+              to="/ask"
+              className="bg-gradient-brand rounded-lg px-4 py-2.5 text-sm font-medium text-white shadow-[var(--shadow-button)] transition-[filter] hover:brightness-110"
+            >
               Ask a question
             </Link>
-            <Link to="/ingest" className="rounded-lg border border-line px-4 py-2.5 text-sm font-medium text-muted transition-colors hover:border-faint hover:text-ink">
+            <Link
+              to="/ingest"
+              className="rounded-lg border border-line bg-surface/60 px-4 py-2.5 text-sm font-medium text-muted shadow-[var(--shadow-flat)] transition-colors hover:border-faint hover:text-ink"
+            >
               Add a document
             </Link>
           </div>
@@ -91,7 +97,7 @@ export default function Home() {
           )}
           {totals && totals.chunks === 0 && (
             <p className="mt-3 text-xs text-faint">
-              Nothing indexed yet — <Link to="/ingest" className="text-primary">add a document</Link> to get started.
+              Nothing indexed yet — <Link to="/ingest" className="text-accent">add a document</Link> to get started.
             </p>
           )}
         </motion.div>
@@ -100,10 +106,17 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="relative h-64 overflow-hidden rounded-2xl border border-line bg-gradient-to-b from-raised to-surface md:h-80"
+          className="relative h-64 md:h-80"
         >
-          <Hero3D />
-          <div className="pointer-events-none absolute bottom-3 left-4 font-mono text-[11px] text-faint">
+          {/* Glow behind the hero canvas so it sits in light rather than on a flat panel. */}
+          <div
+            aria-hidden
+            className="bg-gradient-brand absolute -inset-3 rounded-[1.6rem] opacity-40 blur-2xl"
+          />
+          <div className="relative h-full overflow-hidden rounded-2xl border border-line/80 bg-gradient-to-b from-raised to-surface shadow-[var(--shadow-card)]">
+            <Hero3D />
+          </div>
+          <div className="pointer-events-none absolute bottom-3 left-4 font-mono text-[11px] text-muted">
             embedding space · {totals?.chunks ?? '—'} vectors
           </div>
         </motion.div>
@@ -116,9 +129,9 @@ export default function Home() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.15 + i * 0.08 }}
-            className="rounded-xl border border-line-soft bg-surface p-4"
+            className="rounded-xl border border-line-soft bg-surface/80 p-4 shadow-[var(--shadow-flat)]"
           >
-            <div className="font-mono text-sm text-primary">{s.n}</div>
+            <div className="text-gradient font-mono text-sm font-medium">{s.n}</div>
             <div className="mt-1 text-sm font-semibold text-ink">{s.title}</div>
             <p className="mt-1 text-[13px] leading-relaxed text-muted">{s.body}</p>
           </motion.div>

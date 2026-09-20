@@ -7,6 +7,22 @@ import { useEffect, useRef } from 'react'
 const REDUCED =
   typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
 
+// Brand gradient stops (indigo -> violet -> cyan); far points are indigo,
+// near points cyan, so depth reads as the same gradient the rest of the UI uses.
+const STOPS = [
+  [99, 102, 241],
+  [168, 85, 247],
+  [34, 211, 238],
+]
+
+function brandColor(t) {
+  const seg = t < 0.5 ? 0 : 1
+  const u = (t - seg * 0.5) * 2
+  const a = STOPS[seg]
+  const b = STOPS[seg + 1]
+  return [0, 1, 2].map((i) => Math.round(a[i] + (b[i] - a[i]) * u))
+}
+
 function fibonacciSphere(n) {
   const pts = []
   const golden = Math.PI * (3 - Math.sqrt(5))
@@ -70,9 +86,7 @@ export default function Hero3D({ count = 220 }) {
         const sy = cy + y * R * persp
         const depth = (z + 1) / 2 // 0 (far) .. 1 (near)
         const size = (0.8 + depth * 2.4) * persp
-        const r = Math.round(109 + (56 - 109) * depth) // primary -> info
-        const g = Math.round(124 + (189 - 124) * depth)
-        const b = Math.round(255 + (248 - 255) * depth)
+        const [r, g, b] = brandColor(depth)
         ctx.beginPath()
         ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${0.25 + depth * 0.6})`
         ctx.arc(sx, sy, Math.max(0.4, size), 0, Math.PI * 2)
