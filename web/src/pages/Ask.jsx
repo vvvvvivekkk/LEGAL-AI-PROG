@@ -30,21 +30,49 @@ function useReveal(count) {
   return prefersReduced ? count : n
 }
 
-function DecisionPill({ decision, vcs }) {
-  const answered = decision === 'ANSWER'
-  const pct = vcs != null ? Math.round(vcs * 100) : null
+// Always-visible verification result for an answer. This is the first thing
+// a reader sees on every reply — the per-claim proof below is the drill-down,
+// not the only evidence that verification happened.
+function VerificationBadge({ decision, vcs, claimCount }) {
+  const verified = decision === 'ANSWER'
+  const score = vcs != null ? vcs.toFixed(2) : '—'
   return (
-    <div className="flex items-center gap-2">
+    <div
+      className={`inline-flex items-center gap-2 rounded-full border py-1 pl-1.5 pr-3 text-[12px] font-medium ${
+        verified
+          ? 'border-verified/40 bg-verified-weak text-verified shadow-[0_0_20px_-6px_var(--color-verified)]'
+          : 'border-caution/40 bg-caution-weak text-caution shadow-[0_0_20px_-6px_var(--color-caution)]'
+      }`}
+      title={
+        verified
+          ? `Every claim passed the verification chain. Verification confidence score ${score}.`
+          : `Verification confidence ${score} was below the answer threshold, so nothing was asserted.`
+      }
+    >
       <span
-        className={`rounded-full border px-2.5 py-0.5 text-[11px] font-semibold ${
-          answered
-            ? 'border-verified/40 bg-verified-weak text-verified'
-            : 'border-caution/40 bg-caution-weak text-caution'
+        className={`flex h-5 w-5 items-center justify-center rounded-full ${
+          verified ? 'bg-verified text-canvas' : 'bg-caution text-canvas'
         }`}
+        aria-hidden
       >
-        {answered ? 'Answered' : 'Abstained'}
+        {verified ? (
+          <svg viewBox="0 0 12 12" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="m2.5 6.5 2.3 2.3L9.5 4" />
+          </svg>
+        ) : (
+          <svg viewBox="0 0 12 12" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <path d="M6 3v3.5" />
+            <path d="M6 9h.01" />
+          </svg>
+        )}
       </span>
-      {pct != null && <span className="font-mono text-[11px] text-muted">VCS {pct}/100</span>}
+      <span>{verified ? 'Verified' : 'Abstained'}</span>
+      <span className="font-mono text-[11px] opacity-90">VCS {score}</span>
+      {verified && claimCount > 0 && (
+        <span className="text-[11px] opacity-70">
+          · {claimCount} {claimCount === 1 ? 'claim' : 'claims'} checked
+        </span>
+      )}
     </div>
   )
 }
@@ -120,11 +148,11 @@ function AssistantTurn({ turn }) {
 
   return (
     <div className="rounded-2xl rounded-tl-sm border border-line bg-surface p-4 shadow-[var(--shadow-card)]">
-      <div className="mb-2 flex items-center gap-2">
+      <div className="mb-3 flex items-center gap-2">
         <span className="flex h-6 w-6 items-center justify-center rounded-md bg-accent-weak text-accent">
           <ShieldIcon className="h-4 w-4" />
         </span>
-        <DecisionPill decision={data.decision} vcs={data.vcs} />
+        <VerificationBadge decision={data.decision} vcs={data.vcs} claimCount={claims.length} />
       </div>
 
       {abstainedOrNoClaims ? (
@@ -146,7 +174,7 @@ function AssistantTurn({ turn }) {
           {revealed < claims.length && (
             <span className="inline-block h-4 w-2 animate-pulse rounded-sm bg-accent/70 align-middle" aria-hidden />
           )}
-          <p className="mt-2 text-[11px] text-faint">Click a citation to see the source, quote, and verification verdicts.</p>
+          <p className="mt-2 text-[11px] text-faint">Click a citation to see the passage it came from and each verification verdict.</p>
         </div>
       )}
     </div>
