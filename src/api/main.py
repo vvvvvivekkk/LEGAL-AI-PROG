@@ -16,7 +16,16 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from src.api.routes import documents, embedding_map, evaluation, ingest, query, retrieve, stats
+from src.api.routes import (
+    chats,
+    documents,
+    embedding_map,
+    evaluation,
+    ingest,
+    query,
+    retrieve,
+    stats,
+)
 from src.config import load_env
 from src.generation.factory import missing_key_message, selected_provider
 
@@ -103,6 +112,7 @@ def create_app() -> FastAPI:
     app.include_router(query.router, tags=["query"])
     app.include_router(evaluation.router, tags=["evaluation"])
     app.include_router(stats.router, tags=["stats"])
+    app.include_router(chats.router, tags=["chats"])
     app.include_router(embedding_map.router, tags=["embedding-map"])
     return app
 

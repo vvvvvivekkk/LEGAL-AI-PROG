@@ -10,6 +10,7 @@ build/
 dist/
 
 # Data / generated artifacts
+data/chats/
 data/lancedb/
 data/lancedb_batch/
 data/lancedb_ablation/

@@ -12,11 +12,15 @@ import os
 from functools import lru_cache
 
 from src.embedding.base import EmbeddingModel
+from src.chat.store import DEFAULT_CHATS_DIR, ChatStore
 from src.indexing.build import DEFAULT_DB_PATH
 
 
 class ApiState:
     """Process-wide, overridable settings (the LanceDB location).
+
+    chats_dir holds the Ask page's conversation history -- separate from the
+    document index, which is rebuilt whenever the corpus changes.
 
     LEGAL_AI_DB_PATH points the API at a different index without touching the
     default one -- used by scripts/batch_ask_check.py so a batch run gets a
@@ -24,10 +28,15 @@ class ApiState:
     """
 
     db_path: str = os.environ.get("LEGAL_AI_DB_PATH") or DEFAULT_DB_PATH
+    chats_dir: str = os.environ.get("LEGAL_AI_CHATS_DIR") or str(DEFAULT_CHATS_DIR)
 
 
 def get_db_path() -> str:
     return ApiState.db_path
+
+
+def get_chat_store() -> ChatStore:
+    return ChatStore(ApiState.chats_dir)
 
 
 @lru_cache(maxsize=4)

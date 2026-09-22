@@ -124,6 +124,45 @@ class QueryResponse(BaseModel):
     grounded_answer_text: str | None = None
 
 
+class ChatMessage(BaseModel):
+    id: str | None = None
+    role: str  # "user" | "assistant"
+    text: str
+    created_at: str | None = None
+    # Present on assistant messages: the whole verification result as it was
+    # shown, so reopening a conversation reproduces the proof, not just text.
+    answer_mode: str | None = None
+    decision: str | None = None
+    vcs: float | None = None
+    abstained: bool | None = None
+    context_chunk_ids: list[str] | None = None
+    proof: ProofModel | None = None
+
+
+class ChatSummary(BaseModel):
+    id: str
+    title: str
+    created_at: str | None = None
+    updated_at: str | None = None
+    message_count: int = 0
+
+
+class Conversation(BaseModel):
+    id: str
+    title: str
+    created_at: str | None = None
+    updated_at: str | None = None
+    messages: list[ChatMessage] = []
+
+
+class ConversationList(BaseModel):
+    conversations: list[ChatSummary] = []
+
+
+class CreateConversationRequest(BaseModel):
+    title: str | None = None
+
+
 class EvaluationRun(BaseModel):
     name: str
     config: dict
