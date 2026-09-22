@@ -1,5 +1,7 @@
 # Architecture
 
+> For a full production-RAG reference and an explicit, evidence-based map of where this project stands against it (including what's genuinely novel and what's deliberately out of scope for a local demo), see [architecture-production.md](architecture-production.md).
+
 ## 1. Pipeline
 
 ```
