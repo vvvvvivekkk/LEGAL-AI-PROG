@@ -119,3 +119,91 @@ def test_query_fetches_a_deep_candidate_pool(client):
     assert seen[0] >= QUERY_POOL_N
     assert seen[0] >= 8 * default_k
     assert seen[0] > 4 * 5  # the old formula at the old default k — a pool of 20
+
+
+# ---------------------------------------------------------------------------
+# General-knowledge fallback
+# ---------------------------------------------------------------------------
+
+class AbstainingAdapter:
+    """LLM that always declines — the document-grounded path produces nothing."""
+
+    def __init__(self):
+        self.prompts = []
+
+    def complete(self, system, user):
+        self.prompts.append((system, user))
+        if "own knowledge" in system:
+            return "A non-disclosure agreement is a contract restricting disclosure of information."
+        return "INSUFFICIENT_CONTEXT: the passages do not define this."
+
+
+def _adapter_client(client, adapter):
+    from src.api import deps
+    from src.api.main import app
+    from tests.api.conftest import FakeNLI
+
+    app.dependency_overrides[deps.get_adapter_factory] = lambda: (lambda: adapter)
+    app.dependency_overrides[deps.get_nli_factory] = lambda: (lambda: FakeNLI())
+    return client
+
+
+def test_general_question_falls_back_to_general_knowledge(client, sample_txt_bytes):
+    name, data = sample_txt_bytes
+    client.post("/ingest", files={"file": (name, data, "text/plain")})
+    adapter = AbstainingAdapter()
+    c = _adapter_client(client, adapter)
+
+    body = c.post("/query", json={"query": "What is a non-disclosure agreement?"}).json()
+
+    assert body["answer_mode"] == "general_knowledge"
+    assert body["vcs"] is None, "a general-knowledge answer must not carry a verification score"
+    assert body["abstained"] is False
+    assert "contract restricting disclosure" in body["answer_text"]
+    # The declined document-grounded attempt is preserved, not thrown away.
+    assert body["grounded_answer_text"].startswith("INSUFFICIENT_CONTEXT")
+    # Two calls: the grounded attempt, then the general-knowledge one.
+    assert any("own knowledge" in sys_p for sys_p, _ in adapter.prompts)
+
+
+def test_document_question_still_abstains(client, sample_txt_bytes):
+    """The remedies-clause case: the corpus should answer it, so abstain."""
+    name, data = sample_txt_bytes
+    client.post("/ingest", files={"file": (name, data, "text/plain")})
+    adapter = AbstainingAdapter()
+    c = _adapter_client(client, adapter)
+
+    q = "What happens if the receiving party discloses confidential information to a third party?"
+    body = c.post("/query", json={"query": q}).json()
+
+    assert body["answer_mode"] == "abstained"
+    assert body["abstained"] is True
+    assert body["grounded_answer_text"] is None
+    assert all("own knowledge" not in sys_p for sys_p, _ in adapter.prompts)
+
+
+def test_general_fallback_can_be_disabled(client, sample_txt_bytes):
+    name, data = sample_txt_bytes
+    client.post("/ingest", files={"file": (name, data, "text/plain")})
+    c = _adapter_client(client, AbstainingAdapter())
+
+    body = c.post(
+        "/query",
+        json={"query": "What is a non-disclosure agreement?", "allow_general_knowledge": False},
+    ).json()
+
+    assert body["answer_mode"] == "abstained"
+    assert body["abstained"] is True
+
+
+def test_verified_answer_is_labelled_verified(client, sample_txt_bytes):
+    from tests.api.conftest import CitingStubAdapter
+
+    name, data = sample_txt_bytes
+    client.post("/ingest", files={"file": (name, data, "text/plain")})
+    c = _adapter_client(client, CitingStubAdapter())
+
+    body = c.post("/query", json={"query": "What is the deposit refund period?"}).json()
+    assert body["answer_mode"] == "verified"
+    assert body["decision"] == "ANSWER"
+    assert body["vcs"] is not None

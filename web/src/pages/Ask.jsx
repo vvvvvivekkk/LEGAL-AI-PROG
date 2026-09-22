@@ -33,7 +33,26 @@ function useReveal(count) {
 // Always-visible verification result for an answer. This is the first thing
 // a reader sees on every reply — the per-claim proof below is the drill-down,
 // not the only evidence that verification happened.
-function VerificationBadge({ decision, vcs, claimCount }) {
+function VerificationBadge({ decision, vcs, claimCount, mode }) {
+  // A general-knowledge answer is not on the verified/abstained axis at all —
+  // it was never checked against the documents, so it gets its own badge.
+  if (mode === 'general_knowledge') {
+    return (
+      <div
+        className="inline-flex items-center gap-2 rounded-full border border-unsourced/40 bg-unsourced-weak py-1 pl-1.5 pr-3 text-[12px] font-medium text-unsourced shadow-[0_0_20px_-6px_var(--color-unsourced)]"
+        title="Answered from the model's general legal knowledge. Nothing here was retrieved from or checked against your documents."
+      >
+        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-unsourced text-canvas" aria-hidden>
+          <svg viewBox="0 0 12 12" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M6 8.5v-2" />
+            <path d="M6 4h.01" />
+            <circle cx="6" cy="6" r="4.5" />
+          </svg>
+        </span>
+        <span>General knowledge — not verified against your documents</span>
+      </div>
+    )
+  }
   const verified = decision === 'ANSWER'
   const score = vcs != null ? vcs.toFixed(2) : '—'
   return (
@@ -144,7 +163,10 @@ function AssistantTurn({ turn }) {
   }
 
   const data = turn.data
-  const abstainedOrNoClaims = data.abstained || claims.length === 0
+  const general = data.answer_mode === 'general_knowledge'
+  // A general-knowledge answer carries no verified claims, so it renders as
+  // plain prose — never through the citation/proof path.
+  const abstainedOrNoClaims = general || data.abstained || claims.length === 0
 
   return (
     <div className="rounded-2xl rounded-tl-sm border border-line bg-surface p-4 shadow-[var(--shadow-card)]">
@@ -152,16 +174,28 @@ function AssistantTurn({ turn }) {
         <span className="flex h-6 w-6 items-center justify-center rounded-md bg-accent-weak text-accent">
           <ShieldIcon className="h-4 w-4" />
         </span>
-        <VerificationBadge decision={data.decision} vcs={data.vcs} claimCount={claims.length} />
+        <VerificationBadge decision={data.decision} vcs={data.vcs} claimCount={claims.length} mode={data.answer_mode} />
       </div>
 
       {abstainedOrNoClaims ? (
         <div className="space-y-2">
           <p className="whitespace-pre-wrap text-[15px] leading-relaxed text-ink/90">{data.answer_text}</p>
-          {data.abstained && (
-            <Banner variant="info" title="Abstained">
-              The answer wasn't supported by the retrieved context, so nothing was asserted.
-            </Banner>
+          {general ? (
+            <div className="rounded-xl border border-unsourced/30 bg-unsourced-weak/50 p-3 text-[13px] leading-relaxed text-ink/80">
+              <p className="font-medium text-unsourced">Not from your documents</p>
+              <p className="mt-1">
+                Your indexed documents didn't support an answer, and this was a general legal
+                concept question, so it was answered from the model's own knowledge. It has no
+                citations and no verification score — don't rely on it as a statement about your
+                own agreements.
+              </p>
+            </div>
+          ) : (
+            data.abstained && (
+              <Banner variant="info" title="Abstained">
+                The answer wasn't supported by the retrieved context, so nothing was asserted.
+              </Banner>
+            )
           )}
         </div>
       ) : (

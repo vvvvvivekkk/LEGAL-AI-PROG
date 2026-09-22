@@ -39,6 +39,10 @@
   --color-verified-weak: #0e2a21;
   --color-caution: #fbbf24;
   --color-caution-weak: #2a2110;
+  /* Deliberately off the verified/caution axis: a general-knowledge answer is
+     not "a bit verified", it is a different kind of answer entirely. */
+  --color-unsourced: #c084fc;
+  --color-unsourced-weak: #241633;
   --color-danger: #f87171;
   --color-danger-weak: #2a1416;
   --color-info: #38bdf8;

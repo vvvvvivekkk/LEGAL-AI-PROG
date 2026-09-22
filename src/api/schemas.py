@@ -81,6 +81,10 @@ class QueryRequest(BaseModel):
     k: int = 12
     rerank: bool = True
     self_consistency: int = 0
+    # When verification declines a *general concept* question, answer it from
+    # the model's own knowledge instead, clearly labelled. Never applies to
+    # questions about the indexed documents.
+    allow_general_knowledge: bool = True
 
 
 class ClaimProofModel(BaseModel):
@@ -101,6 +105,11 @@ class ProofModel(BaseModel):
     claims: list[ClaimProofModel]
 
 
+# How an answer was produced. "verified" and "abstained" are the document-grounded
+# path; "general_knowledge" is the uncited fallback and carries no VCS.
+ANSWER_MODES = ("verified", "abstained", "general_knowledge")
+
+
 class QueryResponse(BaseModel):
     query: str
     answer_text: str
@@ -109,6 +118,10 @@ class QueryResponse(BaseModel):
     vcs: float | None
     context_chunk_ids: list[str]
     proof: ProofModel
+    answer_mode: str = "verified"
+    # Set only when answer_mode == "general_knowledge": the document-grounded
+    # attempt that was declined, kept so the UI can still show what was tried.
+    grounded_answer_text: str | None = None
 
 
 class EvaluationRun(BaseModel):

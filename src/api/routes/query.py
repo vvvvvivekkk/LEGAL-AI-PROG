@@ -17,6 +17,10 @@ from src.api.deps import (
     get_reranker_factory,
 )
 from src.api.schemas import ProofModel, QueryRequest, QueryResponse
+from src.generation.general_knowledge import (
+    answer_from_general_knowledge,
+    is_general_concept_question,
+)
 from src.generation.generator import generate
 from src.indexing.build import open_table, table_exists
 from src.retrieval.config import RetrievalConfig
@@ -74,6 +78,29 @@ def query(
     result = verify_answer(answer, context, nli, resamples=resamples)
     proof = result.proof
 
+    # The documents could not support an answer. If the question was never about
+    # the documents -- "what is an NDA?" -- answer it from general knowledge and
+    # label it as such, rather than abstaining on a question the corpus was
+    # never going to answer. Document-specific questions keep abstaining.
+    declined = answer.abstained or result.vcs_result.decision != "ANSWER"
+    if declined and req.allow_general_knowledge and is_general_concept_question(req.query):
+        try:
+            general_text = answer_from_general_knowledge(req.query, adapter)
+        except Exception:  # noqa: BLE001 - fall back to the honest abstention
+            general_text = ""
+        if general_text:
+            return QueryResponse(
+                query=req.query,
+                answer_text=general_text,
+                abstained=False,
+                decision=result.vcs_result.decision,
+                vcs=None,  # nothing was verified against the documents
+                context_chunk_ids=answer.context_chunk_ids,
+                proof=ProofModel(**proof.to_dict()),
+                answer_mode="general_knowledge",
+                grounded_answer_text=answer.raw_text,
+            )
+
     return QueryResponse(
         query=req.query,
         answer_text=answer.raw_text,
@@ -82,4 +109,5 @@ def query(
         vcs=result.vcs_result.vcs,
         context_chunk_ids=answer.context_chunk_ids,
         proof=ProofModel(**proof.to_dict()),
+        answer_mode="verified" if result.vcs_result.decision == "ANSWER" else "abstained",
     )
