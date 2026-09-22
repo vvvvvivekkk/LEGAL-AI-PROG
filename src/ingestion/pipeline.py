@@ -17,7 +17,11 @@ def ingest_file_with_text(path: str | Path) -> tuple[Document, str]:
     path = Path(path)
     raw = load_document(path)
     cleaned = clean_text(raw)
-    document = parse_document(cleaned, source_id=path.stem)
+    # Strip the stem: a filename with leading/trailing whitespace would put that
+    # whitespace inside every chunk_id, and the model cannot reproduce an
+    # invisible leading space when citing -- V1 then reads a correct citation as
+    # a fabricated one and the claim scores zero.
+    document = parse_document(cleaned, source_id=path.stem.strip())
     return document, cleaned
 
 

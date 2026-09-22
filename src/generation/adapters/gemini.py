@@ -12,13 +12,20 @@ import os
 
 DEFAULT_MODEL = "gemini-2.5-flash"
 
+# On the 2.5 models, reasoning tokens are drawn from max_output_tokens before
+# any answer text is emitted -- a RAG prompt routinely spends 1-2k tokens
+# thinking. A 1024 budget therefore returned finish_reason=MAX_TOKENS with the
+# answer cut off mid-citation, which the citation parser then read as "no
+# supported claims" and the chain turned into a spurious ABSTAIN.
+DEFAULT_MAX_TOKENS = 4096
+
 
 class GeminiAdapter:
     def __init__(
         self,
         api_key: str | None = None,
         model: str = DEFAULT_MODEL,
-        max_tokens: int = 1024,
+        max_tokens: int = DEFAULT_MAX_TOKENS,
         client=None,
     ):
         self.api_key = api_key or os.environ.get("GEMINI_API_KEY")

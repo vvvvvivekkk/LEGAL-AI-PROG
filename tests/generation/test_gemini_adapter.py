@@ -6,7 +6,7 @@ from __future__ import annotations
 import pytest
 
 from src.generation import factory
-from src.generation.adapters.gemini import DEFAULT_MODEL, GeminiAdapter
+from src.generation.adapters.gemini import DEFAULT_MAX_TOKENS, DEFAULT_MODEL, GeminiAdapter
 
 
 class _Response:
@@ -39,7 +39,7 @@ def test_complete_passes_system_and_user_through():
     assert call["model"] == DEFAULT_MODEL
     assert call["contents"] == "What is the deposit period?"
     assert call["config"].system_instruction == "You must cite sources."
-    assert call["config"].max_output_tokens == 1024
+    assert call["config"].max_output_tokens == DEFAULT_MAX_TOKENS
 
 
 def test_default_model_is_flash_tier():
@@ -71,3 +71,11 @@ def test_factory_selects_gemini(monkeypatch):
     assert isinstance(adapter, GeminiAdapter)
     assert adapter.api_key == "g-key"
     assert adapter.model == "gemini-2.5-flash-lite"
+
+
+def test_default_token_budget_leaves_room_for_reasoning():
+    """2.5-series reasoning tokens come out of max_output_tokens before any
+    answer text, so a small budget truncates the answer mid-citation and the
+    citation parser sees no supported claims. Keep headroom.
+    """
+    assert DEFAULT_MAX_TOKENS >= 4096

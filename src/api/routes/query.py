@@ -25,6 +25,9 @@ from src.verification.chain import verify_answer
 
 router = APIRouter()
 
+# Floor on the candidate pool for a generation query, regardless of k.
+QUERY_POOL_N = 100
+
 
 @router.post("/query", response_model=QueryResponse)
 def query(
@@ -42,8 +45,11 @@ def query(
 
     # Retrieval
     table = open_table(db_path)
+    # The pool is deliberately much deeper than k: a legal answer often lives in
+    # a clause the fused ranking buries (see RetrievalConfig.DEFAULT_N), and the
+    # reranker can only promote chunks that were fetched in the first place.
     config = RetrievalConfig(
-        mode="hybrid", use_reranker=req.rerank, k=req.k, n=max(4 * req.k, req.k)
+        mode="hybrid", use_reranker=req.rerank, k=req.k, n=max(8 * req.k, QUERY_POOL_N)
     )
     reranker = reranker_factory() if req.rerank else None
     retriever = Retriever(table, config=config, embedder=embedder, reranker=reranker)

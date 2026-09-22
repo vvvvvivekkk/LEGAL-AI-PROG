@@ -149,3 +149,43 @@ def test_reranking_adds_scores_and_promotes_relevant(sample_table, real_embedder
     # the deposit-cap clause should surface in the reranked top-5
     ids = [r["chunk_id"] for r in out]
     assert any("urban_tenancy_act_2019::s4" in cid for cid in ids)
+
+
+# ---------------------------------------------------------------------------
+# Regression: candidate pool depth
+# ---------------------------------------------------------------------------
+
+# The question that made Ask abstain on an NDA corpus that did contain the
+# answer. The clause answering it ("8. Remedies") sat at fused rank 39, so the
+# old pool of 20 never fetched it and the cross-encoder could not promote it.
+NDA_DISCLOSURE_QUESTION = (
+    "What happens if the receiving party discloses confidential information to a third party?"
+)
+
+
+def test_default_pool_is_deep_enough_to_outrank_fusion():
+    """A shallow pool caps what reranking can ever see — keep the default deep."""
+    assert RetrievalConfig().n >= 50
+
+
+def test_buried_candidate_survives_to_context(monkeypatch):
+    """A chunk buried at fused rank 39 still reaches the top-k after reranking.
+
+    Stands in for the NDA remedies clause: the reranker (here: one that promotes
+    the buried chunk) can only do its job if the chunk was fetched at all.
+    """
+    pool = _rows(60)
+    buried = pool[39]
+
+    class PromotesBuried:
+        def rerank(self, query, candidates):
+            hit = [r for r in candidates if r["chunk_id"] == buried["chunk_id"]]
+            return hit + [r for r in candidates if r["chunk_id"] != buried["chunk_id"]]
+
+    config = RetrievalConfig(mode="hybrid", use_reranker=True, k=12)
+    retriever = Retriever(FakeTable(pool), config=config, embedder=object(), reranker=PromotesBuried())
+    monkeypatch.setattr(retriever, "_fetch", lambda q, limit: pool[:limit])
+
+    context = retriever.retrieve(NDA_DISCLOSURE_QUESTION)
+    assert len(context) == 12
+    assert buried["chunk_id"] in [r["chunk_id"] for r in context]

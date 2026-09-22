@@ -76,7 +76,9 @@ class RetrieveResponse(BaseModel):
 
 class QueryRequest(BaseModel):
     query: str
-    k: int = 5
+    # Wider than the Search default: generation needs enough context to cover a
+    # clause split across adjacent chunks, not just the single best-matching one.
+    k: int = 12
     rerank: bool = True
     self_consistency: int = 0
 

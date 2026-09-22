@@ -15,12 +15,20 @@ VALID_MODES = ("dense", "fts", "hybrid")
 DEFAULT_RERANKER_MODEL = "BAAI/bge-reranker-base"
 
 
+# Candidate pool depth. The cross-encoder can only reorder what the bi-encoder
+# fetched, so n has to be deep enough that *it* decides the top-k rather than
+# the fused RRF ranking. On the NDA corpus the clause answering "what happens
+# if the receiving party discloses..." sits at fused rank 39 -- a pool of 20
+# never reaches it, whatever the reranker does.
+DEFAULT_N = 50
+
+
 @dataclass
 class RetrievalConfig:
     mode: str = "hybrid"
     use_reranker: bool = True
     k: int = 5
-    n: int = 20
+    n: int = DEFAULT_N
     reranker_model: str = DEFAULT_RERANKER_MODEL
 
     def __post_init__(self) -> None:

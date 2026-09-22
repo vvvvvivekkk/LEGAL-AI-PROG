@@ -198,7 +198,7 @@ export default function Ask() {
     setTurns((t) => [...t, { role: 'user', text: q }])
     setBusy(true)
     try {
-      const data = await runQuery({ query: q, k: 5, rerank: true, self_consistency: 0 })
+      const data = await runQuery({ query: q, k: 12, rerank: true, self_consistency: 0 })
       setTurns((t) => [...t, { role: 'assistant', data }])
     } catch (err) {
       setTurns((t) => [...t, { role: 'assistant', error: err.message }])

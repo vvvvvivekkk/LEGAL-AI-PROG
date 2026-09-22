@@ -44,7 +44,7 @@ async def ingest(
         raise HTTPException(status_code=415, detail=f"Only {sorted(_SUPPORTED)} files are supported")
 
     contents = await file.read()
-    source_id = Path(filename).stem
+    source_id = Path(filename).stem.strip()
     digest = content_hash(contents)
 
     # Refuse to index the same document twice: the chunk_ids would collide and

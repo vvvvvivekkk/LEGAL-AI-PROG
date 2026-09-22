@@ -69,3 +69,53 @@ def test_evaluation_no_runs_message(client):
     assert isinstance(body["runs"], list)
     if not body["runs"]:
         assert body["message"]
+
+
+# Regression: Ask abstained on this question over an NDA corpus that contained
+# the answer, because /query fetched only max(4*k, k) = 20 candidates and the
+# answering clause was at fused rank 39. Guard the pool depth, which is the
+# deterministic part of that failure.
+NDA_DISCLOSURE_QUESTION = (
+    "What happens if the receiving party discloses confidential information to a third party?"
+)
+
+
+def test_query_fetches_a_deep_candidate_pool(client):
+    from src.api import deps
+    from src.api.main import app
+    from src.api.routes.query import QUERY_POOL_N
+    from src.api.schemas import QueryRequest
+    from tests.api.conftest import CitingStubAdapter, FakeNLI
+
+    # A corpus larger than the pool floor, so the floor is what limits the
+    # fetch rather than the number of rows that exist.
+    paragraphs = [
+        f"{i}. The Receiving Party shall treat batch {i} of the disclosed materials "
+        "as confidential and shall not make it available to any third party."
+        for i in range(150)
+    ]
+    body = "\n\n".join(paragraphs).encode("utf-8")
+    assert client.post("/ingest", files={"file": ("nda.txt", body, "text/plain")}).status_code == 200
+    total_chunks = client.get("/stats").json()["chunks"]
+    assert total_chunks > QUERY_POOL_N
+
+    seen: list[int] = []
+
+    class PoolRecordingReranker:
+        def rerank(self, query, candidates):
+            seen.append(len(candidates))
+            return list(candidates)
+
+    app.dependency_overrides[deps.get_reranker_factory] = lambda: (lambda: PoolRecordingReranker())
+    app.dependency_overrides[deps.get_adapter_factory] = lambda: (lambda: CitingStubAdapter())
+    app.dependency_overrides[deps.get_nli_factory] = lambda: (lambda: FakeNLI())
+
+    default_k = QueryRequest(query="x").k
+    resp = client.post("/query", json={"query": NDA_DISCLOSURE_QUESTION})
+    assert resp.status_code == 200, resp.text
+
+    assert seen, "the reranker was never called — /query is not reranking by default"
+    # Deep enough that the cross-encoder, not the fused ranking, picks the top-k.
+    assert seen[0] >= QUERY_POOL_N
+    assert seen[0] >= 8 * default_k
+    assert seen[0] > 4 * 5  # the old formula at the old default k — a pool of 20
