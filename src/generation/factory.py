@@ -3,9 +3,10 @@
 The pipeline calls get_adapter() and never names a provider itself. Which
 backend is used is decided entirely by env vars:
 
-    LLM_PROVIDER     one of: claude, openai, gemini   (default: claude)
+    LLM_PROVIDER     one of: claude, openai, gemini, groq   (default: claude)
     LLM_API_KEY      the provider API key (claude / openai)
     GEMINI_API_KEY   the Google AI Studio key (gemini)
+    GROQ_API_KEY     the Groq key (groq)
     LLM_MODEL        optional model id; each adapter has its own default
 
 These are read from the environment, or from the repo-root `.env` file (see
@@ -18,7 +19,7 @@ from __future__ import annotations
 from src.config import env
 from src.generation.base import LLMAdapter
 
-_PROVIDERS = ("claude", "openai", "gemini")
+_PROVIDERS = ("claude", "openai", "gemini", "groq")
 
 
 def get_adapter(
@@ -42,5 +43,9 @@ def get_adapter(
         from src.generation.adapters.gemini import GeminiAdapter
 
         return GeminiAdapter(api_key=api_key or env("GEMINI_API_KEY"), **model_kw)
+    if provider == "groq":
+        from src.generation.adapters.groq import GroqAdapter
+
+        return GroqAdapter(api_key=api_key or env("GROQ_API_KEY"), **model_kw)
 
     raise ValueError(f"Unknown LLM_PROVIDER {provider!r}; expected one of {_PROVIDERS}")

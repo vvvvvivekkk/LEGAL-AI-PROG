@@ -10,3 +10,4 @@ pytest
 pypdf
 python-dotenv
 google-genai
+openai
