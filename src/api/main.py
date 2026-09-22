@@ -15,7 +15,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from src.api.routes import embedding_map, evaluation, ingest, query, retrieve, stats
+from src.api.routes import documents, embedding_map, evaluation, ingest, query, retrieve, stats
 from src.config import load_env
 
 # Pull LLM_PROVIDER / LLM_API_KEY / LLM_MODEL from the repo-root .env (if any)
@@ -60,6 +60,7 @@ def create_app() -> FastAPI:
         return {"status": "ok"}
 
     app.include_router(ingest.router, tags=["ingest"])
+    app.include_router(documents.router, tags=["documents"])
     app.include_router(retrieve.router, tags=["retrieve"])
     app.include_router(query.router, tags=["query"])
     app.include_router(evaluation.router, tags=["evaluation"])

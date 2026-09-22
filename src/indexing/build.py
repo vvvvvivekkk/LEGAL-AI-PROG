@@ -111,6 +111,44 @@ def append_rows(
     return table
 
 
+def _sql_quote(value: str) -> str:
+    return "'" + value.replace("'", "''") + "'"
+
+
+def delete_source(
+    source_id: str,
+    db_path: str | Path = DEFAULT_DB_PATH,
+    table_name: str = TABLE_NAME,
+) -> int:
+    """Remove every chunk belonging to one source document. Returns rows deleted.
+
+    Chunk ids are matched through the metadata column rather than by chunk_id
+    prefix, so this stays correct for both SAC and fallback chunk id shapes.
+    The FTS index is rebuilt afterwards -- otherwise keyword search would keep
+    returning the deleted rows.
+    """
+    if not table_exists(db_path, table_name):
+        return 0
+    table = open_table(db_path, table_name)
+    df = table.to_pandas()
+    if df.empty:
+        return 0
+
+    matches = df[df["metadata"].apply(lambda m: json.loads(m).get("source_id") == source_id)]
+    chunk_ids = [str(c) for c in matches["chunk_id"].tolist()]
+    if not chunk_ids:
+        return 0
+
+    # Chunked IN clauses keep the predicate a reasonable size for large documents.
+    for start in range(0, len(chunk_ids), 500):
+        batch = chunk_ids[start : start + 500]
+        table.delete(f"chunk_id IN ({', '.join(_sql_quote(c) for c in batch)})")
+
+    if table.count_rows():
+        table.create_fts_index("text", replace=True)
+    return len(chunk_ids)
+
+
 def open_table(
     db_path: str | Path = DEFAULT_DB_PATH, table_name: str = TABLE_NAME
 ) -> lancedb.table.Table:

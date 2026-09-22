@@ -140,7 +140,7 @@ def test_ingest_same_file_twice_is_rejected(client, sample_txt_bytes):
 
     second = client.post("/ingest", files={"file": (name, data, "text/plain")})
     assert second.status_code == 409
-    assert "already indexed" in second.json()["detail"]
+    assert "already indexed" in second.json()["detail"]["message"]
     assert client.get("/stats").json()["chunks"] == total
 
 
@@ -149,7 +149,7 @@ def test_ingest_same_content_under_new_name_is_rejected(client, sample_txt_bytes
     assert client.post("/ingest", files={"file": (name, data, "text/plain")}).status_code == 200
     resp = client.post("/ingest", files={"file": ("renamed_copy.txt", data, "text/plain")})
     assert resp.status_code == 409
-    assert "identical content" in resp.json()["detail"]
+    assert "identical content" in resp.json()["detail"]["message"]
 
 
 def test_ingest_same_name_different_content_is_rejected(client, sample_txt_bytes):
@@ -157,4 +157,54 @@ def test_ingest_same_name_different_content_is_rejected(client, sample_txt_bytes
     assert client.post("/ingest", files={"file": (name, data, "text/plain")}).status_code == 200
     resp = client.post("/ingest", files={"file": (name, data + b"\n\nSection 99. Extra.", "text/plain")})
     assert resp.status_code == 409
-    assert "same name" in resp.json()["detail"]
+    assert "same name" in resp.json()["detail"]["message"]
+
+
+def test_delete_document_removes_chunks_and_allows_reingest(client, sample_txt_bytes):
+    name, data = sample_txt_bytes
+    first = client.post("/ingest", files={"file": (name, data, "text/plain")})
+    assert first.status_code == 200
+    source_id = first.json()["source_id"]
+    chunk_count = first.json()["new_chunk_count"]
+
+    # The document is searchable while it is indexed.
+    before = client.get("/retrieve", params={"q": "security deposit refund", "k": 5})
+    assert before.status_code == 200
+    assert any(before.json()["variants"][v] for v in before.json()["variants"])
+
+    deleted = client.delete(f"/documents/{source_id}")
+    assert deleted.status_code == 200, deleted.text
+    body = deleted.json()
+    assert body["source_id"] == source_id
+    assert body["deleted_chunk_count"] == chunk_count
+    assert body["totals"]["chunks"] == 0
+    assert body["totals"]["documents"] == 0
+
+    # Its chunks are gone from the index and from search.
+    assert client.get("/stats").json()["chunks"] == 0
+    after = client.get("/retrieve", params={"q": "security deposit refund", "k": 5})
+    assert after.status_code in (200, 409)
+    if after.status_code == 200:
+        for rows in after.json()["variants"].values():
+            assert not [r for r in rows if r["chunk_id"].startswith(f"{source_id}::")]
+
+    # And the same file can be ingested again without tripping the dedup check.
+    again = client.post("/ingest", files={"file": (name, data, "text/plain")})
+    assert again.status_code == 200, again.text
+    assert again.json()["new_chunk_count"] == chunk_count
+
+
+def test_delete_unknown_document_returns_404(client):
+    assert client.delete("/documents/not_indexed").status_code == 404
+
+
+def test_delete_only_removes_the_named_document(client, sample_txt_bytes):
+    name, data = sample_txt_bytes
+    client.post("/ingest", files={"file": (name, data, "text/plain")})
+    memo = b"Meeting notes.\n\nWe discussed the roadmap.\n\nAction items were assigned."
+    client.post("/ingest", files={"file": ("memo.txt", memo, "text/plain")})
+
+    resp = client.delete("/documents/memo")
+    assert resp.status_code == 200
+    assert resp.json()["totals"]["documents"] == 1
+    assert client.get("/stats").json()["sources"][0]["source_id"] == "urban_tenancy_act_2019"

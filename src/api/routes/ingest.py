@@ -58,10 +58,18 @@ async def ingest(
         )
         raise HTTPException(
             status_code=409,
-            detail=(
-                f"Duplicate document: {why} as '{duplicate.source_id}' "
-                f"({duplicate.chunk_count} chunks). Nothing was added."
-            ),
+            # Structured so the UI can offer "replace" -- it needs the id of the
+            # document to DELETE, which for a content match is not the uploaded
+            # filename's stem.
+            detail={
+                "message": (
+                    f"Duplicate document: {why} as '{duplicate.source_id}' "
+                    f"({duplicate.chunk_count} chunks). Nothing was added."
+                ),
+                "reason": duplicate.reason,
+                "duplicate_source_id": duplicate.source_id,
+                "duplicate_chunk_count": duplicate.chunk_count,
+            },
         )
 
     with tempfile.TemporaryDirectory() as tmp_dir:

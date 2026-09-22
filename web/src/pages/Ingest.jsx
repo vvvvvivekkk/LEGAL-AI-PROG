@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ingest } from '../api.js'
+import { deleteDocument, ingest } from '../api.js'
 import Banner from '../components/Banner.jsx'
 import Button from '../components/Button.jsx'
 import Card, { CardHeader } from '../components/Card.jsx'
@@ -21,18 +21,50 @@ export default function Ingest() {
   const [error, setError] = useState(null)
   const [result, setResult] = useState(null)
 
-  async function submit() {
-    if (!file) return
+  async function runIngest() {
     setBusy(true)
     setError(null)
     try {
       setResult(await ingest(file))
+      return true
     } catch (err) {
-      setError({ message: err.message, status: err.status ?? null, kind: err.kind ?? 'http' })
+      setError({
+        message: err.message,
+        status: err.status ?? null,
+        kind: err.kind ?? 'http',
+        info: err.info ?? null,
+      })
       setResult(null)
+      return false
     } finally {
       setBusy(false)
     }
+  }
+
+  async function submit() {
+    if (!file) return
+    await runIngest()
+  }
+
+  // Duplicate hit: drop the indexed copy first, then ingest the upload again.
+  async function replace() {
+    const sourceId = error?.info?.duplicate_source_id
+    if (!file || !sourceId) return
+    setBusy(true)
+    try {
+      await deleteDocument(sourceId)
+    } catch (err) {
+      setError({
+        message: `Could not remove '${sourceId}': ${err.message}`,
+        status: err.status ?? null,
+        kind: err.kind ?? 'http',
+        info: null,
+      })
+      setBusy(false)
+      return
+    }
+    setBusy(false)
+    await runIngest()
   }
 
   return (
@@ -60,6 +92,18 @@ export default function Ingest() {
               : `Nothing was indexed. The API answered with HTTP ${error.status ?? '?'}${
                   error.status === 503 ? ' — the embedding model could not be loaded; check the backend log.' : '.'
                 }`}
+          {error.info?.duplicate_source_id && (
+            <div className="mt-3">
+              <Button onClick={replace} disabled={busy}>
+                {busy ? 'Replacing…' : `Replace existing document`}
+              </Button>
+              <p className="mt-2 text-xs opacity-70">
+                Removes the {error.info.duplicate_chunk_count} indexed chunk
+                {error.info.duplicate_chunk_count === 1 ? '' : 's'} of
+                {' '}&lsquo;{error.info.duplicate_source_id}&rsquo;, then indexes this upload in its place.
+              </p>
+            </div>
+          )}
         </Banner>
       )}
 

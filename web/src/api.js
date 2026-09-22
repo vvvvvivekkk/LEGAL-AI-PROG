@@ -5,11 +5,12 @@ const BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8000'
 // Every failure surfaces as an ApiError with the backend's real `detail`
 // string (or a concrete network explanation) — never a bare "Failed to fetch".
 export class ApiError extends Error {
-  constructor(message, { status = null, kind = 'http' } = {}) {
+  constructor(message, { status = null, kind = 'http', info = null } = {}) {
     super(message)
     this.name = 'ApiError'
     this.status = status
     this.kind = kind // 'http' (server answered) | 'network' (never reached it)
+    this.info = info // structured `detail` object, when the route sent one
   }
 }
 
@@ -27,13 +28,19 @@ async function request(path, init, label) {
   }
   if (!res.ok) {
     let detail = `${label} failed with HTTP ${res.status}`
+    let info = null
     try {
       const body = await res.json()
-      if (body.detail) detail = typeof body.detail === 'string' ? body.detail : JSON.stringify(body.detail)
+      if (typeof body.detail === 'string') {
+        detail = body.detail
+      } else if (body.detail && typeof body.detail === 'object') {
+        info = body.detail
+        detail = info.message || JSON.stringify(body.detail)
+      }
     } catch {
       /* non-JSON error body */
     }
-    throw new ApiError(detail, { status: res.status })
+    throw new ApiError(detail, { status: res.status, info })
   }
   return res.json()
 }
@@ -42,6 +49,10 @@ export async function ingest(file) {
   const form = new FormData()
   form.append('file', file)
   return request('/ingest', { method: 'POST', body: form }, 'Ingest')
+}
+
+export async function deleteDocument(sourceId) {
+  return request(`/documents/${encodeURIComponent(sourceId)}`, { method: 'DELETE' }, 'Delete document')
 }
 
 export async function retrieve(q, k = 5, rerank = false) {

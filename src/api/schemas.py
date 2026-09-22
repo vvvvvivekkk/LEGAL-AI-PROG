@@ -61,6 +61,12 @@ class IngestResponse(BaseModel):
     note: str | None = None
 
 
+class DeleteDocumentResponse(BaseModel):
+    source_id: str
+    deleted_chunk_count: int
+    totals: IndexTotals
+
+
 class RetrieveResponse(BaseModel):
     query: str
     k: int
