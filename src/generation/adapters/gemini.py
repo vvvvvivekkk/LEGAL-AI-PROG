@@ -19,10 +19,14 @@ DEFAULT_MODEL = "gemini-2.5-flash"
 # supported claims" and the chain turned into a spurious ABSTAIN.
 DEFAULT_MAX_TOKENS = 4096
 
-# The free tier returns 503 UNAVAILABLE under load fairly often. That is
-# transient, unlike a 429 quota error, so it is worth a couple of retries.
+# The free tier returns 503 UNAVAILABLE under load often enough that a couple
+# of quick retries is not enough -- a batch of ten questions lost half its runs
+# to it. Back off exponentially with jitter over roughly a minute instead. A
+# 429 is a quota, not load, so it is never retried.
 _RETRY_STATUSES = (503,)
-_MAX_RETRIES = 3
+_MAX_RETRIES = 6
+_BACKOFF_BASE = 2.0
+_BACKOFF_CAP = 30.0
 
 
 class GeminiAdapter:
@@ -50,6 +54,7 @@ class GeminiAdapter:
         return self._client
 
     def complete(self, system: str, user: str) -> str:
+        import random
         import time
 
         from google.genai import types
@@ -72,5 +77,6 @@ class GeminiAdapter:
                     raise
                 last_exc = exc
                 if attempt < _MAX_RETRIES - 1:
-                    time.sleep(2 ** attempt)
+                    delay = min(_BACKOFF_BASE ** attempt, _BACKOFF_CAP)
+                    time.sleep(delay + random.uniform(0, delay * 0.25))
         raise last_exc  # type: ignore[misc]

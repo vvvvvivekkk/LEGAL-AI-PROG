@@ -121,8 +121,18 @@ def test_quota_429_is_not_retried(monkeypatch):
 
 def test_retries_give_up_and_reraise(monkeypatch):
     monkeypatch.setattr("time.sleep", lambda *_: None)
-    client, calls = _client_raising([503, 503, 503])
+    from src.generation.adapters.gemini import _MAX_RETRIES
+
+    client, calls = _client_raising([503] * _MAX_RETRIES)
     adapter = GeminiAdapter(api_key="k", client=client)
     with pytest.raises(_Err):
         adapter.complete("sys", "user")
-    assert calls["n"] == 3
+    assert calls["n"] == _MAX_RETRIES
+
+
+def test_retry_budget_is_deep_enough_for_a_batch():
+    """Three shallow retries lost half a ten-question batch to 503 load."""
+    from src.generation.adapters.gemini import _BACKOFF_CAP, _MAX_RETRIES
+
+    assert _MAX_RETRIES >= 5
+    assert _BACKOFF_CAP >= 10
