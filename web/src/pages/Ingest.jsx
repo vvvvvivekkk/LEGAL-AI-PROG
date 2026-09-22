@@ -8,9 +8,9 @@ import { UploadIcon } from '../components/icons.jsx'
 
 function Stat({ value, label }) {
   return (
-    <div className="rounded-lg border border-line-soft bg-surface px-4 py-3 shadow-[var(--shadow-flat)]">
+    <div className="group rounded-lg border border-line-soft bg-surface px-4 py-3 shadow-[var(--shadow-flat)] transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-accent/50 hover:shadow-[var(--shadow-card)]">
       <div className="font-mono text-2xl font-medium text-accent">{value}</div>
-      <div className="mt-1 text-xs text-muted">{label}</div>
+      <div className="mt-1 text-xs text-muted transition-colors group-hover:text-ink">{label}</div>
     </div>
   )
 }

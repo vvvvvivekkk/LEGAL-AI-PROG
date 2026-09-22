@@ -9,11 +9,16 @@ function pct(x) {
   return x == null ? '—' : `${(x * 100).toFixed(1)}%`
 }
 
+// Four different measures, so four different hues rather than four cards in
+// the page accent — colour here distinguishes *which metric*, and carrying one
+// hue per metric down a long list of runs makes a column scannable. Drawn from
+// the categorical data palette, not the status colors: a low precision is not
+// a "warning".
 const METRICS = [
-  ['precision', 'Precision'],
-  ['recall', 'Recall'],
-  ['f1', 'F1'],
-  ['retrieval_rate', 'Retrieval rate'],
+  ['precision', 'Precision', 'var(--color-data-1)'],
+  ['recall', 'Recall', 'var(--color-data-6)'],
+  ['f1', 'F1', 'var(--color-data-4)'],
+  ['retrieval_rate', 'Retrieval rate', 'var(--color-data-5)'],
 ]
 
 function RunCard({ run }) {
@@ -29,10 +34,21 @@ function RunCard({ run }) {
       </div>
       {agg ? (
         <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {METRICS.map(([key, label]) => (
-            <div key={key} className="rounded-lg border border-line-soft bg-raised px-3 py-2.5 shadow-[var(--shadow-flat)]">
-              <div className="font-mono text-xl text-accent">{pct(agg[key])}</div>
-              <div className="mt-0.5 text-[11px] text-muted">{label}</div>
+          {METRICS.map(([key, label, hue]) => (
+            <div
+              key={key}
+              style={{ '--metric': hue }}
+              className="group/metric rounded-lg border border-line-soft bg-raised px-3 py-2.5 shadow-[var(--shadow-flat)] transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:[border-color:color-mix(in_oklab,var(--metric)_55%,transparent)] hover:shadow-[var(--shadow-card)]"
+            >
+              <div className="font-mono text-xl" style={{ color: hue }}>{pct(agg[key])}</div>
+              <div className="mt-0.5 flex items-center gap-1.5 text-[11px] text-muted">
+                <span
+                  className="h-1.5 w-1.5 shrink-0 rounded-full"
+                  style={{ backgroundColor: hue }}
+                  aria-hidden
+                />
+                {label}
+              </div>
             </div>
           ))}
         </div>

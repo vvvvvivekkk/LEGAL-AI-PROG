@@ -48,6 +48,9 @@ export default function Hero3D({ count = 220 }) {
     let w = 0
     let h = 0
     let angle = 0
+    // Breathing phase, independent of rotation: the sphere rotates *and*
+    // swells slightly, so the motion is legible even in a still-ish glance.
+    let phase = 0
 
     function resize() {
       const rect = canvas.getBoundingClientRect()
@@ -62,7 +65,9 @@ export default function Hero3D({ count = 220 }) {
       ctx.clearRect(0, 0, w, h)
       const cx = w / 2
       const cy = h / 2
-      const R = Math.min(w, h) * 0.36
+      // 3% swell either side of the base radius — enough to read as alive,
+      // small enough not to wobble the hero's composition.
+      const R = Math.min(w, h) * 0.36 * (1 + Math.sin(phase) * 0.03)
       const focal = 3
       const cosA = Math.cos(angle)
       const sinA = Math.sin(angle)
@@ -88,7 +93,9 @@ export default function Hero3D({ count = 220 }) {
         const size = (0.8 + depth * 2.4) * persp
         const [r, g, b] = brandColor(depth)
         ctx.beginPath()
-        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${0.25 + depth * 0.6})`
+        // Near points brighten and dim with the same breath.
+        const pulse = 0.9 + Math.sin(phase) * 0.1
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${(0.25 + depth * 0.6) * pulse})`
         ctx.arc(sx, sy, Math.max(0.4, size), 0, Math.PI * 2)
         ctx.fill()
       }
@@ -105,7 +112,8 @@ export default function Hero3D({ count = 220 }) {
       draw()
     } else {
       const loop = () => {
-        angle += 0.0035
+        angle += 0.0045
+        phase += 0.012
         draw()
         raf = requestAnimationFrame(loop)
       }

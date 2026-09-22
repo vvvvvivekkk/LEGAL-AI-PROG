@@ -35,10 +35,13 @@
   --color-primary: #818cf8;
   --color-primary-weak: #1a1f3d;
 
+  /* Status: a deliberate cool/warm split so an outcome reads before the text
+     does. Verified is cool green, abstained warm orange -- opposite sides of
+     the wheel, not two steps of one ramp. */
   --color-verified: #34d399;
   --color-verified-weak: #0e2a21;
-  --color-caution: #fbbf24;
-  --color-caution-weak: #2a2110;
+  --color-caution: #fb923c;
+  --color-caution-weak: #2c1a0d;
   /* Deliberately off the verified/caution axis: a general-knowledge answer is
      not "a bit verified", it is a different kind of answer entirely. */
   --color-unsourced: #c084fc;
@@ -47,6 +50,28 @@
   --color-danger-weak: #2a1416;
   --color-info: #38bdf8;
   --color-info-weak: #0c2537;
+
+  /* Data-visualisation categorical palette. A third family, separate from both
+     the brand gradient and the status colors -- a document's colour in the
+     scatter must never be mistaken for a verification outcome.
+
+     Fixed order, assigned by index and never cycled or re-sorted. Six slots,
+     not eight: validated on this surface, the hardest gate is the
+     normal-vision separation floor, and a search over the whole hue ring at
+     this lightness tops out at six mutually-distinguishable hues (min dE 16.6;
+     seven can only reach 13.5, eight 12.0). So the seventh document does not
+     get an invented seventh hue.
+
+     Under deuteranopia the red-green axis collapses and no six hues at one
+     lightness stay apart, so colour is never the only channel here: each slot
+     also carries a marker shape (EmbeddingScatter), and the legend names the
+     document. Changing a value or the order means re-validating. */
+  --color-data-1: #3273e8;
+  --color-data-2: #d3384e;
+  --color-data-3: #00951a;
+  --color-data-4: #a74cc1;
+  --color-data-5: #a17200;
+  --color-data-6: #0098a2;
 
   --font-sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;

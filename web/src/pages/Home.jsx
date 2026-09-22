@@ -31,8 +31,8 @@ function useCountUp(target, ms = 900) {
 function StatChip({ value, label }) {
   const shown = useCountUp(value)
   return (
-    <div className="rounded-xl border border-line bg-surface/70 px-4 py-3 shadow-[var(--shadow-flat)]">
-      <div className="font-mono text-2xl font-medium text-ink">{shown}</div>
+    <div className="group rounded-xl border border-line bg-surface/70 px-4 py-3 shadow-[var(--shadow-flat)] transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-accent/50 hover:shadow-[var(--shadow-card),var(--shadow-glow)]">
+      <div className="font-mono text-2xl font-medium text-ink transition-colors group-hover:text-accent">{shown}</div>
       <div className="mt-0.5 text-xs text-muted">{label}</div>
     </div>
   )

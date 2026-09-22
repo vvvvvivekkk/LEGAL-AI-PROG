@@ -3,7 +3,50 @@ import { motion } from 'framer-motion'
 
 // 2D PCA scatter of indexed chunk embeddings, colored by source document.
 // Points arrive already projected from GET /embedding-map.
-const PALETTE = ['#6d7cff', '#38bdf8', '#34d399', '#fbbf24', '#f472b6', '#a78bfa', '#f87171', '#22d3ee']
+//
+// Colour here is *identity* (which document), so it uses the categorical data
+// palette from styles.css rather than the brand gradient or the status colors
+// — a document must never be coloured like a verification outcome. Slots are
+// assigned by the document's index in a fixed order and never cycled through a
+// generated hue; the order is what keeps neighbouring slots distinguishable
+// under colour-vision deficiency. The legend below carries the name, so
+// identity is never colour alone.
+const PALETTE = [
+  'var(--color-data-1)',
+  'var(--color-data-2)',
+  'var(--color-data-3)',
+  'var(--color-data-4)',
+  'var(--color-data-5)',
+  'var(--color-data-6)',
+]
+
+// Composite encoding: identity is (colour, shape), not colour alone. Six hues
+// is the most this surface supports as mutually distinguishable, and under
+// deuteranopia even those collapse pairwise — so document 7 reuses hue 1 with
+// the next shape rather than getting an invented seventh colour, and a
+// colour-blind reader can still separate every series.
+const SHAPES = ['circle', 'square', 'triangle', 'diamond']
+
+// `animated` picks the motion-wrapped SVG primitive. A custom component can't
+// be handed to motion() here (it would need ref forwarding), so each branch
+// returns the motion element directly.
+function Marker({ shape, cx, cy, r, animated = false, ...rest }) {
+  const Rect = animated ? motion.rect : 'rect'
+  const Poly = animated ? motion.polygon : 'polygon'
+  const Circ = animated ? motion.circle : 'circle'
+  if (shape === 'square') {
+    return <Rect x={cx - r} y={cy - r} width={r * 2} height={r * 2} rx={r * 0.25} {...rest} />
+  }
+  if (shape === 'triangle') {
+    const h = r * 1.25
+    return <Poly points={`${cx},${cy - h} ${cx - h},${cy + h * 0.8} ${cx + h},${cy + h * 0.8}`} {...rest} />
+  }
+  if (shape === 'diamond') {
+    const d = r * 1.25
+    return <Poly points={`${cx},${cy - d} ${cx + d},${cy} ${cx},${cy + d} ${cx - d},${cy}`} {...rest} />
+  }
+  return <Circ cx={cx} cy={cy} r={r} {...rest} />
+}
 const W = 480
 const H = 320
 const PAD = 24
@@ -27,13 +70,16 @@ export default function EmbeddingScatter({ points, sources }) {
     )
   }
 
-  const colorFor = (src) => PALETTE[Math.max(0, sources.indexOf(src)) % PALETTE.length]
+  const slotFor = (src) => Math.max(0, sources.indexOf(src))
+  const colorFor = (src) => PALETTE[slotFor(src) % PALETTE.length]
+  const shapeFor = (src) => SHAPES[Math.floor(slotFor(src) / PALETTE.length) % SHAPES.length]
   const sx = scaler(points.map((p) => p.x), PAD, W - PAD)
   const sy = scaler(points.map((p) => p.y), H - PAD, PAD) // invert y for screen space
 
   const counts = sources.map((s) => ({
     source: s,
     color: colorFor(s),
+    shape: shapeFor(s),
     count: points.filter((p) => p.source_id === s).length,
   }))
 
@@ -51,21 +97,29 @@ export default function EmbeddingScatter({ points, sources }) {
             const cy = sy(p.y)
             const active = hover?.i === i
             return (
-              <motion.circle
+              <Marker
                 key={p.chunk_id}
+                animated
+                shape={shapeFor(p.source_id)}
                 cx={cx}
                 cy={cy}
                 r={active ? 6 : 4}
                 fill={colorFor(p.source_id)}
                 fillOpacity={hover && !active ? 0.35 : 0.85}
-                stroke={active ? '#e8ecf3' : 'transparent'}
+                stroke={active ? '#e9edf5' : 'transparent'}
                 strokeWidth={active ? 1.5 : 0}
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: Math.min(i * 0.008, 0.5), type: 'spring', stiffness: 300, damping: 20 }}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{
+                  delay: Math.min(i * 0.004, 0.9),
+                  duration: 0.45,
+                  type: 'spring',
+                  stiffness: 220,
+                  damping: 18,
+                }}
+                style={{ transformOrigin: `${cx}px ${cy}px`, cursor: 'pointer' }}
                 onMouseEnter={() => setHover({ i, cx, cy, p })}
                 onMouseLeave={() => setHover(null)}
-                style={{ cursor: 'pointer' }}
               />
             )
           })}
@@ -86,7 +140,9 @@ export default function EmbeddingScatter({ points, sources }) {
       <ul className="flex flex-row flex-wrap gap-3 lg:w-48 lg:flex-col lg:gap-2">
         {counts.map((c) => (
           <li key={c.source} className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ backgroundColor: c.color }} />
+            <svg viewBox="0 0 12 12" className="h-3 w-3 shrink-0" aria-hidden>
+              <Marker shape={c.shape} cx={6} cy={6} r={4} fill={c.color} />
+            </svg>
             <span className="truncate font-mono text-[11px] text-muted" title={c.source}>{c.source}</span>
             <span className="ml-auto font-mono text-[11px] text-faint">{c.count}</span>
           </li>
