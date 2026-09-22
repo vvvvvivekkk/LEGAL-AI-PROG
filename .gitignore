@@ -39,8 +39,11 @@ experiments/*/logs/
 node_modules/
 npm-debug.log*
 
-# Claude Code local state (never shared/pushed)
-.claude/
+# Claude Code local state (never shared/pushed) -- but .claude/skills/ and
+# .claude/agents/ ARE shared/committed, see the negations below
+.claude/*
+!.claude/skills/
+!.claude/agents/
 .claude-session*
 .mcp.json
 
