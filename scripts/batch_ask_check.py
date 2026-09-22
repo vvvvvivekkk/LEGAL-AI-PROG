@@ -405,6 +405,10 @@ def main() -> int:
                         help="LLM_MODEL override for this run (free-tier quota is per model)")
     parser.add_argument("--pause", type=float, default=4.0,
                         help="seconds to wait between questions, to stay under rate limits")
+    parser.add_argument("--question-retries", type=int, default=2,
+                        help="re-ask a question this many extra times if the LLM backend 503s")
+    parser.add_argument("--retry-wait", type=float, default=60.0,
+                        help="seconds to wait before re-asking after a backend error")
     args = parser.parse_args()
 
     from playwright.sync_api import sync_playwright
@@ -447,6 +451,14 @@ def main() -> int:
             captured: set[str] = set()
             for i, question in enumerate(questions, 1):
                 result, body = ask(page, servers.web_url, question, servers.api_url)
+                # A saturated free-tier backend 503s in bursts. Re-ask rather
+                # than recording a backend error as if it were a pipeline result.
+                for _ in range(args.question_retries):
+                    if result.outcome != "backend_error":
+                        break
+                    print(f"        backend 503 — retrying in {args.retry_wait:.0f}s", flush=True)
+                    time.sleep(args.retry_wait)
+                    result, body = ask(page, servers.web_url, question, servers.api_url)
                 results.append(result)
                 bodies.append(body)
                 print(f"    {i:>2}. [{result.outcome:^18}] {question.text[:62]}", flush=True)

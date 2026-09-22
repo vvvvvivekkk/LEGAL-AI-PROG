@@ -1,0 +1,164 @@
+{
+  "files": [
+    {
+      "file": "1013322_0000912057-00-023405_document_2.txt",
+      "status": "indexed"
+    },
+    {
+      "file": "1013687_0000950144-96-001973_document_37.txt",
+      "status": "indexed"
+    },
+    {
+      "file": "1012459_0000912057-97-027209_document_4.txt",
+      "status": "indexed"
+    },
+    {
+      "file": "1002276_0001036050-99-002047_document_13.txt",
+      "status": "indexed"
+    },
+    {
+      "file": "1010471_0000950134-97-006281_document_5.txt",
+      "status": "indexed"
+    },
+    {
+      "file": "1011671_0000936392-99-000246_document_46.txt",
+      "status": "indexed"
+    },
+    {
+      "file": "1013687_0000950144-96-001973_document_38.txt",
+      "status": "indexed"
+    },
+    {
+      "file": "1014959_0000950116-96-000618_document_7.txt",
+      "status": "indexed"
+    },
+    {
+      "file": "1016503_0000929624-00-000894_0010.txt",
+      "status": "indexed"
+    },
+    {
+      "file": "1017358_0001017358-97-000002_document_4.txt",
+      "status": "indexed"
+    }
+  ],
+  "results": [
+    {
+      "question": "Which state's laws govern the mutual nondisclosure agreement between Yahoo! Inc. and Restrac?",
+      "kind": "specific",
+      "outcome": "backend_error",
+      "vcs": null,
+      "cited_sources": [],
+      "citation_ok": "n/a",
+      "phrase_ok": "n/a",
+      "note": "HTTP 503 LLM backend failed: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in deman"
+    },
+    {
+      "question": "Under the Yahoo and Restrac agreement, within how many days must Confidential Information disclosed orally be confirmed in writing to the recipient?",
+      "kind": "specific",
+      "outcome": "backend_error",
+      "vcs": null,
+      "cited_sources": [],
+      "citation_ok": "n/a",
+      "phrase_ok": "n/a",
+      "note": "HTTP 503 LLM backend failed: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in deman"
+    },
+    {
+      "question": "According to the agreements, what is Residual Information and may the receiving party use it?",
+      "kind": "specific",
+      "outcome": "backend_error",
+      "vcs": null,
+      "cited_sources": [],
+      "citation_ok": "n/a",
+      "phrase_ok": "n/a",
+      "note": "HTTP 503 LLM backend failed: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in deman"
+    },
+    {
+      "question": "In the Phoenix International agreement, whose prior written authorization is required before a party may disclose Confidential Information?",
+      "kind": "specific",
+      "outcome": "backend_error",
+      "vcs": null,
+      "cited_sources": [],
+      "citation_ok": "n/a",
+      "phrase_ok": "n/a",
+      "note": "HTTP 503 LLM backend failed: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in deman"
+    },
+    {
+      "question": "Which two companies are the parties to the mutual non-disclosure agreement involving Federal Express Corporation?",
+      "kind": "specific",
+      "outcome": "verified",
+      "vcs": 1.0,
+      "cited_sources": [
+        "1012459_0000912057-97-027209_document_4"
+      ],
+      "citation_ok": "yes",
+      "phrase_ok": "yes",
+      "note": ""
+    },
+    {
+      "question": "What is a non-disclosure agreement?",
+      "kind": "general",
+      "outcome": "general_knowledge",
+      "vcs": null,
+      "cited_sources": [],
+      "citation_ok": "n/a",
+      "phrase_ok": "n/a",
+      "note": ""
+    },
+    {
+      "question": "What is confidential information?",
+      "kind": "general",
+      "outcome": "verified",
+      "vcs": 0.9904761904761905,
+      "cited_sources": [
+        "1013322_0000912057-00-023405_document_2",
+        "1011671_0000936392-99-000246_document_46",
+        "1013687_0000950144-96-001973_document_37"
+      ],
+      "citation_ok": "n/a",
+      "phrase_ok": "n/a",
+      "note": ""
+    },
+    {
+      "question": "Define a mutual NDA.",
+      "kind": "general",
+      "outcome": "general_knowledge",
+      "vcs": null,
+      "cited_sources": [],
+      "citation_ok": "n/a",
+      "phrase_ok": "n/a",
+      "note": ""
+    },
+    {
+      "question": "What does consideration mean in contract law?",
+      "kind": "general",
+      "outcome": "general_knowledge",
+      "vcs": null,
+      "cited_sources": [],
+      "citation_ok": "n/a",
+      "phrase_ok": "n/a",
+      "note": ""
+    },
+    {
+      "question": "Explain what injunctive relief is.",
+      "kind": "general",
+      "outcome": "general_knowledge",
+      "vcs": null,
+      "cited_sources": [],
+      "citation_ok": "n/a",
+      "phrase_ok": "n/a",
+      "note": ""
+    }
+  ],
+  "answers": [
+    "",
+    "",
+    "",
+    "",
+    "Federal Express Corporation (\"Federal\") and International Billing Services, Inc. (\"IBS\") are the parties to the mutual non-disclosure agreement. [1012459_0000912057-97-027209_document_4::p4]",
+    "A non-disclosure agreement (NDA) is a legally binding contract that establishes a confidential relationship between two or more parties. The party sharing sensitive information expects it to remain secret, while the receiving party agrees not to disclose it to unauthorized third parties. These agreements are commonly used in business settings to protect proprietary information, trade secrets, and sensitive financial data. Violating an NDA typically results in legal consequences, such as financial damages or injunctive relief.",
+    "\"Confidential Information\" is that confidential, proprietary, and trade secret information being disclosed by the disclosing party [1013322_0000912057-00-023405_document_2::p4].\n\"CONFIDENTIAL INFORMATION\" means any and all technical and non-technical information provided by either party to the other [1011671_0000936392-99-000246_document_46::p5].\nIt includes patent and patent applications, trade secrets, and proprietary information, ideas, techniques, sketches, drawings, works of authorship, models, inventions, know-how, processes, apparatuses, equipment, algorithms, software programs, software source documents, and formulae related to current, future, and proposed products and services [1011671_0000936392-99-000246_document_46::p5].\nIt also includes information concerning research, experimental work, development, design details, and specifications, without limitation [1011671_0000936392-99-000246_document_46::p5].\n\"Confidential Information\" is deemed to include source and object code computer programs, associated documentation, manuals, other printed or visually acceptable materials describing the use or design of software, strategic plans, and any other oral or written information noted on its face as confidential or proprietary to the disclosing party [1013687_0000950144-96-001973_document_37::p16].\nConfidential Information can also include information which a party can show was in its possession at the time of generation or disclosure and was not acquired directly or indirectly from the other party or a third party under an obligation of confidence [1013687_0000950144-96-001973_document_37::p12].\nIt also includes information which after generation or disclosure is published or otherwise becomes part of the public domain through no fault of the disclosing party (only after and to the extent that it is published or becomes part of the public domain) [1013687_0000950144-96-001973_document_37::p11].",
+    "A mutual non-disclosure agreement (NDA) is a legally binding contract between two parties where both agree to protect and not disclose any confidential information they share with one another. This type of agreement is typically used when two companies are exploring a business relationship, partnership, or merger and need to exchange sensitive data while maintaining privacy. Because it is mutual, the obligations of confidentiality and the restrictions on using the shared information apply equally to both participants.",
+    "In contract law, consideration refers to something of value that is bargained for and exchanged between the parties entering into an agreement. It can take the form of money, physical goods, services, or even the promise to do or refrain from doing something. Without mutual consideration, a promise is generally considered a gratuitous gift rather than a legally enforceable contract. Essentially, it ensures that both sides are giving up and receiving something of value in the transaction.",
+    "Injunctive relief is a court-ordered remedy that requires a party to either do a specific act or refrain from doing a specific action. It is an equitable remedy typically granted when monetary damages are inadequate to prevent irreparable harm. Courts may issue temporary restraining orders, preliminary injunctions during ongoing litigation, or permanent injunctions as a final judgment. Failing to comply with an injunction can result in civil or criminal contempt of court penalties."
+  ]
+}
