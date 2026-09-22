@@ -1,6 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { query as runQuery } from '../api.js'
+import {
+  appendMessage,
+  createChat,
+  deleteChat,
+  getChat,
+  listChats,
+  query as runQuery,
+} from '../api.js'
 import Banner from '../components/Banner.jsx'
 import VerdictBadge, { verdictBadges } from '../components/VerdictBadge.jsx'
 import { ShieldIcon } from '../components/icons.jsx'
@@ -215,15 +222,121 @@ function AssistantTurn({ turn }) {
   )
 }
 
+// A stored assistant message is flattened on the server; rebuild the shape
+// AssistantTurn renders so a reopened conversation shows its original proof.
+function turnFromStored(message) {
+  if (message.role === 'user') return { role: 'user', text: message.text }
+  return {
+    role: 'assistant',
+    data: {
+      answer_text: message.text,
+      answer_mode: message.answer_mode ?? 'verified',
+      decision: message.decision,
+      vcs: message.vcs ?? null,
+      abstained: message.abstained ?? false,
+      context_chunk_ids: message.context_chunk_ids ?? [],
+      proof: message.proof ?? { claims: [] },
+    },
+  }
+}
+
+function ChatSidebar({ chats, activeId, onNew, onOpen, onDelete, busy }) {
+  return (
+    <aside className="w-60 shrink-0 border-r border-line pr-3">
+      <button
+        onClick={onNew}
+        disabled={busy}
+        className="mb-3 w-full rounded-lg border border-accent/40 bg-accent-weak px-3 py-2 text-sm font-medium text-accent transition-colors hover:bg-accent/20 disabled:opacity-50"
+      >
+        + New chat
+      </button>
+      {chats.length === 0 ? (
+        <p className="px-1 text-xs text-faint">No past conversations yet.</p>
+      ) : (
+        <ul className="space-y-1">
+          {chats.map((c) => (
+            <li key={c.id} className="group flex items-center gap-1">
+              <button
+                onClick={() => onOpen(c.id)}
+                title={c.title}
+                className={`flex-1 truncate rounded-md px-2 py-1.5 text-left text-[13px] transition-colors ${
+                  c.id === activeId
+                    ? 'bg-accent-weak text-accent'
+                    : 'text-muted hover:bg-surface hover:text-ink'
+                }`}
+              >
+                {c.title}
+              </button>
+              <button
+                onClick={() => onDelete(c.id)}
+                title="Delete this conversation"
+                aria-label={`Delete conversation: ${c.title}`}
+                className="rounded-md px-1.5 py-1 text-faint opacity-0 transition-opacity hover:text-danger group-hover:opacity-100"
+              >
+                <svg viewBox="0 0 14 14" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
+                  <path d="M3 3.5h8M5.5 3.5V2.5h3v1M4.5 3.5l.5 8h4l.5-8" />
+                </svg>
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </aside>
+  )
+}
+
 export default function Ask() {
   const [input, setInput] = useState('')
   const [busy, setBusy] = useState(false)
   const [turns, setTurns] = useState([])
+  const [chats, setChats] = useState([])
+  const [activeId, setActiveId] = useState(null)
+  const [historyError, setHistoryError] = useState(null)
   const endRef = useRef(null)
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth' })
   }, [turns, busy])
+
+  async function refreshChats() {
+    try {
+      setChats((await listChats()).conversations)
+      setHistoryError(null)
+    } catch (err) {
+      setHistoryError(err.message)
+    }
+  }
+
+  useEffect(() => {
+    refreshChats()
+  }, [])
+
+  function startNewChat() {
+    setActiveId(null)
+    setTurns([])
+    setInput('')
+  }
+
+  async function openChat(id) {
+    try {
+      const conversation = await getChat(id)
+      setActiveId(id)
+      setTurns(conversation.messages.map(turnFromStored))
+      setHistoryError(null)
+    } catch (err) {
+      setHistoryError(err.message)
+    }
+  }
+
+  async function removeChat(id) {
+    try {
+      await deleteChat(id)
+      if (id === activeId) startNewChat()
+      await refreshChats()
+    } catch (err) {
+      setHistoryError(err.message)
+    }
+  }
 
   async function ask(text) {
     const q = text.trim()
@@ -231,19 +344,65 @@ export default function Ask() {
     setInput('')
     setTurns((t) => [...t, { role: 'user', text: q }])
     setBusy(true)
+
+    // History is a convenience: a failure to persist must never lose the answer
+    // that is already on screen, so every store call is best-effort.
+    let conversationId = activeId
+    try {
+      if (!conversationId) {
+        conversationId = (await createChat()).id
+        setActiveId(conversationId)
+      }
+      await appendMessage(conversationId, { role: 'user', text: q })
+    } catch (err) {
+      setHistoryError(err.message)
+      conversationId = null
+    }
+
     try {
       const data = await runQuery({ query: q, k: 12, rerank: true, self_consistency: 0 })
       setTurns((t) => [...t, { role: 'assistant', data }])
+      if (conversationId) {
+        try {
+          await appendMessage(conversationId, {
+            role: 'assistant',
+            text: data.answer_text,
+            answer_mode: data.answer_mode,
+            decision: data.decision,
+            vcs: data.vcs,
+            abstained: data.abstained,
+            context_chunk_ids: data.context_chunk_ids,
+            proof: data.proof,
+          })
+        } catch (err) {
+          setHistoryError(err.message)
+        }
+      }
     } catch (err) {
       setTurns((t) => [...t, { role: 'assistant', error: err.message }])
     } finally {
       setBusy(false)
+      refreshChats()
     }
   }
 
   return (
-    <div className="flex min-h-[70vh] flex-col">
+    <div className="flex min-h-[70vh] gap-4">
+      <ChatSidebar
+        chats={chats}
+        activeId={activeId}
+        onNew={startNewChat}
+        onOpen={openChat}
+        onDelete={removeChat}
+        busy={busy}
+      />
+      <div className="flex min-w-0 flex-1 flex-col">
       <div className="flex-1 space-y-4">
+        {historyError && (
+          <Banner variant="error" title="Chat history unavailable">
+            {historyError} — answers still work, they just aren't being saved.
+          </Banner>
+        )}
         {turns.length === 0 && (
           <div className="rounded-2xl border border-line bg-raised p-6 shadow-[var(--shadow-card),var(--shadow-glow)]">
             <h2 className="text-[15px] font-semibold text-ink">Ask a question about the indexed documents</h2>
@@ -314,6 +473,7 @@ export default function Ask() {
           Ask
         </button>
       </form>
+      </div>
     </div>
   )
 }

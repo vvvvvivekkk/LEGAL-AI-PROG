@@ -68,6 +68,35 @@ export async function query(payload) {
   )
 }
 
+// --- Chat history -------------------------------------------------------
+export async function listChats() {
+  return request('/chats', undefined, 'List chats')
+}
+
+export async function createChat() {
+  return request(
+    '/chats',
+    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' },
+    'Create chat',
+  )
+}
+
+export async function getChat(id) {
+  return request(`/chats/${encodeURIComponent(id)}`, undefined, 'Open chat')
+}
+
+export async function appendMessage(id, message) {
+  return request(
+    `/chats/${encodeURIComponent(id)}/messages`,
+    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(message) },
+    'Save message',
+  )
+}
+
+export async function deleteChat(id) {
+  return request(`/chats/${encodeURIComponent(id)}`, { method: 'DELETE' }, 'Delete chat')
+}
+
 export async function evaluation() {
   return request('/evaluation', undefined, 'Evaluation')
 }

@@ -229,3 +229,35 @@ def test_abstained_answer_round_trips_as_abstained(chat_client):
     assert message["answer_mode"] == "abstained"
     assert message["abstained"] is True
     assert message["vcs"] is None
+
+
+def test_an_abstained_proof_with_a_null_vcs_still_re_reads(chat_client):
+    """Regression: a recursive exclude_none dropped proof.vcs, which is a
+    required field, so the conversation could be written but never reopened."""
+    cid = chat_client.post("/chats", json={}).json()["id"]
+    stored = chat_client.post(
+        f"/chats/{cid}/messages",
+        json={
+            "role": "assistant",
+            "text": "INSUFFICIENT_CONTEXT: nothing supports this.",
+            "answer_mode": "abstained",
+            "decision": "ABSTAIN",
+            "abstained": True,
+            "proof": {
+                "query": "q",
+                "answer_text": "INSUFFICIENT_CONTEXT: nothing supports this.",
+                "vcs": None,
+                "decision": "ABSTAIN",
+                "threshold": 0.6,
+                "abstained": True,
+                "claims": [],
+            },
+        },
+    )
+    assert stored.status_code == 200, stored.text
+
+    reopened = chat_client.get(f"/chats/{cid}")
+    assert reopened.status_code == 200, reopened.text
+    message = reopened.json()["messages"][0]
+    assert message["proof"]["vcs"] is None
+    assert message["proof"]["decision"] == "ABSTAIN"

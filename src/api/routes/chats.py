@@ -63,9 +63,12 @@ def append_message(
     _require_id(conversation_id)
     if message.role not in ("user", "assistant"):
         raise HTTPException(status_code=422, detail="role must be 'user' or 'assistant'")
-    # exclude_none keeps a user message from carrying a wall of null verification
-    # fields it never had.
-    updated = store.append(conversation_id, message.model_dump(exclude_none=True))
+    # Drop unset verification fields so a user message doesn't carry a wall of
+    # nulls it never had -- but only at the top level. A recursive exclude_none
+    # also strips nested nulls such as proof.vcs on an abstained answer, which
+    # is a required field, so the stored conversation then fails to re-read.
+    payload = {k: v for k, v in message.model_dump().items() if v is not None}
+    updated = store.append(conversation_id, payload)
     if updated is None:
         raise HTTPException(status_code=404, detail=f"No conversation {conversation_id}")
     return Conversation(**updated)
