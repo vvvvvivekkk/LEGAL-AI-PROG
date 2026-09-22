@@ -1,0 +1,198 @@
+{
+  "aggregate": {
+    "n_queries": 10,
+    "precision": 0.2,
+    "recall": 1.0,
+    "f1": 0.33333333333333337,
+    "retrieval_rate": 1.0,
+    "mean_retrieved_chars": 1799.8
+  },
+  "per_query": [
+    {
+      "query": "How long does a landlord have to refund a tenant's security deposit?",
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.33333333333333337,
+      "hit": true,
+      "retrieved_ids": [
+        "urban_tenancy_act_2019::p7",
+        "urban_tenancy_act_2019::p6",
+        "urban_tenancy_act_2019::p11",
+        "urban_tenancy_act_2019::p9",
+        "urban_tenancy_act_2019::p10"
+      ],
+      "relevant_ids": [
+        "urban_tenancy_act_2019::s4:b"
+      ],
+      "retrieved_chars": 1871
+    },
+    {
+      "query": "What is the maximum security deposit a landlord may collect for residential premises?",
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.33333333333333337,
+      "hit": true,
+      "retrieved_ids": [
+        "urban_tenancy_act_2019::p7",
+        "urban_tenancy_act_2019::p6",
+        "urban_tenancy_act_2019::p4",
+        "urban_tenancy_act_2019::p9",
+        "urban_tenancy_act_2019::p11"
+      ],
+      "relevant_ids": [
+        "urban_tenancy_act_2019::s4:a"
+      ],
+      "retrieved_chars": 1945
+    },
+    {
+      "query": "How many days may hazardous waste be stored on the generator's premises?",
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.33333333333333337,
+      "hit": true,
+      "retrieved_ids": [
+        "environmental_waste_act_2022::p7",
+        "environmental_waste_act_2022::p9",
+        "environmental_waste_act_2022::p4",
+        "environmental_waste_act_2022::p6",
+        "environmental_waste_act_2022::p12"
+      ],
+      "relevant_ids": [
+        "environmental_waste_act_2022::s4:b"
+      ],
+      "retrieved_chars": 1810
+    },
+    {
+      "query": "Within how many hours must a data fiduciary notify the Board of a data breach?",
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.33333333333333337,
+      "hit": true,
+      "retrieved_ids": [
+        "data_privacy_act_2024::p9",
+        "data_privacy_act_2024::p12",
+        "data_privacy_act_2024::p10",
+        "data_privacy_act_2024::p14",
+        "data_privacy_act_2024::p7"
+      ],
+      "relevant_ids": [
+        "data_privacy_act_2024::s5:a"
+      ],
+      "retrieved_chars": 1968
+    },
+    {
+      "query": "What penalty applies to a repeat unfair trade practice offence?",
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.33333333333333337,
+      "hit": true,
+      "retrieved_ids": [
+        "consumer_protection_act_2020::p9",
+        "consumer_protection_act_2020::p4",
+        "environmental_waste_act_2022::p11",
+        "consumer_protection_act_2020::p6",
+        "small_business_licensing_act_2021::p3"
+      ],
+      "relevant_ids": [
+        "consumer_protection_act_2020::s5:b"
+      ],
+      "retrieved_chars": 1773
+    },
+    {
+      "query": "How many days does a seller have to respond to a consumer redress request?",
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.33333333333333337,
+      "hit": true,
+      "retrieved_ids": [
+        "consumer_protection_act_2020::p7",
+        "data_privacy_act_2024::p12",
+        "consumer_protection_act_2020::p13",
+        "data_privacy_act_2024::p14",
+        "small_business_licensing_act_2021::p11"
+      ],
+      "relevant_ids": [
+        "consumer_protection_act_2020::s4:a"
+      ],
+      "retrieved_chars": 1432
+    },
+    {
+      "query": "How much is the annual renewal fee for a small business license?",
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.33333333333333337,
+      "hit": true,
+      "retrieved_ids": [
+        "small_business_licensing_act_2021::p7",
+        "small_business_licensing_act_2021::p4",
+        "small_business_licensing_act_2021::p10",
+        "small_business_licensing_act_2021::p3",
+        "small_business_licensing_act_2021::p9"
+      ],
+      "relevant_ids": [
+        "small_business_licensing_act_2021::s4:b"
+      ],
+      "retrieved_chars": 1345
+    },
+    {
+      "query": "On what grounds may a landlord seek eviction of a tenant?",
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.33333333333333337,
+      "hit": true,
+      "retrieved_ids": [
+        "urban_tenancy_act_2019::p9",
+        "urban_tenancy_act_2019::p11",
+        "urban_tenancy_act_2019::p10",
+        "urban_tenancy_act_2019::p6",
+        "urban_tenancy_act_2019::p7"
+      ],
+      "relevant_ids": [
+        "urban_tenancy_act_2019::s5:a",
+        "urban_tenancy_act_2019::s5:b",
+        "urban_tenancy_act_2019::s5:c"
+      ],
+      "retrieved_chars": 1871
+    },
+    {
+      "query": "How long does a data fiduciary have to respond to an access request?",
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.33333333333333337,
+      "hit": true,
+      "retrieved_ids": [
+        "data_privacy_act_2024::p12",
+        "data_privacy_act_2024::p14",
+        "data_privacy_act_2024::p9",
+        "data_privacy_act_2024::p13",
+        "data_privacy_act_2024::p6"
+      ],
+      "relevant_ids": [
+        "data_privacy_act_2024::s7:a"
+      ],
+      "retrieved_chars": 1877
+    },
+    {
+      "query": "What are the lawful grounds on which personal data may be processed?",
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.33333333333333337,
+      "hit": true,
+      "retrieved_ids": [
+        "data_privacy_act_2024::p6",
+        "data_privacy_act_2024::p7",
+        "data_privacy_act_2024::p4",
+        "data_privacy_act_2024::p12",
+        "data_privacy_act_2024::p13"
+      ],
+      "relevant_ids": [
+        "data_privacy_act_2024::s3:a",
+        "data_privacy_act_2024::s3:b",
+        "data_privacy_act_2024::s3:c"
+      ],
+      "retrieved_chars": 2106
+    }
+  ],
+  "match": "text",
+  "mean_latency_s": 9.486622820000047
+}

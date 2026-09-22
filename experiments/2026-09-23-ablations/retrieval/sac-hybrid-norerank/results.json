@@ -1,0 +1,206 @@
+{
+  "aggregate": {
+    "n_queries": 10,
+    "precision": 0.26,
+    "recall": 0.9666666666666666,
+    "f1": 0.3916666666666667,
+    "retrieval_rate": 1.0,
+    "mean_retrieved_chars": 574.5
+  },
+  "per_query": [
+    {
+      "query": "How long does a landlord have to refund a tenant's security deposit?",
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.33333333333333337,
+      "hit": true,
+      "retrieved_ids": [
+        "urban_tenancy_act_2019::s4:b",
+        "urban_tenancy_act_2019::s4",
+        "urban_tenancy_act_2019::s4:a",
+        "urban_tenancy_act_2019::s3:a",
+        "urban_tenancy_act_2019::s6"
+      ],
+      "relevant_ids": [
+        "urban_tenancy_act_2019::s4:b"
+      ],
+      "retrieved_chars": 600
+    },
+    {
+      "query": "What is the maximum security deposit a landlord may collect for residential premises?",
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.33333333333333337,
+      "hit": true,
+      "retrieved_ids": [
+        "urban_tenancy_act_2019::s4:a",
+        "urban_tenancy_act_2019::s4",
+        "urban_tenancy_act_2019::s4:b",
+        "urban_tenancy_act_2019::s3:a",
+        "urban_tenancy_act_2019::s2:2"
+      ],
+      "relevant_ids": [
+        "urban_tenancy_act_2019::s4:a"
+      ],
+      "retrieved_chars": 494
+    },
+    {
+      "query": "How many days may hazardous waste be stored on the generator's premises?",
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.33333333333333337,
+      "hit": true,
+      "retrieved_ids": [
+        "environmental_waste_act_2022::s4:b",
+        "environmental_waste_act_2022::s2:2",
+        "environmental_waste_act_2022::s2:1",
+        "environmental_waste_act_2022::s3",
+        "environmental_waste_act_2022::s4"
+      ],
+      "relevant_ids": [
+        "environmental_waste_act_2022::s4:b"
+      ],
+      "retrieved_chars": 703
+    },
+    {
+      "query": "Within how many hours must a data fiduciary notify the Board of a data breach?",
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.33333333333333337,
+      "hit": true,
+      "retrieved_ids": [
+        "data_privacy_act_2024::s5:a",
+        "data_privacy_act_2024::s5",
+        "data_privacy_act_2024::s7:a",
+        "data_privacy_act_2024::s5:b",
+        "data_privacy_act_2024::s6"
+      ],
+      "relevant_ids": [
+        "data_privacy_act_2024::s5:a"
+      ],
+      "retrieved_chars": 600
+    },
+    {
+      "query": "What penalty applies to a repeat unfair trade practice offence?",
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.33333333333333337,
+      "hit": true,
+      "retrieved_ids": [
+        "consumer_protection_act_2020::s5:b",
+        "consumer_protection_act_2020::s5:a",
+        "consumer_protection_act_2020::s5",
+        "consumer_protection_act_2020::s2:2",
+        "environmental_waste_act_2022::s6:b"
+      ],
+      "relevant_ids": [
+        "consumer_protection_act_2020::s5:b"
+      ],
+      "retrieved_chars": 648
+    },
+    {
+      "query": "How many days does a seller have to respond to a consumer redress request?",
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.33333333333333337,
+      "hit": true,
+      "retrieved_ids": [
+        "consumer_protection_act_2020::s4:a",
+        "consumer_protection_act_2020::s4:b",
+        "consumer_protection_act_2020::s4",
+        "data_privacy_act_2024::s7:a",
+        "consumer_protection_act_2020::s8"
+      ],
+      "relevant_ids": [
+        "consumer_protection_act_2020::s4:a"
+      ],
+      "retrieved_chars": 581
+    },
+    {
+      "query": "How much is the annual renewal fee for a small business license?",
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.33333333333333337,
+      "hit": true,
+      "retrieved_ids": [
+        "small_business_licensing_act_2021::s4:b",
+        "small_business_licensing_act_2021::s4",
+        "small_business_licensing_act_2021::s2:2",
+        "small_business_licensing_act_2021::s4:a",
+        "small_business_licensing_act_2021::s1:1"
+      ],
+      "relevant_ids": [
+        "small_business_licensing_act_2021::s4:b"
+      ],
+      "retrieved_chars": 505
+    },
+    {
+      "query": "On what grounds may a landlord seek eviction of a tenant?",
+      "precision": 0.4,
+      "recall": 0.6666666666666666,
+      "f1": 0.5,
+      "hit": true,
+      "retrieved_ids": [
+        "urban_tenancy_act_2019::s5",
+        "urban_tenancy_act_2019::s7:a",
+        "urban_tenancy_act_2019::s5:a",
+        "urban_tenancy_act_2019::s5:c",
+        "urban_tenancy_act_2019::s7"
+      ],
+      "relevant_ids": [
+        "urban_tenancy_act_2019::s5:a",
+        "urban_tenancy_act_2019::s5:b",
+        "urban_tenancy_act_2019::s5:c"
+      ],
+      "retrieved_chars": 504
+    },
+    {
+      "query": "How long does a data fiduciary have to respond to an access request?",
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.33333333333333337,
+      "hit": true,
+      "retrieved_ids": [
+        "data_privacy_act_2024::s7:a",
+        "data_privacy_act_2024::s7:b",
+        "data_privacy_act_2024::s5:a",
+        "data_privacy_act_2024::s8:a",
+        "data_privacy_act_2024::s9"
+      ],
+      "relevant_ids": [
+        "data_privacy_act_2024::s7:a"
+      ],
+      "retrieved_chars": 528
+    },
+    {
+      "query": "What are the lawful grounds on which personal data may be processed?",
+      "precision": 0.6,
+      "recall": 1.0,
+      "f1": 0.7499999999999999,
+      "hit": true,
+      "retrieved_ids": [
+        "data_privacy_act_2024::s3",
+        "data_privacy_act_2024::s3:c",
+        "data_privacy_act_2024::s3:b",
+        "data_privacy_act_2024::s2:2",
+        "data_privacy_act_2024::s3:a"
+      ],
+      "relevant_ids": [
+        "data_privacy_act_2024::s3:a",
+        "data_privacy_act_2024::s3:b",
+        "data_privacy_act_2024::s3:c"
+      ],
+      "retrieved_chars": 582
+    }
+  ],
+  "match": "text",
+  "mean_latency_s": 0.026128869999956804,
+  "id_exact_crosscheck": {
+    "n_queries": 10,
+    "precision": 0.26,
+    "recall": 0.9666666666666666,
+    "f1": 0.3916666666666667,
+    "retrieval_rate": 1.0,
+    "mean_retrieved_chars": 0.0
+  }
+}

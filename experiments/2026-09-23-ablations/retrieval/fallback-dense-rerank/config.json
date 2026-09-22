@@ -1,0 +1,9 @@
+{
+  "mode": "dense",
+  "use_reranker": true,
+  "k": 5,
+  "n": 50,
+  "reranker_model": "BAAI/bge-reranker-base",
+  "chunking": "fallback",
+  "corpus": "data/sample/*.txt"
+}
