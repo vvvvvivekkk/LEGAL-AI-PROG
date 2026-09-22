@@ -49,6 +49,22 @@ class VCSConfig:
     w_consistency: float = 0.25
     threshold: float = 0.60
 
+    # Per-layer switches, used by the phase-6 ablation sweep. All layers are on
+    # by default, so normal callers get the full chain and nothing changes.
+    #   enable_v1 off -> the citation-existence hard gate is not applied
+    #   enable_v2 off -> no entailment verdict: no CONTRADICTS gate, and the
+    #                    entailment term is dropped from the VCS normalisation
+    #   enable_v3 off -> the fidelity term is dropped from the normalisation
+    #   enable_v4 off -> no resamples are used; consistency term dropped
+    #   enable_v5 off -> no threshold gating: a scored answer is always ANSWER
+    #   enable_v6 off -> no Proof Object is emitted
+    enable_v1: bool = True
+    enable_v2: bool = True
+    enable_v3: bool = True
+    enable_v4: bool = True
+    enable_v5: bool = True
+    enable_v6: bool = True
+
 
 @dataclass
 class ClaimVCS:
@@ -99,13 +115,17 @@ def _claim_vcs(
     consistency: float | None,
     config: VCSConfig,
 ) -> tuple[float, str | None]:
-    if not citation_ok:
+    if config.enable_v1 and not citation_ok:
         return 0.0, "citation"
-    if entailment == Entailment.CONTRADICTS:
+    if config.enable_v2 and entailment == Entailment.CONTRADICTS:
         return 0.0, "contradiction"
 
-    entail_component = 1.0 if entailment == Entailment.ENTAILS else 0.0
-    components = [(entail_component, config.w_entail), (fidelity, config.w_fidelity)]
+    components: list[tuple[float, float]] = []
+    if config.enable_v2:
+        entail_component = 1.0 if entailment == Entailment.ENTAILS else 0.0
+        components.append((entail_component, config.w_entail))
+    if config.enable_v3:
+        components.append((fidelity, config.w_fidelity))
     if consistency is not None:
         components.append((consistency, config.w_consistency))
 
@@ -166,7 +186,8 @@ def aggregate_vcs(
         )
 
     vcs = sum(c.vcs for c in per_claim) / len(per_claim)
-    decision = ANSWER if vcs >= config.threshold else ABSTAIN
+    # V5 off: the score is still reported, but it no longer gates the answer.
+    decision = ANSWER if (not config.enable_v5 or vcs >= config.threshold) else ABSTAIN
     return VCSResult(
         vcs=vcs, decision=decision, threshold=config.threshold,
         abstained=False, per_claim=per_claim, weights=weights,

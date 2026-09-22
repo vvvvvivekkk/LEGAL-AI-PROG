@@ -12,6 +12,10 @@ dist/
 # Data / generated artifacts
 data/lancedb/
 data/lancedb_batch/
+data/lancedb_ablation/
+data/lancedb_ablate_sac/
+data/lancedb_ablate_fallback/
+data/lancedb_eval/
 data/raw/
 data/processed/
 

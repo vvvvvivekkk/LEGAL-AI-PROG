@@ -1,0 +1,16 @@
+{
+  "sweep": "verification-v1-v6",
+  "arms": [
+    "full_chain",
+    "minus_v1",
+    "minus_v2",
+    "minus_v3",
+    "minus_v4",
+    "minus_v5",
+    "minus_v6"
+  ],
+  "probes": [
+    "fabricated_citation",
+    "mismatched_claim"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "arm": "full_chain",
+  "enable_v1": true,
+  "enable_v2": true,
+  "enable_v3": true,
+  "enable_v4": true,
+  "enable_v5": true,
+  "enable_v6": true,
+  "threshold": 0.6,
+  "w_entail": 0.4,
+  "w_fidelity": 0.35,
+  "w_consistency": 0.25
+}

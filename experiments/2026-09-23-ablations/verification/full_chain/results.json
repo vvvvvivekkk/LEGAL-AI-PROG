@@ -1,0 +1,200 @@
+{
+  "arm": "full_chain",
+  "config": {
+    "enable_v1": true,
+    "enable_v2": true,
+    "enable_v3": true,
+    "enable_v4": true,
+    "enable_v5": true,
+    "enable_v6": true,
+    "threshold": 0.6,
+    "w_entail": 0.4,
+    "w_fidelity": 0.35,
+    "w_consistency": 0.25
+  },
+  "mean_vcs": 0.7675,
+  "n_queries": 10,
+  "n_unavailable": 0,
+  "n_answer": 7,
+  "n_abstain": 3,
+  "total_claims": 14,
+  "bad_claims_surfaced": 0,
+  "weak_claims_surfaced": 0,
+  "gate_failures": {
+    "citation": 0,
+    "contradiction": 0
+  },
+  "abstention_accuracy": 0.7,
+  "per_query": [
+    {
+      "query": "How long does a landlord have to refund a tenant's security deposit?",
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "n_claims": 1,
+      "bad_claims_full_chain": [],
+      "bad_claims_surfaced": 0,
+      "weak_claims_full_chain": [],
+      "weak_claims_surfaced": 0,
+      "expected_decision": "ANSWER",
+      "proof_emitted": true,
+      "n_resamples": 2
+    },
+    {
+      "query": "What is the maximum security deposit a landlord may collect for residential premises?",
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "n_claims": 1,
+      "bad_claims_full_chain": [],
+      "bad_claims_surfaced": 0,
+      "weak_claims_full_chain": [],
+      "weak_claims_surfaced": 0,
+      "expected_decision": "ANSWER",
+      "proof_emitted": true,
+      "n_resamples": 2
+    },
+    {
+      "query": "How many days may hazardous waste be stored on the generator's premises?",
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "n_claims": 1,
+      "bad_claims_full_chain": [],
+      "bad_claims_surfaced": 0,
+      "weak_claims_full_chain": [],
+      "weak_claims_surfaced": 0,
+      "expected_decision": "ANSWER",
+      "proof_emitted": true,
+      "n_resamples": 2
+    },
+    {
+      "query": "Within how many hours must a data fiduciary notify the Board of a data breach?",
+      "decision": "ABSTAIN",
+      "vcs": 0.25,
+      "n_claims": 1,
+      "bad_claims_full_chain": [],
+      "bad_claims_surfaced": 0,
+      "weak_claims_full_chain": [
+        0
+      ],
+      "weak_claims_surfaced": 0,
+      "expected_decision": "ANSWER",
+      "proof_emitted": true,
+      "n_resamples": 2
+    },
+    {
+      "query": "What penalty applies to a repeat unfair trade practice offence?",
+      "decision": "ABSTAIN",
+      "vcs": 0.425,
+      "n_claims": 1,
+      "bad_claims_full_chain": [],
+      "bad_claims_surfaced": 0,
+      "weak_claims_full_chain": [
+        0
+      ],
+      "weak_claims_surfaced": 0,
+      "expected_decision": "ANSWER",
+      "proof_emitted": true,
+      "n_resamples": 2
+    },
+    {
+      "query": "How many days does a seller have to respond to a consumer redress request?",
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "n_claims": 1,
+      "bad_claims_full_chain": [],
+      "bad_claims_surfaced": 0,
+      "weak_claims_full_chain": [],
+      "weak_claims_surfaced": 0,
+      "expected_decision": "ANSWER",
+      "proof_emitted": true,
+      "n_resamples": 0
+    },
+    {
+      "query": "How much is the annual renewal fee for a small business license?",
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "n_claims": 1,
+      "bad_claims_full_chain": [],
+      "bad_claims_surfaced": 0,
+      "weak_claims_full_chain": [],
+      "weak_claims_surfaced": 0,
+      "expected_decision": "ANSWER",
+      "proof_emitted": true,
+      "n_resamples": 0
+    },
+    {
+      "query": "On what grounds may a landlord seek eviction of a tenant?",
+      "decision": "ABSTAIN",
+      "vcs": 0.0,
+      "n_claims": 3,
+      "bad_claims_full_chain": [],
+      "bad_claims_surfaced": 0,
+      "weak_claims_full_chain": [
+        0,
+        1,
+        2
+      ],
+      "weak_claims_surfaced": 0,
+      "expected_decision": "ANSWER",
+      "proof_emitted": true,
+      "n_resamples": 0
+    },
+    {
+      "query": "How long does a data fiduciary have to respond to an access request?",
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "n_claims": 1,
+      "bad_claims_full_chain": [],
+      "bad_claims_surfaced": 0,
+      "weak_claims_full_chain": [],
+      "weak_claims_surfaced": 0,
+      "expected_decision": "ANSWER",
+      "proof_emitted": true,
+      "n_resamples": 0
+    },
+    {
+      "query": "What are the lawful grounds on which personal data may be processed?",
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "n_claims": 3,
+      "bad_claims_full_chain": [],
+      "bad_claims_surfaced": 0,
+      "weak_claims_full_chain": [],
+      "weak_claims_surfaced": 0,
+      "expected_decision": "ANSWER",
+      "proof_emitted": true,
+      "n_resamples": 0
+    }
+  ],
+  "probes": {
+    "fabricated_citation": {
+      "arm": "full_chain",
+      "perturbation": "fabricated_citation",
+      "mean_vcs": 0.0,
+      "n_answer": 0,
+      "n_abstain": 10,
+      "bad_claims_total": 14,
+      "bad_claims_surfaced": 0,
+      "bad_claims_caught": 14,
+      "catch_rate": 1.0,
+      "gate_failures": {
+        "citation": 14,
+        "contradiction": 0
+      }
+    },
+    "mismatched_claim": {
+      "arm": "full_chain",
+      "perturbation": "mismatched_claim",
+      "mean_vcs": 0.0,
+      "n_answer": 0,
+      "n_abstain": 10,
+      "bad_claims_total": 14,
+      "bad_claims_surfaced": 0,
+      "bad_claims_caught": 14,
+      "catch_rate": 1.0,
+      "gate_failures": {
+        "citation": 0,
+        "contradiction": 1
+      }
+    }
+  }
+}
