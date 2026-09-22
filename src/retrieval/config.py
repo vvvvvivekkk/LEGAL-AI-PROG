@@ -23,6 +23,15 @@ DEFAULT_RERANKER_MODEL = "BAAI/bge-reranker-base"
 DEFAULT_N = 50
 
 
+# Neighbor-chunk expansion (src/retrieval/neighbors.py). A clause can be split
+# across adjacent chunks -- on the NDA corpus "8. Remedies" lands in ::p41
+# ("...could cause irreparable harm") and ::p42 ("...entitled to injunctive
+# relief"), and only p41 ranks for a disclosure question. A window of w pulls
+# each selected chunk's w neighbours on either side into the context so the
+# clause travels intact. 0 disables expansion (pre-existing behaviour).
+DEFAULT_NEIGHBOR_WINDOW = 0
+
+
 @dataclass
 class RetrievalConfig:
     mode: str = "hybrid"
@@ -30,6 +39,7 @@ class RetrievalConfig:
     k: int = 5
     n: int = DEFAULT_N
     reranker_model: str = DEFAULT_RERANKER_MODEL
+    neighbor_window: int = DEFAULT_NEIGHBOR_WINDOW
 
     def __post_init__(self) -> None:
         if self.mode not in VALID_MODES:
@@ -38,3 +48,5 @@ class RetrievalConfig:
             raise ValueError(f"k must be >= 1, got {self.k}")
         if self.n < self.k:
             raise ValueError(f"n ({self.n}) must be >= k ({self.k})")
+        if self.neighbor_window < 0:
+            raise ValueError(f"neighbor_window must be >= 0, got {self.neighbor_window}")

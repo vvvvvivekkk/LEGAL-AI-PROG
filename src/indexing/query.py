@@ -13,7 +13,8 @@ from src.embedding.base import EmbeddingModel
 from src.embedding.sentence_transformer import SentenceTransformerEmbedder
 
 
-def _row_to_dict(row: dict) -> dict:
+def row_to_dict(row: dict) -> dict:
+    """Normalise a raw LanceDB row: decode the JSON metadata column."""
     row = dict(row)
     metadata = row.get("metadata")
     if isinstance(metadata, str):
@@ -22,6 +23,10 @@ def _row_to_dict(row: dict) -> dict:
         except json.JSONDecodeError:
             pass
     return row
+
+
+# Kept as the original private spelling for existing call sites.
+_row_to_dict = row_to_dict
 
 
 def search_dense(
