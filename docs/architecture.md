@@ -15,7 +15,8 @@
         ↓
 [6] Verification       6-stage Proof Chain V1–V6 (§4) → Verification Confidence Score (VCS) + Proof Object
         ↓
-[7] Decision           VCS ≥ threshold → answer + proof. VCS < threshold → abstain / ask for clarification.
+[7] Decision           VCS ≥ threshold → answer + proof. VCS < threshold → abstain / ask for clarification,
+                       except general concept questions, which fall back to uncited general knowledge (§7).
         ↓
 [8] Serving            FastAPI backend + 4-page UI (§6), returns answer + inline proof trace
 ```
@@ -95,3 +96,38 @@ data/                 small sample corpora only (gitignored: large corpora, mode
 experiments/          per-run configs + results
 tests/                mirrors src/
 ```
+
+
+## 7. Answer modes
+
+`POST /query` returns an `answer_mode` telling the caller how the answer was
+produced. The three modes are kept strictly separate — a general-knowledge
+answer is never presented as a sourced one.
+
+| mode | meaning | VCS | citations |
+|---|---|---|---|
+| `verified` | VCS ≥ threshold; every claim passed the chain | a score | yes |
+| `abstained` | the documents could not support an answer | a score or none | none |
+| `general_knowledge` | the question was a general legal concept the corpus was never going to answer, so the model answered from its own knowledge | always `null` | none |
+
+The fallback is deliberately narrow, in `src/generation/general_knowledge.py`.
+A query qualifies only if it opens like a definition request ("what is…",
+"define…", "explain…") *and* carries no marker tying it to the indexed
+documents ("this agreement", "section 4", "according to…", "what happens
+if…"). Anything ambiguous stays on the verified path, where abstaining is the
+honest answer — a question that the documents *should* answer must never be
+quietly satisfied from model priors. Callers can disable it entirely with
+`allow_general_knowledge: false`.
+
+The UI badges the three modes distinctly; `general_knowledge` gets its own
+colour off the verified/abstained axis and renders as plain prose with no
+citation affordances.
+
+### Batch check
+
+`scripts/batch_ask_check.py` drives the real UI with Playwright: it ingests ten
+ContractNLI agreements through the Ingest page, asks five document-specific and
+five general questions through the Ask page, and records outcome / VCS /
+whether citations point at the document that actually contains the answer. It
+runs against an isolated index (`LEGAL_AI_DB_PATH`) and writes results plus
+screenshots under `experiments/batch_ask_check/`.

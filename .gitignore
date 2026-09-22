@@ -11,6 +11,7 @@ dist/
 
 # Data / generated artifacts
 data/lancedb/
+data/lancedb_batch/
 data/raw/
 data/processed/
 
@@ -22,8 +23,9 @@ models/
 sentence_transformers_cache/
 hf_cache/
 
-# Experiment artifacts (keep configs + result JSON)
+# Experiment artifacts (keep configs, result JSON, report, screenshots)
 experiments/*/artifacts/
+experiments/*/logs/
 
 # Editors / OS
 .vscode/
