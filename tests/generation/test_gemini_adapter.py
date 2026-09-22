@@ -79,3 +79,50 @@ def test_default_token_budget_leaves_room_for_reasoning():
     citation parser sees no supported claims. Keep headroom.
     """
     assert DEFAULT_MAX_TOKENS >= 4096
+
+
+class _Err(Exception):
+    def __init__(self, code):
+        super().__init__(f"status {code}")
+        self.code = code
+
+
+def _client_raising(codes, text="ok"):
+    """Client whose generate_content raises the given codes, then succeeds."""
+    calls = {"n": 0}
+
+    class Models:
+        def generate_content(self, **kwargs):
+            i = calls["n"]
+            calls["n"] += 1
+            if i < len(codes):
+                raise _Err(codes[i])
+            return type("R", (), {"text": text})()
+
+    return type("C", (), {"models": Models()})(), calls
+
+
+def test_transient_503_is_retried(monkeypatch):
+    monkeypatch.setattr("time.sleep", lambda *_: None)
+    client, calls = _client_raising([503, 503])
+    adapter = GeminiAdapter(api_key="k", client=client)
+    assert adapter.complete("sys", "user") == "ok"
+    assert calls["n"] == 3
+
+
+def test_quota_429_is_not_retried(monkeypatch):
+    monkeypatch.setattr("time.sleep", lambda *_: None)
+    client, calls = _client_raising([429])
+    adapter = GeminiAdapter(api_key="k", client=client)
+    with pytest.raises(_Err):
+        adapter.complete("sys", "user")
+    assert calls["n"] == 1, "a quota error is not transient — retrying just burns time"
+
+
+def test_retries_give_up_and_reraise(monkeypatch):
+    monkeypatch.setattr("time.sleep", lambda *_: None)
+    client, calls = _client_raising([503, 503, 503])
+    adapter = GeminiAdapter(api_key="k", client=client)
+    with pytest.raises(_Err):
+        adapter.complete("sys", "user")
+    assert calls["n"] == 3

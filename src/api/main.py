@@ -10,6 +10,7 @@ directly. CORS is opened for the local Vite dev server.
 from __future__ import annotations
 
 import logging
+import os
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -27,6 +28,17 @@ DEV_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
 ]
+
+
+def allowed_origins() -> list[str]:
+    """Dev origins, plus anything in LEGAL_AI_CORS_ORIGINS (comma-separated).
+
+    scripts/batch_ask_check.py starts the UI on an ephemeral port, which would
+    otherwise fail CORS preflight and make every /query look like a network
+    error in the browser.
+    """
+    extra = os.environ.get("LEGAL_AI_CORS_ORIGINS", "")
+    return DEV_ORIGINS + [o.strip() for o in extra.split(",") if o.strip()]
 
 
 def create_app() -> FastAPI:
@@ -49,7 +61,7 @@ def create_app() -> FastAPI:
 
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=DEV_ORIGINS,
+        allow_origins=allowed_origins(),
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],

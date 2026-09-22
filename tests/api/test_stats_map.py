@@ -61,3 +61,19 @@ def test_embedding_map_after_ingest(client, sample_txt_bytes):
     assert isinstance(p["x"], float) and isinstance(p["y"], float)
     assert p["source_id"] == "urban_tenancy_act_2019"
     assert p["chunk_id"].startswith("urban_tenancy_act_2019::")
+
+
+def test_db_path_can_be_overridden_by_env(monkeypatch):
+    """scripts/batch_ask_check.py relies on this to use an isolated index."""
+    import importlib
+
+    from src.indexing.build import DEFAULT_DB_PATH
+
+    monkeypatch.setenv("LEGAL_AI_DB_PATH", "data/lancedb_somewhere_else")
+    deps = importlib.reload(importlib.import_module("src.api.deps"))
+    try:
+        assert deps.ApiState.db_path == "data/lancedb_somewhere_else"
+    finally:
+        monkeypatch.delenv("LEGAL_AI_DB_PATH", raising=False)
+        deps = importlib.reload(importlib.import_module("src.api.deps"))
+    assert deps.ApiState.db_path == DEFAULT_DB_PATH

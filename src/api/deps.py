@@ -8,6 +8,7 @@ offline without downloading models or needing an API key.
 
 from __future__ import annotations
 
+import os
 from functools import lru_cache
 
 from src.embedding.base import EmbeddingModel
@@ -15,9 +16,14 @@ from src.indexing.build import DEFAULT_DB_PATH
 
 
 class ApiState:
-    """Process-wide, overridable settings (the LanceDB location)."""
+    """Process-wide, overridable settings (the LanceDB location).
 
-    db_path: str = DEFAULT_DB_PATH
+    LEGAL_AI_DB_PATH points the API at a different index without touching the
+    default one -- used by scripts/batch_ask_check.py so a batch run gets a
+    clean, isolated corpus.
+    """
+
+    db_path: str = os.environ.get("LEGAL_AI_DB_PATH") or DEFAULT_DB_PATH
 
 
 def get_db_path() -> str:

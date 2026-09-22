@@ -69,7 +69,15 @@ def query(
     except Exception as exc:  # noqa: BLE001 - NLI model load failure
         raise HTTPException(status_code=503, detail=f"NLI backend unavailable: {exc}") from exc
 
-    answer = generate(req.query, context, adapter)
+    # An upstream provider failure (rate limit, quota, transient outage) is not
+    # a bug in this service -- report it as 503 with the real reason instead of
+    # letting it escape as an unhandled 500.
+    try:
+        answer = generate(req.query, context, adapter)
+    except Exception as exc:  # noqa: BLE001
+        raise HTTPException(
+            status_code=503, detail=f"LLM backend failed: {type(exc).__name__}: {exc}"
+        ) from exc
 
     resamples = None
     if req.self_consistency and not answer.abstained:

@@ -207,3 +207,24 @@ def test_verified_answer_is_labelled_verified(client, sample_txt_bytes):
     assert body["answer_mode"] == "verified"
     assert body["decision"] == "ANSWER"
     assert body["vcs"] is not None
+
+
+def test_llm_provider_failure_returns_503_not_500(client, sample_txt_bytes):
+    """An upstream quota/outage is not an internal error — report it cleanly."""
+    from tests.api.conftest import FakeNLI
+    from src.api import deps
+    from src.api.main import app
+
+    name, data = sample_txt_bytes
+    client.post("/ingest", files={"file": (name, data, "text/plain")})
+
+    class ExhaustedAdapter:
+        def complete(self, system, user):
+            raise RuntimeError("429 RESOURCE_EXHAUSTED: quota exceeded")
+
+    app.dependency_overrides[deps.get_adapter_factory] = lambda: (lambda: ExhaustedAdapter())
+    app.dependency_overrides[deps.get_nli_factory] = lambda: (lambda: FakeNLI())
+
+    resp = client.post("/query", json={"query": "deposit rules"})
+    assert resp.status_code == 503
+    assert "quota exceeded" in resp.json()["detail"]

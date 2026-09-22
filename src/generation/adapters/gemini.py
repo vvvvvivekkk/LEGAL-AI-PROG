@@ -19,6 +19,11 @@ DEFAULT_MODEL = "gemini-2.5-flash"
 # supported claims" and the chain turned into a spurious ABSTAIN.
 DEFAULT_MAX_TOKENS = 4096
 
+# The free tier returns 503 UNAVAILABLE under load fairly often. That is
+# transient, unlike a 429 quota error, so it is worth a couple of retries.
+_RETRY_STATUSES = (503,)
+_MAX_RETRIES = 3
+
 
 class GeminiAdapter:
     def __init__(
@@ -45,15 +50,27 @@ class GeminiAdapter:
         return self._client
 
     def complete(self, system: str, user: str) -> str:
+        import time
+
         from google.genai import types
 
-        response = self._get_client().models.generate_content(
-            model=self.model,
-            contents=user,
-            config=types.GenerateContentConfig(
-                system_instruction=system,
-                max_output_tokens=self.max_tokens,
-            ),
+        config = types.GenerateContentConfig(
+            system_instruction=system,
+            max_output_tokens=self.max_tokens,
         )
-        # `.text` is None when the response carried no text part (e.g. blocked).
-        return response.text or ""
+        last_exc: Exception | None = None
+        for attempt in range(_MAX_RETRIES):
+            try:
+                response = self._get_client().models.generate_content(
+                    model=self.model, contents=user, config=config
+                )
+                # `.text` is None when the response carried no text part
+                # (e.g. blocked, or the whole budget went to reasoning).
+                return response.text or ""
+            except Exception as exc:  # noqa: BLE001 - re-raised below if not retryable
+                if getattr(exc, "code", None) not in _RETRY_STATUSES:
+                    raise
+                last_exc = exc
+                if attempt < _MAX_RETRIES - 1:
+                    time.sleep(2 ** attempt)
+        raise last_exc  # type: ignore[misc]
