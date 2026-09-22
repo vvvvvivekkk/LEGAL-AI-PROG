@@ -18,6 +18,7 @@ from fastapi.responses import JSONResponse
 
 from src.api.routes import documents, embedding_map, evaluation, ingest, query, retrieve, stats
 from src.config import load_env
+from src.generation.factory import missing_key_message, selected_provider
 
 # Pull LLM_PROVIDER / LLM_API_KEY / LLM_MODEL from the repo-root .env (if any)
 # before any route resolves the LLM adapter.
@@ -67,9 +68,34 @@ def create_app() -> FastAPI:
         allow_headers=["*"],
     )
 
+    @app.on_event("startup")
+    def check_llm_config() -> None:
+        """Say loudly, at startup, if the selected provider has no usable key.
+
+        Otherwise a misnamed or absent key only shows up as a 503 on the first
+        question somebody asks, which reads like a pipeline fault. .env is read
+        once per process, so editing it needs a restart to take effect.
+        """
+        problem = missing_key_message()
+        log = logging.getLogger("legal_ai.api")
+        if problem:
+            log.error("LLM backend is NOT configured: %s", problem)
+            log.error("Ingest, retrieve and search will work; POST /query will return 503.")
+        else:
+            log.info("LLM backend: provider=%s, key found.", selected_provider())
+
     @app.get("/health")
     def health() -> dict:
-        return {"status": "ok"}
+        """Liveness plus whether the selected LLM provider is actually usable."""
+        problem = missing_key_message()
+        return {
+            "status": "ok",
+            "llm": {
+                "provider": selected_provider(),
+                "configured": problem is None,
+                "problem": problem,
+            },
+        }
 
     app.include_router(ingest.router, tags=["ingest"])
     app.include_router(documents.router, tags=["documents"])

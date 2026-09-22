@@ -13,7 +13,12 @@ from __future__ import annotations
 import os
 
 BASE_URL = "https://api.groq.com/openai/v1"
-DEFAULT_MODEL = "llama-3.3-70b-versatile"
+
+# Groq's catalogue varies by account. llama-3.3-70b-versatile is the obvious
+# default but is not available on every key (404 model_not_found), so the
+# default is a model this account can actually serve. Override with LLM_MODEL,
+# and see `GroqAdapter.available_models()` for what a key can reach.
+DEFAULT_MODEL = "openai/gpt-oss-120b"
 
 # Citation-forced answers over a dozen retrieved chunks routinely run past a
 # 1024-token reply, and a response cut off mid-citation is read downstream as
@@ -29,9 +34,14 @@ class GroqAdapter:
         max_tokens: int = DEFAULT_MAX_TOKENS,
         client=None,
     ):
-        self.api_key = api_key or os.environ.get("GROQ_API_KEY")
+        # GROQ_API_KEY is the specific name; LLM_API_KEY is the generic one the
+        # other adapters use, accepted so switching provider needs one edit.
+        self.api_key = api_key or os.environ.get("GROQ_API_KEY") or os.environ.get("LLM_API_KEY")
         if not self.api_key and client is None:
-            raise ValueError("GroqAdapter requires an API key (GROQ_API_KEY env var or api_key arg)")
+            raise ValueError(
+                "GroqAdapter requires an API key: set GROQ_API_KEY (or LLM_API_KEY) "
+                "in the repo-root .env or the environment, then restart the server."
+            )
         self.model = model
         self.max_tokens = max_tokens
         # A pre-built client can be injected (tests pass a stub); otherwise one
@@ -56,3 +66,7 @@ class GroqAdapter:
         )
         # `.content` is None when the response carried no text (e.g. filtered).
         return response.choices[0].message.content or ""
+
+    def available_models(self) -> list[str]:
+        """Model ids this key can actually reach — Groq's catalogue is per-account."""
+        return sorted(m.id for m in self._get_client().models.list().data)
