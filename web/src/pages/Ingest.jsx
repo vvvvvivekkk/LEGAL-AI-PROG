@@ -55,9 +55,11 @@ export default function Ingest() {
         <Banner variant="error" title={error.message}>
           {error.kind === 'network'
             ? 'Nothing was indexed — the request never reached the API.'
-            : `Nothing was indexed. The API answered with HTTP ${error.status ?? '?'}${
-                error.status === 503 ? ' — the embedding model could not be loaded; check the backend log.' : '.'
-              }`}
+            : error.status === 409
+              ? 'This document is already in the index, so it was not added again.'
+              : `Nothing was indexed. The API answered with HTTP ${error.status ?? '?'}${
+                  error.status === 503 ? ' — the embedding model could not be loaded; check the backend log.' : '.'
+                }`}
         </Banner>
       )}
 

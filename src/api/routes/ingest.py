@@ -18,6 +18,7 @@ from src.api.schemas import IngestResponse
 from src.api.serialization import new_chunk
 from src.chunking.fallback import chunk_document_or_fallback
 from src.indexing.build import append_rows, chunks_to_rows
+from src.indexing.dedup import content_hash, find_duplicate
 from src.ingestion.pipeline import ingest_file_with_text
 
 router = APIRouter()
@@ -43,6 +44,26 @@ async def ingest(
         raise HTTPException(status_code=415, detail=f"Only {sorted(_SUPPORTED)} files are supported")
 
     contents = await file.read()
+    source_id = Path(filename).stem
+    digest = content_hash(contents)
+
+    # Refuse to index the same document twice: the chunk_ids would collide and
+    # every retrieval would surface duplicate hits.
+    duplicate = find_duplicate(source_id, digest, db_path=db_path)
+    if duplicate is not None:
+        why = (
+            "identical content is already indexed"
+            if duplicate.reason == "content"
+            else "a document with the same name is already indexed"
+        )
+        raise HTTPException(
+            status_code=409,
+            detail=(
+                f"Duplicate document: {why} as '{duplicate.source_id}' "
+                f"({duplicate.chunk_count} chunks). Nothing was added."
+            ),
+        )
+
     with tempfile.TemporaryDirectory() as tmp_dir:
         tmp_path = Path(tmp_dir) / filename
         tmp_path.write_bytes(contents)
@@ -55,6 +76,8 @@ async def ingest(
 
         chunk_records, used_fallback = chunk_document_or_fallback(document, cleaned)
         chunk_dicts = [c.to_dict() for c in chunk_records]
+        for chunk in chunk_dicts:
+            chunk["metadata"]["content_sha256"] = digest
 
     if not chunk_dicts:
         # Even fallback found nothing — the file is effectively empty.

@@ -130,3 +130,31 @@ def test_unhandled_route_error_is_json_with_cors_headers(client):
     assert resp.status_code == 500
     assert resp.json()["detail"] == "internal error: RuntimeError: kaboom"
     assert resp.headers.get("access-control-allow-origin") == "http://localhost:5173"
+
+
+def test_ingest_same_file_twice_is_rejected(client, sample_txt_bytes):
+    name, data = sample_txt_bytes
+    first = client.post("/ingest", files={"file": (name, data, "text/plain")})
+    assert first.status_code == 200
+    total = first.json()["totals"]["chunks"]
+
+    second = client.post("/ingest", files={"file": (name, data, "text/plain")})
+    assert second.status_code == 409
+    assert "already indexed" in second.json()["detail"]
+    assert client.get("/stats").json()["chunks"] == total
+
+
+def test_ingest_same_content_under_new_name_is_rejected(client, sample_txt_bytes):
+    name, data = sample_txt_bytes
+    assert client.post("/ingest", files={"file": (name, data, "text/plain")}).status_code == 200
+    resp = client.post("/ingest", files={"file": ("renamed_copy.txt", data, "text/plain")})
+    assert resp.status_code == 409
+    assert "identical content" in resp.json()["detail"]
+
+
+def test_ingest_same_name_different_content_is_rejected(client, sample_txt_bytes):
+    name, data = sample_txt_bytes
+    assert client.post("/ingest", files={"file": (name, data, "text/plain")}).status_code == 200
+    resp = client.post("/ingest", files={"file": (name, data + b"\n\nSection 99. Extra.", "text/plain")})
+    assert resp.status_code == 409
+    assert "same name" in resp.json()["detail"]
