@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { evaluation, embeddingMap } from '../api.js'
 import Banner from '../components/Banner.jsx'
-import Card, { CardHeader } from '../components/Card.jsx'
+import Card, { CardHeader, PageHeader } from '../components/Card.jsx'
 import EmbeddingScatter from '../components/EmbeddingScatter.jsx'
 import { FileIcon } from '../components/icons.jsx'
 
@@ -13,7 +13,8 @@ function pct(x) {
 // the page accent — colour here distinguishes *which metric*, and carrying one
 // hue per metric down a long list of runs makes a column scannable. Drawn from
 // the categorical data palette, not the status colors: a low precision is not
-// a "warning".
+// a "warning". The hue marks the tile (top rule + dot); the number itself
+// stays ink, since some data hues are below 4.5:1 as text on white.
 const METRICS = [
   ['precision', 'Precision', 'var(--color-data-1)'],
   ['recall', 'Recall', 'var(--color-data-6)'],
@@ -37,10 +38,10 @@ function RunCard({ run }) {
           {METRICS.map(([key, label, hue]) => (
             <div
               key={key}
-              style={{ '--metric': hue }}
-              className="group/metric rounded-lg border border-white/[0.07] bg-raised/60 px-3 py-2.5 shadow-[var(--shadow-flat)] backdrop-blur-lg transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:[border-color:color-mix(in_oklab,var(--metric)_55%,transparent)] hover:shadow-[var(--shadow-card)]"
+              style={{ borderTopColor: hue }}
+              className="rounded-lg border-t-2 bg-surface px-3 py-2.5"
             >
-              <div className="font-mono text-xl" style={{ color: hue }}>{pct(agg[key])}</div>
+              <div className="font-mono text-xl text-ink">{pct(agg[key])}</div>
               <div className="mt-0.5 flex items-center gap-1.5 text-[11px] text-muted">
                 <span
                   className="h-1.5 w-1.5 shrink-0 rounded-full"
@@ -83,6 +84,10 @@ export default function Evaluation() {
 
   return (
     <div className="space-y-6">
+      <PageHeader
+        title="Evaluation"
+        subtitle="The embedding space the retriever searches, and metrics from logged evaluation runs."
+      />
       <Card tone="input">
         <CardHeader
           icon={FileIcon}
@@ -108,7 +113,7 @@ export default function Evaluation() {
           <div className="rounded-lg border border-dashed border-line px-5 py-8 text-center">
             <p className="text-sm text-ink">{state.data.message || 'No evaluation runs yet.'}</p>
             <p className="mx-auto mt-2 max-w-md text-xs text-muted">
-              Log one with <span className="font-mono text-faint">python -m src.evaluation.run_retrieval_eval</span>, then reload.
+              Log one with <span className="font-mono text-ink">python -m src.evaluation.run_retrieval_eval</span>, then reload.
             </p>
           </div>
         )}

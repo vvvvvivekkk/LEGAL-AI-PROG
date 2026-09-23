@@ -31,7 +31,7 @@ function useCountUp(target, ms = 900) {
 function StatChip({ value, label }) {
   const shown = useCountUp(value)
   return (
-    <div className="group rounded-xl border border-white/10 bg-surface/55 px-4 py-3 shadow-[var(--shadow-flat)] backdrop-blur-lg transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-accent/50 hover:shadow-[var(--shadow-card),var(--shadow-glow)]">
+    <div className="group rounded-xl border border-line bg-white px-4 py-3 shadow-[var(--shadow-card)] transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-accent-line hover:shadow-[var(--shadow-card),var(--shadow-glow)]">
       <div className="font-mono text-2xl font-medium text-ink transition-colors group-hover:text-accent">{shown}</div>
       <div className="mt-0.5 text-xs text-muted">{label}</div>
     </div>
@@ -77,13 +77,13 @@ export default function Home() {
           <div className="mt-6 flex gap-3">
             <Link
               to="/ask"
-              className="bg-gradient-brand rounded-lg px-4 py-2.5 text-sm font-medium text-white shadow-[var(--shadow-button)] transition-[filter] hover:brightness-110"
+              className="rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-white shadow-[var(--shadow-button)] transition-colors hover:bg-primary-hover"
             >
               Ask a question
             </Link>
             <Link
               to="/ingest"
-              className="rounded-lg border border-line bg-surface/60 px-4 py-2.5 text-sm font-medium text-muted shadow-[var(--shadow-flat)] transition-colors hover:border-faint hover:text-ink"
+              className="rounded-lg border border-line bg-canvas px-4 py-2.5 text-sm font-medium text-muted shadow-[var(--shadow-flat)] transition-colors hover:border-faint hover:text-ink"
             >
               Add a document
             </Link>
@@ -97,7 +97,7 @@ export default function Home() {
           )}
           {totals && totals.chunks === 0 && (
             <p className="mt-3 text-xs text-faint">
-              Nothing indexed yet — <Link to="/ingest" className="text-accent">add a document</Link> to get started.
+              Nothing indexed yet — <Link to="/ingest" className="font-medium text-accent underline decoration-accent-line underline-offset-2">add a document</Link> to get started.
             </p>
           )}
         </motion.div>
@@ -108,12 +108,12 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="relative h-64 md:h-80"
         >
-          {/* Glow behind the hero canvas so it sits in light rather than on a flat panel. */}
+          {/* A very soft orange glow behind the hero canvas so it sits in light rather than on a flat panel. */}
           <div
             aria-hidden
-            className="bg-gradient-brand absolute -inset-3 rounded-[1.6rem] opacity-40 blur-2xl"
+            className="absolute -inset-10 bg-[radial-gradient(closest-side,color-mix(in_oklab,var(--color-brand)_16%,transparent),transparent)] blur-xl"
           />
-          <div className="relative h-full overflow-hidden rounded-2xl border border-line/80 bg-gradient-to-b from-raised to-surface shadow-[var(--shadow-card)]">
+          <div className="relative h-full overflow-hidden rounded-2xl border border-line bg-white/80 shadow-[var(--shadow-card)] backdrop-blur-sm">
             <Hero3D />
           </div>
           <div className="pointer-events-none absolute bottom-3 left-4 font-mono text-[11px] text-muted">
@@ -122,17 +122,17 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section className="grid gap-4 sm:grid-cols-3">
+      <section className="grid gap-6 sm:grid-cols-3">
         {STEPS.map((s, i) => (
           <motion.div
             key={s.n}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.15 + i * 0.08 }}
-            className="rounded-xl border border-white/[0.07] bg-surface/60 p-4 shadow-[var(--shadow-flat)] backdrop-blur-lg"
+            className="rounded-xl border border-line bg-white/80 p-6 shadow-[var(--shadow-card)] backdrop-blur-lg"
           >
-            <div className="text-gradient font-mono text-sm font-medium">{s.n}</div>
-            <div className="mt-1 text-sm font-semibold text-ink">{s.title}</div>
+            <div className="flex h-7 w-7 items-center justify-center rounded-full border border-accent-line bg-accent-weak font-mono text-sm font-medium text-accent">{s.n}</div>
+            <div className="mt-3 text-sm font-semibold text-ink">{s.title}</div>
             <p className="mt-1 text-[13px] leading-relaxed text-muted">{s.body}</p>
           </motion.div>
         ))}

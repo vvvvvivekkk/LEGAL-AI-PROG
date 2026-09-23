@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { retrieve } from '../api.js'
 import Banner from '../components/Banner.jsx'
 import Button from '../components/Button.jsx'
-import Card, { CardHeader } from '../components/Card.jsx'
+import Card, { CardHeader, PageHeader } from '../components/Card.jsx'
 import { SearchIcon } from '../components/icons.jsx'
 
 const BASE_VARIANTS = ['dense', 'fts', 'hybrid']
@@ -22,7 +22,7 @@ function Hit({ row }) {
         {row.score != null && <span className="font-mono text-xs text-faint">{row.score.toFixed(3)}</span>}
       </div>
       {row.metadata?.act && <div className="mt-0.5 truncate text-xs text-muted">{row.metadata.act}</div>}
-      <p className="mt-1 text-[13px] leading-relaxed text-ink/90">{row.text}</p>
+      <p className="mt-1 text-[13px] leading-relaxed text-ink">{row.text}</p>
     </li>
   )
 }
@@ -33,7 +33,7 @@ function Column({ label, rows, highlight, index }) {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05, duration: 0.2 }}
-      className={`rounded-lg border p-4 ${highlight ? 'border-accent/40 bg-accent-weak/40 shadow-[var(--shadow-glow)]' : 'border-line-soft bg-surface shadow-[var(--shadow-flat)]'}`}
+      className={`rounded-xl border p-5 ${highlight ? 'border-accent-line bg-accent-weak/60 shadow-[var(--shadow-card),var(--shadow-glow)]' : 'border-line bg-white shadow-[var(--shadow-card)]'}`}
     >
       <div className="mb-3 flex items-center justify-between">
         <h3 className="text-[13px] font-semibold text-ink">{label}</h3>
@@ -77,6 +77,10 @@ export default function Search() {
 
   return (
     <div className="space-y-6">
+      <PageHeader
+        title="Search"
+        subtitle="Inspect what the retriever finds for a query, before any generation or verification."
+      />
       <Card tone="input">
         <CardHeader
           icon={SearchIcon}
@@ -89,7 +93,7 @@ export default function Search() {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="How long does a landlord have to refund a deposit?"
-            className="min-w-[240px] flex-1 rounded-lg border border-line bg-surface px-3.5 py-2.5 text-sm text-ink placeholder:text-faint focus:border-accent"
+            className="field min-w-[240px] flex-1 rounded-lg px-3.5 py-2.5 text-sm"
           />
           <label className="flex items-center gap-2 text-xs text-muted">
             top-k
@@ -99,7 +103,7 @@ export default function Search() {
               max="20"
               value={k}
               onChange={(e) => setK(Number(e.target.value))}
-              className="w-16 rounded-lg border border-line bg-surface px-2.5 py-2 text-sm text-ink focus:border-accent"
+              className="field w-16 rounded-lg px-2.5 py-2 text-sm"
             />
           </label>
           <label className="flex items-center gap-2 text-xs text-muted">
@@ -107,7 +111,7 @@ export default function Search() {
               type="checkbox"
               checked={rerank}
               onChange={(e) => setRerank(e.target.checked)}
-              className="h-4 w-4 accent-[var(--accent)]"
+              className="h-4 w-4 accent-[var(--color-brand)]"
             />
             rerank
           </label>
@@ -118,7 +122,7 @@ export default function Search() {
       {error && <Banner variant="error" title="Search failed">{error}</Banner>}
 
       {data && (
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {columns.map((key, i) => (
             <Column
               key={key}

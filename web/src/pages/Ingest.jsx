@@ -2,13 +2,13 @@ import { useState } from 'react'
 import { deleteDocument, ingest } from '../api.js'
 import Banner from '../components/Banner.jsx'
 import Button from '../components/Button.jsx'
-import Card, { CardHeader } from '../components/Card.jsx'
+import Card, { CardHeader, PageHeader } from '../components/Card.jsx'
 import Dropzone from '../components/Dropzone.jsx'
 import { UploadIcon } from '../components/icons.jsx'
 
 function Stat({ value, label }) {
   return (
-    <div className="group rounded-lg border border-line-soft bg-surface px-4 py-3 shadow-[var(--shadow-flat)] transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-accent/50 hover:shadow-[var(--shadow-card)]">
+    <div className="group rounded-xl border border-line bg-white px-4 py-3 shadow-[var(--shadow-card)] transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-accent-line">
       <div className="font-mono text-2xl font-medium text-accent">{value}</div>
       <div className="mt-1 text-xs text-muted transition-colors group-hover:text-ink">{label}</div>
     </div>
@@ -69,6 +69,10 @@ export default function Ingest() {
 
   return (
     <div className="space-y-6">
+      <PageHeader
+        title="Ingest"
+        subtitle="Add documents to the index so they can be searched and cited."
+      />
       <Card tone="input">
         <CardHeader
           icon={UploadIcon}
@@ -97,7 +101,7 @@ export default function Ingest() {
               <Button onClick={replace} disabled={busy}>
                 {busy ? 'Replacing…' : `Replace existing document`}
               </Button>
-              <p className="mt-2 text-xs opacity-70">
+              <p className="mt-2 text-xs text-muted">
                 Removes the {error.info.duplicate_chunk_count} indexed chunk
                 {error.info.duplicate_chunk_count === 1 ? '' : 's'} of
                 {' '}&lsquo;{error.info.duplicate_source_id}&rsquo;, then indexes this upload in its place.
@@ -108,7 +112,7 @@ export default function Ingest() {
       )}
 
       {result && (
-        <div className="space-y-5">
+        <div className="space-y-6">
           {result.used_fallback ? (
             <Banner variant="info" title="No legal structure detected">
               Used fallback paragraph chunking, so this document is still searchable.
@@ -128,7 +132,7 @@ export default function Ingest() {
           <Card tone="flat" className="!p-0 overflow-hidden">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-line text-left text-xs text-muted">
+                <tr className="border-b border-line bg-surface text-left text-xs text-muted">
                   <th className="px-4 py-3 font-medium">Chunk</th>
                   <th className="px-4 py-3 font-medium">Reference</th>
                   <th className="px-4 py-3 font-medium">Text</th>
@@ -141,7 +145,7 @@ export default function Ingest() {
                       <span className="font-mono text-xs text-accent">{c.chunk_id}</span>
                     </td>
                     <td className="whitespace-nowrap px-4 py-3 text-muted">{c.metadata.section_ref || '—'}</td>
-                    <td className="px-4 py-3 leading-relaxed text-ink/90">{c.text}</td>
+                    <td className="px-4 py-3 leading-relaxed text-ink">{c.text}</td>
                   </tr>
                 ))}
               </tbody>

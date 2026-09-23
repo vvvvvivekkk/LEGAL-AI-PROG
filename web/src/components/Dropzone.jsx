@@ -14,7 +14,7 @@ export default function Dropzone({ file, onFile, accept = '.txt,.pdf', disabled 
     ? 'border-brand bg-accent-weak shadow-[var(--shadow-glow)]'
     : file
       ? 'border-verified-line bg-verified-weak/60'
-      : 'border-line bg-surface/70 backdrop-blur-lg hover:border-accent-line hover:bg-accent-weak/60'
+      : 'border-faint/50 bg-surface/70 backdrop-blur-lg hover:border-brand hover:bg-accent-weak/60'
 
   return (
     <div

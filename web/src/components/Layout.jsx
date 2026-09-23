@@ -33,7 +33,7 @@ function Tab({ to, label, end }) {
           {isActive && (
             <motion.span
               layoutId="nav-underline"
-              className="absolute inset-x-3 -bottom-px h-0.5 rounded-full bg-brand"
+              className="absolute inset-x-3 bottom-0 h-0.5 rounded-full bg-brand"
               transition={{ type: 'spring', stiffness: 500, damping: 40 }}
             />
           )}
