@@ -2,8 +2,8 @@
 // identical: "input" cards are raised, carry a layered shadow and a faint
 // glow in the page accent; "flat" cards recede with a hairline shadow.
 const TONES = {
-  input: 'bg-raised border-line shadow-[var(--shadow-card),var(--shadow-glow)]',
-  flat: 'bg-surface border-line-soft shadow-[var(--shadow-flat)]',
+  input: 'bg-raised/70 backdrop-blur-xl border-white/10 shadow-[var(--shadow-card),var(--shadow-glow)]',
+  flat: 'bg-surface/55 backdrop-blur-lg border-white/[0.06] shadow-[var(--shadow-flat)]',
 }
 
 export default function Card({ tone = 'flat', className = '', children }) {

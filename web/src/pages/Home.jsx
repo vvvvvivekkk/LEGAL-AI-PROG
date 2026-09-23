@@ -31,7 +31,7 @@ function useCountUp(target, ms = 900) {
 function StatChip({ value, label }) {
   const shown = useCountUp(value)
   return (
-    <div className="group rounded-xl border border-line bg-surface/70 px-4 py-3 shadow-[var(--shadow-flat)] transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-accent/50 hover:shadow-[var(--shadow-card),var(--shadow-glow)]">
+    <div className="group rounded-xl border border-white/10 bg-surface/55 px-4 py-3 shadow-[var(--shadow-flat)] backdrop-blur-lg transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-accent/50 hover:shadow-[var(--shadow-card),var(--shadow-glow)]">
       <div className="font-mono text-2xl font-medium text-ink transition-colors group-hover:text-accent">{shown}</div>
       <div className="mt-0.5 text-xs text-muted">{label}</div>
     </div>
@@ -129,7 +129,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.15 + i * 0.08 }}
-            className="rounded-xl border border-line-soft bg-surface/80 p-4 shadow-[var(--shadow-flat)]"
+            className="rounded-xl border border-white/[0.07] bg-surface/60 p-4 shadow-[var(--shadow-flat)] backdrop-blur-lg"
           >
             <div className="text-gradient font-mono text-sm font-medium">{s.n}</div>
             <div className="mt-1 text-sm font-semibold text-ink">{s.title}</div>

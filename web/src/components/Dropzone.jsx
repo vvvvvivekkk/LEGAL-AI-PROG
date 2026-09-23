@@ -11,10 +11,10 @@ export default function Dropzone({ file, onFile, accept = '.txt,.pdf', disabled 
   }
 
   const state = dragging
-    ? 'border-accent bg-accent-weak shadow-[var(--shadow-glow)]'
+    ? 'border-accent bg-accent-weak/70 shadow-[var(--shadow-glow)] backdrop-blur-lg'
     : file
-      ? 'border-verified/50 bg-verified-weak/40'
-      : 'border-line hover:border-accent/60 hover:bg-accent-weak/40'
+      ? 'border-verified/50 bg-verified-weak/40 backdrop-blur-lg'
+      : 'border-white/10 bg-surface/30 backdrop-blur-lg hover:border-accent/60 hover:bg-accent-weak/40'
 
   return (
     <div

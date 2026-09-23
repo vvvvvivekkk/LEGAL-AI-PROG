@@ -176,7 +176,7 @@ function AssistantTurn({ turn }) {
   const abstainedOrNoClaims = general || data.abstained || claims.length === 0
 
   return (
-    <div className="rounded-2xl rounded-tl-sm border border-line bg-surface p-4 shadow-[var(--shadow-card)]">
+    <div className="rounded-2xl rounded-tl-sm border border-white/10 bg-surface/65 p-4 shadow-[var(--shadow-card)] backdrop-blur-xl">
       <div className="mb-3 flex items-center gap-2">
         <span className="flex h-6 w-6 items-center justify-center rounded-md bg-accent-weak text-accent">
           <ShieldIcon className="h-4 w-4" />
@@ -404,7 +404,7 @@ export default function Ask() {
           </Banner>
         )}
         {turns.length === 0 && (
-          <div className="rounded-2xl border border-line bg-raised p-6 shadow-[var(--shadow-card),var(--shadow-glow)]">
+          <div className="rounded-2xl border border-white/10 bg-raised/70 p-6 shadow-[var(--shadow-card),var(--shadow-glow)] backdrop-blur-xl">
             <h2 className="text-[15px] font-semibold text-ink">Ask a question about the indexed documents</h2>
             <p className="mt-1 text-sm text-muted">
               Every answer is broken into claims, each checked against its source. Click a citation in the reply to
@@ -463,7 +463,7 @@ export default function Ask() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask about a statute you've indexed…"
-          className="flex-1 rounded-xl border border-line bg-surface px-4 py-3 text-sm text-ink shadow-[var(--shadow-flat)] placeholder:text-faint focus:border-accent"
+          className="flex-1 rounded-xl border border-white/10 bg-surface/70 px-4 py-3 text-sm text-ink shadow-[var(--shadow-flat)] backdrop-blur-lg placeholder:text-faint focus:border-accent"
         />
         <button
           type="submit"

@@ -38,7 +38,7 @@ function RunCard({ run }) {
             <div
               key={key}
               style={{ '--metric': hue }}
-              className="group/metric rounded-lg border border-line-soft bg-raised px-3 py-2.5 shadow-[var(--shadow-flat)] transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:[border-color:color-mix(in_oklab,var(--metric)_55%,transparent)] hover:shadow-[var(--shadow-card)]"
+              className="group/metric rounded-lg border border-white/[0.07] bg-raised/60 px-3 py-2.5 shadow-[var(--shadow-flat)] backdrop-blur-lg transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:[border-color:color-mix(in_oklab,var(--metric)_55%,transparent)] hover:shadow-[var(--shadow-card)]"
             >
               <div className="font-mono text-xl" style={{ color: hue }}>{pct(agg[key])}</div>
               <div className="mt-0.5 flex items-center gap-1.5 text-[11px] text-muted">
