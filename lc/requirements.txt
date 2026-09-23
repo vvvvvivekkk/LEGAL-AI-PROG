@@ -1,0 +1,17 @@
+# LangChain port of the Legal AI backend (experiment, see experiments/langchain_port/).
+# Installed into its own venv, .venv-lc:
+#   python -m venv .venv-lc && .venv-lc/Scripts/pip install -r lc/requirements.txt
+#
+# The plain-Python stack is included because lc/ reuses the parts LangChain has
+# no equivalent for (SAC structure parsing, V1-V6 verification, the chat store).
+-r ../requirements.txt
+
+langchain
+langchain-core
+langchain-community
+langchain-text-splitters
+langchain-huggingface
+langchain-groq
+langchain-google-genai
+langchain-openai
+langchain-anthropic

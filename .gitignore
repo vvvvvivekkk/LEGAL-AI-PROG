@@ -57,3 +57,8 @@ npm-debug.log*
 .env.*
 !.env.example
 *.local
+
+# LangChain port experiment (branch langchain-port)
+.venv-lc/
+data/lancedb_lc/
+data/chats_lc/
