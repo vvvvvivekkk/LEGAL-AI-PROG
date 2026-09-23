@@ -18,14 +18,22 @@ function pageFor(pathname) {
 
 function Tab({ to, label, end }) {
   return (
-    <NavLink to={to} end={end} className="relative px-3 py-2.5 text-sm font-medium">
+    <NavLink
+      to={to}
+      end={end}
+      className={({ isActive }) =>
+        `relative flex h-16 items-center px-3 text-sm font-medium transition-colors ${
+          isActive ? 'text-accent' : 'text-muted hover:text-ink'
+        }`
+      }
+    >
       {({ isActive }) => (
         <>
-          <span className={isActive ? 'text-gradient' : 'text-muted transition-colors hover:text-ink'}>{label}</span>
+          {label}
           {isActive && (
             <motion.span
               layoutId="nav-underline"
-              className="bg-gradient-brand absolute inset-x-2 -bottom-px h-[3px] rounded-full shadow-[0_0_12px_rgba(168,85,247,0.8)]"
+              className="absolute inset-x-3 -bottom-px h-0.5 rounded-full bg-brand"
               transition={{ type: 'spring', stiffness: 500, damping: 40 }}
             />
           )}
@@ -41,21 +49,21 @@ export default function Layout() {
 
   return (
     <div className="canvas min-h-screen" data-page={page}>
-      <header className="sticky top-0 z-10 border-b border-line bg-canvas/75 backdrop-blur-md">
-        <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-6 pt-4">
-          <NavLink to="/" className="flex items-center gap-3">
+      <header className="sticky top-0 z-10 border-b border-line bg-white/80 backdrop-blur-md">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-x-6 px-6">
+          <NavLink to="/" className="flex h-16 items-center gap-3" aria-label="Legal AI home">
             <Logo />
           </NavLink>
-          <p className="hidden text-xs text-muted sm:block">Answers checked against their source</p>
+          <p className="hidden border-l border-line pl-4 text-xs text-muted lg:block">Answers checked against their source</p>
+          <nav className="-mx-3 flex gap-1 overflow-x-auto sm:ml-auto sm:mx-0">
+            {LINKS.map((l) => (
+              <Tab key={l.to} to={l.to} label={l.label} end={l.end} />
+            ))}
+          </nav>
         </div>
-        <nav className="mx-auto flex max-w-5xl gap-1 px-6 pt-2">
-          {LINKS.map((l) => (
-            <Tab key={l.to} to={l.to} label={l.label} end={l.end} />
-          ))}
-        </nav>
       </header>
 
-      <main className="relative mx-auto max-w-5xl px-6 py-8">
+      <main className="relative mx-auto max-w-5xl px-6 py-10">
         {page === 'home' && <div className="home-atmosphere" aria-hidden />}
         <Outlet />
       </main>

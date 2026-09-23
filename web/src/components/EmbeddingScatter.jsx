@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 // Points arrive already projected from GET /embedding-map.
 //
 // Colour here is *identity* (which document), so it uses the categorical data
-// palette from styles.css rather than the brand gradient or the status colors
+// palette from styles.css rather than the brand orange or the status colors
 // — a document must never be coloured like a verification outcome. Slots are
 // assigned by the document's index in a fixed order and never cycled through a
 // generated hue; the order is what keeps neighbouring slots distinguishable
@@ -87,7 +87,7 @@ export default function EmbeddingScatter({ points, sources }) {
     <div className="flex flex-col gap-4 lg:flex-row">
       <svg
         viewBox={`0 0 ${W} ${H}`}
-        className="w-full flex-1 rounded-lg border border-line-soft bg-canvas/40"
+        className="w-full min-w-0 flex-1 rounded-lg border border-line bg-surface"
         role="img"
         aria-label="Embedding-space scatter of indexed chunks, colored by source document"
       >
@@ -106,7 +106,7 @@ export default function EmbeddingScatter({ points, sources }) {
                 r={active ? 6 : 4}
                 fill={colorFor(p.source_id)}
                 fillOpacity={hover && !active ? 0.35 : 0.85}
-                stroke={active ? '#e9edf5' : 'transparent'}
+                stroke={active ? 'var(--color-ink)' : 'transparent'}
                 strokeWidth={active ? 1.5 : 0}
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -125,11 +125,11 @@ export default function EmbeddingScatter({ points, sources }) {
           })}
           {hover && (
             <g transform={`translate(${Math.min(hover.cx + 8, W - 150)}, ${Math.max(hover.cy - 8, 14)})`}>
-              <rect width="150" height="34" rx="6" fill="#0b0f17" stroke="#243044" />
-              <text x="8" y="14" fill="#e8ecf3" fontSize="10" fontFamily="monospace">
+              <rect width="150" height="34" rx="6" fill="var(--color-canvas)" stroke="var(--color-line)" />
+              <text x="8" y="14" fill="var(--color-ink)" fontSize="10" fontFamily="monospace">
                 {hover.p.section_ref || hover.p.chunk_id}
               </text>
-              <text x="8" y="27" fill="#94a3b8" fontSize="9">
+              <text x="8" y="27" fill="var(--color-muted)" fontSize="9">
                 {hover.p.source_id}
               </text>
             </g>
@@ -137,9 +137,9 @@ export default function EmbeddingScatter({ points, sources }) {
         </motion.g>
       </svg>
 
-      <ul className="flex flex-row flex-wrap gap-3 lg:w-48 lg:flex-col lg:gap-2">
+      <ul className="flex min-w-0 flex-row flex-wrap gap-3 lg:w-56 lg:shrink-0 lg:flex-col lg:gap-2">
         {counts.map((c) => (
-          <li key={c.source} className="flex items-center gap-2">
+          <li key={c.source} className="flex min-w-0 max-w-full items-center gap-2">
             <svg viewBox="0 0 12 12" className="h-3 w-3 shrink-0" aria-hidden>
               <Marker shape={c.shape} cx={6} cy={6} r={4} fill={c.color} />
             </svg>

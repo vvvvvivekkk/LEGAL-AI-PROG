@@ -7,19 +7,26 @@ import { useEffect, useRef } from 'react'
 const REDUCED =
   typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
 
-// Brand gradient stops (indigo -> violet -> cyan); far points are indigo,
-// near points cyan, so depth reads as the same gradient the rest of the UI uses.
-const STOPS = [
-  [99, 102, 241],
-  [168, 85, 247],
-  [34, 211, 238],
-]
+// Orange ramp read from the theme tokens at mount (a canvas can't use CSS
+// variables directly): far points are the pale ring orange, near points the
+// strong brand orange, so depth reads as the brand gradient on white.
+const RAMP_TOKENS = ['--color-brand-ring', '--color-brand', '--color-brand-strong']
 
-function brandColor(t) {
+function hexToRgb(hex) {
+  const h = hex.trim().replace('#', '')
+  return [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16))
+}
+
+function readRamp(el) {
+  const css = getComputedStyle(el)
+  return RAMP_TOKENS.map((t) => hexToRgb(css.getPropertyValue(t)))
+}
+
+function brandColor(stops, t) {
   const seg = t < 0.5 ? 0 : 1
   const u = (t - seg * 0.5) * 2
-  const a = STOPS[seg]
-  const b = STOPS[seg + 1]
+  const a = stops[seg]
+  const b = stops[seg + 1]
   return [0, 1, 2].map((i) => Math.round(a[i] + (b[i] - a[i]) * u))
 }
 
@@ -43,6 +50,7 @@ export default function Hero3D({ count = 220 }) {
     if (!canvas) return
     const ctx = canvas.getContext('2d')
     const points = fibonacciSphere(count)
+    const stops = readRamp(canvas)
     const dpr = Math.min(window.devicePixelRatio || 1, 2)
     let raf = 0
     let w = 0
@@ -91,11 +99,11 @@ export default function Hero3D({ count = 220 }) {
         const sy = cy + y * R * persp
         const depth = (z + 1) / 2 // 0 (far) .. 1 (near)
         const size = (0.8 + depth * 2.4) * persp
-        const [r, g, b] = brandColor(depth)
+        const [r, g, b] = brandColor(stops, depth)
         ctx.beginPath()
         // Near points brighten and dim with the same breath.
         const pulse = 0.9 + Math.sin(phase) * 0.1
-        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${(0.25 + depth * 0.6) * pulse})`
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${(0.45 + depth * 0.5) * pulse})`
         ctx.arc(sx, sy, Math.max(0.4, size), 0, Math.PI * 2)
         ctx.fill()
       }

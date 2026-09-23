@@ -1,14 +1,15 @@
 // Section container. `tone` encodes hierarchy rather than making every card
-// identical: "input" cards are raised, carry a layered shadow and a faint
-// glow in the page accent; "flat" cards recede with a hairline shadow.
+// identical: "input" cards (where you act) carry the fuller shadow plus a
+// faint orange edge glow; "flat" cards (results) recede with a hairline shadow.
+// Both are white glass over the canvas grid.
 const TONES = {
-  input: 'bg-raised/70 backdrop-blur-xl border-white/10 shadow-[var(--shadow-card),var(--shadow-glow)]',
-  flat: 'bg-surface/55 backdrop-blur-lg border-white/[0.06] shadow-[var(--shadow-flat)]',
+  input: 'bg-white/80 backdrop-blur-xl shadow-[var(--shadow-card),var(--shadow-glow)]',
+  flat: 'bg-white/80 backdrop-blur-lg shadow-[var(--shadow-card)]',
 }
 
 export default function Card({ tone = 'flat', className = '', children }) {
   return (
-    <section className={`rounded-[var(--radius)] border p-5 ${TONES[tone]} ${className}`}>
+    <section className={`rounded-xl border border-line p-6 ${TONES[tone]} ${className}`}>
       {children}
     </section>
   )
@@ -16,16 +17,27 @@ export default function Card({ tone = 'flat', className = '', children }) {
 
 export function CardHeader({ title, subtitle, icon: Icon }) {
   return (
-    <div className="mb-4 flex items-start gap-3">
+    <div className="mb-5 flex items-start gap-3">
       {Icon && (
-        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent-weak text-accent shadow-[0_0_16px_-4px_var(--accent)]">
+        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-accent-line bg-accent-weak text-accent">
           <Icon className="h-[18px] w-[18px]" />
         </span>
       )}
       <div>
-        <h2 className="text-[15px] font-semibold leading-6 text-ink">{title}</h2>
-        {subtitle && <p className="mt-0.5 text-[13px] leading-5 text-muted">{subtitle}</p>}
+        <h2 className="text-base font-semibold leading-6 text-ink">{title}</h2>
+        {subtitle && <p className="mt-0.5 text-sm leading-relaxed text-muted">{subtitle}</p>}
       </div>
     </div>
+  )
+}
+
+// Page title block for the inner pages. Plain ink, not the gradient: the
+// gradient belongs to the Home hero alone.
+export function PageHeader({ title, subtitle }) {
+  return (
+    <header className="mb-6">
+      <h1 className="text-3xl font-semibold tracking-tight text-ink">{title}</h1>
+      {subtitle && <p className="mt-1.5 max-w-2xl text-[15px] leading-relaxed text-muted">{subtitle}</p>}
+    </header>
   )
 }
