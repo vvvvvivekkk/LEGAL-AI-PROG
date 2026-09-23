@@ -4,6 +4,8 @@ A Retrieval-Augmented Generation system for legal Q&A where every answer is chec
 
 **New here / wondering what's actually novel about this?** Read [docs/architecture-production.md](docs/architecture-production.md) — a full production-RAG reference stack mapped against this project layer by layer, with evidence for each claim.
 
+**Guides:** [System guide](docs/guide/README.md) ([PDF](docs/guide/Legal_AI_System_Guide.pdf)) covers every page, workflow and algorithm. The research paper is in [docs/paper/paper.pdf](docs/paper/paper.pdf).
+
 ## The problem
 
 LLMs answering legal questions hallucinate: invented facts, misattributed case law, citations to provisions that don't actually say what's claimed. Plain RAG helps but doesn't fix this — fixed-size chunking destroys legal context, retrieval doesn't check that a source *supports* a claim, and prior work (chunking, retrieval, citation auditing) tends to improve one piece in isolation rather than the full pipeline.

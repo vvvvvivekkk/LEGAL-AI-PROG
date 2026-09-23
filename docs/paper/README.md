@@ -12,8 +12,8 @@ measured** rather than filled in.
 | `related-work.md` | positioning | `README.md` comparison table |
 | `qualitative.md` | worked examples | logged proof objects + `experiments/batch_ask_check/` |
 | `paper.pdf`, `paper.docx` | full two-column article (author block left blank) | all of the above |
-| `figures/` | Figs. 1–5 of the article | `make_figures.py` |
-| `make_figures.py` | regenerates every figure from the logged result files | `experiments/2026-09-23-ablations/`, `experiments/batch_ask_check/screenshots/` |
+| `figures/` | Figs. 1–7 of the article | `make_figures.py` |
+| `make_figures.py` | regenerates every figure from the logged result files and UI screenshots | `experiments/2026-09-23-ablations/`, `experiments/ui_reskin/after/` |
 
 ## Status
 

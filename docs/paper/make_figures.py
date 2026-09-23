@@ -1,6 +1,7 @@
 """Paper figures. Every number here is copied from a logged run:
 retrieval -> experiments/2026-09-23-ablations/retrieval/*/results.json
 probes    -> experiments/2026-09-23-ablations/verification/results.json
+screens   -> experiments/ui_reskin/after/*.png
 """
 import json
 import os
@@ -70,7 +71,7 @@ ax.set_ylabel("F1 (k = 5)")
 ax.set_ylim(0, 0.5)
 ax.yaxis.grid(True, color=GRID, linewidth=0.6, zorder=0)
 ax.legend(frameon=False, loc="upper center", ncol=2, bbox_to_anchor=(0.5, 1.14), fontsize=7)
-fig.savefig(os.path.join(OUT, "fig4_retrieval_f1.png"))
+fig.savefig(os.path.join(OUT, "fig6_retrieval_f1.png"))
 plt.close(fig)
 
 # ---------- Fig 5: known-bad claims that reach the user, per arm ----------
@@ -102,7 +103,7 @@ ax.set_xticklabels(arm_labels)
 ax.set_ylabel(f"Bad claims shown (of {n_bad})")
 ax.set_ylim(0, max(n_bad, max(surfaced)) * 1.18)
 ax.yaxis.grid(True, color=GRID, linewidth=0.6, zorder=0)
-fig.savefig(os.path.join(OUT, "fig5_probe_surfaced.png"))
+fig.savefig(os.path.join(OUT, "fig7_probe_surfaced.png"))
 plt.close(fig)
 
 
@@ -177,8 +178,14 @@ ax.text(0.82, 0.68, "Decision", ha="center", fontsize=7, color=INK2, style="ital
 fig.savefig(os.path.join(OUT, "fig2_verification_chain.png"))
 plt.close(fig)
 
-# Fig 3: crop of the real verified-answer screenshot
-src = os.path.join(REPO, "experiments/batch_ask_check/screenshots/verified.png")
-im = Image.open(src)
-im.crop((140, 115, 1140, 375)).save(os.path.join(OUT, "fig3_verified_answer.png"))
+# Figs 3-5: crops of the web interface, captured during real queries after the
+# light theme was applied (experiments/ui_reskin/after/).
+shots = os.path.join(REPO, "experiments/ui_reskin/after")
+crops = [
+    ("04-ask-verified.png", (456, 250, 1168, 690), "fig3_verified_answer.png"),
+    ("05-ask-abstained.png", (456, 190, 1168, 492), "fig4_abstained_answer.png"),
+    ("07-evaluation.png", (217, 289, 1150, 747), "fig5_embedding_space.png"),
+]
+for src, box_, out in crops:
+    Image.open(os.path.join(shots, src)).convert("RGB").crop(box_).save(os.path.join(OUT, out))
 print("done:", sorted(os.listdir(OUT)))
