@@ -94,10 +94,16 @@ python -m src.indexing.build --chunks data/processed --db data/lancedb
 # LLM key for /query (ingest, retrieve and search work without one)
 cp .env.example .env   # then set LLM_PROVIDER / LLM_API_KEY (and optionally LLM_MODEL)
 
-# backend
+# backend (default): the LangChain API on :8001, own index data/lancedb_lc (fill it via the Ingest page)
+# one-time setup: python -m venv .venv-lc && .venv-lc\Scripts\pip install -r lc/requirements.txt
+.venv-lc\Scripts\activate
+uvicorn lc.api:app --port 8001
+
+# backend, reference implementation: the plain-Python API on :8000
+# (point the UI at it with VITE_API_BASE=http://localhost:8000 npm run dev)
 uvicorn src.api.main:app --reload
 
-# React UI (separate terminal)
+# React UI (separate terminal); web/.env points it at :8001
 cd web && npm install && npm run dev
 
 # optional: legacy Streamlit debug app, doesn't need the backend running
