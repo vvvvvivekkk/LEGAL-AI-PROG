@@ -186,6 +186,8 @@ crops = [
     ("05-ask-abstained.png", (456, 190, 1168, 492), "fig4_abstained_answer.png"),
     ("07-evaluation.png", (217, 289, 1150, 747), "fig5_embedding_space.png"),
 ]
+crops.append(("../../2026-09-24-human-e2e/screens/ask-C2-proof.png", (496, 195, 1208, 905),
+              "fig8_incomplete_answer.png"))
 for src, box_, out in crops:
     Image.open(os.path.join(shots, src)).convert("RGB").crop(box_).save(os.path.join(OUT, out))
 print("done:", sorted(os.listdir(OUT)))
