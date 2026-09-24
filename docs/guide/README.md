@@ -37,6 +37,10 @@ before the user reads it. Legal AI adds that check and makes it visible.
   user, not any one detector.
 - Structure-aware chunking (SAC) raised retrieval F1 from **0.333 to 0.417** over
   paragraph chunking, and sent the model about a third of the text.
+- In an end-to-end test through the web app, with 5 real documents and 15 questions
+  whose answers were written down first, **no wrong answer was shown as Verified**.
+  The main failure was refusing answerable questions (4 of 15), and two of those
+  were parser bugs that are now fixed (`experiments/2026-09-24-human-e2e/`).
 
 ---
 
@@ -376,6 +380,11 @@ LLM.
 - **`langchain-community` is being wound down** by its maintainers. The LangChain
   version takes its loader, LanceDB store, BM25 retriever and cross-encoder wrapper
   from that package, so they will need moving to standalone packages.
+- **Comparison questions:** one retrieval pool serves the whole question, so one
+  document can crowd out another. The model's "not found" note has no citation and is
+  dropped, so an incomplete answer can look complete.
+- **Names outside the cited clause:** the NLI check can say NEUTRAL when a claim names a
+  party that appears only in the agreement's heading, not in the cited clause.
 - **Missing pieces:**
     - HTML files can't be ingested yet.
     - The Evaluation page doesn't show verification-ablation runs.

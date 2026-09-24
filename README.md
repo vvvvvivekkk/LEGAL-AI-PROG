@@ -114,7 +114,14 @@ streamlit run src/ui/app.py
 
 ## Datasets & evaluation
 
-Primary corpus: LegalBench-RAG + public legal documents (statutes, case law). Metrics: retrieval Precision/Recall/F1, Citation Precision/Recall, Faithfulness/Fidelity score, hallucination rate, abstention accuracy, latency. Ablations and full plan: `docs/architecture.md` §5.
+What has actually been run (every number is logged under `experiments/`):
+
+- **Retrieval and chunking ablation:** 5 synthetic statutes with 10 labelled questions. SAC reached F1 0.417 against 0.333 for paragraph chunking (`experiments/2026-09-23-ablations/retrieval/`).
+- **Verification ablation:** one layer removed at a time, plus 28 deliberately corrupted claims. The full chain showed none of them; removing only the V5 gate showed all 28 (`experiments/2026-09-23-ablations/verification/`).
+- **LangChain vs plain Python:** identical retrieval rankings and verification decisions (`experiments/langchain_port/`).
+- **End-to-end test through the UI:** 5 real documents (ContractNLI and CUAD contracts plus a statute) and 15 questions with answers written before the run. No wrong answer was shown as verified; 4 of 15 were false abstentions, 2 of them from parser bugs that are now fixed (`experiments/2026-09-24-human-e2e/`).
+
+Not yet done: LegalBench-RAG, real Indian statutes, and calibrating the threshold on held-out data. The write-up is in `docs/paper/paper.pdf`.
 
 ## Related work
 
