@@ -167,6 +167,10 @@ class EvaluationRun(BaseModel):
     name: str
     config: dict
     results: dict
+    # Plain-language description and headline numbers (src/evaluation/results_store.py).
+    kind: str = "other"
+    about: str = ""
+    highlights: list[dict] = []
 
 
 class EvaluationResponse(BaseModel):

@@ -345,7 +345,7 @@ def evaluation() -> EvaluationResponse:
     if not runs:
         return EvaluationResponse(runs=[], message="No evaluation runs yet.")
     return EvaluationResponse(
-        runs=[EvaluationRun(name=r["name"], config=r["config"], results=r["results"]) for r in runs]
+        runs=[EvaluationRun(**r) for r in runs]
     )
 
 

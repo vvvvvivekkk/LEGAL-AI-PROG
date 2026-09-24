@@ -40,3 +40,37 @@ def test_load_runs_keeps_a_sweep_summary_alongside_its_arms(tmp_path):
     names = {r["name"] for r in load_runs(tmp_path)}
     assert "2026-09-23-ablations/verification" in names
     assert "2026-09-23-ablations/verification/full_chain" in names
+
+
+def test_describe_run_gives_each_kind_of_run_its_own_headline_numbers():
+    """Only retrieval runs have P/R/F1; the others must still say what they measured."""
+    from src.evaluation.results_store import describe_run
+
+    retrieval = describe_run(
+        "sweep/sac-dense-rerank", {"chunking": "sac", "mode": "dense"}, {"aggregate": {"f1": 0.417}}
+    )
+    assert retrieval["kind"] == "retrieval" and "SAC" in retrieval["about"]
+
+    probes = {"fabricated_citation": {"bad_claims_total": 14, "bad_claims_surfaced": 14},
+              "mismatched_claim": {"bad_claims_total": 14, "bad_claims_surfaced": 14}}
+    arm = describe_run("v/minus_v5", {}, {"arm": "minus_v5", "mean_vcs": 0.7675,
+                                          "n_answer": 10, "n_abstain": 0, "probes": probes})
+    assert arm["kind"] == "verification_arm"
+    values = {h["label"]: h["value"] for h in arm["highlights"]}
+    # rounds half-up like the paper's tables, not to 0.767
+    assert values == {"Mean VCS": "0.768", "Answered / refused": "10 / 0", "Bad claims shown": "28 / 28"}
+
+    safety = describe_run("lc/safety/python", {"pipeline": "python"},
+                          {"mean_vcs": 0.7675, "n_answer": 7, "n_abstain": 3,
+                           "surfaced_total": 0, "bad_total": 28})
+    assert safety["kind"] == "safety"
+    assert {"label": "Bad claims shown", "value": "0 / 28"} in safety["highlights"]
+
+
+def test_describe_run_never_raises_on_an_unrecognised_or_malformed_file():
+    from src.evaluation.results_store import describe_run
+
+    assert describe_run("x", {}, {"whatever": 1}) == {"kind": "other", "about": "", "highlights": []}
+    # a known shape with broken values still must not take the page down
+    out = describe_run("x", {}, {"summary": {"python": {"mean_s": "?"}, "langchain": {}}})
+    assert out["kind"] == "latency"

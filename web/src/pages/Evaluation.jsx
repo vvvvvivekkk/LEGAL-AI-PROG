@@ -25,14 +25,19 @@ const METRICS = [
 function RunCard({ run }) {
   const agg = run.results?.aggregate
   const cfg = run.config || {}
+  const highlights = run.highlights || []
   return (
     <Card tone="flat">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
         <h3 className="font-mono text-sm text-accent">{run.name}</h3>
-        <span className="text-xs text-muted">
-          {cfg.mode ?? '?'} · rerank {String(cfg.use_reranker ?? '?')} · k{cfg.k ?? '?'}/N{cfg.n ?? '?'}
-        </span>
+        {/* Retrieval settings only mean something for retrieval runs. */}
+        {agg && cfg.mode && (
+          <span className="text-xs text-muted">
+            {cfg.mode} · rerank {String(cfg.use_reranker)} · k{cfg.k}/N{cfg.n}
+          </span>
+        )}
       </div>
+      {run.about && <p className="mt-1.5 text-[13px] leading-relaxed text-muted">{run.about}</p>}
       {agg ? (
         <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
           {METRICS.map(([key, label, hue]) => (
@@ -53,8 +58,20 @@ function RunCard({ run }) {
             </div>
           ))}
         </div>
+      ) : highlights.length ? (
+        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {highlights.map((h) => (
+            <div
+              key={h.label}
+              className="rounded-lg border border-line-soft bg-raised/60 px-3 py-2.5 shadow-[var(--shadow-flat)]"
+            >
+              <div className="font-mono text-xl text-ink">{h.value}</div>
+              <div className="mt-0.5 text-[11px] text-muted">{h.label}</div>
+            </div>
+          ))}
+        </div>
       ) : (
-        <p className="mt-3 text-sm text-muted">No aggregate metrics recorded for this run.</p>
+        <p className="mt-3 text-sm text-muted">No summary numbers for this run; see its folder under experiments/.</p>
       )}
       {agg?.n_queries != null && (
         <p className="mt-3 text-xs text-faint">Over {agg.n_queries} labeled queries.</p>
@@ -105,7 +122,7 @@ export default function Evaluation() {
         <CardHeader
           icon={FileIcon}
           title="Retrieval evaluation"
-          subtitle="Precision, recall, F1, and retrieval rate from logged runs under /experiments."
+          subtitle="Every logged experiment under /experiments, with what it tested and its headline numbers. Retrieval runs show precision, recall, F1 and retrieval rate; the others show the numbers that test produced. experiments/README.md explains each one."
         />
         {state.loading && <p className="text-sm text-muted">Loading runs…</p>}
         {state.error && <Banner variant="error" title="Could not load runs">{state.error}</Banner>}
