@@ -1,0 +1,1705 @@
+{
+  "run": {
+    "started": "2026-09-24 20:40:36",
+    "finished": "2026-09-24 20:49:31",
+    "llm": {
+      "provider": "groq",
+      "configured": true,
+      "problem": null
+    },
+    "index": "data/lancedb_lc_e2e (fresh)",
+    "judging": "each answer compared with the pre-written expected answer and source passage in questions.json (commit 2ea519d, before the run)"
+  },
+  "summary": {
+    "labels_before_fixes": {
+      "FALSE_ABSTAIN": 4,
+      "CORRECT_VERIFIED": 3,
+      "OTHER": 2,
+      "CORRECT_ABSTAIN": 4,
+      "CORRECT_GENERAL": 2
+    },
+    "labels_after_fixes": {
+      "FALSE_ABSTAIN": 3,
+      "CORRECT_VERIFIED": 4,
+      "OTHER": 1,
+      "CORRECT_ABSTAIN": 5,
+      "CORRECT_GENERAL": 2
+    },
+    "labels_by_category_before": {
+      "specific": {
+        "FALSE_ABSTAIN": 3,
+        "CORRECT_VERIFIED": 2
+      },
+      "cross_document": {
+        "FALSE_ABSTAIN": 1,
+        "OTHER": 1
+      },
+      "unanswerable": {
+        "CORRECT_ABSTAIN": 2,
+        "OTHER": 1
+      },
+      "general_concept": {
+        "CORRECT_GENERAL": 2
+      },
+      "false_premise": {
+        "CORRECT_ABSTAIN": 2
+      },
+      "paraphrase": {
+        "CORRECT_VERIFIED": 1
+      }
+    },
+    "query_latency_s": {
+      "n": 15,
+      "mean": 17.3,
+      "median": 16.08,
+      "min": 13.59,
+      "max": 32.83
+    },
+    "http_errors_or_retries": 0
+  },
+  "ingest": [
+    {
+      "doc": "D1",
+      "file": "Confidentiality_Agreement_1.pdf",
+      "status": 200,
+      "seconds": 12.61,
+      "chunks": 23,
+      "used_fallback": true,
+      "chunking": "paragraph fallback",
+      "source_id": "Confidentiality_Agreement_1",
+      "screenshot": "screens/ingest-D1.png"
+    },
+    {
+      "doc": "D2",
+      "file": "NDA_7.pdf",
+      "status": 200,
+      "seconds": 0.95,
+      "chunks": 26,
+      "used_fallback": true,
+      "chunking": "paragraph fallback",
+      "source_id": "NDA_7",
+      "screenshot": "screens/ingest-D2.png"
+    },
+    {
+      "doc": "D3",
+      "file": "HALO-NDA.pdf",
+      "status": 200,
+      "seconds": 1.22,
+      "chunks": 9,
+      "used_fallback": true,
+      "chunking": "paragraph fallback",
+      "source_id": "HALO-NDA",
+      "screenshot": "screens/ingest-D3.png"
+    },
+    {
+      "doc": "D4",
+      "file": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT.txt",
+      "status": 200,
+      "seconds": 1.23,
+      "chunks": 20,
+      "used_fallback": true,
+      "chunking": "paragraph fallback",
+      "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+      "screenshot": "screens/ingest-D4.png"
+    },
+    {
+      "doc": "D5",
+      "file": "urban_tenancy_act_2019.txt",
+      "status": 200,
+      "seconds": 0.97,
+      "chunks": 23,
+      "used_fallback": false,
+      "chunking": "SAC (Act/Section)",
+      "source_id": "urban_tenancy_act_2019",
+      "screenshot": "screens/ingest-D5.png"
+    }
+  ],
+  "edge_cases": {
+    "duplicate": {
+      "status": 409,
+      "detail": {
+        "message": "Duplicate document: identical content is already indexed as 'Confidentiality_Agreement_1' (23 chunks). Nothing was added.",
+        "reason": "content",
+        "duplicate_source_id": "Confidentiality_Agreement_1",
+        "duplicate_chunk_count": 23
+      },
+      "warning_shown": true,
+      "replace_button_visible": true,
+      "screenshot": "screens/edge-duplicate.png"
+    },
+    "replace": {
+      "status": 200,
+      "chunks": 23,
+      "same_chunk_count_as_first_ingest": true,
+      "seconds": 0.7,
+      "screenshot": "screens/edge-replace.png"
+    },
+    "home_after_ingest": {
+      "ui": {
+        "documents": 5,
+        "chunks": 101
+      },
+      "api": {
+        "documents": 5,
+        "chunks": 101
+      },
+      "expected_chunks": 101,
+      "screenshot": "screens/home-after-ingest.png"
+    }
+  },
+  "questions": [
+    {
+      "id": "S1",
+      "category": "specific",
+      "question": "How long is the Helu Kabel confidentiality agreement valid, and is it extended automatically?",
+      "expected_behaviour": "VERIFIED",
+      "expected_answer": "Three years from signature by both parties; it is tacitly extended by one year if not terminated three months before it expires.",
+      "source": {
+        "document": "D1",
+        "location": "clause 8",
+        "passage": "This agreement becomes effective with the signatures of both parties and is valid for three years. It is tacitly extended by one year if it is not terminated three months before its expiration."
+      },
+      "badge": "Abstained",
+      "vcs": null,
+      "http_status": 200,
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 32.83,
+          "detail": null
+        }
+      ],
+      "seconds": 32.83,
+      "answer_text": "The agreement is valid for three years from the date it becomes effective【Confidentiality_Agreement_1::p18】.  \nIt is tacitly extended by one year if it is not terminated three months before its expiration【Confidentiality_Agreement_1::p18】.",
+      "grounded_answer_text": null,
+      "claims": [],
+      "context_chunk_ids": [
+        "Confidentiality_Agreement_1::p18",
+        "Confidentiality_Agreement_1::p13",
+        "NDA_7::p17",
+        "Confidentiality_Agreement_1::p21",
+        "HALO-NDA::p4",
+        "Confidentiality_Agreement_1::p3",
+        "Confidentiality_Agreement_1::p23",
+        "Confidentiality_Agreement_1::p19",
+        "Confidentiality_Agreement_1::p12",
+        "Confidentiality_Agreement_1::p22",
+        "Confidentiality_Agreement_1::p5",
+        "Confidentiality_Agreement_1::p1"
+      ],
+      "quote_supports_claim": null,
+      "label": "FALSE_ABSTAIN",
+      "note": "Answer text is correct (3 years, tacit 1-year extension) and cites the right chunk (p18), but the model wrote the citations with full-width brackets 【】; the parser found no claims, so it abstained. Parser bug, fixed in f7f8dd9.",
+      "screenshots": [
+        "screens/ask-S1-answer.png"
+      ]
+    },
+    {
+      "id": "S2",
+      "category": "specific",
+      "question": "Which country's laws govern the non-disclosure agreement dated 28 March 2014?",
+      "expected_behaviour": "VERIFIED",
+      "expected_answer": "The laws of Spain.",
+      "source": {
+        "document": "D2",
+        "location": "clause 10",
+        "passage": "This agreement must be in accordance with, and governed in all respects by the laws of Spain."
+      },
+      "badge": "Verified",
+      "vcs": 1.0,
+      "http_status": 200,
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 21.56,
+          "detail": null
+        }
+      ],
+      "seconds": 21.56,
+      "answer_text": "Spain [NDA_7::p21]",
+      "grounded_answer_text": null,
+      "claims": [
+        {
+          "claim_text": "Spain",
+          "cited": [
+            "NDA_7::p21"
+          ],
+          "quoted_span": "10.  This agreement must be in accordance with, and gove rned in all respects by the\nlaws of Spain.",
+          "vcs_contribution": 1.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": true,
+              "missing_ids": []
+            },
+            "v2_entailment": {
+              "verdict": "ENTAILS",
+              "score": 0.8213462233543396,
+              "best_chunk_id": "NDA_7::p21"
+            },
+            "v3_fidelity": {
+              "fidelity": 1.0,
+              "atoms": [
+                {
+                  "text": "Spain",
+                  "verdict": "ENTAILS"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        }
+      ],
+      "context_chunk_ids": [
+        "NDA_7::p2",
+        "NDA_7::p21",
+        "Confidentiality_Agreement_1::p21",
+        "NDA_7::p1",
+        "HALO-NDA::p1",
+        "HALO-NDA::p4",
+        "HALO-NDA::p7",
+        "NDA_7::p13",
+        "HALO-NDA::p6",
+        "NDA_7::p14",
+        "NDA_7::p5",
+        "NDA_7::p22"
+      ],
+      "quote_supports_claim": [
+        true
+      ],
+      "label": "CORRECT_VERIFIED",
+      "note": "Spain, cited NDA_7::p21 (clause 10).",
+      "screenshots": [
+        "screens/ask-S2-answer.png",
+        "screens/ask-S2-proof.png"
+      ]
+    },
+    {
+      "id": "S3",
+      "category": "specific",
+      "question": "What remedy is HALO entitled to if the recipient breaches the HALO non-disclosure agreement?",
+      "expected_behaviour": "VERIFIED",
+      "expected_answer": "Equitable remedies, including an injunction (the remedy at law is acknowledged to be inadequate).",
+      "source": {
+        "document": "D3",
+        "location": "section 6 (Remedies)",
+        "passage": "RECIPIENT recognizes that the remedy at law for any breach of its obligation under this Agreement will be inadequate, and hence, RECIPIENT agrees that HALO shall be entitled to equitable remedies, including injunction, in the event of breach by RECIPIENT."
+      },
+      "badge": "Verified",
+      "vcs": 1.0,
+      "http_status": 200,
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 16.08,
+          "detail": null
+        }
+      ],
+      "seconds": 16.08,
+      "answer_text": "HALO shall be entitled to equitable remedies, including injunction, if the recipient breaches the agreement. [HALO-NDA::p7]",
+      "grounded_answer_text": null,
+      "claims": [
+        {
+          "claim_text": "HALO shall be entitled to equitable remedies, including injunction, if the recipient breaches the agreement.",
+          "cited": [
+            "HALO-NDA::p7"
+          ],
+          "quoted_span": "RECIPIENT recognizes that the remedy at law for any breach of its obligation under\nthis Agreement will be inadequate, and hence, RECIPIENT agrees that HALO shall be entitled to\nequitable remedies, including injunction, in the event of breach by RECIPIENT. 7. GOVERNING LAW. This Agreement shall be governed by and construed in accordance with the\nlaws (excluding the laws of conflict of laws) of the State of California. EFFECTIVE DATE: __________________, 20__\nHALO Electronics, Inc. Confidential and Proprietary\nPage 2 of 2\nHALO NDA\n10/2019\nHALO Electronics, Inc.",
+          "vcs_contribution": 1.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": true,
+              "missing_ids": []
+            },
+            "v2_entailment": {
+              "verdict": "ENTAILS",
+              "score": 0.7993477582931519,
+              "best_chunk_id": "HALO-NDA::p7"
+            },
+            "v3_fidelity": {
+              "fidelity": 1.0,
+              "atoms": [
+                {
+                  "text": "HALO shall be entitled to equitable remedies, including injunction, if the recipient breaches the agreement",
+                  "verdict": "ENTAILS"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        }
+      ],
+      "context_chunk_ids": [
+        "HALO-NDA::p7",
+        "HALO-NDA::p3",
+        "HALO-NDA::p6",
+        "HALO-NDA::p1",
+        "HALO-NDA::p5",
+        "HALO-NDA::p4",
+        "HALO-NDA::p2",
+        "NDA_7::p14",
+        "HALO-NDA::p8",
+        "Confidentiality_Agreement_1::p19",
+        "NDA_7::p1",
+        "Confidentiality_Agreement_1::p17"
+      ],
+      "quote_supports_claim": [
+        true
+      ],
+      "label": "CORRECT_VERIFIED",
+      "note": "Equitable remedies including injunction, cited HALO-NDA::p7 (section 6).",
+      "screenshots": [
+        "screens/ask-S3-answer.png",
+        "screens/ask-S3-proof.png"
+      ]
+    },
+    {
+      "id": "S4",
+      "category": "specific",
+      "question": "When was the Vivint Solar non-competition agreement amendment entered into, and who are the parties?",
+      "expected_behaviour": "VERIFIED",
+      "expected_answer": "August 16, 2017, between Vivint Solar, Inc. (a Delaware corporation) and Vivint, Inc. (a Utah corporation).",
+      "source": {
+        "document": "D4",
+        "location": "preamble",
+        "passage": "This NON-COMPETITION AGREEMENT AMENDMENT NO. 1 (this \"Amendment\") is entered into as of August 16, 2017, by and between VIVINT SOLAR, INC., a Delaware corporation (...), and VIVINT, INC., a Utah corporation"
+      },
+      "badge": "Abstained",
+      "vcs": 0.0,
+      "http_status": 200,
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 15.17,
+          "detail": null
+        }
+      ],
+      "seconds": 15.17,
+      "answer_text": "The amendment was entered into on August 16, 2017. [VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1]  \nThe parties to the amendment are Vivint Solar, Inc., a Delaware corporation, and Vivint, Inc., a Utah corporation. [VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1]",
+      "grounded_answer_text": null,
+      "claims": [
+        {
+          "claim_text": "The amendment was entered into on August 16, 2017.",
+          "cited": [],
+          "quoted_span": "",
+          "vcs_contribution": 0.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": false,
+              "missing_ids": [
+                "VIVINT SOLAR",
+                "INC. - NON-COMPETITION AGREEMENT::p1"
+              ]
+            },
+            "v2_entailment": {
+              "verdict": "NEUTRAL",
+              "score": 0.0,
+              "best_chunk_id": null
+            },
+            "v3_fidelity": {
+              "fidelity": 0.0,
+              "atoms": [
+                {
+                  "text": "The amendment was entered into on August 16, 2017",
+                  "verdict": "NEUTRAL"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        },
+        {
+          "claim_text": "The parties to the amendment are Vivint Solar, Inc., a Delaware corporation, and Vivint, Inc., a Utah corporation.",
+          "cited": [],
+          "quoted_span": "",
+          "vcs_contribution": 0.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": false,
+              "missing_ids": [
+                "VIVINT SOLAR",
+                "INC. - NON-COMPETITION AGREEMENT::p1"
+              ]
+            },
+            "v2_entailment": {
+              "verdict": "NEUTRAL",
+              "score": 0.0,
+              "best_chunk_id": null
+            },
+            "v3_fidelity": {
+              "fidelity": 0.0,
+              "atoms": [
+                {
+                  "text": "The parties to the amendment are Vivint Solar, Inc., a Delaware corporation,",
+                  "verdict": "NEUTRAL"
+                },
+                {
+                  "text": "Vivint, Inc., a Utah corporation",
+                  "verdict": "NEUTRAL"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        }
+      ],
+      "context_chunk_ids": [
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p3",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p8",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p10",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p15",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p4",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p12",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p2",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p5",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p9",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p6",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p16"
+      ],
+      "quote_supports_claim": null,
+      "label": "FALSE_ABSTAIN",
+      "note": "Answer text is correct (August 16, 2017; Vivint Solar, Inc. and Vivint, Inc.) and cites the right chunk, but the source id 'VIVINT SOLAR, INC. - ...' contains a comma; the parser split the citation at it, V1 found neither half, VCS 0. Parser bug, fixed in 6b6a0f5.",
+      "screenshots": [
+        "screens/ask-S4-answer.png"
+      ]
+    },
+    {
+      "id": "S5",
+      "category": "specific",
+      "question": "Under the Urban Tenancy Act, how long does a party have to appeal an order of the rent authority, and to which court?",
+      "expected_behaviour": "VERIFIED",
+      "expected_answer": "Within sixty days of the order, to the District Court.",
+      "source": {
+        "document": "D5",
+        "location": "Section 10 (Appeals)",
+        "passage": "This section allows any party aggrieved by an order of the rent authority to appeal to the District Court within sixty days of the order."
+      },
+      "badge": "Abstained",
+      "vcs": 0.5,
+      "http_status": 200,
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 16.79,
+          "detail": null
+        }
+      ],
+      "seconds": 16.79,
+      "answer_text": "A party aggrieved by an order of the rent authority may appeal within sixty days of the order. [urban_tenancy_act_2019::s10]  \nThe appeal must be made to the District Court. [urban_tenancy_act_2019::s10]",
+      "grounded_answer_text": null,
+      "claims": [
+        {
+          "claim_text": "A party aggrieved by an order of the rent authority may appeal within sixty days of the order.",
+          "cited": [
+            "urban_tenancy_act_2019::s10"
+          ],
+          "quoted_span": "This section allows any party aggrieved by an order of the rent authority to appeal to the District Court within sixty days of the order.",
+          "vcs_contribution": 1.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": true,
+              "missing_ids": []
+            },
+            "v2_entailment": {
+              "verdict": "ENTAILS",
+              "score": 0.9937897324562073,
+              "best_chunk_id": "urban_tenancy_act_2019::s10"
+            },
+            "v3_fidelity": {
+              "fidelity": 1.0,
+              "atoms": [
+                {
+                  "text": "A party aggrieved by an order of the rent authority may appeal within sixty days of the order",
+                  "verdict": "ENTAILS"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        },
+        {
+          "claim_text": "The appeal must be made to the District Court.",
+          "cited": [
+            "urban_tenancy_act_2019::s10"
+          ],
+          "quoted_span": "This section allows any party aggrieved by an order of the rent authority to appeal to the District Court within sixty days of the order.",
+          "vcs_contribution": 0.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": true,
+              "missing_ids": []
+            },
+            "v2_entailment": {
+              "verdict": "NEUTRAL",
+              "score": 0.5076017379760742,
+              "best_chunk_id": "urban_tenancy_act_2019::s10"
+            },
+            "v3_fidelity": {
+              "fidelity": 0.0,
+              "atoms": [
+                {
+                  "text": "The appeal must be made to the District Court",
+                  "verdict": "NEUTRAL"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        }
+      ],
+      "context_chunk_ids": [
+        "urban_tenancy_act_2019::s10",
+        "urban_tenancy_act_2019::s7:a",
+        "urban_tenancy_act_2019::s3:b",
+        "urban_tenancy_act_2019::s6",
+        "urban_tenancy_act_2019::s3:a",
+        "urban_tenancy_act_2019::s1:2",
+        "urban_tenancy_act_2019::s3",
+        "urban_tenancy_act_2019::s9",
+        "urban_tenancy_act_2019::s5:a",
+        "urban_tenancy_act_2019::s2:3",
+        "urban_tenancy_act_2019::s1:1",
+        "urban_tenancy_act_2019::s8"
+      ],
+      "quote_supports_claim": null,
+      "label": "FALSE_ABSTAIN",
+      "note": "Both claims correct and cite Section 10. Claim 1 (sixty days) ENTAILS 0.99; claim 2 ('the appeal must be made to the District Court') was scored 0.51 by the NLI model and contributed 0, so mean VCS 0.5 < 0.6. Over-strict NLI/threshold on a correct claim; not changed.",
+      "screenshots": [
+        "screens/ask-S5-answer.png"
+      ]
+    },
+    {
+      "id": "C1",
+      "category": "cross_document",
+      "question": "Of the three non-disclosure agreements (Helu Kabel, HALO and the 28 March 2014 NDA), which has the shortest confidentiality term?",
+      "expected_behaviour": "VERIFIED",
+      "expected_answer": "The Helu Kabel agreement: three years (tacitly extendable by one year). HALO is five years; the 28 March 2014 NDA ends after five years or earlier on written notice of termination by both parties.",
+      "source": {
+        "document": [
+          "D1",
+          "D3",
+          "D2"
+        ],
+        "location": "D1 clause 8; D3 section 2; D2 clause 6",
+        "passage": "D1: \"...is valid for three years. It is tacitly extended by one year...\" | D3: \"for a period of five (5) years from the effective date of this Agreement\" | D2: \"The obligations of confidentiality in this agreement shall cease when both parties give written notification of its termination, or 5 years after the date hereof, whichever is the sooner.\""
+      },
+      "badge": "Abstained",
+      "vcs": null,
+      "http_status": 200,
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 17.07,
+          "detail": null
+        }
+      ],
+      "seconds": 17.07,
+      "answer_text": "INSUFFICIENT_CONTEXT: The provided passages do not include the confidentiality term for the Helu Kabel agreement.",
+      "grounded_answer_text": null,
+      "claims": [],
+      "context_chunk_ids": [
+        "NDA_7::p2",
+        "HALO-NDA::p1",
+        "HALO-NDA::p3",
+        "HALO-NDA::p5",
+        "HALO-NDA::p4",
+        "HALO-NDA::p2",
+        "HALO-NDA::p8",
+        "HALO-NDA::p7",
+        "HALO-NDA::p6",
+        "NDA_7::p1",
+        "HALO-NDA::p9",
+        "NDA_7::p17"
+      ],
+      "quote_supports_claim": null,
+      "label": "FALSE_ABSTAIN",
+      "note": "Retrieval: the 12 context chunks were 9 HALO and 3 NDA_7, with no Helu Kabel chunk at all (p18 missing), so the model correctly said it lacked the Helu term. The pipeline retrieves one pool for the whole question; a cross-document question gets crowded by one document. Not changed.",
+      "screenshots": [
+        "screens/ask-C1-answer.png"
+      ]
+    },
+    {
+      "id": "C2",
+      "category": "cross_document",
+      "question": "What governing law applies to each of the Helu Kabel agreement, the HALO agreement and the 28 March 2014 NDA?",
+      "expected_behaviour": "VERIFIED",
+      "expected_answer": "Helu Kabel: German law (excluding the UN Convention on Contracts for the International Sale of Goods), venue Hemmingen; HALO: the laws of the State of California; 28 March 2014 NDA: the laws of Spain.",
+      "source": {
+        "document": [
+          "D1",
+          "D3",
+          "D2"
+        ],
+        "location": "D1 clause 11; D3 section 7; D2 clause 10",
+        "passage": "D1: \"The parties agree that for this agreement German law applies excluding the United Nations Convention on Contracts for the International Sale of Goods.\" | D3: \"...governed by and construed in accordance with the laws (excluding the laws of conflict of laws) of the State of California.\" | D2: \"...governed in all respects by the laws of Spain.\""
+      },
+      "badge": "Verified",
+      "vcs": 1.0,
+      "http_status": 200,
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 18.81,
+          "detail": null
+        }
+      ],
+      "seconds": 18.81,
+      "answer_text": "The Helukabel agreement is governed by German law, excluding the United Nations Convention on Contracts for the International Sale of Goods. [Confidentiality_Agreement_1::p21]  \nThe HALO agreement is governed by the laws of the State of California, excluding the laws of conflict of laws. [HALO-NDA::p7]  \nINSUFFICIENT_CONTEXT: The governing law for the 28 March 2014 NDA is not stated in the provided excerpts.",
+      "grounded_answer_text": null,
+      "claims": [
+        {
+          "claim_text": "The Helukabel agreement is governed by German law, excluding the United Nations Convention on Contracts for the International Sale of Goods.",
+          "cited": [
+            "Confidentiality_Agreement_1::p21"
+          ],
+          "quoted_span": "11. The parties agree that for this agreement German law applies excluding the United Nations Convention on\nContracts for the International Sale of Goods. The legal venue for all disputes arising from this agreement is the\nhead office of the company Helukabel in Hemmingen.",
+          "vcs_contribution": 1.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": true,
+              "missing_ids": []
+            },
+            "v2_entailment": {
+              "verdict": "ENTAILS",
+              "score": 0.9817643761634827,
+              "best_chunk_id": "Confidentiality_Agreement_1::p21"
+            },
+            "v3_fidelity": {
+              "fidelity": 1.0,
+              "atoms": [
+                {
+                  "text": "The Helukabel agreement is governed by German law, excluding the United Nations Convention on Contracts for the International Sale of Goods",
+                  "verdict": "ENTAILS"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        },
+        {
+          "claim_text": "The HALO agreement is governed by the laws of the State of California, excluding the laws of conflict of laws.",
+          "cited": [
+            "HALO-NDA::p7"
+          ],
+          "quoted_span": "RECIPIENT recognizes that the remedy at law for any breach of its obligation under\nthis Agreement will be inadequate, and hence, RECIPIENT agrees that HALO shall be entitled to\nequitable remedies, including injunction, in the event of breach by RECIPIENT. 7. GOVERNING LAW. This Agreement shall be governed by and construed in accordance with the\nlaws (excluding the laws of conflict of laws) of the State of California. EFFECTIVE DATE: __________________, 20__\nHALO Electronics, Inc. Confidential and Proprietary\nPage 2 of 2\nHALO NDA\n10/2019\nHALO Electronics, Inc.",
+          "vcs_contribution": 1.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": true,
+              "missing_ids": []
+            },
+            "v2_entailment": {
+              "verdict": "ENTAILS",
+              "score": 0.9182837009429932,
+              "best_chunk_id": "HALO-NDA::p7"
+            },
+            "v3_fidelity": {
+              "fidelity": 1.0,
+              "atoms": [
+                {
+                  "text": "The HALO agreement is governed by the laws of the State of California, excluding the laws of conflict of laws",
+                  "verdict": "ENTAILS"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        }
+      ],
+      "context_chunk_ids": [
+        "Confidentiality_Agreement_1::p21",
+        "NDA_7::p2",
+        "HALO-NDA::p7",
+        "HALO-NDA::p4",
+        "HALO-NDA::p6",
+        "HALO-NDA::p5",
+        "HALO-NDA::p2",
+        "HALO-NDA::p3",
+        "Confidentiality_Agreement_1::p13",
+        "HALO-NDA::p8",
+        "HALO-NDA::p9",
+        "HALO-NDA::p1"
+      ],
+      "quote_supports_claim": [
+        true,
+        true
+      ],
+      "label": "OTHER",
+      "note": "Verified with VCS 1.00, and both shown claims are correct and correctly cited (German law excl. CISG, D1 clause 11; California, D3 section 7). But only 2 of the 3 asked-for agreements are answered: NDA_7::p21 (Spain) was not retrieved, the model's line 'INSUFFICIENT_CONTEXT: ... 28 March 2014 NDA is not stated' carried no citation and was silently dropped from the displayed answer, so the UI shows a Verified answer that looks complete. Not a hallucination; an incompleteness the user is not told about.",
+      "screenshots": [
+        "screens/ask-C2-answer.png",
+        "screens/ask-C2-proof.png"
+      ]
+    },
+    {
+      "id": "U1",
+      "category": "unanswerable",
+      "question": "What amount of liquidated damages is payable for a breach of the Helu Kabel confidentiality agreement?",
+      "expected_behaviour": "ABSTAIN",
+      "expected_answer": "Not stated: the agreement has no liquidated-damages or penalty clause.",
+      "source": null,
+      "badge": "Abstained",
+      "vcs": null,
+      "http_status": 200,
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 16.79,
+          "detail": null
+        }
+      ],
+      "seconds": 16.79,
+      "answer_text": "INSUFFICIENT_CONTEXT: The provided passages do not contain any information about liquidated damages.",
+      "grounded_answer_text": null,
+      "claims": [],
+      "context_chunk_ids": [
+        "Confidentiality_Agreement_1::p3",
+        "Confidentiality_Agreement_1::p21",
+        "Confidentiality_Agreement_1::p23",
+        "Confidentiality_Agreement_1::p13",
+        "Confidentiality_Agreement_1::p5",
+        "Confidentiality_Agreement_1::p2",
+        "Confidentiality_Agreement_1::p15",
+        "NDA_7::p14",
+        "Confidentiality_Agreement_1::p19",
+        "Confidentiality_Agreement_1::p1",
+        "Confidentiality_Agreement_1::p6",
+        "Confidentiality_Agreement_1::p18"
+      ],
+      "quote_supports_claim": null,
+      "label": "CORRECT_ABSTAIN",
+      "note": "No liquidated-damages clause; abstained.",
+      "screenshots": [
+        "screens/ask-U1-answer.png"
+      ]
+    },
+    {
+      "id": "U2",
+      "category": "unanswerable",
+      "question": "What is the maximum annual rent increase a landlord may impose under the Urban Tenancy Act?",
+      "expected_behaviour": "ABSTAIN",
+      "expected_answer": "Not stated: the Act regulates deposits, eviction and disputes, but not rent increases.",
+      "source": null,
+      "badge": "General knowledge",
+      "vcs": null,
+      "http_status": 200,
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 15.42,
+          "detail": null
+        }
+      ],
+      "seconds": 15.42,
+      "answer_text": "I’m sorry, but that isn’t a general legal‑concept question.",
+      "grounded_answer_text": "INSUFFICIENT_CONTEXT: The provided passages do not specify a maximum annual rent increase.",
+      "claims": [],
+      "context_chunk_ids": [
+        "urban_tenancy_act_2019::s1:1",
+        "urban_tenancy_act_2019::s1:2",
+        "urban_tenancy_act_2019::s7:a",
+        "urban_tenancy_act_2019::s4:a",
+        "urban_tenancy_act_2019::s3:b",
+        "urban_tenancy_act_2019::s3:a",
+        "urban_tenancy_act_2019::s5:a",
+        "urban_tenancy_act_2019::s3",
+        "urban_tenancy_act_2019::s5:c",
+        "urban_tenancy_act_2019::s7:b",
+        "urban_tenancy_act_2019::s6",
+        "urban_tenancy_act_2019::s5"
+      ],
+      "quote_supports_claim": null,
+      "label": "OTHER",
+      "note": "Routed to the general-knowledge path because 'What is the maximum ...' looks definitional and the question had no document marker; the model then replied 'that isn't a general legal-concept question' under a 'General knowledge' badge. No false fact was shown, but the user got a refusal labelled as a general-knowledge answer instead of an abstention. Routing bug, fixed in fb7bf75.",
+      "screenshots": [
+        "screens/ask-U2-answer.png"
+      ]
+    },
+    {
+      "id": "U3",
+      "category": "unanswerable",
+      "question": "What geographic area does the non-competition restriction in the Vivint agreement cover?",
+      "expected_behaviour": "ABSTAIN",
+      "expected_answer": "Not stated in this document: the amendment deletes Section 2 (Non-Competition) of the original agreement and does not describe any geographic scope.",
+      "source": null,
+      "badge": "Abstained",
+      "vcs": null,
+      "http_status": 200,
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 14.07,
+          "detail": null
+        }
+      ],
+      "seconds": 14.07,
+      "answer_text": "INSUFFICIENT_CONTEXT: The provided passages do not contain any information describing the geographic area covered by the non-competition restriction.",
+      "grounded_answer_text": null,
+      "claims": [],
+      "context_chunk_ids": [
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p8",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p10",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p2",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p3",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p4",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p5",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p9",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p12",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p6",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p15",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p19"
+      ],
+      "quote_supports_claim": null,
+      "label": "CORRECT_ABSTAIN",
+      "note": "No geographic scope in the amendment; abstained.",
+      "screenshots": [
+        "screens/ask-U3-answer.png"
+      ]
+    },
+    {
+      "id": "G1",
+      "category": "general_concept",
+      "question": "What is an indemnity clause?",
+      "expected_behaviour": "GENERAL",
+      "expected_answer": "A general explanation (a contractual promise by one party to compensate the other for specified losses or liabilities), clearly labelled as general knowledge, not as Verified from the documents.",
+      "source": null,
+      "badge": "General knowledge",
+      "vcs": null,
+      "http_status": 200,
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 13.89,
+          "detail": null
+        }
+      ],
+      "seconds": 13.89,
+      "answer_text": "An indemnity clause is a contract provision in which one party agrees to compensate the other for losses, damages, or liabilities that arise from specified events or actions. It typically shifts the financial risk of certain claims from the indemnitee to the indemnitor. The clause may define the scope of covered losses, the circumstances triggering indemnification, and any limits or procedural requirements. Such clauses are common in commercial agreements to allocate risk between the parties.",
+      "grounded_answer_text": "INSUFFICIENT_CONTEXT: The provided passages do not contain a definition or description of an indemnity clause.",
+      "claims": [],
+      "context_chunk_ids": [
+        "urban_tenancy_act_2019::s3:a",
+        "urban_tenancy_act_2019::s7",
+        "urban_tenancy_act_2019::s3",
+        "urban_tenancy_act_2019::s3:b",
+        "urban_tenancy_act_2019::s7:b",
+        "urban_tenancy_act_2019::s7:a",
+        "Confidentiality_Agreement_1::p15",
+        "urban_tenancy_act_2019::s4:a",
+        "urban_tenancy_act_2019::s4:b",
+        "NDA_7::p16",
+        "NDA_7::p17",
+        "Confidentiality_Agreement_1::p2"
+      ],
+      "quote_supports_claim": null,
+      "label": "CORRECT_GENERAL",
+      "note": "Accurate four-sentence definition, labelled general knowledge.",
+      "screenshots": [
+        "screens/ask-G1-answer.png"
+      ]
+    },
+    {
+      "id": "G2",
+      "category": "general_concept",
+      "question": "What is the difference between a mutual and a one-way non-disclosure agreement?",
+      "expected_behaviour": "GENERAL",
+      "expected_answer": "A general explanation (mutual: both parties disclose and are bound; one-way: only one party discloses and only the recipient is bound), labelled as general knowledge.",
+      "source": null,
+      "badge": "General knowledge",
+      "vcs": null,
+      "http_status": 200,
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 14.67,
+          "detail": null
+        }
+      ],
+      "seconds": 14.67,
+      "answer_text": "A one‑way (or unilateral) non‑disclosure agreement obligates only the receiving party to keep the disclosing party’s information confidential, while the disclosing party has no reciprocal duty. A mutual (or bilateral) NDA imposes confidentiality obligations on both parties, each of whom may both disclose and receive protected information. In practice, a one‑way NDA is used when only one side is sharing sensitive data, whereas a mutual NDA is used when the parties will exchange confidential information with each other. The core difference is therefore who is bound by the confidentiality obligations.",
+      "grounded_answer_text": "INSUFFICIENT_CONTEXT: The provided passages do not contain information defining or contrasting mutual and one-way non‑disclosure agreements.",
+      "claims": [],
+      "context_chunk_ids": [
+        "NDA_7::p1",
+        "Confidentiality_Agreement_1::p2",
+        "NDA_7::p11",
+        "NDA_7::p10",
+        "HALO-NDA::p4",
+        "NDA_7::p3",
+        "Confidentiality_Agreement_1::p9",
+        "Confidentiality_Agreement_1::p10",
+        "NDA_7::p14",
+        "NDA_7::p19",
+        "Confidentiality_Agreement_1::p14",
+        "NDA_7::p20"
+      ],
+      "quote_supports_claim": null,
+      "label": "CORRECT_GENERAL",
+      "note": "Accurate mutual vs one-way explanation, labelled general knowledge.",
+      "screenshots": [
+        "screens/ask-G2-answer.png"
+      ]
+    },
+    {
+      "id": "F1",
+      "category": "false_premise",
+      "question": "Why does the HALO agreement require disputes to be resolved by arbitration in Singapore?",
+      "expected_behaviour": "ABSTAIN_OR_CORRECTION",
+      "expected_answer": "It does not: there is no arbitration clause; the agreement is governed by California law and gives HALO equitable remedies including injunction.",
+      "source": {
+        "document": "D3",
+        "location": "sections 6 and 7",
+        "passage": "governed by and construed in accordance with the laws (excluding the laws of conflict of laws) of the State of California."
+      },
+      "badge": "Abstained",
+      "vcs": null,
+      "http_status": 200,
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 13.59,
+          "detail": null
+        }
+      ],
+      "seconds": 13.59,
+      "answer_text": "INSUFFICIENT_CONTEXT: The provided passages do not contain information about arbitration in Singapore.",
+      "grounded_answer_text": null,
+      "claims": [],
+      "context_chunk_ids": [
+        "HALO-NDA::p6",
+        "HALO-NDA::p7",
+        "HALO-NDA::p1",
+        "HALO-NDA::p5",
+        "HALO-NDA::p4",
+        "HALO-NDA::p2",
+        "HALO-NDA::p3",
+        "HALO-NDA::p8",
+        "Confidentiality_Agreement_1::p19",
+        "urban_tenancy_act_2019::s9",
+        "Confidentiality_Agreement_1::p10",
+        "NDA_7::p20"
+      ],
+      "quote_supports_claim": null,
+      "label": "CORRECT_ABSTAIN",
+      "note": "No arbitration/Singapore; abstained, did not confirm the premise.",
+      "screenshots": [
+        "screens/ask-F1-answer.png"
+      ]
+    },
+    {
+      "id": "F2",
+      "category": "false_premise",
+      "question": "Under the Urban Tenancy Act, why must a landlord give 180 days' notice before filing for eviction?",
+      "expected_behaviour": "ABSTAIN_OR_CORRECTION",
+      "expected_answer": "The premise is wrong: the Act requires no less than ninety days' written notice (except for non-payment of rent), not 180.",
+      "source": {
+        "document": "D5",
+        "location": "Section 6",
+        "passage": "This section requires a landlord to give the tenant no less than ninety days written notice before filing an eviction application with the rent authority, except in cases of non-payment of rent."
+      },
+      "badge": "Abstained",
+      "vcs": null,
+      "http_status": 200,
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 15.51,
+          "detail": null
+        }
+      ],
+      "seconds": 15.51,
+      "answer_text": "INSUFFICIENT_CONTEXT: The provided passages only specify a ninety‑day notice requirement and do not mention a requirement for a 180‑day notice.",
+      "grounded_answer_text": null,
+      "claims": [],
+      "context_chunk_ids": [
+        "urban_tenancy_act_2019::s6",
+        "urban_tenancy_act_2019::s5:a",
+        "urban_tenancy_act_2019::s3:b",
+        "urban_tenancy_act_2019::s5:b",
+        "urban_tenancy_act_2019::s5:c",
+        "urban_tenancy_act_2019::s5",
+        "urban_tenancy_act_2019::s7:b",
+        "urban_tenancy_act_2019::s7:a",
+        "urban_tenancy_act_2019::s7",
+        "urban_tenancy_act_2019::s1:2",
+        "urban_tenancy_act_2019::s1:1",
+        "urban_tenancy_act_2019::s9"
+      ],
+      "quote_supports_claim": null,
+      "label": "CORRECT_ABSTAIN",
+      "note": "Abstained, and the abstention text corrects the premise: the Act only specifies ninety days.",
+      "screenshots": [
+        "screens/ask-F2-answer.png"
+      ]
+    },
+    {
+      "id": "P1",
+      "category": "paraphrase",
+      "question": "If the owner of my flat throws me out by force without permission, how much money am I owed?",
+      "expected_behaviour": "VERIFIED",
+      "expected_answer": "Compensation equal to six months' rent (Urban Tenancy Act, Section 7(a)).",
+      "source": {
+        "document": "D5",
+        "location": "Section 7, Clause (a)",
+        "passage": "A landlord found to have carried out an illegal eviction shall pay the tenant compensation equal to six months' rent."
+      },
+      "badge": "Verified",
+      "vcs": 1.0,
+      "http_status": 200,
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 17.29,
+          "detail": null
+        }
+      ],
+      "seconds": 17.29,
+      "answer_text": "The tenant is owed compensation equal to six months’ rent. [urban_tenancy_act_2019::s7:a]",
+      "grounded_answer_text": null,
+      "claims": [
+        {
+          "claim_text": "The tenant is owed compensation equal to six months’ rent.",
+          "cited": [
+            "urban_tenancy_act_2019::s7:a"
+          ],
+          "quoted_span": "A landlord found to have carried out an illegal eviction shall pay the tenant compensation equal to six months' rent.",
+          "vcs_contribution": 1.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": true,
+              "missing_ids": []
+            },
+            "v2_entailment": {
+              "verdict": "ENTAILS",
+              "score": 0.9897680878639221,
+              "best_chunk_id": "urban_tenancy_act_2019::s7:a"
+            },
+            "v3_fidelity": {
+              "fidelity": 1.0,
+              "atoms": [
+                {
+                  "text": "The tenant is owed compensation equal to six months’ rent",
+                  "verdict": "ENTAILS"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        }
+      ],
+      "context_chunk_ids": [
+        "urban_tenancy_act_2019::s7:a",
+        "urban_tenancy_act_2019::s7:b",
+        "urban_tenancy_act_2019::s7",
+        "NDA_7::p22",
+        "urban_tenancy_act_2019::s2:2",
+        "urban_tenancy_act_2019::s5:a",
+        "urban_tenancy_act_2019::s4:b",
+        "urban_tenancy_act_2019::s2:1",
+        "urban_tenancy_act_2019::s4",
+        "urban_tenancy_act_2019::s2:3",
+        "urban_tenancy_act_2019::s4:a",
+        "urban_tenancy_act_2019::s6"
+      ],
+      "quote_supports_claim": [
+        true
+      ],
+      "label": "CORRECT_VERIFIED",
+      "note": "Paraphrase with none of the Act's key words; answered six months' rent, cited s7:a.",
+      "screenshots": [
+        "screens/ask-P1-answer.png",
+        "screens/ask-P1-proof.png"
+      ]
+    }
+  ],
+  "search": [
+    {
+      "id": "S1",
+      "status": 200,
+      "gold_phrase": "valid for three years",
+      "screenshot": "screens/search-S1.png",
+      "columns": {
+        "dense": {
+          "gold_rank": 1,
+          "top_ids": [
+            "Confidentiality_Agreement_1::p18",
+            "Confidentiality_Agreement_1::p13",
+            "Confidentiality_Agreement_1::p23",
+            "Confidentiality_Agreement_1::p21",
+            "Confidentiality_Agreement_1::p3"
+          ]
+        },
+        "fts": {
+          "gold_rank": 1,
+          "top_ids": [
+            "Confidentiality_Agreement_1::p18",
+            "Confidentiality_Agreement_1::p23",
+            "Confidentiality_Agreement_1::p3",
+            "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p12",
+            "NDA_7::p8"
+          ]
+        },
+        "hybrid": {
+          "gold_rank": 1,
+          "top_ids": [
+            "Confidentiality_Agreement_1::p18",
+            "Confidentiality_Agreement_1::p23",
+            "Confidentiality_Agreement_1::p3",
+            "Confidentiality_Agreement_1::p13",
+            "Confidentiality_Agreement_1::p21"
+          ]
+        }
+      }
+    },
+    {
+      "id": "S3",
+      "status": 200,
+      "gold_phrase": "entitled to equitable remedies",
+      "screenshot": "screens/search-S3.png",
+      "columns": {
+        "dense": {
+          "gold_rank": 1,
+          "top_ids": [
+            "HALO-NDA::p7",
+            "HALO-NDA::p4",
+            "HALO-NDA::p6",
+            "HALO-NDA::p5",
+            "HALO-NDA::p1"
+          ]
+        },
+        "fts": {
+          "gold_rank": 1,
+          "top_ids": [
+            "HALO-NDA::p7",
+            "HALO-NDA::p1",
+            "HALO-NDA::p6",
+            "HALO-NDA::p3",
+            "HALO-NDA::p5"
+          ]
+        },
+        "hybrid": {
+          "gold_rank": 1,
+          "top_ids": [
+            "HALO-NDA::p7",
+            "HALO-NDA::p6",
+            "HALO-NDA::p1",
+            "HALO-NDA::p5",
+            "HALO-NDA::p4"
+          ]
+        }
+      }
+    },
+    {
+      "id": "S5",
+      "status": 200,
+      "gold_phrase": "within sixty days of the order",
+      "screenshot": "screens/search-S5.png",
+      "columns": {
+        "dense": {
+          "gold_rank": 1,
+          "top_ids": [
+            "urban_tenancy_act_2019::s10",
+            "urban_tenancy_act_2019::s1:1",
+            "urban_tenancy_act_2019::s1:2",
+            "urban_tenancy_act_2019::s3",
+            "urban_tenancy_act_2019::s9"
+          ]
+        },
+        "fts": {
+          "gold_rank": 1,
+          "top_ids": [
+            "urban_tenancy_act_2019::s10",
+            "urban_tenancy_act_2019::s1:1",
+            "urban_tenancy_act_2019::s9",
+            "urban_tenancy_act_2019::s2:3",
+            "urban_tenancy_act_2019::s7"
+          ]
+        },
+        "hybrid": {
+          "gold_rank": 1,
+          "top_ids": [
+            "urban_tenancy_act_2019::s10",
+            "urban_tenancy_act_2019::s1:1",
+            "urban_tenancy_act_2019::s9",
+            "urban_tenancy_act_2019::s1:2",
+            "urban_tenancy_act_2019::s3"
+          ]
+        }
+      }
+    }
+  ],
+  "app": {
+    "evaluation": {
+      "screenshot": "screens/evaluation.png",
+      "map_sources": [
+        "Confidentiality_Agreement_1",
+        "HALO-NDA",
+        "NDA_7",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+        "urban_tenancy_act_2019"
+      ],
+      "map_points": 101
+    },
+    "chat_history": {
+      "chats_asked": 15,
+      "ui_after_reload": 15,
+      "api_after_reload": 15,
+      "deleted": "Delete conversation: If the owner of my flat throws me out by force without perm…",
+      "delete_status": 200,
+      "ui_after_delete_and_reload": 14,
+      "deleted_still_listed": 0,
+      "api_after_delete": 14,
+      "screenshots": [
+        "screens/chats-after-reload.png",
+        "screens/chats-after-delete.png"
+      ]
+    },
+    "delete_document": {
+      "doc": "D3",
+      "source_id": "HALO-NDA",
+      "status": 200,
+      "body": {
+        "source_id": "HALO-NDA",
+        "deleted_chunk_count": 9,
+        "totals": {
+          "chunks": 92,
+          "documents": 4
+        }
+      },
+      "home_before": {
+        "documents": 5,
+        "chunks": 101
+      },
+      "home_after": {
+        "documents": 4,
+        "chunks": 92
+      },
+      "screenshot": "screens/home-after-delete.png",
+      "reask": {
+        "id": "S3",
+        "attempts": [
+          {
+            "status": 200,
+            "seconds": 15.66,
+            "detail": null
+          }
+        ],
+        "status": 200,
+        "seconds": 15.66,
+        "screenshot": "screens/after-delete-S3-answer.png",
+        "badge": "Abstained",
+        "badge_text_on_page": {
+          "Verified": false,
+          "Abstained": true,
+          "General knowledge": false
+        },
+        "decision": "ABSTAIN",
+        "answer_mode": "abstained",
+        "vcs": null,
+        "answer_text": "INSUFFICIENT_CONTEXT: The provided passages do not contain any information about the specific remedies HALO is entitled to upon a breach of its non‑disclosure agreement.",
+        "grounded_answer_text": null,
+        "context_chunk_ids": [
+          "NDA_7::p14",
+          "Confidentiality_Agreement_1::p19",
+          "NDA_7::p1",
+          "Confidentiality_Agreement_1::p17",
+          "NDA_7::p15",
+          "NDA_7::p10",
+          "NDA_7::p22",
+          "Confidentiality_Agreement_1::p10",
+          "NDA_7::p17",
+          "Confidentiality_Agreement_1::p9",
+          "NDA_7::p9",
+          "Confidentiality_Agreement_1::p14"
+        ],
+        "claims": []
+      }
+    }
+  },
+  "fixes": [
+    {
+      "commit": "6b6a0f5",
+      "bug": "comma inside a source id split the citation",
+      "questions": [
+        "S4"
+      ],
+      "test": "tests/generation/test_parser.py::test_extract_keeps_a_comma_inside_the_source_id (+ lc parity case)"
+    },
+    {
+      "commit": "f7f8dd9",
+      "bug": "full-width citation brackets 【】 not recognised",
+      "questions": [
+        "S1"
+      ],
+      "test": "tests/generation/test_parser.py::test_full_width_brackets_are_citations (+ lc parity case)"
+    },
+    {
+      "commit": "fb7bf75",
+      "bug": "'... under the <Act>?' routed to general knowledge",
+      "questions": [
+        "U2"
+      ],
+      "test": "tests/generation/test_general_knowledge.py (U2 question added to DOCUMENT_SPECIFIC)"
+    }
+  ],
+  "rerun_after_fixes": {
+    "git_head": "fb7bf75",
+    "index": "data/lancedb_lc_e2e_rerun (fresh, same 5 docs via the Ingest page)",
+    "ingest": [
+      {
+        "doc": "D1",
+        "status": 200,
+        "new_chunk_count": 23
+      },
+      {
+        "doc": "D2",
+        "status": 200,
+        "new_chunk_count": 26
+      },
+      {
+        "doc": "D3",
+        "status": 200,
+        "new_chunk_count": 9
+      },
+      {
+        "doc": "D4",
+        "status": 200,
+        "new_chunk_count": 20
+      },
+      {
+        "doc": "D5",
+        "status": 200,
+        "new_chunk_count": 23
+      }
+    ],
+    "questions": [
+      {
+        "id": "S1",
+        "category": "specific",
+        "question": "How long is the Helu Kabel confidentiality agreement valid, and is it extended automatically?",
+        "expected_behaviour": "VERIFIED",
+        "expected_answer": "Three years from signature by both parties; it is tacitly extended by one year if not terminated three months before it expires.",
+        "source": {
+          "document": "D1",
+          "location": "clause 8",
+          "passage": "This agreement becomes effective with the signatures of both parties and is valid for three years. It is tacitly extended by one year if it is not terminated three months before its expiration."
+        },
+        "badge": "Abstained",
+        "vcs": 0.5,
+        "http_status": 200,
+        "attempts": [
+          {
+            "status": 200,
+            "seconds": 35.56,
+            "detail": null
+          }
+        ],
+        "seconds": 35.56,
+        "answer_text": "The Helu Kabel confidentiality agreement is valid for three years from the date it becomes effective. [Confidentiality_Agreement_1::p18]\n\nIf it is not terminated three months before its expiration, the agreement is tacitly extended by one additional year. [Confidentiality_Agreement_1::p18]",
+        "grounded_answer_text": null,
+        "claims": [
+          {
+            "claim_text": "The Helu Kabel confidentiality agreement is valid for three years from the date it becomes effective.",
+            "cited": [
+              "Confidentiality_Agreement_1::p18"
+            ],
+            "quoted_span": "8. This agreement becomes effective with the signat ures of both parties and is valid for three years. It is tacitly\nextended by one year if it is not terminated three months before its expiration.",
+            "vcs_contribution": 0.0,
+            "verdicts": {
+              "v1_citation": {
+                "passed": true,
+                "missing_ids": []
+              },
+              "v2_entailment": {
+                "verdict": "NEUTRAL",
+                "score": 0.9927918910980225,
+                "best_chunk_id": "Confidentiality_Agreement_1::p18"
+              },
+              "v3_fidelity": {
+                "fidelity": 0.0,
+                "atoms": [
+                  {
+                    "text": "The Helu Kabel confidentiality agreement is valid for three years from the date it becomes effective",
+                    "verdict": "NEUTRAL"
+                  }
+                ]
+              },
+              "v4_consistency": null
+            }
+          },
+          {
+            "claim_text": "If it is not terminated three months before its expiration, the agreement is tacitly extended by one additional year.",
+            "cited": [
+              "Confidentiality_Agreement_1::p18"
+            ],
+            "quoted_span": "8. This agreement becomes effective with the signat ures of both parties and is valid for three years. It is tacitly\nextended by one year if it is not terminated three months before its expiration.",
+            "vcs_contribution": 1.0,
+            "verdicts": {
+              "v1_citation": {
+                "passed": true,
+                "missing_ids": []
+              },
+              "v2_entailment": {
+                "verdict": "ENTAILS",
+                "score": 0.9938456416130066,
+                "best_chunk_id": "Confidentiality_Agreement_1::p18"
+              },
+              "v3_fidelity": {
+                "fidelity": 1.0,
+                "atoms": [
+                  {
+                    "text": "If it is not terminated three months before its expiration, the agreement is tacitly extended by one additional year",
+                    "verdict": "ENTAILS"
+                  }
+                ]
+              },
+              "v4_consistency": null
+            }
+          }
+        ],
+        "context_chunk_ids": [
+          "Confidentiality_Agreement_1::p18",
+          "Confidentiality_Agreement_1::p13",
+          "NDA_7::p17",
+          "Confidentiality_Agreement_1::p21",
+          "HALO-NDA::p4",
+          "Confidentiality_Agreement_1::p3",
+          "Confidentiality_Agreement_1::p23",
+          "Confidentiality_Agreement_1::p19",
+          "Confidentiality_Agreement_1::p12",
+          "Confidentiality_Agreement_1::p22",
+          "Confidentiality_Agreement_1::p5",
+          "Confidentiality_Agreement_1::p1"
+        ],
+        "quote_supports_claim": [
+          true,
+          true
+        ],
+        "label": "FALSE_ABSTAIN",
+        "note": "The model used normal brackets this time, so the parser fix was not exercised live. Both claims correct and cite p18; claim 2 ENTAILS, but claim 1 ('The Helu Kabel confidentiality agreement is valid for three years...') was NEUTRAL: p18 never names Helu Kabel (only the header chunk p1 does), so NLI would not confirm the entity. VCS 0.5 < 0.6. Same over-strict NLI pattern as S5.",
+        "screenshots": [
+          "screens/rerun-ask-S1-answer.png"
+        ]
+      },
+      {
+        "id": "S4",
+        "category": "specific",
+        "question": "When was the Vivint Solar non-competition agreement amendment entered into, and who are the parties?",
+        "expected_behaviour": "VERIFIED",
+        "expected_answer": "August 16, 2017, between Vivint Solar, Inc. (a Delaware corporation) and Vivint, Inc. (a Utah corporation).",
+        "source": {
+          "document": "D4",
+          "location": "preamble",
+          "passage": "This NON-COMPETITION AGREEMENT AMENDMENT NO. 1 (this \"Amendment\") is entered into as of August 16, 2017, by and between VIVINT SOLAR, INC., a Delaware corporation (...), and VIVINT, INC., a Utah corporation"
+        },
+        "badge": "Verified",
+        "vcs": 1.0,
+        "http_status": 200,
+        "attempts": [
+          {
+            "status": 200,
+            "seconds": 19.73,
+            "detail": null
+          }
+        ],
+        "seconds": 19.73,
+        "answer_text": "The amendment was entered into on August 16, 2017. [VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1]  \nThe parties to the amendment are Vivint Solar, Inc., a Delaware corporation, and Vivint, Inc., a Utah corporation. [VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1]",
+        "grounded_answer_text": null,
+        "claims": [
+          {
+            "claim_text": "The amendment was entered into on August 16, 2017.",
+            "cited": [
+              "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1"
+            ],
+            "quoted_span": "Exhibit 10.1 NON-COMPETITION AGREEMENT AMENDMENT NO. 1   This NON-COMPETITION AGREEMENT AMENDMENT NO. 1 (this \"Amendment\") is entered into as of August 16, 2017, by and between VIVINT SOLAR, INC., a Delaware corporation (together with its successors and permitted assigns, \"Vivint Solar\"), and VIVINT, INC., a Utah corporation (together with its successors and permitted assigns \"Vivint\"). Each of Vivint Solar and Vivint may also be referred to herein individually as a \"Party\", and collectively as the \"Parties\".   RECITALS",
+            "vcs_contribution": 1.0,
+            "verdicts": {
+              "v1_citation": {
+                "passed": true,
+                "missing_ids": []
+              },
+              "v2_entailment": {
+                "verdict": "ENTAILS",
+                "score": 0.9610284566879272,
+                "best_chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1"
+              },
+              "v3_fidelity": {
+                "fidelity": 1.0,
+                "atoms": [
+                  {
+                    "text": "The amendment was entered into on August 16, 2017",
+                    "verdict": "ENTAILS"
+                  }
+                ]
+              },
+              "v4_consistency": null
+            }
+          },
+          {
+            "claim_text": "The parties to the amendment are Vivint Solar, Inc., a Delaware corporation, and Vivint, Inc., a Utah corporation.",
+            "cited": [
+              "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1"
+            ],
+            "quoted_span": "Exhibit 10.1 NON-COMPETITION AGREEMENT AMENDMENT NO. 1   This NON-COMPETITION AGREEMENT AMENDMENT NO. 1 (this \"Amendment\") is entered into as of August 16, 2017, by and between VIVINT SOLAR, INC., a Delaware corporation (together with its successors and permitted assigns, \"Vivint Solar\"), and VIVINT, INC., a Utah corporation (together with its successors and permitted assigns \"Vivint\"). Each of Vivint Solar and Vivint may also be referred to herein individually as a \"Party\", and collectively as the \"Parties\".   RECITALS",
+            "vcs_contribution": 1.0,
+            "verdicts": {
+              "v1_citation": {
+                "passed": true,
+                "missing_ids": []
+              },
+              "v2_entailment": {
+                "verdict": "ENTAILS",
+                "score": 0.968558669090271,
+                "best_chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1"
+              },
+              "v3_fidelity": {
+                "fidelity": 1.0,
+                "atoms": [
+                  {
+                    "text": "The parties to the amendment are Vivint Solar, Inc., a Delaware corporation,",
+                    "verdict": "ENTAILS"
+                  },
+                  {
+                    "text": "Vivint, Inc., a Utah corporation",
+                    "verdict": "ENTAILS"
+                  }
+                ]
+              },
+              "v4_consistency": null
+            }
+          }
+        ],
+        "context_chunk_ids": [
+          "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p3",
+          "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1",
+          "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p8",
+          "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p10",
+          "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p15",
+          "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p4",
+          "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p12",
+          "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p2",
+          "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p5",
+          "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p9",
+          "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p6",
+          "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p16"
+        ],
+        "quote_supports_claim": [
+          true,
+          true
+        ],
+        "label": "CORRECT_VERIFIED",
+        "note": "Now Verified, VCS 1.00, both claims cite the preamble chunk p1.",
+        "screenshots": [
+          "screens/rerun-ask-S4-answer.png",
+          "screens/rerun-ask-S4-proof.png"
+        ]
+      },
+      {
+        "id": "U2",
+        "category": "unanswerable",
+        "question": "What is the maximum annual rent increase a landlord may impose under the Urban Tenancy Act?",
+        "expected_behaviour": "ABSTAIN",
+        "expected_answer": "Not stated: the Act regulates deposits, eviction and disputes, but not rent increases.",
+        "source": null,
+        "badge": "Abstained",
+        "vcs": null,
+        "http_status": 200,
+        "attempts": [
+          {
+            "status": 200,
+            "seconds": 17.83,
+            "detail": null
+          }
+        ],
+        "seconds": 17.83,
+        "answer_text": "INSUFFICIENT_CONTEXT: The provided passages do not contain any provision regarding a maximum annual rent increase.",
+        "grounded_answer_text": null,
+        "claims": [],
+        "context_chunk_ids": [
+          "urban_tenancy_act_2019::s1:1",
+          "urban_tenancy_act_2019::s1:2",
+          "urban_tenancy_act_2019::s7:a",
+          "urban_tenancy_act_2019::s4:a",
+          "urban_tenancy_act_2019::s3:b",
+          "urban_tenancy_act_2019::s3:a",
+          "urban_tenancy_act_2019::s5:a",
+          "urban_tenancy_act_2019::s3",
+          "urban_tenancy_act_2019::s5:c",
+          "urban_tenancy_act_2019::s7:b",
+          "urban_tenancy_act_2019::s6",
+          "urban_tenancy_act_2019::s5"
+        ],
+        "quote_supports_claim": null,
+        "label": "CORRECT_ABSTAIN",
+        "note": "Now stays on the verified path and abstains (no rent-increase provision).",
+        "screenshots": [
+          "screens/rerun-ask-U2-answer.png"
+        ]
+      }
+    ]
+  },
+  "replay_of_recorded_outputs": {
+    "git_head": "fb7bf75",
+    "replays": [
+      {
+        "id": "S1",
+        "before": {
+          "badge": "Abstained",
+          "vcs": null
+        },
+        "after": {
+          "decision": "ANSWER",
+          "vcs": 1.0,
+          "claims": [
+            {
+              "text": "The agreement is valid for three years from the date it becomes effective.",
+              "cited": [
+                "Confidentiality_Agreement_1::p18"
+              ]
+            },
+            {
+              "text": "It is tacitly extended by one year if it is not terminated three months before its expiration.",
+              "cited": [
+                "Confidentiality_Agreement_1::p18"
+              ]
+            }
+          ],
+          "per_claim_vcs": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "S4",
+        "before": {
+          "badge": "Abstained",
+          "vcs": 0.0
+        },
+        "after": {
+          "decision": "ANSWER",
+          "vcs": 1.0,
+          "claims": [
+            {
+              "text": "The amendment was entered into on August 16, 2017.",
+              "cited": [
+                "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1"
+              ]
+            },
+            {
+              "text": "The parties to the amendment are Vivint Solar, Inc., a Delaware corporation, and Vivint, Inc., a Utah corporation.",
+              "cited": [
+                "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1"
+              ]
+            }
+          ],
+          "per_claim_vcs": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    ]
+  }
+}
