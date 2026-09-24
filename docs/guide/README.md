@@ -168,8 +168,11 @@ model generates anything here. The page exists to inspect retrieval on its own.
    shape per document. Hovering a point shows which chunk it is. In the screenshot,
    the 412 chunks of the one non-agreement document form their own cluster, while
    the seven agreements overlap because they share vocabulary.
-2. **Retrieval evaluation.** There is one card per logged experiment, with
-   precision, recall, F1 and retrieval rate.
+2. **Experiments.** There is one card per logged experiment, each with a sentence
+   saying what it tested and its headline numbers. Retrieval runs show precision,
+   recall, F1 and retrieval rate. The verification, safety, speed and end-to-end
+   runs show their own numbers, for example "Bad claims shown 0 / 28".
+   [`experiments/README.md`](../../experiments/README.md) explains every run.
 
 **Behind it:**
 
@@ -177,9 +180,9 @@ model generates anything here. The page exists to inspect retrieval on its own.
   (`src/api/projection.py`).
 - `GET /evaluation` walks `experiments/` and reads each run's `config.json` and
   `results.json` (`src/evaluation/results_store.py`).
-- Verification-ablation runs store their results in a different format, so their
-  cards currently say *No aggregate metrics*. Their numbers are in the paper and in
-  `experiments/2026-09-23-ablations/verification/results.json`.
+- `describe_run` in the same file recognises each kind of run from the shape of its
+  `results.json` and picks its headline numbers, so every card shows real values read
+  from the files.
 
 ---
 
@@ -388,5 +391,4 @@ LLM.
   party that appears only in the agreement's heading, not in the cited clause.
 - **Missing pieces:**
     - HTML files can't be ingested yet.
-    - The Evaluation page doesn't show verification-ablation runs.
     - Reranking adds several seconds per question.
