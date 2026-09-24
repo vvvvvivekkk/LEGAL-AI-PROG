@@ -48,8 +48,9 @@ before the user reads it. Legal AI adds that check and makes it visible.
 
 The web app (React + Vite + Tailwind) has five pages. Every page calls the FastAPI
 backend, and everything a page shows is also available as an API call. By default the
-app talks to the LangChain backend on port 8001 (`web/.env`). The plain-Python
-reference backend serves the same endpoints on port 8000.
+app talks to the LangChain backend on port 8000 (`web/.env`); `start.bat` starts it
+together with the UI. The plain-Python reference backend serves the same endpoints and
+can be run instead of it.
 
 ### 2.1 Home
 
@@ -204,7 +205,7 @@ The pipeline exists twice, and both versions give the same results:
 | Retrieval | `retrieval.py`: EnsembleRetriever (dense + BM25, RRF) → CrossEncoderReranker | `retrieval/retriever.py`, `rerank.py` |
 | Generation | `generation.py`: ChatPromptTemplate → chat model → citation parser (LCEL) | `generation/` |
 | Verification | `verification.py`: V1–V6 wrapped as Runnables | `verification/` |
-| Whole pipeline | `pipeline.py`: one LCEL chain; `api.py` on port 8001 | `api/main.py` on port 8000 |
+| Whole pipeline | `pipeline.py`: one LCEL chain; `api.py` (the default) | `api/main.py` |
 
 **The equivalence check** (`experiments/langchain_port/report.md`):
 
