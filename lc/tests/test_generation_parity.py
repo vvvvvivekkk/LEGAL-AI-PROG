@@ -47,6 +47,7 @@ EDGE_CASES = [
     "  INSUFFICIENT_CONTEXT: leading space.",
     "A claim. [a::s1]\nAnother. [a::s2][b::p3]\n\nNo citation here.",
     "Comma form. [a::s1, b::s2]\nDuplicate ids. [a::s1][a::s1]",
+    "Comma in a source id. [VIVINT SOLAR, INC. - AGREEMENT::p1, x::s2]",
     "Empty brackets [] and [ ] only.",
     "Text with {braces} and a citation. [x::p1]",
     "",

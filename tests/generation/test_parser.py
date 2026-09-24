@@ -27,6 +27,21 @@ def test_extract_comma_separated_citations():
     assert ids == ["x::s5:a", "x::s5:b", "x::s5:c"]
 
 
+VIVINT = "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT"
+
+
+def test_extract_keeps_a_comma_inside_the_source_id():
+    # Seen in the 2026-09-24 human e2e run: the source id comes from a file
+    # name with a comma, and splitting on it broke every citation of that file.
+    line = f"The amendment was entered into on August 16, 2017. [{VIVINT}::p1]"
+    assert extract_citations(line) == [f"{VIVINT}::p1"]
+
+
+def test_extract_comma_list_of_ids_that_contain_commas():
+    ids = extract_citations(f"Both apply [{VIVINT}::p1, {VIVINT}::p3, other::s2].")
+    assert ids == [f"{VIVINT}::p1", f"{VIVINT}::p3", "other::s2"]
+
+
 def test_extract_dedupes_repeated_ids():
     assert extract_citations("[a::s1][a::s1]") == ["a::s1"]
 

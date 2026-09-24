@@ -30,6 +30,28 @@ class Claim:
         return {"text": self.text, "cited_chunk_ids": list(self.cited_chunk_ids)}
 
 
+def split_citation_group(group: str) -> list[str]:
+    """Split one bracket's contents into chunk ids.
+
+    Chunk ids always contain '::', but a source id may itself contain a comma
+    (a file named "VIVINT SOLAR, INC. - AGREEMENT.txt"), so a comma only
+    separates ids when the piece before it already holds a '::'. Pieces without
+    one are joined back onto the id they belong to.
+    """
+    parts = group.split(",")
+    if not any("::" in p for p in parts):
+        return [p.strip() for p in parts if p.strip()]
+    ids: list[str] = []
+    pending: list[str] = []
+    for part in parts:
+        pending.append(part)
+        if "::" in part:
+            ids.append(",".join(pending).strip())
+            pending = []
+    ids.extend(p.strip() for p in pending if p.strip())
+    return ids
+
+
 def extract_citations(line: str) -> list[str]:
     """Pull chunk ids out of a line's [..] brackets.
 
@@ -38,8 +60,7 @@ def extract_citations(line: str) -> list[str]:
     """
     ids: list[str] = []
     for group in _CITATION_RE.findall(line):
-        for part in group.split(","):
-            cid = part.strip()
+        for cid in split_citation_group(group):
             if cid:
                 ids.append(cid)
     # de-duplicate while preserving order

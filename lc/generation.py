@@ -24,6 +24,7 @@ from langchain_core.runnables import Runnable, RunnableLambda
 
 from src.config import env
 from src.generation.general_knowledge import GENERAL_KNOWLEDGE_SYSTEM
+from src.generation.parser import split_citation_group
 from src.generation.prompt import ABSTENTION_MARKER, SYSTEM_PROMPT
 
 # ---------------------------------------------------------------------------
@@ -101,8 +102,7 @@ class CitationOutputParser(BaseOutputParser[ParsedAnswer]):
     def citations(line: str) -> list[str]:
         ids: list[str] = []
         for group in _CITATION_RE.findall(line):
-            for part in group.split(","):
-                cid = part.strip()
+            for cid in split_citation_group(group):
                 if cid and cid not in ids:
                     ids.append(cid)
         return ids
