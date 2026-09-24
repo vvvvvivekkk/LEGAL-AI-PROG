@@ -26,6 +26,7 @@ before the user reads it. Legal AI adds that check and makes it visible.
 | Chunking | Fixed-size windows | Split by section and clause for statutes, by paragraph for anything else |
 | Infrastructure | Vector database server | One embedded LanceDB folder on disk, with no server |
 | Model lock-in | One provider | Claude, OpenAI, Gemini or Groq, chosen with one environment variable |
+| Framework | The framework decides what you can check | LangChain handles loading, retrieval and generation; the verification chain is our own code, and a plain-Python reference implementation gives identical results |
 
 **What the measurements show** (all logged under `/experiments`):
 
@@ -42,7 +43,9 @@ before the user reads it. Legal AI adds that check and makes it visible.
 ## 2. The pages
 
 The web app (React + Vite + Tailwind) has five pages. Every page calls the FastAPI
-backend, and everything a page shows is also available as an API call.
+backend, and everything a page shows is also available as an API call. By default the
+app talks to the LangChain backend on port 8001 (`web/.env`). The plain-Python
+reference backend serves the same endpoints on port 8000.
 
 ### 2.1 Home
 
@@ -178,6 +181,37 @@ model generates anything here. The page exists to inspect retrieval on its own.
 ## 3. Workflows
 
 ![Pipeline](img/pipeline.png)
+
+### Where the code lives
+
+The pipeline exists twice, and both versions give the same results:
+
+- **`lc/`**, the default. Loading, retrieval and generation are built from LangChain parts.
+- **`src/`**, the plain-Python reference implementation. It also holds the code that
+  LangChain has no equivalent for (the SAC section parser and the V1–V6 verification
+  chain), and `lc/` calls that code directly.
+
+| Stage | LangChain (`lc/`) | Reference (`src/`) |
+|---|---|---|
+| Loading | `loaders.py`: TextLoader, plus a page-joining PDF loader | `ingestion/loaders.py` |
+| Chunking | `splitters.py`: custom TextSplitters around the SAC parser | `chunking/sac.py`, `fallback.py` |
+| Embeddings | `embeddings.py`: HuggingFaceEmbeddings | `embedding/sentence_transformer.py` |
+| Index | `vectorstore.py`: LanceDB vector store, own folder `data/lancedb_lc` | `indexing/build.py` |
+| Retrieval | `retrieval.py`: EnsembleRetriever (dense + BM25, RRF) → CrossEncoderReranker | `retrieval/retriever.py`, `rerank.py` |
+| Generation | `generation.py`: ChatPromptTemplate → chat model → citation parser (LCEL) | `generation/` |
+| Verification | `verification.py`: V1–V6 wrapped as Runnables | `verification/` |
+| Whole pipeline | `pipeline.py`: one LCEL chain; `api.py` on port 8001 | `api/main.py` on port 8000 |
+
+**The equivalence check** (`experiments/langchain_port/report.md`):
+
+- Both versions returned the same top-5 results in the same order for all 10 labelled
+  questions (F1 0.417, recall 1.00).
+- On the same cached answers, they reached the same verification decisions and scores.
+- Neither let any of the 28 corrupted claims through.
+- Mean query time differed by 4.6%, which is within the variation of the LLM calls.
+
+The step tables below name the `src/` files, because they hold the algorithm itself;
+the matching `lc/` file for each stage is in the table above.
 
 ### 3.1 Adding a document
 
@@ -319,6 +353,7 @@ LLM.
 | Part | Choice |
 |---|---|
 | Backend | Python, FastAPI |
+| Orchestration | LangChain (`lc/`, default); plain-Python reference in `src/` |
 | Index | LanceDB (embedded; vectors + BM25 in one on-disk table) |
 | Embeddings | sentence-transformers/all-MiniLM-L6-v2 |
 | Reranker | BAAI/bge-reranker-base (cross-encoder) |
@@ -338,6 +373,9 @@ LLM.
 - **Mean aggregation:** a weak claim can pass next to a strong one (the §3.3 example).
   Gating each claim separately would fix this.
 - **General-domain NLI:** roberta-large-mnli was not trained on legal text.
+- **`langchain-community` is being wound down** by its maintainers. The LangChain
+  version takes its loader, LanceDB store, BM25 retriever and cross-encoder wrapper
+  from that package, so they will need moving to standalone packages.
 - **Missing pieces:**
     - HTML files can't be ingested yet.
     - The Evaluation page doesn't show verification-ablation runs.
