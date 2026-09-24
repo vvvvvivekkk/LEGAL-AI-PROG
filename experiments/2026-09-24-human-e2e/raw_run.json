@@ -1,0 +1,3463 @@
+{
+  "started": "2026-09-24 20:40:36",
+  "llm_provider": "groq",
+  "ingest": [
+    {
+      "status": 200,
+      "seconds": 12.61,
+      "body": {
+        "source_id": "Confidentiality_Agreement_1",
+        "filename": "Confidentiality_Agreement_1.pdf",
+        "new_chunk_count": 23,
+        "new_chunks": [
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p1",
+            "text": "Confidentiality Agreement",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 1",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p2",
+            "text": "between",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 2",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p3",
+            "text": "Helu Kabel GmbH\nDieselstraße 8-12\n71282 Hemmingen",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 3",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p4",
+            "text": "-Supplier-",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 4",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p5",
+            "text": "and",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 5",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p6",
+            "text": "[COMPANY]\n[CONTACT PERSON]\n[ADDRESS]\n[POSTCODE, CITY]\n[COUNTRY]",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 6",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p7",
+            "text": "-Buyer-",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 7",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p8",
+            "text": "1. The parties maintain a supply relationship. In t he frame of this cooperation, confidential information also be\nexchanged.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 8",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p9",
+            "text": "2. Every contract party can disclose confidential i nformation to the other contract party orally or in writing. If the\ndisclosure is in writing, the disclosing party will mark the confidential documents with the additional terms\n“Confidential” or “Liable to Secrecy” so that it is  apparent to the other party which information is especially in need\nto protection.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 9",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p10",
+            "text": "3. The contract parties are obligated to preclude d isclosure of confidential information to third parties. The parties will\nentrust confidential information solely to those employees, consultants and third party companies  which are\nconcerned with the processing of the order and which are legally or contractually obligated to secrecy.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 10",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p11",
+            "text": "4. To the extent that technical drawings of certain  third-party companies are not to be made known, the buyer must\npoint this fact out on its own initiative.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 11",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p12",
+            "text": "5. All confidential information remains the propert y of the disclosing contract party.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 12",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p13",
+            "text": "6. The confidentiality agreement does not apply to statements of the company Helukabel in its catalogues,\ndatasheets and on the homepage and also not to information which",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 13",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p14",
+            "text": "a) the receiving party was already aware of or whic h was developed by the disclosing party itself independent of\nthe disclosure,",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 14",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p15",
+            "text": "b) is publicly known without this agreement having been broken,",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 15",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p16",
+            "text": "c) was received by a third party without infringeme nt of this or any other confidentiality agreement.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 16",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p17",
+            "text": "7. If the recipient is forced to expose the confide ntial information due to a legal regulation, a legally valid judgement\nor a non-disputable official decision or decree in part or in whole, it shall immediately inform the owner of the\nconfidential information in writing so that the owner can take measures to protect the confidential information.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 17",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p18",
+            "text": "8. This agreement becomes effective with the signat ures of both parties and is valid for three years. It is tacitly\nextended by one year if it is not terminated three months before its expiration.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 18",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p19",
+            "text": "9. At the end of the contract the receiving party s hall return the confidential information and any possibly extant\ncopies after receipt of a written request, provided that this is technically feasible and does not violate the retention\nobligations. As an alternative to that, the receiving party can also ensure in writing the destruction of the received\ndocumentation if that is technically feasible.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 19",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p20",
+            "text": "10. The confidential information will be provided as is. The disclosing party does not assume any warranty for the\ncorrectness, completeness or usability of the confidential information.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 20",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p21",
+            "text": "11. The parties agree that for this agreement German law applies excluding the United Nations Convention on\nContracts for the International Sale of Goods. The legal venue for all disputes arising from this agreement is the\nhead office of the company Helukabel in Hemmingen.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 21",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p22",
+            "text": "Hemmingen, ___________      _____________________\n          Place, Date",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 22",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p23",
+            "text": "_________________________       ___________________ __\nHelu Kabel GmbH       Buyer",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 23",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          }
+        ],
+        "totals": {
+          "chunks": 23,
+          "documents": 1
+        },
+        "used_fallback": true,
+        "note": "No legal structure detected — used fallback paragraph chunking."
+      },
+      "screenshot": "screens/ingest-D1.png",
+      "doc": "D1",
+      "file": "Confidentiality_Agreement_1.pdf"
+    },
+    {
+      "status": 200,
+      "seconds": 0.95,
+      "body": {
+        "source_id": "NDA_7",
+        "filename": "NDA_7.pdf",
+        "new_chunk_count": 26,
+        "new_chunks": [
+          {
+            "chunk_id": "NDA_7::p1",
+            "text": "NON-DISCLOSURE AGREEMENT",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 1",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p2",
+            "text": "This agreement is made this 28th of March 2014",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 2",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p3",
+            "text": "Between",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 3",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p4",
+            "text": "COMPANY NAME  A (Registration Number)\nADDRESS\nPROVINCE\nCOUNTRY",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 4",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p5",
+            "text": "and",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 5",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p6",
+            "text": "COMPANY NAME   B (Registration Number)\nADDRESS\nPROVINCE\nCOUNTRY",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 6",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p7",
+            "text": "Where as the parties here to wish to hold discussio ns concerning financial and Investment\nissues with regards to the project XXXXX (“the Fiel d”)  and may wish to disclose to one\nanother confidential technical and business informa tion relating to or relevant within the\nField (“the Confidential Information”) and wish to ensure that the Confidential Information\nremains confidential.",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 7",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p8",
+            "text": "Now it is agreed as follows:-",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 8",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p9",
+            "text": "1.  The extent of the Confidential Information to be di sclosed will at all times be at the\ndiscretion of the disclosing party.",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 9",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p10",
+            "text": "2.  Each party will treat the confidential information disclosed to it by the other party as\na secret and confidential and will not except with the prior written consent of the\nother, make use of the same except for the purpose of evaluation thereof, nor\ndisclose the same to any third party except, and th en only to the extent necessary to\nevaluate the same, to such of its employees as shall have been made fully aware that\nthe same is secret and confidential and are bound to treat it as such.",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 10",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p11",
+            "text": "3. Disclosure: A party (the “ disclosing Party ”) may, in connection with the Business\nDiscussions, disclose to the other Party informatio n, including, without limitation,\noral, written, graphical or electronic information and all compilations, analyses,\nnotes, copies prepared, generated or delivered ther e from, which is identified as\n“confidential information” or “confidential busines s information” (the\n“ Confidential Business Information ”) by the Disclosing Party at the time of\ndisclosure to the receiving party (the “ Receiving Party ”).",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 11",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p12",
+            "text": "The fact the Business\nDiscussions are occurring and any negotiations, ter ms or facts related to the\nBusiness Discussions are Confidential Business Information.",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 12",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p13",
+            "text": "4.  The restrictions as to the use and disclosure set out above shall not apply to:",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 13",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p14",
+            "text": "a.  any of the confidential information which is or bec omes published\notherwise than by unauthorised publication in breach of this agreement.\nb.  or any of the Confidential Information which is sho wn by written or other\ntangible evidence to have been known to the recipient prior to the date of the\ndisclosure hereunder.\nc.  or any of the confidential information which is law fully acquired by the\nrecipient from an independent source having a bona fida right to disclose the\nsame.",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 14",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p15",
+            "text": "d.  or any Confidential Information which as demonstrat e by tangible evidence\nis independently developed by an employee of the recipient who has not had\naccess to any of the Information disclosed to the recipient by the other party.",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 15",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p16",
+            "text": "5.  Neither party shall, with out the prior written con sent of the other party, copy or\nreproduce any document which may be supplied hereun der and either party\nreceiving any such document will a) return the same and any copies made thereof to\nthe party supplying the same if so requested by the  supplying party and b) certify in\nwriting that it has complied with this agreement.",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 16",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p17",
+            "text": "6.  The obligations of confidentiality in this agreemen t shall cease when both parties\ngive written notification of its termination, or 5 years after the date hereof,\nwhichever is the sooner.",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 17",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p18",
+            "text": "7.  The confidential information, including any documen ts, drawings, sketches,\ndesigns, materials or samples supplied hereunder, w ill remain the property of the\nparty disclosing or supplying the same and no rights are granted to the other party in\nthe same, whether patented or not except the limite d right to use set out above with\nrespect to the said Field.",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 18",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p19",
+            "text": "8.  The parties do not intend that any agency or partne rship relationship be created\nbetween them by this agreement.",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 19",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p20",
+            "text": "9.  All the additions to this agreement must be made in  writing and must be executed\nby both parties.",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 20",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p21",
+            "text": "10.  This agreement must be in accordance with, and gove rned in all respects by the\nlaws of Spain.",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 21",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p22",
+            "text": "11.  Each party shall be not entitled to assign the righ ts and obligations hereunder to any\nsuccessor in title of its entire business in the Fi eld without consent of the other\nparty.",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 22",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p23",
+            "text": "Signed on behalf of “COMPANY NAME A”",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 23",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p24",
+            "text": "By------------------------------------------------  name: “name and surname”\n      Position:",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 24",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p25",
+            "text": "Signed on behalf of “COMPANY NAME B”",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 25",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          },
+          {
+            "chunk_id": "NDA_7::p26",
+            "text": "By------------------------------------------------  name: “name and surname”\n      Position:",
+            "contextual_summary": "NDA_7",
+            "metadata": {
+              "source_id": "NDA_7",
+              "act": "NDA_7",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 26",
+              "structure": "fallback",
+              "content_sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+            }
+          }
+        ],
+        "totals": {
+          "chunks": 49,
+          "documents": 2
+        },
+        "used_fallback": true,
+        "note": "No legal structure detected — used fallback paragraph chunking."
+      },
+      "screenshot": "screens/ingest-D2.png",
+      "doc": "D2",
+      "file": "NDA_7.pdf"
+    },
+    {
+      "status": 200,
+      "seconds": 1.22,
+      "body": {
+        "source_id": "HALO-NDA",
+        "filename": "HALO-NDA.pdf",
+        "new_chunk_count": 9,
+        "new_chunks": [
+          {
+            "chunk_id": "HALO-NDA::p1",
+            "text": "NON DISCLOSURE AGREEMENT\nHALO Electronics, Inc. Proprietary Products\nThis Non-Disclosure Agreement is made and entered into by and between HALO Electronics, Inc.\n(“HALO”), located at 2933 Bunker Hill Lane, Suite 200, Santa Clara, CA 95054, USA and the party\nnamed below and its subsidiaries and affiliates:",
+            "contextual_summary": "HALO-NDA",
+            "metadata": {
+              "source_id": "HALO-NDA",
+              "act": "HALO-NDA",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 1",
+              "structure": "fallback",
+              "content_sha256": "8cb256eae7094b9ba20316433bd2aa785d4f7c4eb4ecc0065ba0fa7fb2004730"
+            }
+          },
+          {
+            "chunk_id": "HALO-NDA::p2",
+            "text": "__________________________________________________________________(“RECIPIENT”) located at\n_________________________________________________________________________________________. 1. CONFIDENTIAL INFORMATION. HALO Agrees to transmit to RECIPIENT confidential\ninformation for evaluation purposes only. Confidential information is defined as information of any\nkind which is disclosed in oral, written, graphic, machine recognizable, and/or sample form, and\nwhich is not excluded from any obligation of confidentiality by section 3 below.",
+            "contextual_summary": "HALO-NDA",
+            "metadata": {
+              "source_id": "HALO-NDA",
+              "act": "HALO-NDA",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 2",
+              "structure": "fallback",
+              "content_sha256": "8cb256eae7094b9ba20316433bd2aa785d4f7c4eb4ecc0065ba0fa7fb2004730"
+            }
+          },
+          {
+            "chunk_id": "HALO-NDA::p3",
+            "text": "HALO will limit the\nconfidential information disclosed to the following subject matter if requested by recipient:\nInformation regarding HALO proprietary magnetics, semiconductors, and/or modular devices,\nincluding, but not limited to the details of overall circuitry, physical dimensions, construction\nphilosophy, and cost. 2. PERIOD OF CONFIDENTIALITY.",
+            "contextual_summary": "HALO-NDA",
+            "metadata": {
+              "source_id": "HALO-NDA",
+              "act": "HALO-NDA",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 3",
+              "structure": "fallback",
+              "content_sha256": "8cb256eae7094b9ba20316433bd2aa785d4f7c4eb4ecc0065ba0fa7fb2004730"
+            }
+          },
+          {
+            "chunk_id": "HALO-NDA::p4",
+            "text": "RECIPIENT agrees that for a period of five (5) years from\nthe effective date of this Agreement, RECIPIENT will not disseminate the confidential information\nexcept to it’s employees who will be directly involved in the evaluation of the information, and\nfurthermore RECIPIENT will use the same degree of care (but in no event less than reasonable care)\nto avoid disclosure or unauthorized use of such information as RECIPIENT employs with respect to\nconfidential information of its own. 3. NON-CONFIDENTIAL INFORMATION. RECIPIENT shall have no obligation with respect to\ndisclosure and use of information to the extent such information:\n A.",
+            "contextual_summary": "HALO-NDA",
+            "metadata": {
+              "source_id": "HALO-NDA",
+              "act": "HALO-NDA",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 4",
+              "structure": "fallback",
+              "content_sha256": "8cb256eae7094b9ba20316433bd2aa785d4f7c4eb4ecc0065ba0fa7fb2004730"
+            }
+          },
+          {
+            "chunk_id": "HALO-NDA::p5",
+            "text": "is or becomes generally available to the public other than as a consequence of a breach of\n an obligation of confidentiality to HALO; or\n B. is made public by HALO; or\n C. is independently developed by RECIPIENT; or\n D. is received from a third party independent of HALO without breaching an obligation of\n confidentiality; or\n E. is required to be disclosed by the operation of law. HALO Electronics, Inc. Confidential and Proprietary\nPage 1 of 2\nHALO NDA\n10/2019\n4. OWNERSHIP OF INFORMATION.",
+            "contextual_summary": "HALO-NDA",
+            "metadata": {
+              "source_id": "HALO-NDA",
+              "act": "HALO-NDA",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 5",
+              "structure": "fallback",
+              "content_sha256": "8cb256eae7094b9ba20316433bd2aa785d4f7c4eb4ecc0065ba0fa7fb2004730"
+            }
+          },
+          {
+            "chunk_id": "HALO-NDA::p6",
+            "text": "All information furnished to RECIPIENT by HALO shall, unless\notherwise specified in writing by HALO, remain the property of HALO; and the written information,\nand any copies thereof, shall be promptly returned to HALO upon its written or destroyed by\nRECIPIENT at HALO’s option. 5. NO LICENSE OR PATENT RIGHTS. Nothing contained in this Agreement shall be construed\nas granting any license or right to RECIPIENT by HALO under any patent of the United States or a\nforeign country or otherwise (except for the evaluation purposes indicated above). 6. REMEDIES.",
+            "contextual_summary": "HALO-NDA",
+            "metadata": {
+              "source_id": "HALO-NDA",
+              "act": "HALO-NDA",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 6",
+              "structure": "fallback",
+              "content_sha256": "8cb256eae7094b9ba20316433bd2aa785d4f7c4eb4ecc0065ba0fa7fb2004730"
+            }
+          },
+          {
+            "chunk_id": "HALO-NDA::p7",
+            "text": "RECIPIENT recognizes that the remedy at law for any breach of its obligation under\nthis Agreement will be inadequate, and hence, RECIPIENT agrees that HALO shall be entitled to\nequitable remedies, including injunction, in the event of breach by RECIPIENT. 7. GOVERNING LAW. This Agreement shall be governed by and construed in accordance with the\nlaws (excluding the laws of conflict of laws) of the State of California. EFFECTIVE DATE: __________________, 20__\nHALO Electronics, Inc. Confidential and Proprietary\nPage 2 of 2\nHALO NDA\n10/2019\nHALO Electronics, Inc.",
+            "contextual_summary": "HALO-NDA",
+            "metadata": {
+              "source_id": "HALO-NDA",
+              "act": "HALO-NDA",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 7",
+              "structure": "fallback",
+              "content_sha256": "8cb256eae7094b9ba20316433bd2aa785d4f7c4eb4ecc0065ba0fa7fb2004730"
+            }
+          },
+          {
+            "chunk_id": "HALO-NDA::p8",
+            "text": "By:_______________________________________\n(Authorized Signature)\nName (Printed):____________________________\nTitle:______________________________________\nDate:_____________________________________\nAddress for formal notices:\nHALO Electronics, Inc.",
+            "contextual_summary": "HALO-NDA",
+            "metadata": {
+              "source_id": "HALO-NDA",
+              "act": "HALO-NDA",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 8",
+              "structure": "fallback",
+              "content_sha256": "8cb256eae7094b9ba20316433bd2aa785d4f7c4eb4ecc0065ba0fa7fb2004730"
+            }
+          },
+          {
+            "chunk_id": "HALO-NDA::p9",
+            "text": "2933 Bunker Hill Lane, Suite 200\nSanta Clara, CA 95054\nRECIPIENT (Company):_______________________\nBy:_________________________________________\n(Authorized Signature)\nName (Printed):______________________________\nTitle:_______________________________________\nDate:_______________________________________\nAddress for formal notices:\n____________________________________________\n(Company Name)\n____________________________________________\n(Street Address)\n____________________________________________\n(City, State, Zip Code)",
+            "contextual_summary": "HALO-NDA",
+            "metadata": {
+              "source_id": "HALO-NDA",
+              "act": "HALO-NDA",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 9",
+              "structure": "fallback",
+              "content_sha256": "8cb256eae7094b9ba20316433bd2aa785d4f7c4eb4ecc0065ba0fa7fb2004730"
+            }
+          }
+        ],
+        "totals": {
+          "chunks": 58,
+          "documents": 3
+        },
+        "used_fallback": true,
+        "note": "No legal structure detected — used fallback paragraph chunking."
+      },
+      "screenshot": "screens/ingest-D3.png",
+      "doc": "D3",
+      "file": "HALO-NDA.pdf"
+    },
+    {
+      "status": 200,
+      "seconds": 1.23,
+      "body": {
+        "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+        "filename": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT.txt",
+        "new_chunk_count": 20,
+        "new_chunks": [
+          {
+            "chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1",
+            "text": "Exhibit 10.1 NON-COMPETITION AGREEMENT AMENDMENT NO. 1   This NON-COMPETITION AGREEMENT AMENDMENT NO. 1 (this \"Amendment\") is entered into as of August 16, 2017, by and between VIVINT SOLAR, INC., a Delaware corporation (together with its successors and permitted assigns, \"Vivint Solar\"), and VIVINT, INC., a Utah corporation (together with its successors and permitted assigns \"Vivint\"). Each of Vivint Solar and Vivint may also be referred to herein individually as a \"Party\", and collectively as the \"Parties\".   RECITALS",
+            "contextual_summary": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+            "metadata": {
+              "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "act": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 1",
+              "structure": "fallback",
+              "content_sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+            }
+          },
+          {
+            "chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p2",
+            "text": "WHEREAS, Vivint Solar and Vivint are affiliate business entities, under the common control and ownership of 313 Acquisition, LLC, a Delaware limited liability company.",
+            "contextual_summary": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+            "metadata": {
+              "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "act": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 2",
+              "structure": "fallback",
+              "content_sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+            }
+          },
+          {
+            "chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p3",
+            "text": "WHEREAS, the Parties had entered into a Non-Competition Agreement dated September 30, 2014, by and between the Parties (collectively, the \"Non-Competition Agreement\") to set out certain restrictive covenants of each Party.",
+            "contextual_summary": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+            "metadata": {
+              "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "act": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 3",
+              "structure": "fallback",
+              "content_sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+            }
+          },
+          {
+            "chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p4",
+            "text": "WHEREAS, the Parties wish to amend the existing obligations under the Non-Competition Agreement.",
+            "contextual_summary": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+            "metadata": {
+              "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "act": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 4",
+              "structure": "fallback",
+              "content_sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+            }
+          },
+          {
+            "chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p5",
+            "text": "WHEREAS, the Parties also desire to extend the term of the non-solicitation obligations under the Non-Competition Agreement.",
+            "contextual_summary": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+            "metadata": {
+              "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "act": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 5",
+              "structure": "fallback",
+              "content_sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+            }
+          },
+          {
+            "chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p6",
+            "text": "AGREEMENT",
+            "contextual_summary": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+            "metadata": {
+              "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "act": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 6",
+              "structure": "fallback",
+              "content_sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+            }
+          },
+          {
+            "chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p7",
+            "text": "NOW, THEREFORE, in consideration of the mutual covenants, agreements and conditions set forth herein, and for other good and valuable consideration, the receipt and sufficiency of which are hereby acknowledged, the Parties agree as follows:",
+            "contextual_summary": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+            "metadata": {
+              "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "act": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 7",
+              "structure": "fallback",
+              "content_sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+            }
+          },
+          {
+            "chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p8",
+            "text": "1. Definitions. Any capitalized term used but not defined in this Amendment will have the meaning set forth for that term in the Non-Competition Agreement or the Master Framework Agreement, dated September 30, 2016, by and between the Parties (the \"Master Framework Agreement\").",
+            "contextual_summary": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+            "metadata": {
+              "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "act": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 8",
+              "structure": "fallback",
+              "content_sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+            }
+          },
+          {
+            "chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p9",
+            "text": "2. Non-Competition. Section 2 of the Non-Competition Agreement shall be deleted in its entirety and the other provisions of the Non-Competition Agreement that relate to such Section 2, including, without limitation, Sections 5 and 6, shall be amended hereby to delete the applicable references, and provisions solely applicable to, Section 2, mutatis mutandis.   3. Non-Solicitation. Section 4 of the Non-Competition Agreement is hereby deleted in its entirety and replaced with the following:",
+            "contextual_summary": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+            "metadata": {
+              "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "act": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 9",
+              "structure": "fallback",
+              "content_sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+            }
+          },
+          {
+            "chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p10",
+            "text": "\"Term. This Agreement will become effective on the Effective Date, and will continue until the expiration of the \"Sales Term\" as that term is defined in the Sales Dealer Agreement dated as of August 16, 2017 between Vivint and Vivint Solar Developer, LLC (the \"Term\").\"   4. Continuation. This Amendment will apply and be effective only with respect to the provisions of the Non- Competition Agreement specifically referred to herein. Except as otherwise set forth in this Amendment, the Non-Competition Agreement will continue in full force and effect in accordance with its terms.",
+            "contextual_summary": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+            "metadata": {
+              "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "act": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 10",
+              "structure": "fallback",
+              "content_sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+            }
+          },
+          {
+            "chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p11",
+            "text": "1",
+            "contextual_summary": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+            "metadata": {
+              "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "act": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 11",
+              "structure": "fallback",
+              "content_sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+            }
+          },
+          {
+            "chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p12",
+            "text": "5. Master Framework Agreement. This Amendment is governed by the Master Framework Agreement, including, without limitation, the provisions of Sections 4 (Confidentiality) and 6 (Miscellaneous) of the Master Framework Agreement.",
+            "contextual_summary": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+            "metadata": {
+              "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "act": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 12",
+              "structure": "fallback",
+              "content_sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+            }
+          },
+          {
+            "chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p13",
+            "text": "[SIGNATURE PAGES FOLLOW]",
+            "contextual_summary": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+            "metadata": {
+              "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "act": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 13",
+              "structure": "fallback",
+              "content_sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+            }
+          },
+          {
+            "chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p14",
+            "text": "2",
+            "contextual_summary": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+            "metadata": {
+              "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "act": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 14",
+              "structure": "fallback",
+              "content_sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+            }
+          },
+          {
+            "chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p15",
+            "text": "IN WITNESS WHEREOF, the Parties have executed this Non-Competition Agreement Amendment No. 1 as of the date first written above.",
+            "contextual_summary": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+            "metadata": {
+              "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "act": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 15",
+              "structure": "fallback",
+              "content_sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+            }
+          },
+          {
+            "chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p16",
+            "text": "VIVINT SOLAR:     VIVINT SOLAR, INC., a Delaware corporation     By: /s/ David Bywater Name: David Bywater Title: Chief Executive Officer",
+            "contextual_summary": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+            "metadata": {
+              "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "act": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 16",
+              "structure": "fallback",
+              "content_sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+            }
+          },
+          {
+            "chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p17",
+            "text": "[SIGNATURE PAGES CONTINUE ON FOLLOWING PAGE]",
+            "contextual_summary": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+            "metadata": {
+              "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "act": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 17",
+              "structure": "fallback",
+              "content_sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+            }
+          },
+          {
+            "chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p18",
+            "text": "[SIGNATURE PAGE]",
+            "contextual_summary": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+            "metadata": {
+              "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "act": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 18",
+              "structure": "fallback",
+              "content_sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+            }
+          },
+          {
+            "chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p19",
+            "text": "VIVINT:     VIVINT, INC., a Utah corporation     By: /s/ Alex J. Dunn Name: Alex J. Dunn Title: President",
+            "contextual_summary": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+            "metadata": {
+              "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "act": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 19",
+              "structure": "fallback",
+              "content_sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+            }
+          },
+          {
+            "chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p20",
+            "text": "[SIGNATURE PAGE]",
+            "contextual_summary": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+            "metadata": {
+              "source_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "act": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 20",
+              "structure": "fallback",
+              "content_sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+            }
+          }
+        ],
+        "totals": {
+          "chunks": 78,
+          "documents": 4
+        },
+        "used_fallback": true,
+        "note": "No legal structure detected — used fallback paragraph chunking."
+      },
+      "screenshot": "screens/ingest-D4.png",
+      "doc": "D4",
+      "file": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT.txt"
+    },
+    {
+      "status": 200,
+      "seconds": 0.97,
+      "body": {
+        "source_id": "urban_tenancy_act_2019",
+        "filename": "urban_tenancy_act_2019.txt",
+        "new_chunk_count": 23,
+        "new_chunks": [
+          {
+            "chunk_id": "urban_tenancy_act_2019::s1:1",
+            "text": "This Act may be called the Urban Tenancy Act, 2019.",
+            "contextual_summary": "Section 1. Short title, extent and commencement. This Act may be called the Urban Tenancy Act, 2019.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter I — PRELIMINARY",
+              "section": "1",
+              "section_title": "Short title, extent and commencement",
+              "clause": "1",
+              "section_ref": "Section 1(1)",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s1:2",
+            "text": "It extends to all urban local body areas within the State of Larenthia.",
+            "contextual_summary": "Section 1. Short title, extent and commencement. This Act may be called the Urban Tenancy Act, 2019.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter I — PRELIMINARY",
+              "section": "1",
+              "section_title": "Short title, extent and commencement",
+              "clause": "2",
+              "section_ref": "Section 1(2)",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s2:1",
+            "text": "\"Landlord\" means a person who leases residential premises to a tenant in exchange for rent.",
+            "contextual_summary": "Section 2. Definitions. \"Landlord\" means a person who leases residential premises to a tenant in exchange for rent.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter I — PRELIMINARY",
+              "section": "2",
+              "section_title": "Definitions",
+              "clause": "1",
+              "section_ref": "Section 2(1)",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s2:2",
+            "text": "\"Tenant\" means a person who occupies residential premises under a lease from a landlord.",
+            "contextual_summary": "Section 2. Definitions. \"Landlord\" means a person who leases residential premises to a tenant in exchange for rent.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter I — PRELIMINARY",
+              "section": "2",
+              "section_title": "Definitions",
+              "clause": "2",
+              "section_ref": "Section 2(2)",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s2:3",
+            "text": "\"Rent authority\" means the officer appointed under Section 11 to adjudicate tenancy disputes.",
+            "contextual_summary": "Section 2. Definitions. \"Landlord\" means a person who leases residential premises to a tenant in exchange for rent.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter I — PRELIMINARY",
+              "section": "2",
+              "section_title": "Definitions",
+              "clause": "3",
+              "section_ref": "Section 2(3)",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s3",
+            "text": "This section requires every tenancy exceeding thirty days to be recorded in a written rent agreement registered with the rent authority.",
+            "contextual_summary": "Section 3. Written rent agreement mandatory. This section requires every tenancy exceeding thirty days to be recorded in a written rent agreement registered with the rent authority.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter II — RENT AGREEMENTS",
+              "section": "3",
+              "section_title": "Written rent agreement mandatory",
+              "clause": null,
+              "section_ref": "Section 3",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s3:a",
+            "text": "The agreement must state the monthly rent, the security deposit, and the duration of the tenancy.",
+            "contextual_summary": "Section 3. Written rent agreement mandatory. This section requires every tenancy exceeding thirty days to be recorded in a written rent agreement registered with the rent authority.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter II — RENT AGREEMENTS",
+              "section": "3",
+              "section_title": "Written rent agreement mandatory",
+              "clause": "a",
+              "section_ref": "Section 3(a)",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s3:b",
+            "text": "An unregistered rent agreement exceeding thirty days is not enforceable against the tenant for the purpose of eviction proceedings.",
+            "contextual_summary": "Section 3. Written rent agreement mandatory. This section requires every tenancy exceeding thirty days to be recorded in a written rent agreement registered with the rent authority.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter II — RENT AGREEMENTS",
+              "section": "3",
+              "section_title": "Written rent agreement mandatory",
+              "clause": "b",
+              "section_ref": "Section 3(b)",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s4",
+            "text": "This section caps the security deposit a landlord may collect from a tenant of residential premises.",
+            "contextual_summary": "Section 4. Security deposit limits. This section caps the security deposit a landlord may collect from a tenant of residential premises.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter II — RENT AGREEMENTS",
+              "section": "4",
+              "section_title": "Security deposit limits",
+              "clause": null,
+              "section_ref": "Section 4",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s4:a",
+            "text": "The security deposit shall not exceed two months' rent for residential premises.",
+            "contextual_summary": "Section 4. Security deposit limits. This section caps the security deposit a landlord may collect from a tenant of residential premises.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter II — RENT AGREEMENTS",
+              "section": "4",
+              "section_title": "Security deposit limits",
+              "clause": "a",
+              "section_ref": "Section 4(a)",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s4:b",
+            "text": "The landlord must refund the security deposit within thirty days of the tenant vacating the premises, less any lawful deductions.",
+            "contextual_summary": "Section 4. Security deposit limits. This section caps the security deposit a landlord may collect from a tenant of residential premises.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter II — RENT AGREEMENTS",
+              "section": "4",
+              "section_title": "Security deposit limits",
+              "clause": "b",
+              "section_ref": "Section 4(b)",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s5",
+            "text": "This section lists the exclusive grounds on which a landlord may seek eviction of a tenant through the rent authority.",
+            "contextual_summary": "Section 5. Grounds for eviction. This section lists the exclusive grounds on which a landlord may seek eviction of a tenant through the rent authority.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter III — EVICTION AND DISPUTES",
+              "section": "5",
+              "section_title": "Grounds for eviction",
+              "clause": null,
+              "section_ref": "Section 5",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s5:a",
+            "text": "Non-payment of rent for two consecutive months after written notice.",
+            "contextual_summary": "Section 5. Grounds for eviction. This section lists the exclusive grounds on which a landlord may seek eviction of a tenant through the rent authority.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter III — EVICTION AND DISPUTES",
+              "section": "5",
+              "section_title": "Grounds for eviction",
+              "clause": "a",
+              "section_ref": "Section 5(a)",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s5:b",
+            "text": "Use of the premises for a purpose materially different from that agreed in the rent agreement.",
+            "contextual_summary": "Section 5. Grounds for eviction. This section lists the exclusive grounds on which a landlord may seek eviction of a tenant through the rent authority.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter III — EVICTION AND DISPUTES",
+              "section": "5",
+              "section_title": "Grounds for eviction",
+              "clause": "b",
+              "section_ref": "Section 5(b)",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s5:c",
+            "text": "Bona fide requirement of the premises by the landlord for personal occupation.",
+            "contextual_summary": "Section 5. Grounds for eviction. This section lists the exclusive grounds on which a landlord may seek eviction of a tenant through the rent authority.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter III — EVICTION AND DISPUTES",
+              "section": "5",
+              "section_title": "Grounds for eviction",
+              "clause": "c",
+              "section_ref": "Section 5(c)",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s6",
+            "text": "This section requires a landlord to give the tenant no less than ninety days written notice before filing an eviction application with the rent authority, except in cases of non-payment of rent.",
+            "contextual_summary": "Section 6. Notice period before eviction. This section requires a landlord to give the tenant no less than ninety days written notice before filing an eviction application with the rent authority, except in cases of non-payment of rent.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter III — EVICTION AND DISPUTES",
+              "section": "6",
+              "section_title": "Notice period before eviction",
+              "clause": null,
+              "section_ref": "Section 6",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s7",
+            "text": "This section fixes the penalty payable by a landlord who forcibly evicts a tenant without an order from the rent authority.",
+            "contextual_summary": "Section 7. Penalty for illegal eviction. This section fixes the penalty payable by a landlord who forcibly evicts a tenant without an order from the rent authority.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter III — EVICTION AND DISPUTES",
+              "section": "7",
+              "section_title": "Penalty for illegal eviction",
+              "clause": null,
+              "section_ref": "Section 7",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s7:a",
+            "text": "A landlord found to have carried out an illegal eviction shall pay the tenant compensation equal to six months' rent.",
+            "contextual_summary": "Section 7. Penalty for illegal eviction. This section fixes the penalty payable by a landlord who forcibly evicts a tenant without an order from the rent authority.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter III — EVICTION AND DISPUTES",
+              "section": "7",
+              "section_title": "Penalty for illegal eviction",
+              "clause": "a",
+              "section_ref": "Section 7(a)",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s7:b",
+            "text": "Repeated violations may result in suspension of the landlord's registration under Section 3.",
+            "contextual_summary": "Section 7. Penalty for illegal eviction. This section fixes the penalty payable by a landlord who forcibly evicts a tenant without an order from the rent authority.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter III — EVICTION AND DISPUTES",
+              "section": "7",
+              "section_title": "Penalty for illegal eviction",
+              "clause": "b",
+              "section_ref": "Section 7(b)",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s8",
+            "text": "This section provides for the State Government to appoint one or more rent authorities for each urban local body area.",
+            "contextual_summary": "Section 8. Appointment of rent authority. This section provides for the State Government to appoint one or more rent authorities for each urban local body area.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter IV — RENT AUTHORITY",
+              "section": "8",
+              "section_title": "Appointment of rent authority",
+              "clause": null,
+              "section_ref": "Section 8",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s9",
+            "text": "This section empowers the rent authority to summon parties, examine documents, and pass binding orders on tenancy disputes referred to it under this Act.",
+            "contextual_summary": "Section 9. Powers of the rent authority. This section empowers the rent authority to summon parties, examine documents, and pass binding orders on tenancy disputes referred to it under this Act.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter IV — RENT AUTHORITY",
+              "section": "9",
+              "section_title": "Powers of the rent authority",
+              "clause": null,
+              "section_ref": "Section 9",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s10",
+            "text": "This section allows any party aggrieved by an order of the rent authority to appeal to the District Court within sixty days of the order.",
+            "contextual_summary": "Section 10. Appeals. This section allows any party aggrieved by an order of the rent authority to appeal to the District Court within sixty days of the order.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter IV — RENT AUTHORITY",
+              "section": "10",
+              "section_title": "Appeals",
+              "clause": null,
+              "section_ref": "Section 10",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          },
+          {
+            "chunk_id": "urban_tenancy_act_2019::s11",
+            "text": "This section describes the qualifications and procedure for appointing officers as rent authorities under Section 8.",
+            "contextual_summary": "Section 11. Appointment procedure. This section describes the qualifications and procedure for appointing officers as rent authorities under Section 8.",
+            "metadata": {
+              "source_id": "urban_tenancy_act_2019",
+              "act": "THE FICTIONAL URBAN TENANCY ACT, 2019",
+              "jurisdiction": "State of Larenthia",
+              "date": "4 July 2019",
+              "chapter": "Chapter IV — RENT AUTHORITY",
+              "section": "11",
+              "section_title": "Appointment procedure",
+              "clause": null,
+              "section_ref": "Section 11",
+              "content_sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+            }
+          }
+        ],
+        "totals": {
+          "chunks": 101,
+          "documents": 5
+        },
+        "used_fallback": false,
+        "note": null
+      },
+      "screenshot": "screens/ingest-D5.png",
+      "doc": "D5",
+      "file": "urban_tenancy_act_2019.txt"
+    }
+  ],
+  "edge_cases": {
+    "duplicate": {
+      "status": 409,
+      "seconds": 0.3,
+      "body": {
+        "detail": {
+          "message": "Duplicate document: identical content is already indexed as 'Confidentiality_Agreement_1' (23 chunks). Nothing was added.",
+          "reason": "content",
+          "duplicate_source_id": "Confidentiality_Agreement_1",
+          "duplicate_chunk_count": 23
+        }
+      },
+      "screenshot": "screens/edge-duplicate.png",
+      "replace_button_visible": true,
+      "warning_shown": true
+    },
+    "replace": {
+      "status": 200,
+      "seconds": 0.7,
+      "body": {
+        "source_id": "Confidentiality_Agreement_1",
+        "filename": "Confidentiality_Agreement_1.pdf",
+        "new_chunk_count": 23,
+        "new_chunks": [
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p1",
+            "text": "Confidentiality Agreement",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 1",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p2",
+            "text": "between",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 2",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p3",
+            "text": "Helu Kabel GmbH\nDieselstraße 8-12\n71282 Hemmingen",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 3",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p4",
+            "text": "-Supplier-",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 4",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p5",
+            "text": "and",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 5",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p6",
+            "text": "[COMPANY]\n[CONTACT PERSON]\n[ADDRESS]\n[POSTCODE, CITY]\n[COUNTRY]",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 6",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p7",
+            "text": "-Buyer-",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 7",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p8",
+            "text": "1. The parties maintain a supply relationship. In t he frame of this cooperation, confidential information also be\nexchanged.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 8",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p9",
+            "text": "2. Every contract party can disclose confidential i nformation to the other contract party orally or in writing. If the\ndisclosure is in writing, the disclosing party will mark the confidential documents with the additional terms\n“Confidential” or “Liable to Secrecy” so that it is  apparent to the other party which information is especially in need\nto protection.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 9",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p10",
+            "text": "3. The contract parties are obligated to preclude d isclosure of confidential information to third parties. The parties will\nentrust confidential information solely to those employees, consultants and third party companies  which are\nconcerned with the processing of the order and which are legally or contractually obligated to secrecy.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 10",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p11",
+            "text": "4. To the extent that technical drawings of certain  third-party companies are not to be made known, the buyer must\npoint this fact out on its own initiative.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 11",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p12",
+            "text": "5. All confidential information remains the propert y of the disclosing contract party.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 12",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p13",
+            "text": "6. The confidentiality agreement does not apply to statements of the company Helukabel in its catalogues,\ndatasheets and on the homepage and also not to information which",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 13",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p14",
+            "text": "a) the receiving party was already aware of or whic h was developed by the disclosing party itself independent of\nthe disclosure,",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 14",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p15",
+            "text": "b) is publicly known without this agreement having been broken,",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 15",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p16",
+            "text": "c) was received by a third party without infringeme nt of this or any other confidentiality agreement.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 16",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p17",
+            "text": "7. If the recipient is forced to expose the confide ntial information due to a legal regulation, a legally valid judgement\nor a non-disputable official decision or decree in part or in whole, it shall immediately inform the owner of the\nconfidential information in writing so that the owner can take measures to protect the confidential information.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 17",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p18",
+            "text": "8. This agreement becomes effective with the signat ures of both parties and is valid for three years. It is tacitly\nextended by one year if it is not terminated three months before its expiration.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 18",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p19",
+            "text": "9. At the end of the contract the receiving party s hall return the confidential information and any possibly extant\ncopies after receipt of a written request, provided that this is technically feasible and does not violate the retention\nobligations. As an alternative to that, the receiving party can also ensure in writing the destruction of the received\ndocumentation if that is technically feasible.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 19",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p20",
+            "text": "10. The confidential information will be provided as is. The disclosing party does not assume any warranty for the\ncorrectness, completeness or usability of the confidential information.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 20",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p21",
+            "text": "11. The parties agree that for this agreement German law applies excluding the United Nations Convention on\nContracts for the International Sale of Goods. The legal venue for all disputes arising from this agreement is the\nhead office of the company Helukabel in Hemmingen.",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 21",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p22",
+            "text": "Hemmingen, ___________      _____________________\n          Place, Date",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 22",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          },
+          {
+            "chunk_id": "Confidentiality_Agreement_1::p23",
+            "text": "_________________________       ___________________ __\nHelu Kabel GmbH       Buyer",
+            "contextual_summary": "Confidentiality_Agreement_1",
+            "metadata": {
+              "source_id": "Confidentiality_Agreement_1",
+              "act": "Confidentiality_Agreement_1",
+              "jurisdiction": null,
+              "date": null,
+              "chapter": null,
+              "section": null,
+              "section_title": null,
+              "clause": null,
+              "section_ref": "Paragraph 23",
+              "structure": "fallback",
+              "content_sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+            }
+          }
+        ],
+        "totals": {
+          "chunks": 101,
+          "documents": 5
+        },
+        "used_fallback": true,
+        "note": "No legal structure detected — used fallback paragraph chunking."
+      },
+      "screenshot": "screens/edge-replace.png"
+    },
+    "replace_same_chunk_count": true,
+    "home_after_ingest": {
+      "ui": {
+        "documents": 5,
+        "chunks": 101
+      },
+      "api": {
+        "documents": 5,
+        "chunks": 101
+      },
+      "expected_chunks": 101,
+      "screenshot": "screens/home-after-ingest.png"
+    }
+  },
+  "questions": [
+    {
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 32.83,
+          "detail": null
+        }
+      ],
+      "status": 200,
+      "seconds": 32.83,
+      "screenshot": "screens/ask-S1-answer.png",
+      "badge": "Abstained",
+      "badge_text_on_page": {
+        "Verified": false,
+        "Abstained": true,
+        "General knowledge": false
+      },
+      "decision": "ABSTAIN",
+      "answer_mode": "abstained",
+      "vcs": null,
+      "answer_text": "The agreement is valid for three years from the date it becomes effective【Confidentiality_Agreement_1::p18】.  \nIt is tacitly extended by one year if it is not terminated three months before its expiration【Confidentiality_Agreement_1::p18】.",
+      "grounded_answer_text": null,
+      "context_chunk_ids": [
+        "Confidentiality_Agreement_1::p18",
+        "Confidentiality_Agreement_1::p13",
+        "NDA_7::p17",
+        "Confidentiality_Agreement_1::p21",
+        "HALO-NDA::p4",
+        "Confidentiality_Agreement_1::p3",
+        "Confidentiality_Agreement_1::p23",
+        "Confidentiality_Agreement_1::p19",
+        "Confidentiality_Agreement_1::p12",
+        "Confidentiality_Agreement_1::p22",
+        "Confidentiality_Agreement_1::p5",
+        "Confidentiality_Agreement_1::p1"
+      ],
+      "claims": [],
+      "id": "S1",
+      "question": "How long is the Helu Kabel confidentiality agreement valid, and is it extended automatically?"
+    },
+    {
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 21.56,
+          "detail": null
+        }
+      ],
+      "status": 200,
+      "seconds": 21.56,
+      "screenshot": "screens/ask-S2-answer.png",
+      "badge": "Verified",
+      "badge_text_on_page": {
+        "Verified": true,
+        "Abstained": false,
+        "General knowledge": false
+      },
+      "decision": "ANSWER",
+      "answer_mode": "verified",
+      "vcs": 1.0,
+      "answer_text": "Spain [NDA_7::p21]",
+      "grounded_answer_text": null,
+      "context_chunk_ids": [
+        "NDA_7::p2",
+        "NDA_7::p21",
+        "Confidentiality_Agreement_1::p21",
+        "NDA_7::p1",
+        "HALO-NDA::p1",
+        "HALO-NDA::p4",
+        "HALO-NDA::p7",
+        "NDA_7::p13",
+        "HALO-NDA::p6",
+        "NDA_7::p14",
+        "NDA_7::p5",
+        "NDA_7::p22"
+      ],
+      "claims": [
+        {
+          "claim_text": "Spain",
+          "cited": [
+            "NDA_7::p21"
+          ],
+          "quoted_span": "10.  This agreement must be in accordance with, and gove rned in all respects by the\nlaws of Spain.",
+          "vcs_contribution": 1.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": true,
+              "missing_ids": []
+            },
+            "v2_entailment": {
+              "verdict": "ENTAILS",
+              "score": 0.8213462233543396,
+              "best_chunk_id": "NDA_7::p21"
+            },
+            "v3_fidelity": {
+              "fidelity": 1.0,
+              "atoms": [
+                {
+                  "text": "Spain",
+                  "verdict": "ENTAILS"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        }
+      ],
+      "proof_panels_open": 1,
+      "proof_buttons_opened": 1,
+      "proof_screenshot": "screens/ask-S2-proof.png",
+      "id": "S2",
+      "question": "Which country's laws govern the non-disclosure agreement dated 28 March 2014?"
+    },
+    {
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 16.08,
+          "detail": null
+        }
+      ],
+      "status": 200,
+      "seconds": 16.08,
+      "screenshot": "screens/ask-S3-answer.png",
+      "badge": "Verified",
+      "badge_text_on_page": {
+        "Verified": true,
+        "Abstained": false,
+        "General knowledge": false
+      },
+      "decision": "ANSWER",
+      "answer_mode": "verified",
+      "vcs": 1.0,
+      "answer_text": "HALO shall be entitled to equitable remedies, including injunction, if the recipient breaches the agreement. [HALO-NDA::p7]",
+      "grounded_answer_text": null,
+      "context_chunk_ids": [
+        "HALO-NDA::p7",
+        "HALO-NDA::p3",
+        "HALO-NDA::p6",
+        "HALO-NDA::p1",
+        "HALO-NDA::p5",
+        "HALO-NDA::p4",
+        "HALO-NDA::p2",
+        "NDA_7::p14",
+        "HALO-NDA::p8",
+        "Confidentiality_Agreement_1::p19",
+        "NDA_7::p1",
+        "Confidentiality_Agreement_1::p17"
+      ],
+      "claims": [
+        {
+          "claim_text": "HALO shall be entitled to equitable remedies, including injunction, if the recipient breaches the agreement.",
+          "cited": [
+            "HALO-NDA::p7"
+          ],
+          "quoted_span": "RECIPIENT recognizes that the remedy at law for any breach of its obligation under\nthis Agreement will be inadequate, and hence, RECIPIENT agrees that HALO shall be entitled to\nequitable remedies, including injunction, in the event of breach by RECIPIENT. 7. GOVERNING LAW. This Agreement shall be governed by and construed in accordance with the\nlaws (excluding the laws of conflict of laws) of the State of California. EFFECTIVE DATE: __________________, 20__\nHALO Electronics, Inc. Confidential and Proprietary\nPage 2 of 2\nHALO NDA\n10/2019\nHALO Electronics, Inc.",
+          "vcs_contribution": 1.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": true,
+              "missing_ids": []
+            },
+            "v2_entailment": {
+              "verdict": "ENTAILS",
+              "score": 0.7993477582931519,
+              "best_chunk_id": "HALO-NDA::p7"
+            },
+            "v3_fidelity": {
+              "fidelity": 1.0,
+              "atoms": [
+                {
+                  "text": "HALO shall be entitled to equitable remedies, including injunction, if the recipient breaches the agreement",
+                  "verdict": "ENTAILS"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        }
+      ],
+      "proof_panels_open": 1,
+      "proof_buttons_opened": 1,
+      "proof_screenshot": "screens/ask-S3-proof.png",
+      "id": "S3",
+      "question": "What remedy is HALO entitled to if the recipient breaches the HALO non-disclosure agreement?"
+    },
+    {
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 15.17,
+          "detail": null
+        }
+      ],
+      "status": 200,
+      "seconds": 15.17,
+      "screenshot": "screens/ask-S4-answer.png",
+      "badge": "Abstained",
+      "badge_text_on_page": {
+        "Verified": false,
+        "Abstained": true,
+        "General knowledge": false
+      },
+      "decision": "ABSTAIN",
+      "answer_mode": "abstained",
+      "vcs": 0.0,
+      "answer_text": "The amendment was entered into on August 16, 2017. [VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1]  \nThe parties to the amendment are Vivint Solar, Inc., a Delaware corporation, and Vivint, Inc., a Utah corporation. [VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1]",
+      "grounded_answer_text": null,
+      "context_chunk_ids": [
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p3",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p8",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p10",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p15",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p4",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p12",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p2",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p5",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p9",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p6",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p16"
+      ],
+      "claims": [
+        {
+          "claim_text": "The amendment was entered into on August 16, 2017.",
+          "cited": [],
+          "quoted_span": "",
+          "vcs_contribution": 0.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": false,
+              "missing_ids": [
+                "VIVINT SOLAR",
+                "INC. - NON-COMPETITION AGREEMENT::p1"
+              ]
+            },
+            "v2_entailment": {
+              "verdict": "NEUTRAL",
+              "score": 0.0,
+              "best_chunk_id": null
+            },
+            "v3_fidelity": {
+              "fidelity": 0.0,
+              "atoms": [
+                {
+                  "text": "The amendment was entered into on August 16, 2017",
+                  "verdict": "NEUTRAL"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        },
+        {
+          "claim_text": "The parties to the amendment are Vivint Solar, Inc., a Delaware corporation, and Vivint, Inc., a Utah corporation.",
+          "cited": [],
+          "quoted_span": "",
+          "vcs_contribution": 0.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": false,
+              "missing_ids": [
+                "VIVINT SOLAR",
+                "INC. - NON-COMPETITION AGREEMENT::p1"
+              ]
+            },
+            "v2_entailment": {
+              "verdict": "NEUTRAL",
+              "score": 0.0,
+              "best_chunk_id": null
+            },
+            "v3_fidelity": {
+              "fidelity": 0.0,
+              "atoms": [
+                {
+                  "text": "The parties to the amendment are Vivint Solar, Inc., a Delaware corporation,",
+                  "verdict": "NEUTRAL"
+                },
+                {
+                  "text": "Vivint, Inc., a Utah corporation",
+                  "verdict": "NEUTRAL"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        }
+      ],
+      "id": "S4",
+      "question": "When was the Vivint Solar non-competition agreement amendment entered into, and who are the parties?"
+    },
+    {
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 16.79,
+          "detail": null
+        }
+      ],
+      "status": 200,
+      "seconds": 16.79,
+      "screenshot": "screens/ask-S5-answer.png",
+      "badge": "Abstained",
+      "badge_text_on_page": {
+        "Verified": false,
+        "Abstained": true,
+        "General knowledge": false
+      },
+      "decision": "ABSTAIN",
+      "answer_mode": "abstained",
+      "vcs": 0.5,
+      "answer_text": "A party aggrieved by an order of the rent authority may appeal within sixty days of the order. [urban_tenancy_act_2019::s10]  \nThe appeal must be made to the District Court. [urban_tenancy_act_2019::s10]",
+      "grounded_answer_text": null,
+      "context_chunk_ids": [
+        "urban_tenancy_act_2019::s10",
+        "urban_tenancy_act_2019::s7:a",
+        "urban_tenancy_act_2019::s3:b",
+        "urban_tenancy_act_2019::s6",
+        "urban_tenancy_act_2019::s3:a",
+        "urban_tenancy_act_2019::s1:2",
+        "urban_tenancy_act_2019::s3",
+        "urban_tenancy_act_2019::s9",
+        "urban_tenancy_act_2019::s5:a",
+        "urban_tenancy_act_2019::s2:3",
+        "urban_tenancy_act_2019::s1:1",
+        "urban_tenancy_act_2019::s8"
+      ],
+      "claims": [
+        {
+          "claim_text": "A party aggrieved by an order of the rent authority may appeal within sixty days of the order.",
+          "cited": [
+            "urban_tenancy_act_2019::s10"
+          ],
+          "quoted_span": "This section allows any party aggrieved by an order of the rent authority to appeal to the District Court within sixty days of the order.",
+          "vcs_contribution": 1.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": true,
+              "missing_ids": []
+            },
+            "v2_entailment": {
+              "verdict": "ENTAILS",
+              "score": 0.9937897324562073,
+              "best_chunk_id": "urban_tenancy_act_2019::s10"
+            },
+            "v3_fidelity": {
+              "fidelity": 1.0,
+              "atoms": [
+                {
+                  "text": "A party aggrieved by an order of the rent authority may appeal within sixty days of the order",
+                  "verdict": "ENTAILS"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        },
+        {
+          "claim_text": "The appeal must be made to the District Court.",
+          "cited": [
+            "urban_tenancy_act_2019::s10"
+          ],
+          "quoted_span": "This section allows any party aggrieved by an order of the rent authority to appeal to the District Court within sixty days of the order.",
+          "vcs_contribution": 0.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": true,
+              "missing_ids": []
+            },
+            "v2_entailment": {
+              "verdict": "NEUTRAL",
+              "score": 0.5076017379760742,
+              "best_chunk_id": "urban_tenancy_act_2019::s10"
+            },
+            "v3_fidelity": {
+              "fidelity": 0.0,
+              "atoms": [
+                {
+                  "text": "The appeal must be made to the District Court",
+                  "verdict": "NEUTRAL"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        }
+      ],
+      "id": "S5",
+      "question": "Under the Urban Tenancy Act, how long does a party have to appeal an order of the rent authority, and to which court?"
+    },
+    {
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 17.07,
+          "detail": null
+        }
+      ],
+      "status": 200,
+      "seconds": 17.07,
+      "screenshot": "screens/ask-C1-answer.png",
+      "badge": "Abstained",
+      "badge_text_on_page": {
+        "Verified": false,
+        "Abstained": true,
+        "General knowledge": false
+      },
+      "decision": "ABSTAIN",
+      "answer_mode": "abstained",
+      "vcs": null,
+      "answer_text": "INSUFFICIENT_CONTEXT: The provided passages do not include the confidentiality term for the Helu Kabel agreement.",
+      "grounded_answer_text": null,
+      "context_chunk_ids": [
+        "NDA_7::p2",
+        "HALO-NDA::p1",
+        "HALO-NDA::p3",
+        "HALO-NDA::p5",
+        "HALO-NDA::p4",
+        "HALO-NDA::p2",
+        "HALO-NDA::p8",
+        "HALO-NDA::p7",
+        "HALO-NDA::p6",
+        "NDA_7::p1",
+        "HALO-NDA::p9",
+        "NDA_7::p17"
+      ],
+      "claims": [],
+      "id": "C1",
+      "question": "Of the three non-disclosure agreements (Helu Kabel, HALO and the 28 March 2014 NDA), which has the shortest confidentiality term?"
+    },
+    {
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 18.81,
+          "detail": null
+        }
+      ],
+      "status": 200,
+      "seconds": 18.81,
+      "screenshot": "screens/ask-C2-answer.png",
+      "badge": "Verified",
+      "badge_text_on_page": {
+        "Verified": true,
+        "Abstained": false,
+        "General knowledge": false
+      },
+      "decision": "ANSWER",
+      "answer_mode": "verified",
+      "vcs": 1.0,
+      "answer_text": "The Helukabel agreement is governed by German law, excluding the United Nations Convention on Contracts for the International Sale of Goods. [Confidentiality_Agreement_1::p21]  \nThe HALO agreement is governed by the laws of the State of California, excluding the laws of conflict of laws. [HALO-NDA::p7]  \nINSUFFICIENT_CONTEXT: The governing law for the 28 March 2014 NDA is not stated in the provided excerpts.",
+      "grounded_answer_text": null,
+      "context_chunk_ids": [
+        "Confidentiality_Agreement_1::p21",
+        "NDA_7::p2",
+        "HALO-NDA::p7",
+        "HALO-NDA::p4",
+        "HALO-NDA::p6",
+        "HALO-NDA::p5",
+        "HALO-NDA::p2",
+        "HALO-NDA::p3",
+        "Confidentiality_Agreement_1::p13",
+        "HALO-NDA::p8",
+        "HALO-NDA::p9",
+        "HALO-NDA::p1"
+      ],
+      "claims": [
+        {
+          "claim_text": "The Helukabel agreement is governed by German law, excluding the United Nations Convention on Contracts for the International Sale of Goods.",
+          "cited": [
+            "Confidentiality_Agreement_1::p21"
+          ],
+          "quoted_span": "11. The parties agree that for this agreement German law applies excluding the United Nations Convention on\nContracts for the International Sale of Goods. The legal venue for all disputes arising from this agreement is the\nhead office of the company Helukabel in Hemmingen.",
+          "vcs_contribution": 1.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": true,
+              "missing_ids": []
+            },
+            "v2_entailment": {
+              "verdict": "ENTAILS",
+              "score": 0.9817643761634827,
+              "best_chunk_id": "Confidentiality_Agreement_1::p21"
+            },
+            "v3_fidelity": {
+              "fidelity": 1.0,
+              "atoms": [
+                {
+                  "text": "The Helukabel agreement is governed by German law, excluding the United Nations Convention on Contracts for the International Sale of Goods",
+                  "verdict": "ENTAILS"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        },
+        {
+          "claim_text": "The HALO agreement is governed by the laws of the State of California, excluding the laws of conflict of laws.",
+          "cited": [
+            "HALO-NDA::p7"
+          ],
+          "quoted_span": "RECIPIENT recognizes that the remedy at law for any breach of its obligation under\nthis Agreement will be inadequate, and hence, RECIPIENT agrees that HALO shall be entitled to\nequitable remedies, including injunction, in the event of breach by RECIPIENT. 7. GOVERNING LAW. This Agreement shall be governed by and construed in accordance with the\nlaws (excluding the laws of conflict of laws) of the State of California. EFFECTIVE DATE: __________________, 20__\nHALO Electronics, Inc. Confidential and Proprietary\nPage 2 of 2\nHALO NDA\n10/2019\nHALO Electronics, Inc.",
+          "vcs_contribution": 1.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": true,
+              "missing_ids": []
+            },
+            "v2_entailment": {
+              "verdict": "ENTAILS",
+              "score": 0.9182837009429932,
+              "best_chunk_id": "HALO-NDA::p7"
+            },
+            "v3_fidelity": {
+              "fidelity": 1.0,
+              "atoms": [
+                {
+                  "text": "The HALO agreement is governed by the laws of the State of California, excluding the laws of conflict of laws",
+                  "verdict": "ENTAILS"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        }
+      ],
+      "proof_panels_open": 2,
+      "proof_buttons_opened": 2,
+      "proof_screenshot": "screens/ask-C2-proof.png",
+      "id": "C2",
+      "question": "What governing law applies to each of the Helu Kabel agreement, the HALO agreement and the 28 March 2014 NDA?"
+    },
+    {
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 16.79,
+          "detail": null
+        }
+      ],
+      "status": 200,
+      "seconds": 16.79,
+      "screenshot": "screens/ask-U1-answer.png",
+      "badge": "Abstained",
+      "badge_text_on_page": {
+        "Verified": false,
+        "Abstained": true,
+        "General knowledge": false
+      },
+      "decision": "ABSTAIN",
+      "answer_mode": "abstained",
+      "vcs": null,
+      "answer_text": "INSUFFICIENT_CONTEXT: The provided passages do not contain any information about liquidated damages.",
+      "grounded_answer_text": null,
+      "context_chunk_ids": [
+        "Confidentiality_Agreement_1::p3",
+        "Confidentiality_Agreement_1::p21",
+        "Confidentiality_Agreement_1::p23",
+        "Confidentiality_Agreement_1::p13",
+        "Confidentiality_Agreement_1::p5",
+        "Confidentiality_Agreement_1::p2",
+        "Confidentiality_Agreement_1::p15",
+        "NDA_7::p14",
+        "Confidentiality_Agreement_1::p19",
+        "Confidentiality_Agreement_1::p1",
+        "Confidentiality_Agreement_1::p6",
+        "Confidentiality_Agreement_1::p18"
+      ],
+      "claims": [],
+      "id": "U1",
+      "question": "What amount of liquidated damages is payable for a breach of the Helu Kabel confidentiality agreement?"
+    },
+    {
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 15.42,
+          "detail": null
+        }
+      ],
+      "status": 200,
+      "seconds": 15.42,
+      "screenshot": "screens/ask-U2-answer.png",
+      "badge": "General knowledge",
+      "badge_text_on_page": {
+        "Verified": false,
+        "Abstained": false,
+        "General knowledge": true
+      },
+      "decision": "ABSTAIN",
+      "answer_mode": "general_knowledge",
+      "vcs": null,
+      "answer_text": "I’m sorry, but that isn’t a general legal‑concept question.",
+      "grounded_answer_text": "INSUFFICIENT_CONTEXT: The provided passages do not specify a maximum annual rent increase.",
+      "context_chunk_ids": [
+        "urban_tenancy_act_2019::s1:1",
+        "urban_tenancy_act_2019::s1:2",
+        "urban_tenancy_act_2019::s7:a",
+        "urban_tenancy_act_2019::s4:a",
+        "urban_tenancy_act_2019::s3:b",
+        "urban_tenancy_act_2019::s3:a",
+        "urban_tenancy_act_2019::s5:a",
+        "urban_tenancy_act_2019::s3",
+        "urban_tenancy_act_2019::s5:c",
+        "urban_tenancy_act_2019::s7:b",
+        "urban_tenancy_act_2019::s6",
+        "urban_tenancy_act_2019::s5"
+      ],
+      "claims": [],
+      "id": "U2",
+      "question": "What is the maximum annual rent increase a landlord may impose under the Urban Tenancy Act?"
+    },
+    {
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 14.07,
+          "detail": null
+        }
+      ],
+      "status": 200,
+      "seconds": 14.07,
+      "screenshot": "screens/ask-U3-answer.png",
+      "badge": "Abstained",
+      "badge_text_on_page": {
+        "Verified": false,
+        "Abstained": true,
+        "General knowledge": false
+      },
+      "decision": "ABSTAIN",
+      "answer_mode": "abstained",
+      "vcs": null,
+      "answer_text": "INSUFFICIENT_CONTEXT: The provided passages do not contain any information describing the geographic area covered by the non-competition restriction.",
+      "grounded_answer_text": null,
+      "context_chunk_ids": [
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p8",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p10",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p2",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p3",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p4",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p5",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p9",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p12",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p6",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p15",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p19"
+      ],
+      "claims": [],
+      "id": "U3",
+      "question": "What geographic area does the non-competition restriction in the Vivint agreement cover?"
+    },
+    {
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 13.89,
+          "detail": null
+        }
+      ],
+      "status": 200,
+      "seconds": 13.89,
+      "screenshot": "screens/ask-G1-answer.png",
+      "badge": "General knowledge",
+      "badge_text_on_page": {
+        "Verified": false,
+        "Abstained": false,
+        "General knowledge": true
+      },
+      "decision": "ABSTAIN",
+      "answer_mode": "general_knowledge",
+      "vcs": null,
+      "answer_text": "An indemnity clause is a contract provision in which one party agrees to compensate the other for losses, damages, or liabilities that arise from specified events or actions. It typically shifts the financial risk of certain claims from the indemnitee to the indemnitor. The clause may define the scope of covered losses, the circumstances triggering indemnification, and any limits or procedural requirements. Such clauses are common in commercial agreements to allocate risk between the parties.",
+      "grounded_answer_text": "INSUFFICIENT_CONTEXT: The provided passages do not contain a definition or description of an indemnity clause.",
+      "context_chunk_ids": [
+        "urban_tenancy_act_2019::s3:a",
+        "urban_tenancy_act_2019::s7",
+        "urban_tenancy_act_2019::s3",
+        "urban_tenancy_act_2019::s3:b",
+        "urban_tenancy_act_2019::s7:b",
+        "urban_tenancy_act_2019::s7:a",
+        "Confidentiality_Agreement_1::p15",
+        "urban_tenancy_act_2019::s4:a",
+        "urban_tenancy_act_2019::s4:b",
+        "NDA_7::p16",
+        "NDA_7::p17",
+        "Confidentiality_Agreement_1::p2"
+      ],
+      "claims": [],
+      "id": "G1",
+      "question": "What is an indemnity clause?"
+    },
+    {
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 14.67,
+          "detail": null
+        }
+      ],
+      "status": 200,
+      "seconds": 14.67,
+      "screenshot": "screens/ask-G2-answer.png",
+      "badge": "General knowledge",
+      "badge_text_on_page": {
+        "Verified": false,
+        "Abstained": false,
+        "General knowledge": true
+      },
+      "decision": "ABSTAIN",
+      "answer_mode": "general_knowledge",
+      "vcs": null,
+      "answer_text": "A one‑way (or unilateral) non‑disclosure agreement obligates only the receiving party to keep the disclosing party’s information confidential, while the disclosing party has no reciprocal duty. A mutual (or bilateral) NDA imposes confidentiality obligations on both parties, each of whom may both disclose and receive protected information. In practice, a one‑way NDA is used when only one side is sharing sensitive data, whereas a mutual NDA is used when the parties will exchange confidential information with each other. The core difference is therefore who is bound by the confidentiality obligations.",
+      "grounded_answer_text": "INSUFFICIENT_CONTEXT: The provided passages do not contain information defining or contrasting mutual and one-way non‑disclosure agreements.",
+      "context_chunk_ids": [
+        "NDA_7::p1",
+        "Confidentiality_Agreement_1::p2",
+        "NDA_7::p11",
+        "NDA_7::p10",
+        "HALO-NDA::p4",
+        "NDA_7::p3",
+        "Confidentiality_Agreement_1::p9",
+        "Confidentiality_Agreement_1::p10",
+        "NDA_7::p14",
+        "NDA_7::p19",
+        "Confidentiality_Agreement_1::p14",
+        "NDA_7::p20"
+      ],
+      "claims": [],
+      "id": "G2",
+      "question": "What is the difference between a mutual and a one-way non-disclosure agreement?"
+    },
+    {
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 13.59,
+          "detail": null
+        }
+      ],
+      "status": 200,
+      "seconds": 13.59,
+      "screenshot": "screens/ask-F1-answer.png",
+      "badge": "Abstained",
+      "badge_text_on_page": {
+        "Verified": false,
+        "Abstained": true,
+        "General knowledge": false
+      },
+      "decision": "ABSTAIN",
+      "answer_mode": "abstained",
+      "vcs": null,
+      "answer_text": "INSUFFICIENT_CONTEXT: The provided passages do not contain information about arbitration in Singapore.",
+      "grounded_answer_text": null,
+      "context_chunk_ids": [
+        "HALO-NDA::p6",
+        "HALO-NDA::p7",
+        "HALO-NDA::p1",
+        "HALO-NDA::p5",
+        "HALO-NDA::p4",
+        "HALO-NDA::p2",
+        "HALO-NDA::p3",
+        "HALO-NDA::p8",
+        "Confidentiality_Agreement_1::p19",
+        "urban_tenancy_act_2019::s9",
+        "Confidentiality_Agreement_1::p10",
+        "NDA_7::p20"
+      ],
+      "claims": [],
+      "id": "F1",
+      "question": "Why does the HALO agreement require disputes to be resolved by arbitration in Singapore?"
+    },
+    {
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 15.51,
+          "detail": null
+        }
+      ],
+      "status": 200,
+      "seconds": 15.51,
+      "screenshot": "screens/ask-F2-answer.png",
+      "badge": "Abstained",
+      "badge_text_on_page": {
+        "Verified": false,
+        "Abstained": true,
+        "General knowledge": false
+      },
+      "decision": "ABSTAIN",
+      "answer_mode": "abstained",
+      "vcs": null,
+      "answer_text": "INSUFFICIENT_CONTEXT: The provided passages only specify a ninety‑day notice requirement and do not mention a requirement for a 180‑day notice.",
+      "grounded_answer_text": null,
+      "context_chunk_ids": [
+        "urban_tenancy_act_2019::s6",
+        "urban_tenancy_act_2019::s5:a",
+        "urban_tenancy_act_2019::s3:b",
+        "urban_tenancy_act_2019::s5:b",
+        "urban_tenancy_act_2019::s5:c",
+        "urban_tenancy_act_2019::s5",
+        "urban_tenancy_act_2019::s7:b",
+        "urban_tenancy_act_2019::s7:a",
+        "urban_tenancy_act_2019::s7",
+        "urban_tenancy_act_2019::s1:2",
+        "urban_tenancy_act_2019::s1:1",
+        "urban_tenancy_act_2019::s9"
+      ],
+      "claims": [],
+      "id": "F2",
+      "question": "Under the Urban Tenancy Act, why must a landlord give 180 days' notice before filing for eviction?"
+    },
+    {
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 17.29,
+          "detail": null
+        }
+      ],
+      "status": 200,
+      "seconds": 17.29,
+      "screenshot": "screens/ask-P1-answer.png",
+      "badge": "Verified",
+      "badge_text_on_page": {
+        "Verified": true,
+        "Abstained": false,
+        "General knowledge": false
+      },
+      "decision": "ANSWER",
+      "answer_mode": "verified",
+      "vcs": 1.0,
+      "answer_text": "The tenant is owed compensation equal to six months’ rent. [urban_tenancy_act_2019::s7:a]",
+      "grounded_answer_text": null,
+      "context_chunk_ids": [
+        "urban_tenancy_act_2019::s7:a",
+        "urban_tenancy_act_2019::s7:b",
+        "urban_tenancy_act_2019::s7",
+        "NDA_7::p22",
+        "urban_tenancy_act_2019::s2:2",
+        "urban_tenancy_act_2019::s5:a",
+        "urban_tenancy_act_2019::s4:b",
+        "urban_tenancy_act_2019::s2:1",
+        "urban_tenancy_act_2019::s4",
+        "urban_tenancy_act_2019::s2:3",
+        "urban_tenancy_act_2019::s4:a",
+        "urban_tenancy_act_2019::s6"
+      ],
+      "claims": [
+        {
+          "claim_text": "The tenant is owed compensation equal to six months’ rent.",
+          "cited": [
+            "urban_tenancy_act_2019::s7:a"
+          ],
+          "quoted_span": "A landlord found to have carried out an illegal eviction shall pay the tenant compensation equal to six months' rent.",
+          "vcs_contribution": 1.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": true,
+              "missing_ids": []
+            },
+            "v2_entailment": {
+              "verdict": "ENTAILS",
+              "score": 0.9897680878639221,
+              "best_chunk_id": "urban_tenancy_act_2019::s7:a"
+            },
+            "v3_fidelity": {
+              "fidelity": 1.0,
+              "atoms": [
+                {
+                  "text": "The tenant is owed compensation equal to six months’ rent",
+                  "verdict": "ENTAILS"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        }
+      ],
+      "proof_panels_open": 1,
+      "proof_buttons_opened": 1,
+      "proof_screenshot": "screens/ask-P1-proof.png",
+      "id": "P1",
+      "question": "If the owner of my flat throws me out by force without permission, how much money am I owed?"
+    }
+  ],
+  "search": [
+    {
+      "id": "S1",
+      "status": 200,
+      "gold_phrase": "valid for three years",
+      "screenshot": "screens/search-S1.png",
+      "columns": {
+        "dense": {
+          "gold_rank": 1,
+          "top_ids": [
+            "Confidentiality_Agreement_1::p18",
+            "Confidentiality_Agreement_1::p13",
+            "Confidentiality_Agreement_1::p23",
+            "Confidentiality_Agreement_1::p21",
+            "Confidentiality_Agreement_1::p3"
+          ]
+        },
+        "fts": {
+          "gold_rank": 1,
+          "top_ids": [
+            "Confidentiality_Agreement_1::p18",
+            "Confidentiality_Agreement_1::p23",
+            "Confidentiality_Agreement_1::p3",
+            "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p12",
+            "NDA_7::p8"
+          ]
+        },
+        "hybrid": {
+          "gold_rank": 1,
+          "top_ids": [
+            "Confidentiality_Agreement_1::p18",
+            "Confidentiality_Agreement_1::p23",
+            "Confidentiality_Agreement_1::p3",
+            "Confidentiality_Agreement_1::p13",
+            "Confidentiality_Agreement_1::p21"
+          ]
+        }
+      }
+    },
+    {
+      "id": "S3",
+      "status": 200,
+      "gold_phrase": "entitled to equitable remedies",
+      "screenshot": "screens/search-S3.png",
+      "columns": {
+        "dense": {
+          "gold_rank": 1,
+          "top_ids": [
+            "HALO-NDA::p7",
+            "HALO-NDA::p4",
+            "HALO-NDA::p6",
+            "HALO-NDA::p5",
+            "HALO-NDA::p1"
+          ]
+        },
+        "fts": {
+          "gold_rank": 1,
+          "top_ids": [
+            "HALO-NDA::p7",
+            "HALO-NDA::p1",
+            "HALO-NDA::p6",
+            "HALO-NDA::p3",
+            "HALO-NDA::p5"
+          ]
+        },
+        "hybrid": {
+          "gold_rank": 1,
+          "top_ids": [
+            "HALO-NDA::p7",
+            "HALO-NDA::p6",
+            "HALO-NDA::p1",
+            "HALO-NDA::p5",
+            "HALO-NDA::p4"
+          ]
+        }
+      }
+    },
+    {
+      "id": "S5",
+      "status": 200,
+      "gold_phrase": "within sixty days of the order",
+      "screenshot": "screens/search-S5.png",
+      "columns": {
+        "dense": {
+          "gold_rank": 1,
+          "top_ids": [
+            "urban_tenancy_act_2019::s10",
+            "urban_tenancy_act_2019::s1:1",
+            "urban_tenancy_act_2019::s1:2",
+            "urban_tenancy_act_2019::s3",
+            "urban_tenancy_act_2019::s9"
+          ]
+        },
+        "fts": {
+          "gold_rank": 1,
+          "top_ids": [
+            "urban_tenancy_act_2019::s10",
+            "urban_tenancy_act_2019::s1:1",
+            "urban_tenancy_act_2019::s9",
+            "urban_tenancy_act_2019::s2:3",
+            "urban_tenancy_act_2019::s7"
+          ]
+        },
+        "hybrid": {
+          "gold_rank": 1,
+          "top_ids": [
+            "urban_tenancy_act_2019::s10",
+            "urban_tenancy_act_2019::s1:1",
+            "urban_tenancy_act_2019::s9",
+            "urban_tenancy_act_2019::s1:2",
+            "urban_tenancy_act_2019::s3"
+          ]
+        }
+      }
+    }
+  ],
+  "app": {
+    "evaluation": {
+      "screenshot": "screens/evaluation.png",
+      "map_sources": [
+        "Confidentiality_Agreement_1",
+        "HALO-NDA",
+        "NDA_7",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+        "urban_tenancy_act_2019"
+      ],
+      "map_points": 101
+    },
+    "chat_history": {
+      "chats_asked": 15,
+      "ui_after_reload": 15,
+      "api_after_reload": 15,
+      "deleted": "Delete conversation: If the owner of my flat throws me out by force without perm…",
+      "delete_status": 200,
+      "ui_after_delete_and_reload": 14,
+      "deleted_still_listed": 0,
+      "api_after_delete": 14,
+      "screenshots": [
+        "screens/chats-after-reload.png",
+        "screens/chats-after-delete.png"
+      ]
+    },
+    "delete_document": {
+      "doc": "D3",
+      "source_id": "HALO-NDA",
+      "status": 200,
+      "body": {
+        "source_id": "HALO-NDA",
+        "deleted_chunk_count": 9,
+        "totals": {
+          "chunks": 92,
+          "documents": 4
+        }
+      },
+      "home_before": {
+        "documents": 5,
+        "chunks": 101
+      },
+      "home_after": {
+        "documents": 4,
+        "chunks": 92
+      },
+      "screenshot": "screens/home-after-delete.png",
+      "reask": {
+        "id": "S3",
+        "attempts": [
+          {
+            "status": 200,
+            "seconds": 15.66,
+            "detail": null
+          }
+        ],
+        "status": 200,
+        "seconds": 15.66,
+        "screenshot": "screens/after-delete-S3-answer.png",
+        "badge": "Abstained",
+        "badge_text_on_page": {
+          "Verified": false,
+          "Abstained": true,
+          "General knowledge": false
+        },
+        "decision": "ABSTAIN",
+        "answer_mode": "abstained",
+        "vcs": null,
+        "answer_text": "INSUFFICIENT_CONTEXT: The provided passages do not contain any information about the specific remedies HALO is entitled to upon a breach of its non‑disclosure agreement.",
+        "grounded_answer_text": null,
+        "context_chunk_ids": [
+          "NDA_7::p14",
+          "Confidentiality_Agreement_1::p19",
+          "NDA_7::p1",
+          "Confidentiality_Agreement_1::p17",
+          "NDA_7::p15",
+          "NDA_7::p10",
+          "NDA_7::p22",
+          "Confidentiality_Agreement_1::p10",
+          "NDA_7::p17",
+          "Confidentiality_Agreement_1::p9",
+          "NDA_7::p9",
+          "Confidentiality_Agreement_1::p14"
+        ],
+        "claims": []
+      }
+    }
+  },
+  "health": {
+    "status": "ok",
+    "llm": {
+      "provider": "groq",
+      "configured": true,
+      "problem": null
+    }
+  },
+  "finished": "2026-09-24 20:49:31"
+}
