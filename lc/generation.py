@@ -183,7 +183,9 @@ def chat_model_from_env(provider: str | None = None) -> BaseLanguageModel:
     key = env("GROQ_API_KEY") or env("LLM_API_KEY")
     if not key:
         raise ValueError("ChatGroq requires an API key: set GROQ_API_KEY (or LLM_API_KEY)")
-    return ChatGroq(model=model, max_tokens=max_tokens, api_key=key, temperature=None)
+    # src/ sends no temperature, so Groq applies its API default (1.0). ChatGroq
+    # cannot leave it unset (non-optional float, own default 0.7), so pass 1.0.
+    return ChatGroq(model=model, max_tokens=max_tokens, api_key=key, temperature=1.0)
 
 
 def as_chat_runnable(llm) -> Runnable:
