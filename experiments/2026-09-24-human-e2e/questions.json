@@ -1,0 +1,120 @@
+{
+  "written_before_run": true,
+  "note": "Written after reading the five documents in documents.json and before anything was ingested or asked. Source passages are quoted from the documents; for PDFs, pypdf inserts stray spaces mid-word (e.g. 'signat ures'), which are removed here. expected_behaviour: VERIFIED = answered from the documents with a Verified badge; ABSTAIN = refuse; GENERAL = answered and labelled as general knowledge; ABSTAIN_OR_CORRECTION = refuse, or answer that corrects the premise; never a Verified confirmation of the false premise.",
+  "questions": [
+    {
+      "id": "S1", "category": "specific", "document": "D1",
+      "question": "How long is the Helu Kabel confidentiality agreement valid, and is it extended automatically?",
+      "expected_behaviour": "VERIFIED",
+      "expected_answer": "Three years from signature by both parties; it is tacitly extended by one year if not terminated three months before it expires.",
+      "source": {"document": "D1", "location": "clause 8",
+                 "passage": "This agreement becomes effective with the signatures of both parties and is valid for three years. It is tacitly extended by one year if it is not terminated three months before its expiration."}
+    },
+    {
+      "id": "S2", "category": "specific", "document": "D2",
+      "question": "Which country's laws govern the non-disclosure agreement dated 28 March 2014?",
+      "expected_behaviour": "VERIFIED",
+      "expected_answer": "The laws of Spain.",
+      "source": {"document": "D2", "location": "clause 10",
+                 "passage": "This agreement must be in accordance with, and governed in all respects by the laws of Spain."}
+    },
+    {
+      "id": "S3", "category": "specific", "document": "D3",
+      "question": "What remedy is HALO entitled to if the recipient breaches the HALO non-disclosure agreement?",
+      "expected_behaviour": "VERIFIED",
+      "expected_answer": "Equitable remedies, including an injunction (the remedy at law is acknowledged to be inadequate).",
+      "source": {"document": "D3", "location": "section 6 (Remedies)",
+                 "passage": "RECIPIENT recognizes that the remedy at law for any breach of its obligation under this Agreement will be inadequate, and hence, RECIPIENT agrees that HALO shall be entitled to equitable remedies, including injunction, in the event of breach by RECIPIENT."}
+    },
+    {
+      "id": "S4", "category": "specific", "document": "D4",
+      "question": "When was the Vivint Solar non-competition agreement amendment entered into, and who are the parties?",
+      "expected_behaviour": "VERIFIED",
+      "expected_answer": "August 16, 2017, between Vivint Solar, Inc. (a Delaware corporation) and Vivint, Inc. (a Utah corporation).",
+      "source": {"document": "D4", "location": "preamble",
+                 "passage": "This NON-COMPETITION AGREEMENT AMENDMENT NO. 1 (this \"Amendment\") is entered into as of August 16, 2017, by and between VIVINT SOLAR, INC., a Delaware corporation (...), and VIVINT, INC., a Utah corporation"}
+    },
+    {
+      "id": "S5", "category": "specific", "document": "D5",
+      "question": "Under the Urban Tenancy Act, how long does a party have to appeal an order of the rent authority, and to which court?",
+      "expected_behaviour": "VERIFIED",
+      "expected_answer": "Within sixty days of the order, to the District Court.",
+      "source": {"document": "D5", "location": "Section 10 (Appeals)",
+                 "passage": "This section allows any party aggrieved by an order of the rent authority to appeal to the District Court within sixty days of the order."}
+    },
+    {
+      "id": "C1", "category": "cross_document", "document": ["D1", "D2", "D3"],
+      "question": "Of the three non-disclosure agreements (Helu Kabel, HALO and the 28 March 2014 NDA), which has the shortest confidentiality term?",
+      "expected_behaviour": "VERIFIED",
+      "expected_answer": "The Helu Kabel agreement: three years (tacitly extendable by one year). HALO is five years; the 28 March 2014 NDA ends after five years or earlier on written notice of termination by both parties.",
+      "source": {"document": ["D1", "D3", "D2"], "location": "D1 clause 8; D3 section 2; D2 clause 6",
+                 "passage": "D1: \"...is valid for three years. It is tacitly extended by one year...\" | D3: \"for a period of five (5) years from the effective date of this Agreement\" | D2: \"The obligations of confidentiality in this agreement shall cease when both parties give written notification of its termination, or 5 years after the date hereof, whichever is the sooner.\""}
+    },
+    {
+      "id": "C2", "category": "cross_document", "document": ["D1", "D2", "D3"],
+      "question": "What governing law applies to each of the Helu Kabel agreement, the HALO agreement and the 28 March 2014 NDA?",
+      "expected_behaviour": "VERIFIED",
+      "expected_answer": "Helu Kabel: German law (excluding the UN Convention on Contracts for the International Sale of Goods), venue Hemmingen; HALO: the laws of the State of California; 28 March 2014 NDA: the laws of Spain.",
+      "source": {"document": ["D1", "D3", "D2"], "location": "D1 clause 11; D3 section 7; D2 clause 10",
+                 "passage": "D1: \"The parties agree that for this agreement German law applies excluding the United Nations Convention on Contracts for the International Sale of Goods.\" | D3: \"...governed by and construed in accordance with the laws (excluding the laws of conflict of laws) of the State of California.\" | D2: \"...governed in all respects by the laws of Spain.\""}
+    },
+    {
+      "id": "U1", "category": "unanswerable", "document": "D1",
+      "question": "What amount of liquidated damages is payable for a breach of the Helu Kabel confidentiality agreement?",
+      "expected_behaviour": "ABSTAIN",
+      "expected_answer": "Not stated: the agreement has no liquidated-damages or penalty clause.",
+      "source": null
+    },
+    {
+      "id": "U2", "category": "unanswerable", "document": "D5",
+      "question": "What is the maximum annual rent increase a landlord may impose under the Urban Tenancy Act?",
+      "expected_behaviour": "ABSTAIN",
+      "expected_answer": "Not stated: the Act regulates deposits, eviction and disputes, but not rent increases.",
+      "source": null
+    },
+    {
+      "id": "U3", "category": "unanswerable", "document": "D4",
+      "question": "What geographic area does the non-competition restriction in the Vivint agreement cover?",
+      "expected_behaviour": "ABSTAIN",
+      "expected_answer": "Not stated in this document: the amendment deletes Section 2 (Non-Competition) of the original agreement and does not describe any geographic scope.",
+      "source": null
+    },
+    {
+      "id": "G1", "category": "general_concept", "document": null,
+      "question": "What is an indemnity clause?",
+      "expected_behaviour": "GENERAL",
+      "expected_answer": "A general explanation (a contractual promise by one party to compensate the other for specified losses or liabilities), clearly labelled as general knowledge, not as Verified from the documents.",
+      "source": null
+    },
+    {
+      "id": "G2", "category": "general_concept", "document": null,
+      "question": "What is the difference between a mutual and a one-way non-disclosure agreement?",
+      "expected_behaviour": "GENERAL",
+      "expected_answer": "A general explanation (mutual: both parties disclose and are bound; one-way: only one party discloses and only the recipient is bound), labelled as general knowledge.",
+      "source": null
+    },
+    {
+      "id": "F1", "category": "false_premise", "document": "D3",
+      "question": "Why does the HALO agreement require disputes to be resolved by arbitration in Singapore?",
+      "expected_behaviour": "ABSTAIN_OR_CORRECTION",
+      "expected_answer": "It does not: there is no arbitration clause; the agreement is governed by California law and gives HALO equitable remedies including injunction.",
+      "source": {"document": "D3", "location": "sections 6 and 7", "passage": "governed by and construed in accordance with the laws (excluding the laws of conflict of laws) of the State of California."}
+    },
+    {
+      "id": "F2", "category": "false_premise", "document": "D5",
+      "question": "Under the Urban Tenancy Act, why must a landlord give 180 days' notice before filing for eviction?",
+      "expected_behaviour": "ABSTAIN_OR_CORRECTION",
+      "expected_answer": "The premise is wrong: the Act requires no less than ninety days' written notice (except for non-payment of rent), not 180.",
+      "source": {"document": "D5", "location": "Section 6",
+                 "passage": "This section requires a landlord to give the tenant no less than ninety days written notice before filing an eviction application with the rent authority, except in cases of non-payment of rent."}
+    },
+    {
+      "id": "P1", "category": "paraphrase", "document": "D5",
+      "question": "If the owner of my flat throws me out by force without permission, how much money am I owed?",
+      "expected_behaviour": "VERIFIED",
+      "expected_answer": "Compensation equal to six months' rent (Urban Tenancy Act, Section 7(a)).",
+      "source": {"document": "D5", "location": "Section 7, Clause (a)",
+                 "passage": "A landlord found to have carried out an illegal eviction shall pay the tenant compensation equal to six months' rent."}
+    }
+  ]
+}

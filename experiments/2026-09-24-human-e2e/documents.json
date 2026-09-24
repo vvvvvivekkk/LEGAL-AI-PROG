@@ -1,0 +1,52 @@
+[
+  {
+    "id": "D1",
+    "file": "Confidentiality_Agreement_1.pdf",
+    "path": "data/corpus/civil_law/contractnli/contract-nli/raw/Confidentiality_Agreement_1.pdf",
+    "format": "PDF",
+    "type": "NDA (supplier/buyer confidentiality agreement, Helu Kabel GmbH)",
+    "pages": 2,
+    "bytes": 15250,
+    "sha256": "56e6422f46e6d4ff8985ee1f10871a87163c6e51070c6dfb29b14b0abde4f2f2"
+  },
+  {
+    "id": "D2",
+    "file": "NDA_7.pdf",
+    "path": "data/corpus/civil_law/contractnli/contract-nli/raw/NDA_7.pdf",
+    "format": "PDF",
+    "type": "NDA (mutual, dated 28 March 2014, parties left as placeholders)",
+    "pages": 2,
+    "bytes": 30741,
+    "sha256": "45cf9fdffd5dbf05d595129bff3f477a781ed3ea5933986f5f5e92c4c340439f"
+  },
+  {
+    "id": "D3",
+    "file": "HALO-NDA.pdf",
+    "path": "data/corpus/civil_law/contractnli/contract-nli/raw/HALO-NDA.pdf",
+    "format": "PDF",
+    "type": "NDA (one-way, HALO Electronics, Inc.)",
+    "pages": 2,
+    "bytes": 105568,
+    "sha256": "8cb256eae7094b9ba20316433bd2aa785d4f7c4eb4ecc0065ba0fa7fb2004730"
+  },
+  {
+    "id": "D4",
+    "file": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT.txt",
+    "path": "data/corpus/civil_law/cuad/CUAD_v1/full_contract_txt/Part_II/VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT.txt",
+    "format": "TXT",
+    "type": "Contract (non-competition agreement amendment, CUAD)",
+    "pages": null,
+    "bytes": 3493,
+    "sha256": "fc312da6f40b38046396f30b7ed00ca644ed82d35b5dbe40bb48615e9e837270"
+  },
+  {
+    "id": "D5",
+    "file": "urban_tenancy_act_2019.txt",
+    "path": "data/sample/urban_tenancy_act_2019.txt",
+    "format": "TXT",
+    "type": "Statute with Chapter/Section/Clause structure (fictional sample act, the only sectioned statute available locally)",
+    "pages": null,
+    "bytes": 3323,
+    "sha256": "ea4290497d79dcf25d61f58da8d2a43e9bc1c2cb6bdb6f0edc6cdc10b5165e84"
+  }
+]
