@@ -28,6 +28,7 @@ REPO = Path(__file__).resolve().parents[2]
 SAMPLE = REPO / "data" / "sample"
 QUERYSET = REPO / "data" / "eval" / "retrieval_queryset.json"
 OUT = REPO / "experiments" / "langchain_port" / "latency"
+LOGS = OUT.parent / "logs"  # gitignored; server output is not a result
 ROUNDS = 2
 BODY = {"rerank": True, "self_consistency": 0, "allow_general_knowledge": True}
 
@@ -44,7 +45,8 @@ ARMS = {
 def _start(arm: dict) -> subprocess.Popen:
     for path in arm["env"].values():
         shutil.rmtree(REPO / path, ignore_errors=True)
-    log = open(OUT / f"server_{arm['port']}.log", "w", encoding="utf-8")  # noqa: SIM115
+    LOGS.mkdir(parents=True, exist_ok=True)
+    log = open(LOGS / f"latency_server_{arm['port']}.log", "w", encoding="utf-8")  # noqa: SIM115
     return subprocess.Popen(
         [str(arm["python"]), "-m", "uvicorn", arm["app"], "--port", str(arm["port"])],
         cwd=REPO, env={**os.environ, **arm["env"]}, stdout=log, stderr=subprocess.STDOUT,
