@@ -2,6 +2,12 @@
 // never touch the pipeline directly. Override the base URL with VITE_API_BASE.
 const BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8000'
 
+// The start command for whichever backend BASE points at, for the error hint:
+// the LangChain API (default, web/.env) on :8001, the plain-Python one on :8000.
+const START_HINT = BASE.includes(':8001')
+  ? '.venv-lc\\Scripts\\activate then `uvicorn lc.api:app --port 8001`'
+  : '`uvicorn src.api.main:app`'
+
 // Every failure surfaces as an ApiError with the backend's real `detail`
 // string (or a concrete network explanation) — never a bare "Failed to fetch".
 export class ApiError extends Error {
@@ -22,7 +28,7 @@ async function request(path, init, label) {
     // fetch() only rejects when no HTTP response arrived at all: server down,
     // wrong port, or a response the browser refused (CORS).
     throw new ApiError(
-      `Could not reach the Legal AI backend at ${BASE} — is \`uvicorn src.api.main:app\` running? (${err.message})`,
+      `Could not reach the Legal AI backend at ${BASE} — is it running? Start it with ${START_HINT}. (${err.message})`,
       { kind: 'network' },
     )
   }
