@@ -1,0 +1,21 @@
+{
+  "questions": "data\\eval\\retrieval_queryset.json",
+  "rounds": 2,
+  "request": {
+    "rerank": true,
+    "self_consistency": 0,
+    "allow_general_knowledge": true
+  },
+  "corpus": "data/sample/*.txt",
+  "llm_provider": null,
+  "arms": {
+    "python": {
+      "port": 8000,
+      "app": "src.api.main:app"
+    },
+    "langchain": {
+      "port": 8001,
+      "app": "lc.api:app"
+    }
+  }
+}

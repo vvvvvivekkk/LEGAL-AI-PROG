@@ -1,0 +1,43 @@
+INFO:     Started server process [9504]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+INFO:     127.0.0.1:58361 - "GET /health HTTP/1.1" 200 OK
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 2045.70it/s]
+INFO:     127.0.0.1:58361 - "POST /ingest HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58361 - "POST /ingest HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58361 - "POST /ingest HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58361 - "POST /ingest HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58361 - "POST /ingest HTTP/1.1" 200 OK
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights:   7%|6         | 14/201 [00:00<00:01, 124.69it/s]Loading weights:  15%|#4        | 30/201 [00:00<00:01, 143.92it/s]Loading weights:  31%|###       | 62/201 [00:00<00:00, 219.27it/s]Loading weights:  42%|####2     | 85/201 [00:00<00:00, 221.54it/s]Loading weights:  55%|#####4    | 110/201 [00:00<00:00, 230.96it/s]Loading weights: 100%|##########| 201/201 [00:00<00:00, 383.44it/s]
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights:   3%|2         | 10/393 [00:00<00:06, 63.74it/s]Loading weights:   7%|6         | 27/393 [00:00<00:03, 108.69it/s]Loading weights:  10%|9         | 39/393 [00:00<00:03, 98.72it/s] Loading weights:  13%|#2        | 50/393 [00:00<00:03, 92.37it/s]Loading weights:  15%|#5        | 60/393 [00:00<00:03, 92.91it/s]Loading weights:  18%|#7        | 70/393 [00:00<00:04, 78.69it/s]Loading weights:  20%|##        | 79/393 [00:00<00:04, 77.22it/s]Loading weights:  24%|##4       | 95/393 [00:01<00:03, 85.50it/s]Loading weights:  26%|##6       | 104/393 [00:01<00:03, 83.79it/s]Loading weights:  31%|###1      | 122/393 [00:01<00:02, 104.85it/s]Loading weights:  37%|###7      | 147/393 [00:01<00:01, 132.79it/s]Loading weights:  41%|####      | 161/393 [00:01<00:02, 92.37it/s] Loading weights:  44%|####3     | 172/393 [00:01<00:02, 83.26it/s]Loading weights:  46%|####6     | 182/393 [00:02<00:02, 82.02it/s]Loading weights:  49%|####8     | 191/393 [00:02<00:03, 64.69it/s]Loading weights:  51%|#####     | 199/393 [00:02<00:03, 63.49it/s]Loading weights: 100%|##########| 393/393 [00:02<00:00, 161.66it/s]
+[transformers] [1mRobertaForSequenceClassification LOAD REPORT[0m from: roberta-large-mnli
+Key                         | Status     |  | 
+----------------------------+------------+--+-
+roberta.pooler.dense.weight | UNEXPECTED |  | 
+roberta.pooler.dense.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+INFO:     127.0.0.1:58361 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52232 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52232 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55881 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55881 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52637 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52637 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50340 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50340 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49368 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49368 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49381 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49389 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49389 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49402 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49402 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50954 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50954 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50969 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50969 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50982 - "POST /query HTTP/1.1" 200 OK

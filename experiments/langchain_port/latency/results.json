@@ -1,0 +1,381 @@
+{
+  "summary": {
+    "python": {
+      "n_ok": 20,
+      "n_failed": 0,
+      "mean_s": 13.856468310000036,
+      "median_s": 13.021588700000166,
+      "stdev_s": 2.7730909744395316
+    },
+    "langchain": {
+      "n_ok": 20,
+      "n_failed": 0,
+      "mean_s": 14.499974189999989,
+      "median_s": 14.058529399999998,
+      "stdev_s": 2.5614900694353904
+    },
+    "langchain_vs_python_mean": 0.046440829337122125
+  },
+  "requests": [
+    {
+      "status": 200,
+      "latency_s": 18.63470200000029,
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "arm": "python",
+      "round": 0,
+      "query": "How long does a landlord have to refund a tenant's security deposit?"
+    },
+    {
+      "status": 200,
+      "latency_s": 17.391162899999927,
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "arm": "langchain",
+      "round": 0,
+      "query": "How long does a landlord have to refund a tenant's security deposit?"
+    },
+    {
+      "status": 200,
+      "latency_s": 14.269421100000272,
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "arm": "langchain",
+      "round": 0,
+      "query": "What is the maximum security deposit a landlord may collect for residential premises?"
+    },
+    {
+      "status": 200,
+      "latency_s": 15.857733199999984,
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "arm": "python",
+      "round": 0,
+      "query": "What is the maximum security deposit a landlord may collect for residential premises?"
+    },
+    {
+      "status": 200,
+      "latency_s": 15.122859600000083,
+      "decision": "ABSTAIN",
+      "vcs": 0.0,
+      "arm": "python",
+      "round": 0,
+      "query": "How many days may hazardous waste be stored on the generator's premises?"
+    },
+    {
+      "status": 200,
+      "latency_s": 18.093205500000295,
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "arm": "langchain",
+      "round": 0,
+      "query": "How many days may hazardous waste be stored on the generator's premises?"
+    },
+    {
+      "status": 200,
+      "latency_s": 15.94128150000006,
+      "decision": "ABSTAIN",
+      "vcs": 0.0,
+      "arm": "langchain",
+      "round": 0,
+      "query": "Within how many hours must a data fiduciary notify the Board of a data breach?"
+    },
+    {
+      "status": 200,
+      "latency_s": 17.582172400000218,
+      "decision": "ABSTAIN",
+      "vcs": 0.0,
+      "arm": "python",
+      "round": 0,
+      "query": "Within how many hours must a data fiduciary notify the Board of a data breach?"
+    },
+    {
+      "status": 200,
+      "latency_s": 16.612900099999933,
+      "decision": "ABSTAIN",
+      "vcs": 0.2333333333333333,
+      "arm": "python",
+      "round": 0,
+      "query": "What penalty applies to a repeat unfair trade practice offence?"
+    },
+    {
+      "status": 200,
+      "latency_s": 18.43631359999972,
+      "decision": "ABSTAIN",
+      "vcs": 0.0,
+      "arm": "langchain",
+      "round": 0,
+      "query": "What penalty applies to a repeat unfair trade practice offence?"
+    },
+    {
+      "status": 200,
+      "latency_s": 18.51061129999971,
+      "decision": "ABSTAIN",
+      "vcs": 0.0,
+      "arm": "langchain",
+      "round": 0,
+      "query": "How many days does a seller have to respond to a consumer redress request?"
+    },
+    {
+      "status": 200,
+      "latency_s": 19.483719199999996,
+      "decision": "ABSTAIN",
+      "vcs": 0.0,
+      "arm": "python",
+      "round": 0,
+      "query": "How many days does a seller have to respond to a consumer redress request?"
+    },
+    {
+      "status": 200,
+      "latency_s": 16.069532699999854,
+      "decision": "ABSTAIN",
+      "vcs": 0.11666666666666665,
+      "arm": "python",
+      "round": 0,
+      "query": "How much is the annual renewal fee for a small business license?"
+    },
+    {
+      "status": 200,
+      "latency_s": 18.404224800000065,
+      "decision": "ABSTAIN",
+      "vcs": 0.5,
+      "arm": "langchain",
+      "round": 0,
+      "query": "How much is the annual renewal fee for a small business license?"
+    },
+    {
+      "status": 200,
+      "latency_s": 15.885365299999648,
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "arm": "langchain",
+      "round": 0,
+      "query": "On what grounds may a landlord seek eviction of a tenant?"
+    },
+    {
+      "status": 200,
+      "latency_s": 15.436413600000378,
+      "decision": "ABSTAIN",
+      "vcs": 0.0,
+      "arm": "python",
+      "round": 0,
+      "query": "On what grounds may a landlord seek eviction of a tenant?"
+    },
+    {
+      "status": 200,
+      "latency_s": 13.001058100000137,
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "arm": "python",
+      "round": 0,
+      "query": "How long does a data fiduciary have to respond to an access request?"
+    },
+    {
+      "status": 200,
+      "latency_s": 13.900128599999789,
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "arm": "langchain",
+      "round": 0,
+      "query": "How long does a data fiduciary have to respond to an access request?"
+    },
+    {
+      "status": 200,
+      "latency_s": 13.52375690000008,
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "arm": "langchain",
+      "round": 0,
+      "query": "What are the lawful grounds on which personal data may be processed?"
+    },
+    {
+      "status": 200,
+      "latency_s": 13.056786300000113,
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "arm": "python",
+      "round": 0,
+      "query": "What are the lawful grounds on which personal data may be processed?"
+    },
+    {
+      "status": 200,
+      "latency_s": 12.293216399999892,
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "arm": "langchain",
+      "round": 1,
+      "query": "How long does a landlord have to refund a tenant's security deposit?"
+    },
+    {
+      "status": 200,
+      "latency_s": 10.679015100000015,
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "arm": "python",
+      "round": 1,
+      "query": "How long does a landlord have to refund a tenant's security deposit?"
+    },
+    {
+      "status": 200,
+      "latency_s": 11.77877129999979,
+      "decision": "ABSTAIN",
+      "vcs": null,
+      "arm": "python",
+      "round": 1,
+      "query": "What is the maximum security deposit a landlord may collect for residential premises?"
+    },
+    {
+      "status": 200,
+      "latency_s": 14.925725400000374,
+      "decision": "ABSTAIN",
+      "vcs": null,
+      "arm": "langchain",
+      "round": 1,
+      "query": "What is the maximum security deposit a landlord may collect for residential premises?"
+    },
+    {
+      "status": 200,
+      "latency_s": 11.838649799999985,
+      "decision": "ABSTAIN",
+      "vcs": 0.0,
+      "arm": "langchain",
+      "round": 1,
+      "query": "How many days may hazardous waste be stored on the generator's premises?"
+    },
+    {
+      "status": 200,
+      "latency_s": 12.026541799999904,
+      "decision": "ABSTAIN",
+      "vcs": 0.0,
+      "arm": "python",
+      "round": 1,
+      "query": "How many days may hazardous waste be stored on the generator's premises?"
+    },
+    {
+      "status": 200,
+      "latency_s": 12.07206959999985,
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "arm": "python",
+      "round": 1,
+      "query": "Within how many hours must a data fiduciary notify the Board of a data breach?"
+    },
+    {
+      "status": 200,
+      "latency_s": 14.216930200000206,
+      "decision": "ABSTAIN",
+      "vcs": 0.0,
+      "arm": "langchain",
+      "round": 1,
+      "query": "Within how many hours must a data fiduciary notify the Board of a data breach?"
+    },
+    {
+      "status": 200,
+      "latency_s": 12.201434999999947,
+      "decision": "ABSTAIN",
+      "vcs": 0.2333333333333333,
+      "arm": "langchain",
+      "round": 1,
+      "query": "What penalty applies to a repeat unfair trade practice offence?"
+    },
+    {
+      "status": 200,
+      "latency_s": 11.312302799999998,
+      "decision": "ABSTAIN",
+      "vcs": 0.2333333333333333,
+      "arm": "python",
+      "round": 1,
+      "query": "What penalty applies to a repeat unfair trade practice offence?"
+    },
+    {
+      "status": 200,
+      "latency_s": 11.10515979999991,
+      "decision": "ABSTAIN",
+      "vcs": 0.0,
+      "arm": "python",
+      "round": 1,
+      "query": "How many days does a seller have to respond to a consumer redress request?"
+    },
+    {
+      "status": 200,
+      "latency_s": 11.388621300000068,
+      "decision": "ABSTAIN",
+      "vcs": 0.0,
+      "arm": "langchain",
+      "round": 1,
+      "query": "How many days does a seller have to respond to a consumer redress request?"
+    },
+    {
+      "status": 200,
+      "latency_s": 13.183679300000222,
+      "decision": "ABSTAIN",
+      "vcs": 0.5,
+      "arm": "langchain",
+      "round": 1,
+      "query": "How much is the annual renewal fee for a small business license?"
+    },
+    {
+      "status": 200,
+      "latency_s": 13.042119300000195,
+      "decision": "ABSTAIN",
+      "vcs": 0.0,
+      "arm": "python",
+      "round": 1,
+      "query": "How much is the annual renewal fee for a small business license?"
+    },
+    {
+      "status": 200,
+      "latency_s": 12.198936700000104,
+      "decision": "ABSTAIN",
+      "vcs": 0.0,
+      "arm": "python",
+      "round": 1,
+      "query": "On what grounds may a landlord seek eviction of a tenant?"
+    },
+    {
+      "status": 200,
+      "latency_s": 12.574313199999779,
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "arm": "langchain",
+      "round": 1,
+      "query": "On what grounds may a landlord seek eviction of a tenant?"
+    },
+    {
+      "status": 200,
+      "latency_s": 10.911705499999698,
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "arm": "langchain",
+      "round": 1,
+      "query": "How long does a data fiduciary have to respond to an access request?"
+    },
+    {
+      "status": 200,
+      "latency_s": 10.202316899999914,
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "arm": "python",
+      "round": 1,
+      "query": "How long does a data fiduciary have to respond to an access request?"
+    },
+    {
+      "status": 200,
+      "latency_s": 11.854255700000067,
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "arm": "python",
+      "round": 1,
+      "query": "What are the lawful grounds on which personal data may be processed?"
+    },
+    {
+      "status": 200,
+      "latency_s": 12.109736200000043,
+      "decision": "ANSWER",
+      "vcs": 1.0,
+      "arm": "langchain",
+      "round": 1,
+      "query": "What are the lawful grounds on which personal data may be processed?"
+    }
+  ]
+}
