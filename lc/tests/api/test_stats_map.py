@@ -64,16 +64,22 @@ def test_embedding_map_after_ingest(client, sample_txt_bytes):
 
 
 def test_db_path_can_be_overridden_by_env(monkeypatch):
-    """scripts/batch_ask_check.py relies on this to use an isolated index."""
+    """scripts/batch_ask_check.py relies on this to use an isolated index.
+
+    Reloading replaces the module's functions, but the routes still hold the
+    originals, so later tests' dependency_overrides would stop matching. Put
+    the original namespace back afterwards.
+    """
     import importlib
 
-    from lc.deps import DEFAULT_DB_PATH
+    import lc.deps
 
+    saved = dict(vars(lc.deps))
     monkeypatch.setenv("LEGAL_AI_LC_DB_PATH", "data/lancedb_somewhere_else")
-    deps = importlib.reload(importlib.import_module("lc.deps"))
     try:
+        deps = importlib.reload(lc.deps)
         assert deps.ApiState.db_path == "data/lancedb_somewhere_else"
     finally:
-        monkeypatch.delenv("LEGAL_AI_LC_DB_PATH", raising=False)
-        deps = importlib.reload(importlib.import_module("lc.deps"))
-    assert deps.ApiState.db_path == DEFAULT_DB_PATH
+        vars(lc.deps).clear()
+        vars(lc.deps).update(saved)
+    assert lc.deps.ApiState.db_path == saved["DEFAULT_DB_PATH"]
