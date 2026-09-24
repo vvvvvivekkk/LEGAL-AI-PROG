@@ -17,6 +17,9 @@ GENERAL = [
     "What does 'mutual NDA' mean?",
     "Explain what an indemnity is",
     "what is the meaning of consideration in contract law",
+    # From the 2026-09-24 human e2e run; must stay general.
+    "What is an indemnity clause?",
+    "What is the difference between a mutual and a one-way non-disclosure agreement?",
 ]
 
 DOCUMENT_SPECIFIC = [
@@ -27,6 +30,10 @@ DOCUMENT_SPECIFIC = [
     "Does the agreement allow disclosure to affiliates?",
     "How long must confidentiality be maintained?",
     "What is defined as confidential information in section 3?",
+    # From the 2026-09-24 human e2e run: was routed to general knowledge, and the
+    # model then refused under a "General knowledge" badge instead of abstaining.
+    "What is the maximum annual rent increase a landlord may impose under the Urban Tenancy Act?",
+    "What is the notice period under this contract?",
 ]
 
 

@@ -43,6 +43,8 @@ _DEFINITIONAL = re.compile(
 _DOCUMENT_SPECIFIC = re.compile(
     r"\b(this|these|my|our|the) (agreement|contract|document|nda|clause|section|file|policy)\b"
     r"|\bin (the|this) (agreement|contract|document|file)\b"
+    # "...under the Urban Tenancy Act?" names a specific instrument.
+    r"|\bunder (the|this)\b"
     r"|\baccording to\b|\bwhat happens if\b|\bwhich (document|agreement|file)\b"
     r"|\bsection \d|\bclause \d|\bdoes the (agreement|contract|document)\b"
     r"|\bhow long\b|\bwhat is the (term|duration|notice period|governing law|jurisdiction)\b",
