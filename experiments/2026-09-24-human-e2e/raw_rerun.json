@@ -1,0 +1,296 @@
+{
+  "started": "2026-09-24 20:58:23",
+  "llm_provider": null,
+  "ingest": [
+    {
+      "doc": "D1",
+      "status": 200,
+      "new_chunk_count": 23
+    },
+    {
+      "doc": "D2",
+      "status": 200,
+      "new_chunk_count": 26
+    },
+    {
+      "doc": "D3",
+      "status": 200,
+      "new_chunk_count": 9
+    },
+    {
+      "doc": "D4",
+      "status": 200,
+      "new_chunk_count": 20
+    },
+    {
+      "doc": "D5",
+      "status": 200,
+      "new_chunk_count": 23
+    }
+  ],
+  "edge_cases": {},
+  "questions": [
+    {
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 35.56,
+          "detail": null
+        }
+      ],
+      "status": 200,
+      "seconds": 35.56,
+      "screenshot": "screens/rerun-ask-S1-answer.png",
+      "badge": "Abstained",
+      "badge_text_on_page": {
+        "Verified": false,
+        "Abstained": true,
+        "General knowledge": false
+      },
+      "decision": "ABSTAIN",
+      "answer_mode": "abstained",
+      "vcs": 0.5,
+      "answer_text": "The Helu Kabel confidentiality agreement is valid for three years from the date it becomes effective. [Confidentiality_Agreement_1::p18]\n\nIf it is not terminated three months before its expiration, the agreement is tacitly extended by one additional year. [Confidentiality_Agreement_1::p18]",
+      "grounded_answer_text": null,
+      "context_chunk_ids": [
+        "Confidentiality_Agreement_1::p18",
+        "Confidentiality_Agreement_1::p13",
+        "NDA_7::p17",
+        "Confidentiality_Agreement_1::p21",
+        "HALO-NDA::p4",
+        "Confidentiality_Agreement_1::p3",
+        "Confidentiality_Agreement_1::p23",
+        "Confidentiality_Agreement_1::p19",
+        "Confidentiality_Agreement_1::p12",
+        "Confidentiality_Agreement_1::p22",
+        "Confidentiality_Agreement_1::p5",
+        "Confidentiality_Agreement_1::p1"
+      ],
+      "claims": [
+        {
+          "claim_text": "The Helu Kabel confidentiality agreement is valid for three years from the date it becomes effective.",
+          "cited": [
+            "Confidentiality_Agreement_1::p18"
+          ],
+          "quoted_span": "8. This agreement becomes effective with the signat ures of both parties and is valid for three years. It is tacitly\nextended by one year if it is not terminated three months before its expiration.",
+          "vcs_contribution": 0.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": true,
+              "missing_ids": []
+            },
+            "v2_entailment": {
+              "verdict": "NEUTRAL",
+              "score": 0.9927918910980225,
+              "best_chunk_id": "Confidentiality_Agreement_1::p18"
+            },
+            "v3_fidelity": {
+              "fidelity": 0.0,
+              "atoms": [
+                {
+                  "text": "The Helu Kabel confidentiality agreement is valid for three years from the date it becomes effective",
+                  "verdict": "NEUTRAL"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        },
+        {
+          "claim_text": "If it is not terminated three months before its expiration, the agreement is tacitly extended by one additional year.",
+          "cited": [
+            "Confidentiality_Agreement_1::p18"
+          ],
+          "quoted_span": "8. This agreement becomes effective with the signat ures of both parties and is valid for three years. It is tacitly\nextended by one year if it is not terminated three months before its expiration.",
+          "vcs_contribution": 1.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": true,
+              "missing_ids": []
+            },
+            "v2_entailment": {
+              "verdict": "ENTAILS",
+              "score": 0.9938456416130066,
+              "best_chunk_id": "Confidentiality_Agreement_1::p18"
+            },
+            "v3_fidelity": {
+              "fidelity": 1.0,
+              "atoms": [
+                {
+                  "text": "If it is not terminated three months before its expiration, the agreement is tacitly extended by one additional year",
+                  "verdict": "ENTAILS"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        }
+      ],
+      "id": "S1",
+      "question": "How long is the Helu Kabel confidentiality agreement valid, and is it extended automatically?"
+    },
+    {
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 19.73,
+          "detail": null
+        }
+      ],
+      "status": 200,
+      "seconds": 19.73,
+      "screenshot": "screens/rerun-ask-S4-answer.png",
+      "badge": "Verified",
+      "badge_text_on_page": {
+        "Verified": true,
+        "Abstained": false,
+        "General knowledge": false
+      },
+      "decision": "ANSWER",
+      "answer_mode": "verified",
+      "vcs": 1.0,
+      "answer_text": "The amendment was entered into on August 16, 2017. [VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1]  \nThe parties to the amendment are Vivint Solar, Inc., a Delaware corporation, and Vivint, Inc., a Utah corporation. [VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1]",
+      "grounded_answer_text": null,
+      "context_chunk_ids": [
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p3",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p8",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p10",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p15",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p4",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p12",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p2",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p5",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p9",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p6",
+        "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p16"
+      ],
+      "claims": [
+        {
+          "claim_text": "The amendment was entered into on August 16, 2017.",
+          "cited": [
+            "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1"
+          ],
+          "quoted_span": "Exhibit 10.1 NON-COMPETITION AGREEMENT AMENDMENT NO. 1   This NON-COMPETITION AGREEMENT AMENDMENT NO. 1 (this \"Amendment\") is entered into as of August 16, 2017, by and between VIVINT SOLAR, INC., a Delaware corporation (together with its successors and permitted assigns, \"Vivint Solar\"), and VIVINT, INC., a Utah corporation (together with its successors and permitted assigns \"Vivint\"). Each of Vivint Solar and Vivint may also be referred to herein individually as a \"Party\", and collectively as the \"Parties\".   RECITALS",
+          "vcs_contribution": 1.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": true,
+              "missing_ids": []
+            },
+            "v2_entailment": {
+              "verdict": "ENTAILS",
+              "score": 0.9610284566879272,
+              "best_chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1"
+            },
+            "v3_fidelity": {
+              "fidelity": 1.0,
+              "atoms": [
+                {
+                  "text": "The amendment was entered into on August 16, 2017",
+                  "verdict": "ENTAILS"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        },
+        {
+          "claim_text": "The parties to the amendment are Vivint Solar, Inc., a Delaware corporation, and Vivint, Inc., a Utah corporation.",
+          "cited": [
+            "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1"
+          ],
+          "quoted_span": "Exhibit 10.1 NON-COMPETITION AGREEMENT AMENDMENT NO. 1   This NON-COMPETITION AGREEMENT AMENDMENT NO. 1 (this \"Amendment\") is entered into as of August 16, 2017, by and between VIVINT SOLAR, INC., a Delaware corporation (together with its successors and permitted assigns, \"Vivint Solar\"), and VIVINT, INC., a Utah corporation (together with its successors and permitted assigns \"Vivint\"). Each of Vivint Solar and Vivint may also be referred to herein individually as a \"Party\", and collectively as the \"Parties\".   RECITALS",
+          "vcs_contribution": 1.0,
+          "verdicts": {
+            "v1_citation": {
+              "passed": true,
+              "missing_ids": []
+            },
+            "v2_entailment": {
+              "verdict": "ENTAILS",
+              "score": 0.968558669090271,
+              "best_chunk_id": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1"
+            },
+            "v3_fidelity": {
+              "fidelity": 1.0,
+              "atoms": [
+                {
+                  "text": "The parties to the amendment are Vivint Solar, Inc., a Delaware corporation,",
+                  "verdict": "ENTAILS"
+                },
+                {
+                  "text": "Vivint, Inc., a Utah corporation",
+                  "verdict": "ENTAILS"
+                }
+              ]
+            },
+            "v4_consistency": null
+          }
+        }
+      ],
+      "proof_panels_open": 2,
+      "proof_buttons_opened": 2,
+      "proof_screenshot": "screens/rerun-ask-S4-proof.png",
+      "id": "S4",
+      "question": "When was the Vivint Solar non-competition agreement amendment entered into, and who are the parties?"
+    },
+    {
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 17.83,
+          "detail": null
+        }
+      ],
+      "status": 200,
+      "seconds": 17.83,
+      "screenshot": "screens/rerun-ask-U2-answer.png",
+      "badge": "Abstained",
+      "badge_text_on_page": {
+        "Verified": false,
+        "Abstained": true,
+        "General knowledge": false
+      },
+      "decision": "ABSTAIN",
+      "answer_mode": "abstained",
+      "vcs": null,
+      "answer_text": "INSUFFICIENT_CONTEXT: The provided passages do not contain any provision regarding a maximum annual rent increase.",
+      "grounded_answer_text": null,
+      "context_chunk_ids": [
+        "urban_tenancy_act_2019::s1:1",
+        "urban_tenancy_act_2019::s1:2",
+        "urban_tenancy_act_2019::s7:a",
+        "urban_tenancy_act_2019::s4:a",
+        "urban_tenancy_act_2019::s3:b",
+        "urban_tenancy_act_2019::s3:a",
+        "urban_tenancy_act_2019::s5:a",
+        "urban_tenancy_act_2019::s3",
+        "urban_tenancy_act_2019::s5:c",
+        "urban_tenancy_act_2019::s7:b",
+        "urban_tenancy_act_2019::s6",
+        "urban_tenancy_act_2019::s5"
+      ],
+      "claims": [],
+      "id": "U2",
+      "question": "What is the maximum annual rent increase a landlord may impose under the Urban Tenancy Act?"
+    }
+  ],
+  "search": [],
+  "app": {},
+  "rerun_of": [
+    "S1",
+    "S4",
+    "U2"
+  ],
+  "git_head": "fb7bf75",
+  "health": {
+    "status": "ok",
+    "llm": {
+      "provider": "groq",
+      "configured": true,
+      "problem": null
+    }
+  },
+  "finished": "2026-09-24 21:00:43"
+}

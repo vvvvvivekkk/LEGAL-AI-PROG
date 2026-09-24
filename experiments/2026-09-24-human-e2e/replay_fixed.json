@@ -1,0 +1,63 @@
+{
+  "git_head": "fb7bf75",
+  "replays": [
+    {
+      "id": "S1",
+      "before": {
+        "badge": "Abstained",
+        "vcs": null
+      },
+      "after": {
+        "decision": "ANSWER",
+        "vcs": 1.0,
+        "claims": [
+          {
+            "text": "The agreement is valid for three years from the date it becomes effective.",
+            "cited": [
+              "Confidentiality_Agreement_1::p18"
+            ]
+          },
+          {
+            "text": "It is tacitly extended by one year if it is not terminated three months before its expiration.",
+            "cited": [
+              "Confidentiality_Agreement_1::p18"
+            ]
+          }
+        ],
+        "per_claim_vcs": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "S4",
+      "before": {
+        "badge": "Abstained",
+        "vcs": 0.0
+      },
+      "after": {
+        "decision": "ANSWER",
+        "vcs": 1.0,
+        "claims": [
+          {
+            "text": "The amendment was entered into on August 16, 2017.",
+            "cited": [
+              "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1"
+            ]
+          },
+          {
+            "text": "The parties to the amendment are Vivint Solar, Inc., a Delaware corporation, and Vivint, Inc., a Utah corporation.",
+            "cited": [
+              "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT::p1"
+            ]
+          }
+        ],
+        "per_claim_vcs": [
+          1.0,
+          1.0
+        ]
+      }
+    }
+  ]
+}

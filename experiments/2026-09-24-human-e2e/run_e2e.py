@@ -172,7 +172,67 @@ def ask_via_ui(page, question: str, shot_prefix: str) -> dict:
     return out
 
 
+def rerun(ids: list[str]) -> None:
+    """After a fix: fresh index, same 5 documents through the Ingest page, then
+    only the given questions, each in a new chat. Writes raw_rerun.json."""
+    global RAW, DB, CHATS
+    RAW, DB, CHATS = HERE / "raw_rerun.json", "data/lancedb_lc_e2e_rerun", "data/chats_lc_e2e_rerun"
+    run["rerun_of"] = ids
+    run["git_head"] = subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=REPO,
+                                     capture_output=True, text=True).stdout.strip()
+    docs = json.loads((HERE / "documents.json").read_text(encoding="utf-8"))
+    by_id = {q["id"]: q for q in json.loads((HERE / "questions.json").read_text(encoding="utf-8"))["questions"]}
+    for path in (DB, CHATS):
+        shutil.rmtree(REPO / path, ignore_errors=True)
+    api, web = _start_servers()
+    try:
+        with sync_playwright() as p:
+            page = p.chromium.launch().new_page(viewport={"width": 1440, "height": 1000})
+            page.on("dialog", lambda d: d.accept())
+            for d in docs:
+                r = ingest_via_ui(page, REPO / d["path"], f"rerun-ingest-{d['id']}.png")
+                run["ingest"].append({"doc": d["id"], "status": r["status"],
+                                      "new_chunk_count": r["body"].get("new_chunk_count")})
+            save()
+            for qid in ids:
+                r = ask_via_ui(page, by_id[qid]["question"], f"rerun-ask-{qid}")
+                r["id"], r["question"] = qid, by_id[qid]["question"]
+                run["questions"].append(r)
+                save()
+                print(f"rerun {qid}: {r['status']} {r.get('badge')} vcs={r.get('vcs')} {r['seconds']}s", flush=True)
+                time.sleep(PAUSE_S)
+    finally:
+        run["finished"] = time.strftime("%Y-%m-%d %H:%M:%S")
+        save()
+        _stop_servers(api, web)
+
+
+def _start_servers():
+    api = subprocess.Popen(
+        [str(REPO / ".venv-lc" / "Scripts" / "python.exe"), "-m", "uvicorn", "lc.api:app", "--port", "8001"],
+        cwd=REPO, env={**os.environ, "LEGAL_AI_LC_DB_PATH": DB, "LEGAL_AI_LC_CHATS_DIR": CHATS},
+        stdout=open(LOGS / "api.log", "w", encoding="utf-8"), stderr=subprocess.STDOUT,  # noqa: SIM115
+    )
+    web = subprocess.Popen("npm run dev -- --port 5173 --strictPort", shell=True, cwd=REPO / "web",
+                           stdout=open(LOGS / "vite.log", "w"), stderr=subprocess.STDOUT)  # noqa: SIM115
+    wait_up(f"{API}/health")
+    wait_up(WEB)
+    run["health"] = json.loads(urllib.request.urlopen(f"{API}/health").read())
+    return api, web
+
+
+def _stop_servers(api, web) -> None:
+    api.terminate()
+    subprocess.run(f"taskkill /F /T /PID {web.pid}", shell=True, capture_output=True)
+    try:
+        api.wait(timeout=30)
+    except subprocess.TimeoutExpired:
+        api.kill()
+
+
 def main() -> None:
+    if "--rerun" in sys.argv:
+        return rerun(sys.argv[sys.argv.index("--rerun") + 1].split(","))
     docs = json.loads((HERE / "documents.json").read_text(encoding="utf-8"))
     questions = json.loads((HERE / "questions.json").read_text(encoding="utf-8"))["questions"]
     by_id = {q["id"]: q for q in questions}
