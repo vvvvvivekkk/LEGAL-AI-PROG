@@ -1,0 +1,9 @@
+{
+  "pipeline": "python",
+  "mode": "hybrid",
+  "use_reranker": true,
+  "k": 5,
+  "n": 50,
+  "chunking": "sac",
+  "corpus": "data/sample/*.txt"
+}

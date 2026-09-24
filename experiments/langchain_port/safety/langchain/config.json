@@ -1,0 +1,10 @@
+{
+  "pipeline": "langchain",
+  "arm": "full_chain",
+  "cache": "data/eval/ablation_cache.json",
+  "nli": "roberta-large-mnli",
+  "probes": [
+    "fabricated_citation",
+    "mismatched_claim"
+  ]
+}
