@@ -14,7 +14,9 @@ from dataclasses import dataclass, field
 
 from src.generation.prompt import ABSTENTION_MARKER
 
-_CITATION_RE = re.compile(r"\[([^\[\]]*)\]")
+# Models sometimes cite with full-width brackets (【id】, ［id］) instead of [id];
+# both mean the same citation.
+_CITATION_RE = re.compile(r"[\[［【]([^\[\]［］【】]*)[\]］】]")
 
 
 class MalformedAnswerError(ValueError):

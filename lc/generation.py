@@ -76,7 +76,9 @@ def general_inputs(inputs: dict) -> dict:
 # Output parser
 # ---------------------------------------------------------------------------
 
-_CITATION_RE = re.compile(r"\[([^\[\]]*)\]")
+# Models sometimes cite with full-width brackets (【id】, ［id］) instead of [id];
+# both mean the same citation.
+_CITATION_RE = re.compile(r"[\[［【]([^\[\]［］【】]*)[\]］】]")
 
 
 @dataclass

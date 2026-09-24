@@ -42,6 +42,22 @@ def test_extract_comma_list_of_ids_that_contain_commas():
     assert ids == [f"{VIVINT}::p1", f"{VIVINT}::p3", "other::s2"]
 
 
+def test_full_width_brackets_are_citations():
+    # The exact answer Groq returned for S1 in the 2026-09-24 human e2e run:
+    # every citation used 【】, so no claim was found and a correct answer abstained.
+    raw = (
+        "The agreement is valid for three years from the date it becomes effective"
+        "【Confidentiality_Agreement_1::p18】.  \n"
+        "It is tacitly extended by one year if it is not terminated three months before its"
+        " expiration【Confidentiality_Agreement_1::p18】."
+    )
+    claims, malformed = parse_claims(raw)
+    assert malformed == []
+    assert [c.cited_chunk_ids for c in claims] == [["Confidentiality_Agreement_1::p18"]] * 2
+    assert claims[0].text == "The agreement is valid for three years from the date it becomes effective."
+    assert extract_citations("x ［a::s1］ [b::s2]") == ["a::s1", "b::s2"]
+
+
 def test_extract_dedupes_repeated_ids():
     assert extract_citations("[a::s1][a::s1]") == ["a::s1"]
 
