@@ -1,8 +1,8 @@
 """FastAPI app for the LangChain port -- same endpoints and JSON shapes as src/api.
 
-    uvicorn lc.api:app --port 8001
+    uvicorn lc.api:app            (port 8000, the UI's default)
 
-The React UI works against it unchanged (VITE_API_BASE=http://localhost:8001).
+The React UI works against it unchanged (web/.env: VITE_API_BASE=http://localhost:8000).
 Response models, JSON serialisation helpers, the chat store, PCA projection and
 the /experiments reader are src/'s own: they are API plumbing, not pipeline,
 and sharing them is what guarantees identical response shapes.

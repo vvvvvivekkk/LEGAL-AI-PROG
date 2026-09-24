@@ -2,11 +2,9 @@
 // never touch the pipeline directly. Override the base URL with VITE_API_BASE.
 const BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8000'
 
-// The start command for whichever backend BASE points at, for the error hint:
-// the LangChain API (default, web/.env) on :8001, the plain-Python one on :8000.
-const START_HINT = BASE.includes(':8001')
-  ? '.venv-lc\\Scripts\\activate then `uvicorn lc.api:app --port 8001`'
-  : '`uvicorn src.api.main:app`'
+// The start command for the error hint. The default backend is the LangChain API
+// on :8000 (web/.env); start.bat at the repo root starts it together with the UI.
+const START_HINT = 'start.bat, or .venv-lc\\Scripts\\activate then `uvicorn lc.api:app`'
 
 // Every failure surfaces as an ApiError with the backend's real `detail`
 // string (or a concrete network explanation) — never a bare "Failed to fetch".

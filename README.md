@@ -94,17 +94,21 @@ python -m src.indexing.build --chunks data/processed --db data/lancedb
 # LLM key for /query (ingest, retrieve and search work without one)
 cp .env.example .env   # then set LLM_PROVIDER / LLM_API_KEY (and optionally LLM_MODEL)
 
-# backend (default): the LangChain API on :8001, own index data/lancedb_lc (fill it via the Ingest page)
-# one-time setup: python -m venv .venv-lc && .venv-lc\Scripts\pip install -r lc/requirements.txt
-.venv-lc\Scripts\activate
-uvicorn lc.api:app --port 8001
+# one-time setup for the LangChain backend
+python -m venv .venv-lc && .venv-lc\Scripts\pip install -r lc/requirements.txt
+cd web && npm install && cd ..
 
-# backend, reference implementation: the plain-Python API on :8000
-# (point the UI at it with VITE_API_BASE=http://localhost:8000 npm run dev)
-uvicorn src.api.main:app --reload
+# everyday start (Windows): double-click start.bat, or run it in a terminal.
+# It opens the backend and the UI in two windows and then the browser.
+start.bat
 
-# React UI (separate terminal); web/.env points it at :8001
-cd web && npm install && npm run dev
+# or by hand, in two terminals:
+.venv-lc\Scripts\activate && uvicorn lc.api:app      # backend (LangChain) on :8000
+cd web && npm run dev                                 # UI on :5173, calls :8000 (web/.env)
+
+# The LangChain backend keeps its own index, data/lancedb_lc: add documents on the Ingest page.
+# Reference implementation (plain Python), instead of the LangChain one, same port:
+.venv\Scripts\activate && uvicorn src.api.main:app
 
 # optional: legacy Streamlit debug app, doesn't need the backend running
 streamlit run src/ui/app.py
