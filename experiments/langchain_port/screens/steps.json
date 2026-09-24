@@ -1,0 +1,13 @@
+{
+  "ingest_pdf": 200,
+  "ingest_txt": 200,
+  "ask": {
+    "status": 200,
+    "decision": "ANSWER",
+    "vcs": 1.0,
+    "answer_mode": "verified"
+  },
+  "proof_button": true,
+  "search": 200,
+  "evaluation_loaded": true
+}
