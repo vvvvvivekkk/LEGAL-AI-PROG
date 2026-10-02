@@ -9,8 +9,12 @@ against the text of that section. Copy a question into the Ask page exactly as w
 1. Start the app with `start.bat`.
 2. On the Ingest page, upload the 27 `.txt` files from `data/demo_crime/`. The message
    "Duplicate document … already indexed" only means that file is already uploaded.
-3. Delete everything else on the Ingest page (old contracts, the earlier 3-file crime
-   version), so answers come only from these files. Home should then show **27 documents, 493 chunks**.
+3. If other documents are indexed too (old contracts, the earlier 3-file crime version),
+   remove them so answers come only from these files. The web app has no delete button, so
+   either delete one document at http://localhost:8000/docs (**DELETE /documents/{source_id}**,
+   Try it out, type the name, Execute), or start clean: close the backend window, delete the
+   folder `data\lancedb_lc` (`rmdir /s /q data\lancedb_lc`), run `start.bat` again and upload
+   the 27 files. Home should then show **27 documents, 493 chunks**.
 
 ## The 15 best questions for a live demo
 

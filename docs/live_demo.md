@@ -22,8 +22,12 @@ Total time: about 10 minutes.
 2. **Warm up the models.** Upload `ipc_theft.txt`, ask "What is the punishment for theft?" and
    wait for the answer. The first upload and the first question load the models and are slow
    (up to about 30 seconds); after that they are fast.
-3. **Empty the index.** On the Ingest page, delete every document, including the one from
-   step 2. Home should show 0 documents and 0 chunks.
+3. **Empty the index.** The web app has no delete button, so do it on disk: close the
+   "Legal AI backend" window, delete the folder `data\lancedb_lc` (in cmd, from the project
+   folder: `rmdir /s /q data\lancedb_lc`), and run `start.bat` again. Home should show
+   0 documents and 0 chunks. Saved chats are in `data\chats_lc` and are not affected.
+   (Do not use "Replace existing document" for this: Replace only swaps one document for a
+   changed version of it.)
 4. Open `data/demo_crime/` in File Explorer, and open `ipc_theft.txt` in Notepad.
 5. Keep this page open on your phone or on paper, so you can copy the questions.
 
@@ -89,14 +93,20 @@ Say after question 2:
 
 ## Step 5: Delete a document and ask again (1 minute)
 
-On the Ingest page, delete `ipc_theft`. Home goes to 4 documents. Ask question 1 again in a new
-chat: **What is the punishment for theft?**
+Deleting is done through the backend's API page. Open http://localhost:8000/docs, find
+**DELETE /documents/{source_id}**, click **Try it out**, type `ipc_theft`, and click **Execute**.
+The response shows how many chunks were removed. Home goes to 4 documents. Then ask question 1
+again in a new chat: **What is the punishment for theft?**
 
 > "The same question now abstains, because the document it came from is gone. The answers come
 > from the uploaded files, not from the AI's memory."
 
 (Optional, to make the point stronger: upload `ipc_defamation.txt` now and ask question 12 again.
 It should now be Verified, citing `ipc_defamation` s500.)
+
+**After the demo:** upload the other 22 files from `data/demo_crime/` (the ones already in the
+index will just show "Duplicate document", which is fine) to answer any question from
+[`questions.md`](questions.md).
 
 ## If something goes wrong
 

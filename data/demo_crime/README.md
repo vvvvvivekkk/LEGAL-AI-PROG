@@ -61,10 +61,10 @@ written as `Clause (a)`, `Clause (b)`, …: these letters number the parts in or
 keep every chunk within what the embedding model (about 256 tokens) and the NLI model (512
 tokens) can read.
 
-**Already uploaded the earlier 3-file version?** Delete `indian_penal_code_1860_crimes`,
+**Already uploaded the earlier 3-file version?** Remove `indian_penal_code_1860_crimes`,
 `code_of_criminal_procedure_1973_arrest_fir_bail` and
-`negotiable_instruments_act_1881_cheque_bounce` on the Ingest page first; otherwise every
-section is indexed twice.
+`negotiable_instruments_act_1881_cheque_bounce` first (at http://localhost:8000/docs,
+**DELETE /documents/{source_id}**); otherwise every section is indexed twice.
 
 ## Questions to ask
 
