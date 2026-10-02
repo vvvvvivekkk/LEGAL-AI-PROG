@@ -266,6 +266,342 @@
   "expect": "Up to two years, or fine up to twice the cheque amount, or both (NI Act Section 138)."
  },
  {
+  "id": "E1",
+  "type": "easy",
+  "q": "What happens if a person of unsound mind commits a crime?",
+  "gold": "ipc_general_exceptions::s84",
+  "expect": "Nothing is an offence if, because of unsoundness of mind, he could not know the nature of the act or that it was wrong or against the law (IPC s84)."
+ },
+ {
+  "id": "E2",
+  "type": "easy",
+  "q": "Is an act done by accident, without any criminal intention, an offence?",
+  "gold": "ipc_general_exceptions::s80",
+  "expect": "No, if it is done by accident or misfortune, without criminal intention, in doing a lawful act in a lawful manner with proper care (IPC s80)."
+ },
+ {
+  "id": "E3",
+  "type": "easy",
+  "q": "Is a person who was made drunk against his will guilty of an offence?",
+  "gold": "ipc_general_exceptions::s85",
+  "expect": "No, if the intoxication made him incapable of knowing what he was doing and the thing was given to him without his knowledge or against his will (IPC s85)."
+ },
+ {
+  "id": "E4",
+  "type": "easy",
+  "q": "What is the punishment for culpable homicide not amounting to murder?",
+  "gold": "ipc_murder_and_culpable_homicide::s304",
+  "expect": "Imprisonment for life or up to ten years, and fine, if done with intention of causing death or such bodily injury as is likely to cause death (IPC s304)."
+ },
+ {
+  "id": "E5",
+  "type": "easy",
+  "q": "What is the punishment for causing death by negligence?",
+  "gold": "ipc_murder_and_culpable_homicide::s304A",
+  "expect": "Imprisonment up to two years, or fine, or both (IPC s304A)."
+ },
+ {
+  "id": "E6",
+  "type": "easy",
+  "q": "What is the punishment for causing hurt with a dangerous weapon?",
+  "gold": "ipc_hurt_and_grievous_hurt::s324",
+  "expect": "Imprisonment up to three years, or fine, or both (IPC s324)."
+ },
+ {
+  "id": "E7",
+  "type": "easy",
+  "q": "What is the punishment for causing hurt by a rash or negligent act?",
+  "gold": "ipc_hurt_and_grievous_hurt::s337",
+  "expect": "Imprisonment up to six months, or fine up to five hundred rupees, or both (IPC s337)."
+ },
+ {
+  "id": "E8",
+  "type": "easy",
+  "q": "What is the punishment for causing grievous hurt by a rash or negligent act?",
+  "gold": "ipc_hurt_and_grievous_hurt::s338",
+  "expect": "Imprisonment up to two years, or fine up to one thousand rupees, or both (IPC s338)."
+ },
+ {
+  "id": "E9",
+  "type": "easy",
+  "q": "What is the punishment for wrongful confinement?",
+  "gold": "ipc_wrongful_restraint_and_confinement::s342",
+  "expect": "Imprisonment up to one year, or fine up to one thousand rupees, or both (IPC s342)."
+ },
+ {
+  "id": "E10",
+  "type": "easy",
+  "q": "What is the punishment for assault?",
+  "gold": "ipc_criminal_force_and_assault::s352",
+  "expect": "Imprisonment up to three months, or fine up to five hundred rupees, or both (IPC s352)."
+ },
+ {
+  "id": "E11",
+  "type": "easy",
+  "q": "What is the punishment for stalking?",
+  "gold": "ipc_criminal_force_and_assault::s354D:a",
+  "expect": "First conviction: up to three years and fine; second or later conviction: up to five years and fine (IPC s354D)."
+ },
+ {
+  "id": "E12",
+  "type": "easy",
+  "q": "What is the punishment for theft in a house?",
+  "gold": "ipc_theft::s380",
+  "expect": "Imprisonment up to seven years, and fine (IPC s380)."
+ },
+ {
+  "id": "E13",
+  "type": "easy",
+  "q": "What is the punishment for attempting to commit robbery?",
+  "gold": "ipc_robbery_and_dacoity::s393",
+  "expect": "Rigorous imprisonment up to seven years, and fine (IPC s393)."
+ },
+ {
+  "id": "E14",
+  "type": "easy",
+  "q": "What is the punishment for dacoity?",
+  "gold": "ipc_robbery_and_dacoity::s395",
+  "expect": "Imprisonment for life, or rigorous imprisonment up to ten years, and fine (IPC s395)."
+ },
+ {
+  "id": "E15",
+  "type": "easy",
+  "q": "What is the punishment for dishonest misappropriation of property?",
+  "gold": "ipc_criminal_breach_of_trust_and_misappropriation::s403",
+  "expect": "Imprisonment up to two years, or fine, or both (IPC s403)."
+ },
+ {
+  "id": "E16",
+  "type": "easy",
+  "q": "What is the punishment for criminal breach of trust by a clerk or servant?",
+  "gold": "ipc_criminal_breach_of_trust_and_misappropriation::s408",
+  "expect": "Imprisonment up to seven years, and fine (IPC s408)."
+ },
+ {
+  "id": "E17",
+  "type": "easy",
+  "q": "What is the punishment for cheating?",
+  "gold": "ipc_cheating::s417",
+  "expect": "Imprisonment up to one year, or fine, or both (IPC s417); cheating that induces delivery of property is punished under s420."
+ },
+ {
+  "id": "E18",
+  "type": "easy",
+  "q": "What is the punishment for house-trespass?",
+  "gold": "ipc_criminal_trespass::s448",
+  "expect": "Imprisonment up to one year, or fine up to one thousand rupees, or both (IPC s448)."
+ },
+ {
+  "id": "E19",
+  "type": "easy",
+  "q": "What is the punishment for house-breaking by night?",
+  "gold": "ipc_criminal_trespass::s457",
+  "expect": "Imprisonment up to five years, and fine (IPC s457)."
+ },
+ {
+  "id": "E20",
+  "type": "easy",
+  "q": "What is the punishment for setting fire to a house?",
+  "gold": "ipc_mischief::s436",
+  "expect": "Imprisonment for life, or up to ten years, and fine (IPC s436)."
+ },
+ {
+  "id": "E21",
+  "type": "easy",
+  "q": "What is the punishment for forgery for the purpose of cheating?",
+  "gold": "ipc_forgery_and_counterfeit_currency::s468",
+  "expect": "Imprisonment up to seven years, and fine (IPC s468)."
+ },
+ {
+  "id": "E22",
+  "type": "easy",
+  "q": "What is the punishment for possessing counterfeit currency notes?",
+  "gold": "ipc_forgery_and_counterfeit_currency::s489C",
+  "expect": "Imprisonment up to seven years, or fine, or both (IPC s489C)."
+ },
+ {
+  "id": "E23",
+  "type": "easy",
+  "q": "What is the punishment for being a member of an unlawful assembly?",
+  "gold": "ipc_unlawful_assembly_and_rioting::s143",
+  "expect": "Imprisonment up to six months, or fine, or both (IPC s143)."
+ },
+ {
+  "id": "E24",
+  "type": "easy",
+  "q": "What is the punishment for rioting with a deadly weapon?",
+  "gold": "ipc_unlawful_assembly_and_rioting::s148",
+  "expect": "Imprisonment up to three years, or fine, or both (IPC s148)."
+ },
+ {
+  "id": "E25",
+  "type": "easy",
+  "q": "What is the punishment for committing an affray?",
+  "gold": "ipc_unlawful_assembly_and_rioting::s160",
+  "expect": "Imprisonment up to one month, or fine up to one hundred rupees, or both (IPC s160)."
+ },
+ {
+  "id": "E26",
+  "type": "easy",
+  "q": "What is the punishment for making a false criminal charge to injure someone?",
+  "gold": "ipc_false_evidence::s211",
+  "expect": "Imprisonment up to two years, or fine, or both (IPC s211, basic case)."
+ },
+ {
+  "id": "E27",
+  "type": "easy",
+  "q": "What is the punishment for escaping from lawful custody?",
+  "gold": "ipc_false_evidence::s224",
+  "expect": "Imprisonment up to two years, or fine, or both (IPC s224)."
+ },
+ {
+  "id": "E28",
+  "type": "easy",
+  "q": "What is the punishment for intentionally insulting someone to provoke a breach of the peace?",
+  "gold": "ipc_criminal_intimidation_and_insult::s504",
+  "expect": "Imprisonment up to two years, or fine, or both (IPC s504)."
+ },
+ {
+  "id": "E29",
+  "type": "easy",
+  "q": "What is the punishment for insulting the modesty of a woman by words or gestures?",
+  "gold": "ipc_criminal_intimidation_and_insult::s509",
+  "expect": "Simple imprisonment up to three years, and fine (IPC s509)."
+ },
+ {
+  "id": "E30",
+  "type": "easy",
+  "q": "What is the punishment for a drunken person who misbehaves in a public place?",
+  "gold": "ipc_criminal_intimidation_and_insult::s510",
+  "expect": "Simple imprisonment up to twenty-four hours, or fine up to ten rupees, or both (IPC s510)."
+ },
+ {
+  "id": "E31",
+  "type": "easy",
+  "q": "What is the punishment for hiding a former marriage and marrying again?",
+  "gold": "ipc_marriage_offences_and_cruelty_498a::s495",
+  "expect": "Imprisonment up to ten years, and fine (IPC s495)."
+ },
+ {
+  "id": "E32",
+  "type": "easy",
+  "q": "What is criminal conspiracy?",
+  "gold": "ipc_abetment_conspiracy_and_attempt::s120A",
+  "expect": "When two or more persons agree to do an illegal act, or a legal act by illegal means (IPC s120A)."
+ },
+ {
+  "id": "E33",
+  "type": "easy",
+  "q": "What is defamation?",
+  "gold": "ipc_defamation::s499",
+  "expect": "Making or publishing an imputation about a person, by words, signs or visible representations, intending or knowing it will harm that person's reputation (IPC s499)."
+ },
+ {
+  "id": "E34",
+  "type": "easy",
+  "q": "What is theft?",
+  "gold": "ipc_theft::s378",
+  "expect": "Dishonestly moving movable property out of another person's possession without consent, intending to take it (IPC s378)."
+ },
+ {
+  "id": "E35",
+  "type": "easy",
+  "q": "What is rioting?",
+  "gold": "ipc_unlawful_assembly_and_rioting::s146",
+  "expect": "Force or violence used by an unlawful assembly, or any member of it, in pursuing its common object (IPC s146)."
+ },
+ {
+  "id": "E36",
+  "type": "easy",
+  "q": "Can a confession made while in police custody be used against the accused?",
+  "gold": "evidence_act_confessions::s26",
+  "expect": "No, unless it is made in the immediate presence of a Magistrate (Evidence Act s26)."
+ },
+ {
+  "id": "E37",
+  "type": "easy",
+  "q": "Is a confession obtained by a threat or promise valid in a criminal case?",
+  "gold": "evidence_act_confessions::s24",
+  "expect": "No, it is irrelevant if caused by an inducement, threat or promise from a person in authority (Evidence Act s24)."
+ },
+ {
+  "id": "E38",
+  "type": "easy",
+  "q": "Who must prove a fact that is especially within his own knowledge?",
+  "gold": "evidence_act_burden_of_proof::s106",
+  "expect": "That person (Evidence Act s106)."
+ },
+ {
+  "id": "E39",
+  "type": "easy",
+  "q": "If a man has not been heard of for seven years, who must prove that he is alive?",
+  "gold": "evidence_act_burden_of_proof::s108",
+  "expect": "The person who says he is alive (Evidence Act s108)."
+ },
+ {
+  "id": "E40",
+  "type": "easy",
+  "q": "What does the court presume in a dowry death case?",
+  "gold": "evidence_act_burden_of_proof::s113B",
+  "expect": "If the woman was subjected to cruelty or harassment for dowry soon before her death, the court shall presume that person caused the dowry death (Evidence Act s113B)."
+ },
+ {
+  "id": "E41",
+  "type": "easy",
+  "q": "What must the police do when told about a non-cognizable offence?",
+  "gold": "crpc_fir_and_investigation::s155",
+  "expect": "Enter the substance in the prescribed book and refer the informant to the Magistrate (CrPC s155)."
+ },
+ {
+  "id": "E42",
+  "type": "easy",
+  "q": "Should a person sign the statement he gives to the police during investigation?",
+  "gold": "crpc_fir_and_investigation::s162",
+  "expect": "No, the statement shall not be signed by the person making it (CrPC s162)."
+ },
+ {
+  "id": "E43",
+  "type": "easy",
+  "q": "Who can record a confession during an investigation?",
+  "gold": "crpc_fir_and_investigation::s164",
+  "expect": "A Metropolitan Magistrate or a Judicial Magistrate (CrPC s164)."
+ },
+ {
+  "id": "E44",
+  "type": "easy",
+  "q": "Can the amount of a bail bond be excessive?",
+  "gold": "crpc_bail::s440",
+  "expect": "No; it must be fixed with regard to the circumstances and shall not be excessive, and the High Court or Court of Session may reduce it (CrPC s440)."
+ },
+ {
+  "id": "E45",
+  "type": "easy",
+  "q": "Can an arrested person ask for a medical examination?",
+  "gold": "crpc_arrest::s54",
+  "expect": "Yes; if he asks, the Magistrate shall direct an examination by a registered medical practitioner, unless the request is for vexation or delay (CrPC s54)."
+ },
+ {
+  "id": "E46",
+  "type": "easy",
+  "q": "Is a cheque bounce offence compoundable?",
+  "gold": "ni_act_cheque_bounce::s147",
+  "expect": "Yes, every offence under the Act is compoundable (NI Act s147)."
+ },
+ {
+  "id": "E47",
+  "type": "easy",
+  "q": "What does the court presume about a cheque received by its holder?",
+  "gold": "ni_act_cheque_bounce::s139",
+  "expect": "That it was received for the discharge of a debt or other liability, unless the contrary is proved (NI Act s139)."
+ },
+ {
+  "id": "E48",
+  "type": "easy",
+  "q": "If a company's cheque bounces, who can be held guilty?",
+  "gold": "ni_act_cheque_bounce::s141",
+  "expect": "The company and every person who was in charge of and responsible to the company for its business at the time (NI Act s141)."
+ },
+ {
   "id": "F1",
   "type": "false_premise",
   "q": "Why is the punishment for theft ten years of imprisonment?",
