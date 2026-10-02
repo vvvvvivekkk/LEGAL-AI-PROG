@@ -57,3 +57,20 @@ def test_ingest_file_matches_ingest_directory(sample_data_dir):
     matching = next(d for d in documents if d.source_id == "urban_tenancy_act_2019")
     assert single.title == matching.title
     assert len(single.chapters) == len(matching.chapters)
+
+
+def test_section_numbers_with_letter_suffix():
+    text = (
+        "THE SAMPLE PENAL CODE (ACT NO. 1 OF 2000)\n\n"
+        "CHAPTER XX — OF OFFENCES RELATING TO MARRIAGE\n\n"
+        "Section 498. Enticing a married woman.\n"
+        "Whoever takes or entices away a married woman shall be punished.\n\n"
+        "Section 498A. Husband or relative of husband subjecting her to cruelty.\n"
+        "Whoever subjects a woman to cruelty shall be punished with imprisonment.\n"
+    )
+    document = parse_document(clean_text(text), source_id="code")
+
+    sections = document.chapters[0].sections
+    assert [s.number for s in sections] == ["498", "498A"]
+    assert sections[1].title == "Husband or relative of husband subjecting her to cruelty"
+    assert sections[0].body_text == "Whoever takes or entices away a married woman shall be punished."

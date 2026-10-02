@@ -27,7 +27,8 @@ _TITLE_RE = re.compile(r"^THE\s+.+\bACT\b.*$", re.IGNORECASE)
 _JURISDICTION_RE = re.compile(r"^Jurisdiction:\s*(.+)$", re.IGNORECASE)
 _ENACTED_RE = re.compile(r"^Enacted:\s*(.+)$", re.IGNORECASE)
 _CHAPTER_RE = re.compile(r"^CHAPTER\s+([IVXLCDM]+)\s*[—\-]\s*(.+)$")
-_SECTION_RE = re.compile(r"^Section\s+(\d+)\.\s*(.+?)\.?\s*$")
+# Section numbers may carry a letter suffix, as in real Acts ("Section 498A.", "Section 13B.").
+_SECTION_RE = re.compile(r"^Section\s+(\d+[A-Z]{0,2})\.\s*(.+?)\.?\s*$")
 _NUMBERED_CLAUSE_RE = re.compile(r"^\((\d+)\)\s*(.+)$")
 _LETTERED_CLAUSE_RE = re.compile(r"^Clause\s+\(([a-zA-Z])\):\s*(.+)$")
 
