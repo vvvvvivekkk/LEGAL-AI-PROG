@@ -1,28 +1,303 @@
 [
- {"id":"V1","type":"verified","q":"What is the punishment for murder?","gold":"indian_penal_code_1860_crimes::s302","expect":"Death, or imprisonment for life, and also a fine (IPC Section 302)."},
- {"id":"V2","type":"verified","q":"What is the punishment for theft?","gold":"indian_penal_code_1860_crimes::s379","expect":"Imprisonment up to three years, or fine, or both (IPC Section 379)."},
- {"id":"V3","type":"verified","q":"Can a child under seven years of age be punished for a crime?","gold":"indian_penal_code_1860_crimes::s82","expect":"No. Nothing is an offence which is done by a child under seven (IPC Section 82)."},
- {"id":"V4","type":"verified","q":"What is the punishment for cheating under section 420?","gold":"indian_penal_code_1860_crimes::s420","expect":"Imprisonment up to seven years, and also a fine (IPC Section 420)."},
- {"id":"V5","type":"verified","q":"What is the punishment if a husband or his relatives treat a woman with cruelty?","gold":"indian_penal_code_1860_crimes::s498A","expect":"Imprisonment up to three years and also a fine (IPC Section 498A)."},
- {"id":"V6","type":"verified","q":"How many persons must commit a robbery together for it to be called dacoity?","gold":"indian_penal_code_1860_crimes::s391","expect":"Five or more persons (IPC Section 391)."},
- {"id":"V7","type":"verified","q":"What is the punishment for robbery committed on the highway between sunset and sunrise?","gold":"indian_penal_code_1860_crimes::s392","expect":"Rigorous imprisonment that may extend to fourteen years, and fine (IPC Section 392)."},
- {"id":"V8","type":"verified","q":"What is the punishment for defamation?","gold":"indian_penal_code_1860_crimes::s500","expect":"Simple imprisonment up to two years, or fine, or both (IPC Section 500)."},
- {"id":"V9","type":"verified","q":"What is the punishment for voluntarily causing hurt?","gold":"indian_penal_code_1860_crimes::s323","expect":"Imprisonment up to one year, or fine up to one thousand rupees, or both (IPC Section 323)."},
- {"id":"V10","type":"verified","q":"What is the punishment for marrying again while the husband or wife is still living?","gold":"indian_penal_code_1860_crimes::s494","expect":"Imprisonment up to seven years, and also a fine (IPC Section 494)."},
- {"id":"V11","type":"verified","q":"How long can the police keep an arrested person in custody without the order of a Magistrate?","gold":"code_of_criminal_procedure_1973_arrest_fir_bail::s57","expect":"Not more than twenty-four hours, not counting the journey to the Magistrate's court (CrPC Section 57)."},
- {"id":"V12","type":"verified","q":"Must the police tell a person why he is being arrested without a warrant?","gold":"code_of_criminal_procedure_1973_arrest_fir_bail::s50","expect":"Yes, they must immediately tell him the full particulars of the offence or other grounds for the arrest (CrPC Section 50)."},
- {"id":"V13","type":"verified","q":"Which courts can grant anticipatory bail to a person who fears arrest for a non-bailable offence?","gold":"code_of_criminal_procedure_1973_arrest_fir_bail::s438","expect":"The High Court or the Court of Session (CrPC Section 438)."},
- {"id":"V14","type":"verified","q":"What can a person do if the police station refuses to record his information about a cognizable offence?","gold":"code_of_criminal_procedure_1973_arrest_fir_bail::s154:b","expect":"Send the substance of the information in writing, by post, to the Superintendent of Police concerned (CrPC Section 154)."},
- {"id":"V15","type":"verified","q":"What is the punishment for dishonour of a cheque for insufficient funds?","gold":"negotiable_instruments_act_1881_cheque_bounce::s138","expect":"Imprisonment up to two years, or fine up to twice the amount of the cheque, or both (NI Act Section 138)."},
- {"id":"V16","type":"verified","q":"Within how many days of a cheque bouncing must the payee send a written notice to the drawer?","gold":"negotiable_instruments_act_1881_cheque_bounce::s138:a","expect":"Within thirty days of hearing from the bank that the cheque was returned unpaid; the drawer then has fifteen days to pay (NI Act Section 138)."},
- {"id":"V17","type":"verified","q":"Within what time must a complaint for a cheque bounce offence be made?","gold":"negotiable_instruments_act_1881_cheque_bounce::s142","expect":"Within one month of the date on which the cause of action arises (NI Act Section 142)."},
- {"id":"V18","type":"verified","q":"How much must a person convicted of cheque bounce deposit when he appeals?","gold":"negotiable_instruments_act_1881_cheque_bounce::s148","expect":"At least twenty percent of the fine or compensation awarded by the trial court (NI Act Section 148)."},
- {"id":"P1","type":"paraphrase","q":"If someone steals my mobile phone, how long can he be sent to jail?","gold":"indian_penal_code_1860_crimes::s379","expect":"Up to three years, or fine, or both (theft, IPC Section 379)."},
- {"id":"P2","type":"paraphrase","q":"A driver killed a pedestrian by careless driving, without any intention. What punishment can he get?","gold":"indian_penal_code_1860_crimes::s304A","expect":"Causing death by a rash or negligent act: up to two years, or fine, or both (IPC Section 304A)."},
- {"id":"P3","type":"paraphrase","q":"My friend gave me a cheque and it bounced because his account had no money. What punishment can he get?","gold":"negotiable_instruments_act_1881_cheque_bounce::s138","expect":"Up to two years, or fine up to twice the cheque amount, or both (NI Act Section 138)."},
- {"id":"F1","type":"false_premise","q":"Why is the punishment for theft ten years of imprisonment?","gold":"indian_penal_code_1860_crimes::s379","expect":"Abstain, or correct it: theft is punishable with up to three years (Section 379)."},
- {"id":"F2","type":"false_premise","q":"Why can the police keep an arrested person for 72 hours without producing him before a Magistrate?","gold":"code_of_criminal_procedure_1973_arrest_fir_bail::s57","expect":"Abstain, or correct it: the limit is twenty-four hours (Section 57)."},
- {"id":"U1","type":"unanswerable","q":"What is the fine for drunk driving?","gold":null,"expect":"Abstain: drunk driving is in the Motor Vehicles Act, which is not in this pack."},
- {"id":"U2","type":"unanswerable","q":"What is the punishment for hacking into someone's computer?","gold":null,"expect":"Abstain: hacking is in the Information Technology Act, which is not in this pack."},
- {"id":"G1","type":"general","q":"What is mens rea?","gold":null,"expect":"General knowledge answer (labelled purple): the guilty mind or criminal intent."}
+ {
+  "id": "V1",
+  "type": "verified",
+  "q": "What is the punishment for murder?",
+  "gold": "ipc_murder_and_culpable_homicide::s302",
+  "expect": "Death, or imprisonment for life, and also a fine (IPC Section 302)."
+ },
+ {
+  "id": "V2",
+  "type": "verified",
+  "q": "What is the punishment for theft?",
+  "gold": "ipc_theft::s379",
+  "expect": "Imprisonment up to three years, or fine, or both (IPC Section 379)."
+ },
+ {
+  "id": "V3",
+  "type": "verified",
+  "q": "Can a child under seven years of age be punished for a crime?",
+  "gold": "ipc_general_exceptions::s82",
+  "expect": "No. Nothing is an offence which is done by a child under seven (IPC Section 82)."
+ },
+ {
+  "id": "V4",
+  "type": "verified",
+  "q": "What is the punishment for cheating under section 420?",
+  "gold": "ipc_cheating::s420",
+  "expect": "Imprisonment up to seven years, and also a fine (IPC Section 420)."
+ },
+ {
+  "id": "V5",
+  "type": "verified",
+  "q": "What is the punishment if a husband or his relatives treat a woman with cruelty?",
+  "gold": "ipc_marriage_offences_and_cruelty_498a::s498A",
+  "expect": "Imprisonment up to three years and also a fine (IPC Section 498A)."
+ },
+ {
+  "id": "V6",
+  "type": "verified",
+  "q": "How many persons must commit a robbery together for it to be called dacoity?",
+  "gold": "ipc_robbery_and_dacoity::s391",
+  "expect": "Five or more persons (IPC Section 391)."
+ },
+ {
+  "id": "V7",
+  "type": "verified",
+  "q": "What is the punishment for robbery committed on the highway between sunset and sunrise?",
+  "gold": "ipc_robbery_and_dacoity::s392",
+  "expect": "Rigorous imprisonment that may extend to fourteen years, and fine (IPC Section 392)."
+ },
+ {
+  "id": "V8",
+  "type": "verified",
+  "q": "What is the punishment for defamation?",
+  "gold": "ipc_defamation::s500",
+  "expect": "Simple imprisonment up to two years, or fine, or both (IPC Section 500)."
+ },
+ {
+  "id": "V9",
+  "type": "verified",
+  "q": "What is the punishment for voluntarily causing hurt?",
+  "gold": "ipc_hurt_and_grievous_hurt::s323",
+  "expect": "Imprisonment up to one year, or fine up to one thousand rupees, or both (IPC Section 323)."
+ },
+ {
+  "id": "V10",
+  "type": "verified",
+  "q": "What is the punishment for marrying again while the husband or wife is still living?",
+  "gold": "ipc_marriage_offences_and_cruelty_498a::s494",
+  "expect": "Imprisonment up to seven years, and also a fine (IPC Section 494)."
+ },
+ {
+  "id": "V11",
+  "type": "verified",
+  "q": "How long can the police keep an arrested person in custody without the order of a Magistrate?",
+  "gold": "crpc_arrest::s57",
+  "expect": "Not more than twenty-four hours, not counting the journey to the Magistrate's court (CrPC Section 57)."
+ },
+ {
+  "id": "V12",
+  "type": "verified",
+  "q": "Must the police tell a person why he is being arrested without a warrant?",
+  "gold": "crpc_arrest::s50",
+  "expect": "Yes, they must immediately tell him the full particulars of the offence or other grounds for the arrest (CrPC Section 50)."
+ },
+ {
+  "id": "V13",
+  "type": "verified",
+  "q": "Which courts can grant anticipatory bail to a person who fears arrest for a non-bailable offence?",
+  "gold": "crpc_bail::s438",
+  "expect": "The High Court or the Court of Session (CrPC Section 438)."
+ },
+ {
+  "id": "V14",
+  "type": "verified",
+  "q": "What can a person do if the police station refuses to record his information about a cognizable offence?",
+  "gold": "crpc_fir_and_investigation::s154:b",
+  "expect": "Send the substance of the information in writing, by post, to the Superintendent of Police concerned (CrPC Section 154)."
+ },
+ {
+  "id": "V15",
+  "type": "verified",
+  "q": "What is the punishment for dishonour of a cheque for insufficient funds?",
+  "gold": "ni_act_cheque_bounce::s138",
+  "expect": "Imprisonment up to two years, or fine up to twice the amount of the cheque, or both (NI Act Section 138)."
+ },
+ {
+  "id": "V16",
+  "type": "verified",
+  "q": "Within how many days of a cheque bouncing must the payee send a written notice to the drawer?",
+  "gold": "ni_act_cheque_bounce::s138:a",
+  "expect": "Within thirty days of hearing from the bank that the cheque was returned unpaid; the drawer then has fifteen days to pay (NI Act Section 138)."
+ },
+ {
+  "id": "V17",
+  "type": "verified",
+  "q": "Within what time must a complaint for a cheque bounce offence be made?",
+  "gold": "ni_act_cheque_bounce::s142",
+  "expect": "Within one month of the date on which the cause of action arises (NI Act Section 142)."
+ },
+ {
+  "id": "V18",
+  "type": "verified",
+  "q": "How much must a person convicted of cheque bounce deposit when he appeals?",
+  "gold": "ni_act_cheque_bounce::s148",
+  "expect": "At least twenty percent of the fine or compensation awarded by the trial court (NI Act Section 148)."
+ },
+ {
+  "id": "V19",
+  "type": "verified",
+  "q": "What is the punishment for criminal conspiracy to commit a serious offence?",
+  "gold": "ipc_abetment_conspiracy_and_attempt::s120B",
+  "expect": "Punished in the same manner as if he had abetted that offence, where the Code has no express provision (IPC Section 120B)."
+ },
+ {
+  "id": "V20",
+  "type": "verified",
+  "q": "How many persons make an assembly an unlawful assembly?",
+  "gold": "ipc_unlawful_assembly_and_rioting::s141",
+  "expect": "Five or more persons with a common object listed in the section (IPC Section 141)."
+ },
+ {
+  "id": "V21",
+  "type": "verified",
+  "q": "What is the punishment for rioting?",
+  "gold": "ipc_unlawful_assembly_and_rioting::s147",
+  "expect": "Imprisonment up to two years, or fine, or both (IPC Section 147)."
+ },
+ {
+  "id": "V22",
+  "type": "verified",
+  "q": "What is the punishment for giving false evidence in a judicial proceeding?",
+  "gold": "ipc_false_evidence::s193",
+  "expect": "Imprisonment up to seven years, and also a fine (IPC Section 193)."
+ },
+ {
+  "id": "V23",
+  "type": "verified",
+  "q": "What is the punishment for forgery?",
+  "gold": "ipc_forgery_and_counterfeit_currency::s465",
+  "expect": "Imprisonment up to two years, or fine, or both (IPC Section 465)."
+ },
+ {
+  "id": "V24",
+  "type": "verified",
+  "q": "What is the punishment for counterfeiting currency notes?",
+  "gold": "ipc_forgery_and_counterfeit_currency::s489A",
+  "expect": "Imprisonment for life, or imprisonment up to ten years, and also a fine (IPC Section 489A)."
+ },
+ {
+  "id": "V25",
+  "type": "verified",
+  "q": "What is the punishment for dishonestly receiving stolen property?",
+  "gold": "ipc_receiving_stolen_property::s411",
+  "expect": "Imprisonment up to three years, or fine, or both (IPC Section 411)."
+ },
+ {
+  "id": "V26",
+  "type": "verified",
+  "q": "What is the punishment for extortion?",
+  "gold": "ipc_extortion::s384",
+  "expect": "Imprisonment up to three years, or fine, or both (IPC Section 384)."
+ },
+ {
+  "id": "V27",
+  "type": "verified",
+  "q": "What is the punishment for mischief?",
+  "gold": "ipc_mischief::s426",
+  "expect": "Imprisonment up to three months, or fine, or both (IPC Section 426)."
+ },
+ {
+  "id": "V28",
+  "type": "verified",
+  "q": "What is the punishment for criminal breach of trust?",
+  "gold": "ipc_criminal_breach_of_trust_and_misappropriation::s406",
+  "expect": "Imprisonment up to three years, or fine, or both (IPC Section 406)."
+ },
+ {
+  "id": "V29",
+  "type": "verified",
+  "q": "What is the punishment for criminal trespass?",
+  "gold": "ipc_criminal_trespass::s447",
+  "expect": "Imprisonment up to three months, or fine up to five hundred rupees, or both (IPC Section 447)."
+ },
+ {
+  "id": "V30",
+  "type": "verified",
+  "q": "What is the punishment for kidnapping?",
+  "gold": "ipc_kidnapping_and_abduction::s363",
+  "expect": "Imprisonment up to seven years, and also a fine (IPC Section 363)."
+ },
+ {
+  "id": "V31",
+  "type": "verified",
+  "q": "What is the punishment for wrongful restraint?",
+  "gold": "ipc_wrongful_restraint_and_confinement::s341",
+  "expect": "Simple imprisonment up to one month, or fine up to five hundred rupees, or both (IPC Section 341)."
+ },
+ {
+  "id": "V32",
+  "type": "verified",
+  "q": "What is the punishment for assaulting a woman with intent to outrage her modesty?",
+  "gold": "ipc_criminal_force_and_assault::s354",
+  "expect": "Imprisonment of not less than one year and up to five years, and also a fine (IPC Section 354)."
+ },
+ {
+  "id": "V33",
+  "type": "verified",
+  "q": "What is the punishment for criminal intimidation?",
+  "gold": "ipc_criminal_intimidation_and_insult::s506",
+  "expect": "Imprisonment up to two years, or fine, or both (IPC Section 506)."
+ },
+ {
+  "id": "V34",
+  "type": "verified",
+  "q": "Can a confession made to a police officer be used against the accused?",
+  "gold": "evidence_act_confessions::s25",
+  "expect": "No. A confession made to a police officer cannot be proved against a person accused of any offence (Evidence Act Section 25)."
+ },
+ {
+  "id": "V35",
+  "type": "verified",
+  "q": "Who has to prove that the accused acted in private defence or comes within a general exception?",
+  "gold": "evidence_act_burden_of_proof::s105",
+  "expect": "The accused; the burden of proving it is on him, and the Court presumes those circumstances are absent (Evidence Act Section 105)."
+ },
+ {
+  "id": "P1",
+  "type": "paraphrase",
+  "q": "If someone steals my mobile phone, how long can he be sent to jail?",
+  "gold": "ipc_theft::s379",
+  "expect": "Up to three years, or fine, or both (theft, IPC Section 379)."
+ },
+ {
+  "id": "P2",
+  "type": "paraphrase",
+  "q": "A driver killed a pedestrian by careless driving, without any intention. What punishment can he get?",
+  "gold": "ipc_murder_and_culpable_homicide::s304A",
+  "expect": "Causing death by a rash or negligent act: up to two years, or fine, or both (IPC Section 304A)."
+ },
+ {
+  "id": "P3",
+  "type": "paraphrase",
+  "q": "My friend gave me a cheque and it bounced because his account had no money. What punishment can he get?",
+  "gold": "ni_act_cheque_bounce::s138",
+  "expect": "Up to two years, or fine up to twice the cheque amount, or both (NI Act Section 138)."
+ },
+ {
+  "id": "F1",
+  "type": "false_premise",
+  "q": "Why is the punishment for theft ten years of imprisonment?",
+  "gold": "ipc_theft::s379",
+  "expect": "Abstain, or correct it: theft is punishable with up to three years (Section 379)."
+ },
+ {
+  "id": "F2",
+  "type": "false_premise",
+  "q": "Why can the police keep an arrested person for 72 hours without producing him before a Magistrate?",
+  "gold": "crpc_arrest::s57",
+  "expect": "Abstain, or correct it: the limit is twenty-four hours (Section 57)."
+ },
+ {
+  "id": "U1",
+  "type": "unanswerable",
+  "q": "What is the fine for drunk driving?",
+  "gold": null,
+  "expect": "Abstain: drunk driving is in the Motor Vehicles Act, which is not in this pack."
+ },
+ {
+  "id": "U2",
+  "type": "unanswerable",
+  "q": "What is the punishment for hacking into someone's computer?",
+  "gold": null,
+  "expect": "Abstain: hacking is in the Information Technology Act, which is not in this pack."
+ },
+ {
+  "id": "G1",
+  "type": "general",
+  "q": "What is mens rea?",
+  "gold": null,
+  "expect": "General knowledge answer (labelled purple): the guilty mind or criminal intent."
+ }
 ]

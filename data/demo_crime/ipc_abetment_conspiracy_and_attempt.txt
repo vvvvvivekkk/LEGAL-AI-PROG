@@ -1,0 +1,61 @@
+THE INDIAN PENAL CODE (ACT NO. 45 OF 1860)
+Jurisdiction: India
+Enacted: 6 October 1860
+
+CHAPTER V — OF ABETMENT (WITH CHAPTER V-A, CRIMINAL CONSPIRACY)
+
+Section 107. Abetment of a thing.
+A person abets the doing of a thing, who: Instigates any person to do that thing; or Engages with one or more other person or persons in any conspiracy for the doing of that thing, if an act or illegal omission takes place in pursuance of that conspiracy, and in order to the doing of that thing; or Intentionally aids, by any act or illegal omission, the doing of that thing.
+
+Section 108. Abettor.
+A person abets an offence, who abets either the commission of an offence, or the commission of an act which would be an offence, if committed by a person capable by law of committing an offence with the same intention or knowledge as that of the abettor.
+
+Section 108A. Abetment in India of offences outside India.
+A person abets an offence within the meaning of this Code who, in India, abets the commission of any act without and beyond India which would constitute an offence if committed in India.
+
+Section 109. Punishment of abetment if the act abetted is committed in consequence and where no express provision is made for its punishment.
+Whoever abets any offence shall, if the act abetted is committed in consequence of the abetment, and no express provision is made by this Code for the punishment of such abetment, be punished with the punishment provided for the offence.
+
+Section 110. Punishment of abetment if person abetted does act with different intention from that of abettor.
+Whoever abets the commission of an offence shall, if the person abetted does the act with a different intention or knowledge from that of the abettor, be punished with the punishment provided for the offence which would have been committed if the act had been done with the intention or knowledge of the abettor and with no other.
+
+Section 111. Liability of abettor when one act abetted and different act done.
+When an Act is abetted and a different act is done, the abettor is liable for the act done, in the same manner and to the same extent as if he had directly abetted it.
+
+Section 112. Abettor when liable to cumulative punishment for act abetted and for act done.
+If the act for which the abettor is liable under the last preceding section is committed in addition to the act abetted, and constitute a distinct offence, the abettor is liable to punishment for each of the offences.
+
+Section 113. Liability of abettor for an effect caused by the act abetted different from that intended by the abettor.
+When an act is abetted with the intention on the part of the abettor of causing a particular effect, and an act for which the abettor is liable in consequence of the abetment, causes a different effect from that intended by the abettor, the abettor is liable for the effect caused, in the same manner and to the same extent as if he had abetted the act with the intention of causing that effect, provided he knew that the act abetted was likely to cause that effect.
+
+Section 114. Abettor present when offence is committed.
+Whenever any person who if absent would be liable to be punished as an abettor, is present when the act or offence for which he would be punishable in consequence of the abetment is committed, he shall be deemed to have committed such act or offence.
+
+Section 115. Abetment of offence punishable with death or imprisonment for life if offence not committed.
+Whoever abets the commission of an offence punishable with death or imprisonment for life, shall, if that offence be not committed in consequence of the abetment, and no express provision is made by this Code for the punishment of such abetment, be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine;
+
+Section 116. Abetment of offence punishable with imprisonment -- if offence be not committed.
+Whoever abets an offence punishable with imprisonment shall, if that offence be not committed in consequence of the abetment, and no express provision is made by this Code for the punishment of such abetment, be punished with imprisonment of any description provided for that offence for a term which may extend to one-fourth part of the longest term provided for that offence; or with such fine as is provided for that offence, or with both;
+
+Section 117. Abetting commission of offence by the public or by more than ten persons.
+Whoever abets the commission of an offence by the public generally or by any number or class of persons exceeding ten, shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both.
+
+Section 118. Concealing design to commit offence punishable with death or imprisonment for life.
+Whoever intending to facilitate or knowing it to be likely that he will thereby facilitate the commission of an offence punishable with death or imprisonment for life, voluntarily conceals, by any act or illegal omission, the existence of a design to commit such offence or makes any representation which he knows to be false respecting such design:
+
+Section 119. Public servant concealing design to commit offence which it is his duty to prevent.
+Whoever, being a public servant intending to facilitate or knowing it to be likely that he will thereby facilitate the commission of an offence which it is his duty as such public servant to prevent, voluntarily conceals, by any act or illegal omission, the existence of a design to commit such offence, or makes any representation which he knows to be false respecting such design:
+
+Section 120. Concealing design to commit offence punishable with imprisonment.
+Whoever, intending to facilitate or knowing it to be likely that he will thereby facilitate the commission of an offence punishable with imprisonment, voluntarily conceals, by any act or illegal omission, the existence of a design to commit such offence, or makes any representation which he knows to be false respecting such design:
+
+Section 120A. Definition of criminal conspiracy.
+When two or more persons agree to do, or cause to be done: an illegal act, or an act which is not illegal by illegal means, such an agreement is designated a criminal conspiracy; Provided that no agreement except an agreement to commit an offence shall amount to a criminal conspiracy unless some act besides the agreement is done by one or more parties to such agreement in pursuance thereof.
+
+Section 120B. Punishment of criminal conspiracy.
+Whoever is a party to a criminal conspiracy to commit an offence punishable with death, imprisonment for life or rigorous imprisonment for a term of two years or upwards, shall, where no express provision is made in this Code for the punishment of such a conspiracy, be punished in the same manner as if he had abetted such offence. Whoever is a party to a criminal conspiracy other than a criminal conspiracy to commit an offence punishable as aforesaid shall be punished with imprisonment of either description for a term not exceeding six months, or with fine or with both.
+
+CHAPTER XXIII — OF ATTEMPTS TO COMMIT OFFENCES
+
+Section 511. Punishment for attempting to commit offences punishable with imprisonment for life or other imprisonment.
+Whoever attempts to commit an offence punishable by this Code with imprisonment for life or imprisonment, or to cause such an offence to be committed, and in such attempt does any act towards the commission of the offence, shall, where no express provision is made by this Code for the punishment of such attempt, be punished with imprisonment of any description provided for the offence, for a term which may extend to one-half of the imprisonment for life or, as the case may be, one-half of the longest term of imprisonment provided for that offence, or with such fine as is provided for the offence, or with both.

@@ -1,0 +1,60 @@
+THE INDIAN EVIDENCE ACT, 1872 (ACT NO. 1 OF 1872)
+Jurisdiction: India
+Enacted: 15 March 1872
+
+CHAPTER VII — OF THE BURDEN OF PROOF
+
+Section 101. Burden of proof.
+Whoever desires any Court to give judgment as to any legal right or liability dependent on the existence of facts which he asserts, must prove that those facts exist. When a person is bound to prove the existence of any fact, it is said that the burden of proof lies on that person.
+
+Section 102. On whom burden of proof lies.
+The burden of proof in a suit or proceeding lies on that person who would fail if no evidence at all were given on either side.
+
+Section 103. Burden of proof as to particular fact.
+The burden of proof as to any particular fact lies on that person who wishes the Court to believe in its existence, unless it is provided by any law that the proof of that fact shall lie on any particular person.
+
+Section 104. Burden of proving fact to be proved to make evidence admissible.
+The burden of proving any fact necessary to be proved in order to enable any person to give evidence of any other fact is on the person who wishes to give such evidence.
+
+Section 105. Burden of proving that case of accused comes within exceptions.
+When a person is accused of any offence, the burden of proving the existence of circumstances bringing the case within any of the General Exceptions in the Indian Penal Code, (45 of 1860) or within any special exception or proviso contained in any other part of the same Code, or in any law defining the offence, is upon him, and the Court shall presume the absence of such circumstances.
+
+Section 106. Burden of proving fact especially within knowledge.
+When any fact is especially within the knowledge of any person, the burden of proving that fact is upon him.
+
+Section 107. Burden of proving death of person known to have been alive within thirty years.
+When the question is whether a man is alive or dead, and it is shown that he was alive within thirty years, the burden of proving that he is dead is on the person who affirms it.
+
+Section 108. Burden of proving that person is alive who has not been heard of for seven years.
+Provided that when the question is whether a man is alive or dead, and it is proved that he has not been heard of for seven years by those who would naturally have heard of him if he had been alive, the burden of proving that he is alive is shifted to the person who affirms it.
+
+Section 109. Burden of proof as to relationship in the cases of partners, landlord and tenant, principal and agent.
+When the question is whether persons are partners, landlord and tenant, or principal and agent, and it has been shown that they have been acting as such, the burden of proving that they do not stand, or have ceased to stand, to each other in those relationships respectively, is on the person who affirms it.
+
+Section 110. Burden of proof as to ownership.
+When the question is whether any person is owner of anything of which he is shown to be in possession, the burden of proving that he is not the owner is on the person who affirms that he is not the owner.
+
+Section 111. Proof of good faith in transactions where one party is in relation of active confidence.
+Where there is a question as to the good faith of a transaction between parties, one of whom stands to the other in a position of active confidence, the burden of proving the good faith of the transaction is on the party who is in a position of active confidence.
+
+Section 111A. Presumption as to certain offences.
+Where a person is accused of having committed any offence specified in sub-section (2), in— any area declared to be a disturbed areas under any enactment, for the time being in force, making provision for the suppression of disorder and restoration and maintenance of public order; or any area in which there has been, over a period of more than one month, extensive disturbance of the public peace, and it is shown that such person had been at a place in such area at a time when firearms or explosives were used at or from that place to attack or resist the members of any armed forces or the forces charged with the maintenance of public order acting in the discharge of their duties, it shall be presumed, unless the contrary is shown, that such person had committed such offence. The offences referred to in sub-section (1) are the following, namely— an offence under section 121, section 121A section 122 or section 123 of the Indian Penal Code (45 of 1860);
+Clause (a): criminal conspiracy or attempt to commit, or abatement of, an offence under section 122 or section 123 of the Indian Penal Code (45 of 1860).
+
+Section 112. Birth during marriage, conclusive proof of legitimacy.
+The fact that any person was born during the continuance of a valid marriage between his mother and any man, or within two hundred and eighty days after its dissolution, the mother remaining unmarried, shall be conclusive proof that he is the legitimate son of that man, unless it can be shown that the parties to the marriage had no access to each other at any time when he could have been begotten.
+
+Section 113. Proof of cession of territory.
+A notification in the Official Gazette that any portion of British territory has before the commencement of Part III of the Government of India Act, 1935 (26 Geo. 5, ch. 2) been ceded to any Native State, Prince or Ruler, shall be conclusive proof that a valid cession of such territory took place at the dale mentioned in such notification
+
+Section 113A. Presumption as to abetment of suicide by a married woman.
+When the question is whether the commission of suicide by a woman had been abetted by her husband or any relative of her husband and it is shown that she had committed suicide within a period of seven years from the date of her marriage and that her husband or such relative of her husband had subjected her to cruelty, the Court may presume, having regard to all the other circumstances of the case, that such suicide had been abetted by her husband or by such relative of her husband.
+
+Section 113B. Presumption as to dowry death.
+When the question is whether a person has committed the dowry death of a woman and it is shown that soon before her death such woman has been subjected by such person to cruelty or harassment for, or in connection with, any demand for dowry, the Court shall presume that such person had caused the dowry death.
+
+Section 114. Court may presume existence of certain facts.
+The Court may presume the existence of any fact which it thinks likely to have happened, regard being had to the common course of natural events, human conduct and public and private business, in their relation to the facts of the particular case.
+
+Section 114A. Presumption as to absence of consent in certain prosecution for rape.
+In a prosecution for rape under clause (a), clause (b), clause ( c), clause (d), clause (e), clause (f), clause (g), clause (h), clause (i), clause (j), clause (k), clause (l), clause (m) or clause (n) of sub-section (2) of section 376 of the Indian Penal Code (45 of 1860), where sexual intercourse by the accused is proved and the question is whether it was without the consent of the woman alleged to have been raped and such woman states in her evidence before the court that she did not consent, the court shall presume that she did not consent. Explanations In this section, “sexual intercourse” shall mean any of the acts mentioned in clauses (a) to (d) of section 375 of the Indian Penal Code (45 of 1860).

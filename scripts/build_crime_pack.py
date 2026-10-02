@@ -1,4 +1,5 @@
-"""Build the criminal-law demo pack (data/demo_crime/) from public Indian Act text.
+"""Build the criminal-law demo pack (data/demo_crime/), one file per topic, from
+public Indian Act text.
 
 Source: the IndiaLaw.db SQLite file in the public GitHub repository
 civictech-India/Indian-Law-Penal-Code-Json (section-by-section text of Indian Acts
@@ -7,11 +8,11 @@ taken from India Code). Clone it first:
     git clone --depth 1 https://github.com/civictech-India/Indian-Law-Penal-Code-Json
     python scripts/build_crime_pack.py Indian-Law-Penal-Code-Json/IndiaLaw.db
 
-Each selected chapter is written in the statute format the SAC parser reads
-(src/ingestion/structure.py): a title line, "CHAPTER <roman> — <name>",
-"Section <n>. <title>." and the section text. The wording of every section is the
-source text, unchanged apart from whitespace and the
-source website's amendment footnotes, which are removed.
+Each file holds one topic (for example theft, bail or cheque bounce), written in
+the statute format the SAC parser reads (src/ingestion/structure.py): a title
+line, "CHAPTER <roman> — <name>", "Section <n>. <title>." and the section text.
+The wording of every section is the source text, unchanged apart from whitespace
+and the source website's amendment footnotes, which are removed.
 
 The source text has lost the official (1)/(a) labels inside sections, so sections
 are not split by their sub-sections. A section longer than MAX_WORDS is split at
@@ -31,50 +32,56 @@ from pathlib import Path
 OUT_DIR = Path(__file__).resolve().parent.parent / "data" / "demo_crime"
 MAX_WORDS = 180
 
-# (file name, header lines, table, [(chapter numeral, chapter name, [section ids])])
+IPC = ["THE INDIAN PENAL CODE (ACT NO. 45 OF 1860)", "Jurisdiction: India", "Enacted: 6 October 1860"]
+CRPC = ["THE CODE OF CRIMINAL PROCEDURE, 1973 (ACT NO. 2 OF 1974)", "Jurisdiction: India", "Enacted: 25 January 1974"]
+NIA = ["THE NEGOTIABLE INSTRUMENTS ACT, 1881 (ACT NO. 26 OF 1881)", "Jurisdiction: India", "Enacted: 9 December 1881"]
+IEA = ["THE INDIAN EVIDENCE ACT, 1872 (ACT NO. 1 OF 1872)", "Jurisdiction: India", "Enacted: 15 March 1872"]
+HUMAN_BODY = "OF OFFENCES AFFECTING THE HUMAN BODY"
+PROPERTY = "OF OFFENCES AGAINST PROPERTY"
+
+# One file per topic: (file name, header lines, table,
+#                      [(chapter numeral, chapter name, (first section, last section))])
 PACK = [
-    (
-        "indian_penal_code_1860_crimes.txt",
-        ["THE INDIAN PENAL CODE (ACT NO. 45 OF 1860)", "Jurisdiction: India", "Enacted: 6 October 1860"],
-        "IPC",
-        [
-            ("IV", "GENERAL EXCEPTIONS", ("76", "106")),
-            ("XVI", "OF OFFENCES AFFECTING THE HUMAN BODY", ("299", "311")),
-            ("XVI", "OF OFFENCES AFFECTING THE HUMAN BODY: OF HURT", ("319", "338")),
-            ("XVI", "OF OFFENCES AFFECTING THE HUMAN BODY: OF WRONGFUL RESTRAINT AND WRONGFUL CONFINEMENT", ("339", "348")),
-            ("XVI", "OF OFFENCES AFFECTING THE HUMAN BODY: OF CRIMINAL FORCE AND ASSAULT", ("349", "358")),
-            ("XVI", "OF OFFENCES AFFECTING THE HUMAN BODY: OF KIDNAPPING, ABDUCTION, SLAVERY AND FORCED LABOUR", ("359", "374")),
-            ("XVII", "OF OFFENCES AGAINST PROPERTY", ("378", "462")),
-            ("XX", "OF OFFENCES RELATING TO MARRIAGE (WITH CHAPTER XX-A, OF CRUELTY BY HUSBAND OR RELATIVES OF HUSBAND)", ("493", "498A")),
-            ("XXI", "OF DEFAMATION", ("499", "502")),
-            ("XXII", "OF CRIMINAL INTIMIDATION, INSULT AND ANNOYANCE", ("503", "510")),
-            ("XXIII", "OF ATTEMPTS TO COMMIT OFFENCES", ("511", "511")),
-        ],
-    ),
-    (
-        "code_of_criminal_procedure_1973_arrest_fir_bail.txt",
-        ["THE CODE OF CRIMINAL PROCEDURE, 1973 (ACT NO. 2 OF 1974)", "Jurisdiction: India", "Enacted: 25 January 1974"],
-        "CRPC",
-        [
-            ("V", "ARREST OF PERSONS", ("41", "60A")),
-            ("XII", "INFORMATION TO THE POLICE AND THEIR POWERS TO INVESTIGATE", ("154", "176")),
-            ("XXXIII", "PROVISIONS AS TO BAIL AND BONDS", ("436", "450")),
-        ],
-    ),
-    (
-        "negotiable_instruments_act_1881_cheque_bounce.txt",
-        ["THE NEGOTIABLE INSTRUMENTS ACT, 1881 (ACT NO. 26 OF 1881)", "Jurisdiction: India", "Enacted: 9 December 1881"],
-        "NIA",
-        [
-            ("XVII", "OF PENALTIES IN CASE OF DISHONOUR OF CERTAIN CHEQUES FOR INSUFFICIENCY OF FUNDS IN THE ACCOUNTS", ("138", "148")),
-        ],
-    ),
+    ("ipc_general_exceptions.txt", IPC, "IPC", [("IV", "GENERAL EXCEPTIONS", ("76", "106"))]),
+    ("ipc_abetment_conspiracy_and_attempt.txt", IPC, "IPC", [
+        ("V", "OF ABETMENT (WITH CHAPTER V-A, CRIMINAL CONSPIRACY)", ("107", "120B")),
+        ("XXIII", "OF ATTEMPTS TO COMMIT OFFENCES", ("511", "511")),
+    ]),
+    ("ipc_unlawful_assembly_and_rioting.txt", IPC, "IPC", [("VIII", "OF OFFENCES AGAINST THE PUBLIC TRANQUILLITY", ("141", "160"))]),
+    ("ipc_false_evidence.txt", IPC, "IPC", [("XI", "OF FALSE EVIDENCE AND OFFENCES AGAINST PUBLIC JUSTICE", ("191", "229A"))]),
+    ("ipc_murder_and_culpable_homicide.txt", IPC, "IPC", [("XVI", f"{HUMAN_BODY}: OFFENCES AFFECTING LIFE", ("299", "311"))]),
+    ("ipc_hurt_and_grievous_hurt.txt", IPC, "IPC", [("XVI", f"{HUMAN_BODY}: OF HURT", ("319", "338"))]),
+    ("ipc_wrongful_restraint_and_confinement.txt", IPC, "IPC", [("XVI", f"{HUMAN_BODY}: OF WRONGFUL RESTRAINT AND WRONGFUL CONFINEMENT", ("339", "348"))]),
+    ("ipc_criminal_force_and_assault.txt", IPC, "IPC", [("XVI", f"{HUMAN_BODY}: OF CRIMINAL FORCE AND ASSAULT", ("349", "358"))]),
+    ("ipc_kidnapping_and_abduction.txt", IPC, "IPC", [("XVI", f"{HUMAN_BODY}: OF KIDNAPPING, ABDUCTION, SLAVERY AND FORCED LABOUR", ("359", "374"))]),
+    ("ipc_theft.txt", IPC, "IPC", [("XVII", f"{PROPERTY}: OF THEFT", ("378", "382"))]),
+    ("ipc_extortion.txt", IPC, "IPC", [("XVII", f"{PROPERTY}: OF EXTORTION", ("383", "389"))]),
+    ("ipc_robbery_and_dacoity.txt", IPC, "IPC", [("XVII", f"{PROPERTY}: OF ROBBERY AND DACOITY", ("390", "402"))]),
+    ("ipc_criminal_breach_of_trust_and_misappropriation.txt", IPC, "IPC", [("XVII", f"{PROPERTY}: OF CRIMINAL MISAPPROPRIATION OF PROPERTY AND OF CRIMINAL BREACH OF TRUST", ("403", "409"))]),
+    ("ipc_receiving_stolen_property.txt", IPC, "IPC", [("XVII", f"{PROPERTY}: OF THE RECEIVING OF STOLEN PROPERTY", ("410", "414"))]),
+    ("ipc_cheating.txt", IPC, "IPC", [("XVII", f"{PROPERTY}: OF CHEATING, AND OF FRAUDULENT DEEDS AND DISPOSITIONS OF PROPERTY", ("415", "424"))]),
+    ("ipc_mischief.txt", IPC, "IPC", [("XVII", f"{PROPERTY}: OF MISCHIEF", ("425", "440"))]),
+    ("ipc_criminal_trespass.txt", IPC, "IPC", [("XVII", f"{PROPERTY}: OF CRIMINAL TRESPASS", ("441", "462"))]),
+    ("ipc_forgery_and_counterfeit_currency.txt", IPC, "IPC", [
+        ("XVIII", "OF OFFENCES RELATING TO DOCUMENTS: FORGERY", ("463", "477A")),
+        ("XVIII", "OF OFFENCES RELATING TO CURRENCY-NOTES AND BANK-NOTES", ("489A", "489E")),
+    ]),
+    ("ipc_marriage_offences_and_cruelty_498a.txt", IPC, "IPC", [("XX", "OF OFFENCES RELATING TO MARRIAGE (WITH CHAPTER XX-A, OF CRUELTY BY HUSBAND OR RELATIVES OF HUSBAND)", ("493", "498A"))]),
+    ("ipc_defamation.txt", IPC, "IPC", [("XXI", "OF DEFAMATION", ("499", "502"))]),
+    ("ipc_criminal_intimidation_and_insult.txt", IPC, "IPC", [("XXII", "OF CRIMINAL INTIMIDATION, INSULT AND ANNOYANCE", ("503", "510"))]),
+    ("crpc_arrest.txt", CRPC, "CRPC", [("V", "ARREST OF PERSONS", ("41", "60A"))]),
+    ("crpc_fir_and_investigation.txt", CRPC, "CRPC", [("XII", "INFORMATION TO THE POLICE AND THEIR POWERS TO INVESTIGATE", ("154", "176"))]),
+    ("crpc_bail.txt", CRPC, "CRPC", [("XXXIII", "PROVISIONS AS TO BAIL AND BONDS", ("436", "450"))]),
+    ("ni_act_cheque_bounce.txt", NIA, "NIA", [("XVII", "OF PENALTIES IN CASE OF DISHONOUR OF CERTAIN CHEQUES FOR INSUFFICIENCY OF FUNDS IN THE ACCOUNTS", ("138", "148"))]),
+    ("evidence_act_confessions.txt", IEA, "IEA", [("II", "OF THE RELEVANCY OF FACTS: ADMISSIONS AND CONFESSIONS", ("24", "30"))]),
+    ("evidence_act_burden_of_proof.txt", IEA, "IEA", [("VII", "OF THE BURDEN OF PROOF", ("101", "114A"))]),
 ]
 
 COLUMNS = {
     "IPC": ("Section", "section_title", "section_desc"),
     "CRPC": ("section", "section_title", "section_desc"),
     "NIA": ("section", "section_title", "section_desc"),
+    "IEA": ("section", "section_title", "section_desc"),
 }
 
 
