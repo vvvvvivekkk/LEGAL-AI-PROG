@@ -14,6 +14,8 @@ against the text of that section. Copy a question into the Ask page exactly as w
 
 ## The 15 best questions for a live demo
 
+For a demo where you upload the files in front of the audience, follow [`live_demo.md`](live_demo.md).
+
 | # | Question | What should happen |
 |---|---|---|
 | 1 | What is the punishment for murder? | Verified: Death, or imprisonment for life, and also a fine (IPC Section 302). |
