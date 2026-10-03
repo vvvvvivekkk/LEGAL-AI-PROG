@@ -43,13 +43,15 @@ Show Home: **0 documents, 0 chunks**.
 
 ## Step 2: Upload the five files (2 minutes)
 
-On the Ingest page, upload the five files one by one and click **Ingest and index** each time.
+On the Ingest page, select the five files together (Ctrl+click in the file picker, or drag all five
+onto the box) and click **Ingest and index 5 files**. Each file gets its own row with its status and
+chunk count.
 
 > "Each file is split by Section and Clause, not by fixed-size pieces. Each piece gets an id
 > like `ipc_theft::s379`, Section 379, which the AI must cite. Each piece is turned into an
 > embedding for meaning search and added to the keyword index."
 
-Point at the green "Indexed by legal structure" message and the chunk table after each upload.
+Point at the green "Indexed 5 documents" message, then click **Show chunks** on `ipc_theft.txt`.
 Then show Home: **5 documents, 98 chunks**.
 
 **Duplicate check:** upload `ipc_theft.txt` again.
@@ -104,8 +106,8 @@ again in a new chat: **What is the punishment for theft?**
 (Optional, to make the point stronger: upload `ipc_defamation.txt` now and ask question 12 again.
 It should now be Verified, citing `ipc_defamation` s500.)
 
-**After the demo:** upload the other 22 files from `data/demo_crime/` (the ones already in the
-index will just show "Duplicate document", which is fine) to answer any question from
+**After the demo:** select all 27 files in `data/demo_crime/` at once (the five already in the
+index will show "Already indexed", which is fine), or run `python scripts/ingest_folder.py`, to answer any question from
 [`questions.md`](questions.md).
 
 ## If something goes wrong

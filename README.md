@@ -112,7 +112,9 @@ start.bat
 .venv-lc\Scripts\activate && uvicorn lc.api:app      # backend (LangChain) on :8000
 cd web && npm run dev                                 # UI on :5173, calls :8000 (web/.env)
 
-# The LangChain backend keeps its own index, data/lancedb_lc: add documents on the Ingest page.
+# The LangChain backend keeps its own index, data/lancedb_lc, on this machine only (not in git).
+# Add documents on the Ingest page (select one file or many), or load a whole folder at once:
+python scripts/ingest_folder.py                      # the 27-file crime pack in data/demo_crime
 # Reference implementation (plain Python), instead of the LangChain one, same port:
 .venv\Scripts\activate && uvicorn src.api.main:app
 

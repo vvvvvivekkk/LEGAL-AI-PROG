@@ -7,8 +7,11 @@ against the text of that section. Copy a question into the Ask page exactly as w
 ## Before you start
 
 1. Start the app with `start.bat`.
-2. On the Ingest page, upload the 27 `.txt` files from `data/demo_crime/`. The message
-   "Duplicate document … already indexed" only means that file is already uploaded.
+2. On the Ingest page, select all 27 `.txt` files in `data/demo_crime/` at once (Ctrl+A in the
+   file picker) and click **Ingest and index 27 files**. Or, with the backend running, run
+   `python scripts/ingest_folder.py`. "Already indexed" only means that file is already uploaded.
+   The index lives in `data\lancedb_lc` on your machine and is not in git, so a fresh clone or a
+   deleted folder starts empty: load the files again.
 3. If other documents are indexed too (old contracts, the earlier 3-file crime version),
    remove them so answers come only from these files. The web app has no delete button, so
    either delete one document at http://localhost:8000/docs (**DELETE /documents/{source_id}**,

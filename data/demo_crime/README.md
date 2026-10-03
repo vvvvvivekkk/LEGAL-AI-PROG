@@ -3,8 +3,9 @@
 27 files of real Indian criminal law, one topic per file (theft, murder, bail, cheque
 bounce, …). Each file is written in the format the structure parser reads, so it is split by
 Section (SAC) and every answer cites a real section, such as `ipc_theft::s379`. Upload the
-files on the Ingest page (all of them, or only the topics you need), then ask the questions
-below on the Ask page.
+files on the Ingest page (select all 27 at once, or only the topics you need), or run
+`python scripts/ingest_folder.py` with the backend up, then ask the questions below on the Ask
+page. The index is local (`data/lancedb_lc`, not in git), so load the pack once on each machine.
 
 | File | Act | Sections | Sections in file | Chunks |
 |---|---|---|---|---|
