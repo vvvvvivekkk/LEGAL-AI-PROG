@@ -62,7 +62,6 @@ src/
 web/                  React SPA — the product UI, calls src/api/ over HTTP
 data/                 small sample corpora only (large corpora/model weights are gitignored)
 experiments/          per-run configs + results
-tests/                mirrors src/
 ```
 
 ## Development phases

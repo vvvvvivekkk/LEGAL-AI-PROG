@@ -96,7 +96,6 @@ src/
 web/                  React SPA — Ingestion / Retrieval / Evaluation / Proof viewer views, calls src/api/ over HTTP
 data/                 small sample corpora only (gitignored: large corpora, model weights, lancedb data)
 experiments/          per-run configs + results
-tests/                mirrors src/
 ```
 
 

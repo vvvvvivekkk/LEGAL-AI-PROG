@@ -44,13 +44,15 @@ experiments/*/logs/
 node_modules/
 npm-debug.log*
 
-# Claude Code local state (never shared/pushed) -- but .claude/skills/ and
-# .claude/agents/ ARE shared/committed, see the negations below
-.claude/*
-!.claude/skills/
-!.claude/agents/
+# Coding-assistant files and the test suites: kept on the development machine only
+.claude/
 .claude-session*
+.claudeignore
 .mcp.json
+CLAUDE.md
+AGENTS.md
+tests/
+lc/tests/
 
 # Secrets / env (the example template is tracked)
 .env
