@@ -2,6 +2,13 @@
 
 A Retrieval-Augmented Generation system for legal Q&A where every answer is checked against its sources before it's shown, and ships with a structured, auditable proof of where each claim came from.
 
+## Watch
+
+[![Legal AI demo: ask a question, get a verified answer, click the citation to see the proof](docs/media/legal_ai_preview.gif)](docs/media/legal_ai_explainer.mp4)
+
+- **[Explainer video (2 min 12 s)](docs/media/legal_ai_explainer.mp4):** the problem, the idea, the six-step pipeline, the V1–V6 verification layers, a live demo and the results. Narration script: [voiceover-script.md](docs/media/voiceover-script.md).
+- **[Teaser (24 s)](docs/media/legal_ai_teaser.mp4):** the short version.
+
 **New here / wondering what's actually novel about this?** Read [docs/architecture-production.md](docs/architecture-production.md) — a full production-RAG reference stack mapped against this project layer by layer, with evidence for each claim.
 
 **Guides:** [System guide](docs/guide/README.md) ([PDF](docs/guide/Legal_AI_System_Guide.pdf)) covers every page, workflow and algorithm. The research paper is in [docs/paper/paper.pdf](docs/paper/paper.pdf).
