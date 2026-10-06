@@ -1,0 +1,609 @@
+Anurag University
+23EG106C49_AI_P.Lakshmi 
+Narasimha_Article_PC2_05-10-2026.pdf
+ 
+Document Details
+Submission ID
+trn:oid:::3618:153715355
+Submission Date
+Oct 5, 2026, 2:13 PM GMT+5:30
+Download Date
+Oct 5, 2026, 4:00 PM GMT+5:30
+File Name
+23EG106C49_AI_P.Lakshmi Narasimha_Article_PC2_05-10-2026.pdf
+File Size
+241.4 KB
+5 Pages
+3,084 Words
+19,368 Characters
+Page 1 of 7 - Cover Page
+Submission ID
+trn:oid:::3618:153715355
+Page 1 of 7 - Cover Page
+Submission ID
+trn:oid:::3618:153715355
+
+--- PAGE BREAK ---
+23% detected as AI
+The percentage indicates the combined amount of likely AI-generated text as 
+well as likely AI-generated text that was also likely revised by AI.
+Caution: Review required.
+It is essential to understand the limitations of AI detection before making decisions 
+about a student’s work. We encourage you to learn more about Turnitin’s AI detection 
+capabilities before using the tool.
+11
+AI-generated
+23%
+Likely generated or likely generated and revised by AI.
+Disclaimer
+Our AI writing assessment is designed to help educators identify text that might be prepared by a generative AI tool. Our AI writing assessment may not always be accurate (it may misidentify 
+writing that is likely human generated as AI generated and likely AI generated as human generated) so it should not be used as the sole basis for adverse actions against a student. It takes 
+further scrutiny and human judgment in conjunction with an organization's application of its specific academic policies to determine whether any academic misconduct has occurred.
+Page 2 of 7 - AI Writing Overview
+Submission ID
+trn:oid:::3618:153715355
+Page 2 of 7 - AI Writing Overview
+Submission ID
+trn:oid:::3618:153715355
+
+--- PAGE BREAK ---
+A Multilingual V oice-Enabled Dual-Index RAG
+Framework for Agricultural Advisory and
+Government Scheme Assistance
+Abstract—Smallholder farmers frequently require two dis-
+tinct forms of information: practical agricultural guidance for
+crop and plant problems, and administrative information about
+government schemes, subsidies, credit facilities, insurance, and
+eligibility. Conventional large language model (LLM) chatbots
+can provide fluent responses but may retrieve or generate
+information outside the intended domain, while language and
+literacy barriers can limit accessibility. This paper presents
+a multilingual, voice-enabled, dual-index Retrieval-Augmented
+Generation (RAG) framework designed to address these issues.
+The proposed system maintains separate knowledge bases for
+agricultural diagnostics and government benefit schemes, with
+independent FAISS dense indices, BM25 sparse retrieval, and
+SQLite metadata stores. Query processing combines dense se-
+mantic retrieval with sparse lexical retrieval, Maximal Marginal
+Relevance (MMR), and Cross-Encoder reranking. A multilingual
+pipeline supports English, Hindi, Telugu, and Tamil through
+script-based language detection, adaptive translation, Faster-
+Whisper speech recognition, and Edge-TTS speech synthesis.
+The generation layer is provider-agnostic and supports local
+and cloud LLM inference. An evaluation framework measures
+Faithfulness, Context Precision, Context Recall, and Answer
+Relevance, with baseline configurations for direct LLM, dense-
+only RAG, and sparse-only RAG. The architecture is intended to
+reduce domain contamination, improve retrieval precision, and
+make agricultural information more accessible through text and
+voice interaction.
+Index Terms —Retrieval-Augmented Generation, agricultural
+AI, multilingual NLP, voice chatbot, hybrid retrieval, BM25,
+FAISS, Cross-Encoder, government schemes, domain isolation
+I. I NTRODUCTION
+A. Motivation
+Agriculture is an information-intensive domain in which
+timely access to reliable knowledge can influence crop man-
+agement, disease response, fertilizer use, and access to public
+support programs. Smallholder farmers may need answers that
+combine technical agricultural knowledge with administrative
+information about welfare schemes. However, these two infor-
+mation categories have different semantics and different risks.
+Crop diagnosis may involve symptoms, treatment practices,
+pesticides, or fertilizer recommendations, whereas government
+schemes involve eligibility rules, documentation, benefits,
+deadlines, and application procedures.
+The project addresses this problem through a conversational
+AI system that combines Retrieval-Augmented Generation
+with multilingual and voice interaction. The system is ex-
+plicitly organized around two isolated domains: agricultural
+diagnostics and government schemes. This separation is in-
+tended to reduce retrieval contamination between technically
+different knowledge sources while maintaining a common
+conversational interface.
+B. Challenges in Existing RAG Systems
+A conventional single-index RAG system can retrieve se-
+mantically similar passages from unrelated parts of a corpus.
+In an agricultural assistant, this may cause a query about crop
+disease to retrieve government-scheme passages, or a question
+about subsidy eligibility to retrieve agronomic advice. In addi-
+tion, dense retrieval may overlook exact policy terms, scheme
+names, document identifiers, or crop-specific keywords that
+are well handled by lexical retrieval. Conversely, purely lexical
+retrieval can miss semantically related passages expressed with
+different terminology. These observations motivate a hybrid
+retrieval architecture.
+Accessibility presents a second challenge. Farmers may
+prefer regional languages or spoken interaction rather than
+English text input. The proposed system therefore incorporates
+automatic speech recognition, language identification, machine
+translation fallback, and multilingual speech synthesis.
+C. Research Objectives
+The main objectives are:
+• design a domain-isolated dual-index RAG architecture for
+agricultural advisory and government benefit navigation;
+• combine dense semantic retrieval and sparse BM25 re-
+trieval to improve candidate recall;
+• apply Cross-Encoder reranking to improve the ordering
+of retrieved evidence;
+• support English, Hindi, Telugu, and Tamil through adap-
+tive multilingual query processing;
+• provide voice input and voice output to improve accessi-
+bility; and
+• establish an evaluation framework for faithfulness, con-
+text quality, answer relevance, recall, and system latency.
+D. Contributions
+The principal contributions are:
+• an isolated dual knowledge-base architecture with inde-
+pendent dense/sparse indices and metadata stores;
+• a hybrid BM25–FAISS retrieval strategy with score nor-
+malization and MMR diversity ranking;
+Page 3 of 7 - AI Writing Submission
+Submission ID
+trn:oid:::3618:153715355
+Page 3 of 7 - AI Writing Submission
+Submission ID
+trn:oid:::3618:153715355
+
+--- PAGE BREAK ---
+• Cross-Encoder reranking using BAAI/bge-reranker-base
+and weighted score fusion;
+• an adaptive multilingual query-routing pipeline with
+translation caching;
+• a voice-enabled interface using Faster-Whisper ASR and
+Edge-TTS; and
+• a reproducible evaluation framework with direct-LLM,
+dense-RAG, and sparse-RAG baselines.
+II. R ELATED WORK
+Retrieval-Augmented Generation combines information re-
+trieval with generative language models so that responses
+can be conditioned on external evidence rather than relying
+exclusively on parametric model knowledge. Dense retrieval
+represents queries and documents in continuous vector spaces
+and is effective for semantic matching. Sparse methods such
+as BM25 emphasize exact lexical overlap and remain valuable
+for specialized terminology, names, identifiers, and policy
+language. Hybrid retrieval combines these complementary
+signals.
+Reranking provides a further refinement stage. A Cross-
+Encoder jointly processes a query and candidate document,
+allowing richer pairwise relevance estimation than independent
+embedding similarity. In multilingual conversational systems,
+speech recognition, language identification, machine transla-
+tion, and speech synthesis can form an accessibility layer over
+a retrieval and generation backend.
+The proposed work combines these established components
+with domain isolation. Its research focus is the system-level
+integration of domain-isolated retrieval, hybrid ranking, mul-
+tilingual routing, voice interaction, and evaluation for agricul-
+tural advisory and benefit navigation.
+III. P ROBLEM FORMULATION
+Let Q denote a user query and let M ∈ { A, G} represent
+the selected domain, where A is agricultural diagnostics and
+G is government schemes. Each domain maintains its own
+corpus DM , dense index FM , sparse index BM , and metadata
+store SM . Retrieval is restricted to the selected domain:
+R(Q, M) = Retrieve( Q, FM , BM ). (1)
+The retrieved candidate set is reranked using a Cross-Encoder.
+The resulting evidence is supplied to an LLM through a
+grounded prompt. For multilingual input, the system first
+identifies the language and either retrieves directly from native-
+language documents or translates the query to English when
+native documents are unavailable.
+IV. P ROPOSED SYSTEM METHODOLOGY
+A. Overall Architecture
+The system follows a layered architecture. A farmer or
+extension worker interacts with a Streamlit interface through
+text or microphone input. V oice input is transcribed using
+Faster-Whisper. Language detection then determines the pro-
+cessing route. The selected domain routes the query to either
+the agricultural or government-scheme knowledge base. Each
+TABLE I
+MAJOR SYSTEM LAYERS
+Layer Components Purpose
+Interface Streamlit Text/voice interaction and dis-
+play
+API FastAPI Asynchronous REST backend
+Language Script detection,
+translation, Faster-
+Whisper, Edge-TTS
+Multilingual voice pipeline
+Domain Agriculture / Gov-
+ernment Schemes
+Knowledge-base isolation
+Retrieval FAISS + BM25 +
+MMR
+Candidate retrieval and diver-
+sity
+Reranking BGE reranker Fine-grained relevance order-
+ing
+Generation Ollama / Groq Grounded response generation
+Storage SQLite + FAISS Metadata, embeddings,
+indices, caches
+knowledge base contains a FAISS dense index, a SimpleBM25
+sparse index, and SQLite metadata. Hybrid retrieval produces
+candidates, MMR reduces redundancy, and a Cross-Encoder
+reranks the candidates. A prompt builder constrains the LLM
+to use retrieved evidence. Responses are cached and may be
+synthesized into speech.
+B. Document Ingestion and Chunking
+Documents are parsed from multiple formats, metadata is
+extracted, and text is recursively segmented using hierarchical
+separators. The configured target chunk length is 1000 char-
+acters with an overlap of 200 characters:
+Chunki = D[si : si + L], s i+1 = si + L − O, (2)
+where L = 1000 and O = 200 . The overlap preserves
+continuity across chunk boundaries and reduces the risk that
+a relevant statement is separated from its supporting context.
+C. Dense Retrieval
+The dense retrieval component uses BAAI/bge-small-en-
+v1.5 to represent queries and document chunks in a 384-
+dimensional embedding space. FAISS is used for efficient
+nearest-neighbor search. Cosine similarity is computed as
+Sdense(Q, D) = vq · vd
+∥vq∥2∥vd∥2
+. (3)
+D. Sparse BM25 Retrieval
+The sparse component uses a pure-Python SimpleBM25
+implementation. Okapi BM25 scores documents according to
+term frequency, inverse document frequency, and document-
+length normalization:
+SBM25(Q, D) =
+X
+i
+IDF (qi)
+× f (qi, D)(k1 + 1)
+f (qi, D) + k1(1 − b + b|D|/avgdl) .
+(4)
+with k1 = 1.5 and b = 0.75.
+Page 4 of 7 - AI Writing Submission
+Submission ID
+trn:oid:::3618:153715355
+Page 4 of 7 - AI Writing Submission
+Submission ID
+trn:oid:::3618:153715355
+
+--- PAGE BREAK ---
+E. Hybrid Retrieval
+Because BM25 scores are not naturally bounded in the same
+way as cosine similarity, the BM25 score is normalized against
+the maximum score among candidate documents. The final
+hybrid score is
+Shybrid = αSdense + (1 − α)eSBM25, (5)
+where α = 0.5 and
+eSBM25(D) = SBM25(D)
+maxd′∈C SBM25(d′) . (6)
+F . Maximal Marginal Relevance
+MMR is used to reduce redundant retrieval:
+MMR = arg max
+Di
+
+λS(Q, Di) − (1 − λ) max
+Dj ∈S
+S(Di, Dj)
+
+,
+(7)
+where the configured diversity coefficient is λ = 0.5.
+G. Cross-Encoder Reranking
+The top hybrid candidates are passed to BAAI/bge-reranker-
+base. The raw reranking logit is converted through a sigmoid
+function:
+σ(z) = 1
+1 + e−z . (8)
+The final score is
+Scombined = 0.4Shybrid + 0.6σ(zrerank). (9)
+This weighted fusion gives the Cross-Encoder a greater con-
+tribution to final ordering while retaining information from the
+initial hybrid retrieval stage.
+H. Grounded Generation and Caching
+The prompt builder supplies selected evidence and imposes
+grounding constraints and multilingual response requirements.
+The RAG chain coordinates conversation history, retrieval,
+reranking, prompt construction, response caching, confidence
+estimation, and LLM invocation. A sliding conversation win-
+dow of five turns provides conversational context without
+allowing unbounded history growth.
+V. M ULTILINGUAL AND VOICE PIPELINE
+A. Speech Recognition
+V oice input is processed with Faster-Whisper. The im-
+plementation supports int8 execution on CPU/CUDA and is
+configured for speech recognition with automatic language
+detection. The implementation targets low-latency processing;
+the target reported by the project should be verified experi-
+mentally on the final deployment hardware.
+B. Language Detection and Translation
+The language helper uses Unicode script ranges for rapid
+identification of Devanagari, Telugu, and Tamil text. English
+queries can be searched directly. For non-English queries,
+the system checks whether native-language documents are
+available. If not, the query is translated to English before
+retrieval. Translation results are cached in SQLite to reduce
+repeated translation overhead.
+TABLE II
+IMPLEMENTATION STACK
+Module Implementation
+Frontend Streamlit
+Backend FastAPI + Uvicorn
+Dense embeddings BAAI/bge-small-en-v1.5
+Vector search FAISS
+Sparse search SimpleBM25
+Reranking BAAI/bge-reranker-base
+Local LLM Ollama with Qwen2.5 7B / Llama 3.2
+Cloud LLM Groq with supported Llama/Mixtral mod-
+els
+ASR Faster-Whisper
+TTS Edge-TTS; gTTS fallback
+Metadata/cache SQLite
+Languages English, Hindi, Telugu, Tamil
+C. Speech Synthesis
+Edge-TTS is used for neural speech synthesis. The con-
+figured voices include en-US-GuyNeural for English, hi-IN-
+MadhurNeural for Hindi, te-IN-MohanNeural for Telugu, and
+ta-IN-ValluvarNeural for Tamil.
+VI. G OVERNMENT SCHEME KNOWLEDGE BASE
+The government-scheme module is a separate knowledge
+domain rather than an additional collection mixed into the
+agricultural diagnostic index. It is intended to support ques-
+tions about schemes, subsidies, eligibility, benefits, documen-
+tation, and application-related guidance. The separate inges-
+tion pipeline and storage structure allow the system to route
+scheme questions only to the scheme corpus while preserving
+the agricultural diagnostic corpus for plant and crop queries.
+This separation is important because the two domains con-
+tain different types of entities and decision criteria. A scheme
+query may depend on farmer category, location, eligibility
+conditions, or required documents, whereas a crop query
+may depend on symptoms, disease indicators, or management
+recommendations.
+VII. S YSTEM IMPLEMENTATION
+The backend exposes query, voice-query, history, document,
+and health endpoints. The LLM layer uses an abstract client
+interface and factory pattern, allowing local and cloud in-
+ference providers to be switched without changing the RAG
+orchestration layer.
+The architecture also accounts for constrained deploy-
+ment environments. Heavy neural models can create memory
+pressure on low-memory cloud instances; therefore, model
+loading, embedding generation, and remote inference should
+be evaluated separately when deploying to resource-limited
+infrastructure.
+VIII. E XPERIMENTAL SETUP
+The research evaluation should be conducted using a bench-
+mark set containing representative questions from both do-
+mains. The agricultural portion should include crop symptoms,
+disease identification, treatment guidance, fertilizer and man-
+agement questions. The government portion should include
+Page 5 of 7 - AI Writing Submission
+Submission ID
+trn:oid:::3618:153715355
+Page 5 of 7 - AI Writing Submission
+Submission ID
+trn:oid:::3618:153715355
+
+--- PAGE BREAK ---
+TABLE III
+BASELINE CONFIGURATIONS
+Configuration Description
+Direct LLM LLM answers without retrieval evidence
+Dense RAG FAISS-based semantic retrieval
+Sparse RAG BM25-only retrieval
+Hybrid RAG FAISS + BM25 score fusion
+Hybrid + Reranker Hybrid retrieval followed by Cross-
+Encoder
+Proposed Dual-
+Index RAG
+Domain isolation + hybrid retrieval +
+reranking + multilingual routing
+scheme eligibility, benefits, documents, application proce-
+dures, and related administrative questions. Queries should be
+distributed across English, Hindi, Telugu, and Tamil where
+appropriate.
+A. Baselines
+B. Evaluation Metrics
+The implemented evaluator measures four semantic RAG
+metrics. Faithfulness estimates whether generated answer sen-
+tences are supported by retrieved context. Context Precision
+measures semantic relevance of retrieved chunks to the query.
+Answer Relevance measures similarity between the query
+and generated response. Context Recall measures whether
+reference information is represented in the retrieved context.
+The current implementation uses a semantic similarity
+threshold of 0.65 for sentence-level faithfulness and recall
+decisions:
+Faithfulness = 1
+|SA|
+X
+s
+I
+
+max
+c
+Sim(s, c) ≥ 0.65
+
+. (10)
+ContextPrecision = 1
+k
+X
+i
+Sim(Q, Ci). (11)
+AnswerRelevance = Sim(Embed(Q), Embed(R)). (12)
+ContextRecall = 1
+|G|
+X
+g
+I
+
+max
+c
+Sim(g, c) ≥ 0.65
+
+. (13)
+C. Additional System Metrics
+Additional measurements should include retrieval latency,
+reranking latency, LLM generation latency, end-to-end latency,
+ASR latency, translation latency and cache-hit rate, retrieval
+Precision@K/Recall@K or MRR where ground-truth rele-
+vance labels are available, and cross-domain retrieval contam-
+ination rate.
+IX. R ESULTS AND DISCUSSION
+The numerical values below are retained from the supplied
+project benchmark tables. They should be treated as experi-
+mental results only if they correspond to an actual executed
+benchmark run with the stated configuration and dataset.
+A. Retrieval Component Ablation Study
+B. Multilingual Evaluation
+C. Discussion
+The primary research hypothesis is that domain isolation
+can reduce irrelevant cross-domain evidence, while hybrid
+retrieval can improve robustness to both semantic variation
+and exact terminology. The reranker is expected to improve
+final candidate ordering at additional computational cost.
+Multilingual translation fallback increases language coverage
+when native documents are unavailable, but introduces an
+additional translation stage that should be reflected in latency
+measurements. V oice interaction improves accessibility but
+introduces ASR and TTS overhead. These hypotheses should
+be confirmed or rejected using measured results rather than
+assumed.
+D. Domain Contamination Analysis
+A particularly relevant experiment is to construct mixed-
+domain queries and measure how often the retrieved top-
+k evidence contains chunks from the wrong domain. This
+directly tests the central architectural motivation.
+X. L IMITATIONS
+The quality of answers depends on the completeness, cor-
+rectness, freshness, and language coverage of the underlying
+documents. Translation fallback may introduce semantic er-
+rors, especially for agricultural terminology and policy-specific
+phrases. The current semantic evaluation metrics depend on
+embedding similarity thresholds and therefore do not replace
+expert human evaluation. Cross-Encoder reranking improves
+relevance estimation but increases computational cost and
+latency. Cloud deployment on low-memory instances may
+require remote embeddings, lazy model loading, or higher-
+resource infrastructure. Government scheme information can
+change over time; production deployment requires systematic
+document versioning and update procedures. The architecture
+should not be described as eliminating hallucination; this must
+be evaluated empirically.
+XI. C ONCLUSION AND FUTURE WORK
+This paper presented a dual-index, multilingual, voice-
+enabled RAG architecture for agricultural advisory and gov-
+ernment benefit navigation. The proposed system separates
+agricultural diagnostics from government schemes, combines
+dense FAISS retrieval with sparse BM25 retrieval, applies
+MMR for diversity and Cross-Encoder reranking for relevance
+refinement, and integrates multilingual voice processing. The
+modular implementation supports both local and cloud LLM
+inference and includes an evaluation framework for quantita-
+tive validation.
+Future work includes larger multilingual benchmark
+datasets, expert evaluation by agricultural specialists, policy-
+document freshness monitoring, improved cross-lingual re-
+trieval, domain-specific embedding models, stronger eligi-
+bility reasoning for government schemes, on-device infer-
+ence, and systematic latency/memory optimization for edge
+Page 6 of 7 - AI Writing Submission
+Submission ID
+trn:oid:::3618:153715355
+Page 6 of 7 - AI Writing Submission
+Submission ID
+trn:oid:::3618:153715355
+
+--- PAGE BREAK ---
+TABLE IV
+QUANTITATIVE PERFORMANCE BENCHMARKS ACROSS RAG S YSTEM ARCHITECTURES
+System Architecture Faithfulness Context Precision Context Recall Answer Relevance Latency
+(%) (%) (%) (%) (ms)
+Direct LLM (No RAG) 22.4 – – 58.2 1850
+Sparse BM25 RAG 71.5 61.8 78.5 69.4 320
+Dense FAISS RAG 81.2 68.4 85.0 76.8 380
+Hybrid RAG (FAISS + BM25) 88.6 72.8 92.5 81.5 410
+Hybrid + Cross-Encoder Reranker 94.2 75.4 100.0 86.8 680
+Proposed Dual-Index RAG 96.5 78.2 100.0 89.5 710
+TABLE V
+RETRIEVAL COMPONENT ABLATION STUDY
+Component Variant Research Question Empirical Finding and Measured Result
+Dense Only How well does semantic retrieval
+perform alone?
+Achieves 68.4% Precision and 85.0% Recall. Strong on concept matching, but misses specific crop
+disease names and numerical fertilizer ratios.
+BM25 Only How well does lexical matching per-
+form alone?
+Achieves 61.8% Precision and 78.5% Recall. Captures exact policy keywords, but fails on synonymous
+phrasing.
+Dense + BM25 (Hybrid) Does score fusion improve candi-
+date quality?
+Boosts Context Recall to 92.5% and Precision to 72.8%. Candidate overlap between Dense and Sparse
+is only 11.1%, indicating strong complementarity.
+Hybrid + MMR ( λ =
+0.5)
+Does diversity ranking reduce re-
+dundant context?
+Reduces context sentence redundancy by 42.6%, optimizing token efficiency without loss in recall.
+Hybrid + Reranker Does pairwise reranking improve
+top-k ordering?
+Achieves 100.0% Context Recall and increases Faithfulness to 94.2% by placing the most relevant
+diagnostic chunk at Top 1 ( Scombined = 0 .9179).
+Dual-Index Isolation Does domain separation reduce
+cross-domain retrieval?
+Reported cross-domain wrong-domain retrieval decreases from 31.4% to 0.0%.
+TABLE VI
+MULTILINGUAL AND VOICE PIPELINE BENCHMARK
+Language Text Precision / Recall Voice Precision / Recall ASR WER (%) Latency (ms)
+English 78.2 / 100.0 76.5 / 98.0 4.2 710
+Hindi 74.8 / 95.5 72.1 / 93.0 7.8 1120
+Telugu 72.5 / 94.0 69.8 / 91.5 9.4 1180
+Tamil 71.9 / 93.5 68.9 / 90.5 9.8 1210
+deployment. A further research direction is an explicit
+domain-contamination benchmark comparing mixed-index and
+domain-isolated retrieval under controlled query sets.
+XII. R EPRODUCIBILITY
+The project can be executed locally using:
+uvicorn backend.api:app --host 0.0.0.0
+--port 8000 --reload
+streamlit run app.py
+python -m evaluation.benchmark_runner
+The implementation includes dedicated ingestion pipelines for
+agricultural documents and government schemes, separate re-
+TABLE VII
+CROSS -DOMAIN RETRIEVAL CONTAMINATION BENCHMARK
+Domain Query Set Single Mixed In-
+dex
+Proposed Dual-
+Index
+Crop Diagnostic
+Queries
+28.5% 0.0%
+Government
+Scheme Queries
+34.2% 0.0%
+Overall Contamina-
+tion Rate
+31.4% 0.0%
+trieval storage, evaluation scripts, and baseline configurations,
+enabling controlled experiments and reproducibility.
+REFERENCES
+[1] S. Rupavatharam, M. Patil, S. Mitnala, N. Katakamsetti, and N. N.
+Reddy, “AI Research Assistant in Dryland Agriculture – Retrieval Aug-
+mented Generation Based Chat Bot for Literature Review,” ICRISAT,
+2026.
+[2] “AI Chatbot for Farmers: Transforming Agriculture,” International Jour-
+nal of Multidisciplinary Research and Growth Evaluation, 2025.
+[3] “CropGuard: Empowering Agriculture with AI Driven Plant Disease
+Detection Chatbot,” International Journal of Intelligent Systems and
+Applications in Engineering (IJISAE), 2024.
+[4] “AI Powered Agriculture Optimization Chatbot Using Retrieval-
+Augmented Generation and Generative AI,” in Proceedings of an IEEE
+Conference, 2025.
+[5] “Empowering Farmers with AI: A Chatbot for On-Demand Agricultural
+Knowledge,” in Proceedings of an IEEE Conference, 2025.
+Page 7 of 7 - AI Writing Submission
+Submission ID
+trn:oid:::3618:153715355
+Page 7 of 7 - AI Writing Submission
+Submission ID
+trn:oid:::3618:153715355
+
+--- PAGE BREAK ---
