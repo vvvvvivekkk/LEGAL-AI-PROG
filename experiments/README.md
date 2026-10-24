@@ -165,7 +165,8 @@ now the default). These runs check that they behave identically.
 
 ### Folders that are not runs
 
-- **`ui_reskin/`:** before and after screenshots of the orange-and-white redesign.
+- **`ui_reskin/`:** screenshots of the orange-and-white redesign (`after/`), used by
+  `docs/paper/make_figures.py` for the paper's UI figures.
   It has no `config.json` or `results.json`, so the Evaluation page doesn't list it.
 - **`*/screens`, `*/screenshots`:** evidence images for the runs above.
 

@@ -76,7 +76,7 @@ There is no standalone "Proof viewer" page — the proof/verification-audit expe
 
 Visual language: a real design system (not utility-class defaults) — deliberate color/typography tokens, motion (page transitions, staggered reveals, hover/press states — Framer Motion) on every page, and a lightweight animated/3D hero on Home. This is what makes it read as a product, not a debug harness.
 
-An early Streamlit multi-page app served ingestion/retrieval debugging during phases 1-2 development and can stay around as an internal-only tool, but it is not and never was the product UI. Nothing in `src/` (ingestion, chunking, embedding, indexing, retrieval, generation, verification, evaluation) depends on either frontend; both just call the FastAPI service.
+An early Streamlit multi-page app served ingestion/retrieval debugging during phases 1-2 development; it has since been removed. Nothing in `src/` (ingestion, chunking, embedding, indexing, retrieval, generation, verification, evaluation) depends on the frontend; the web app only calls the FastAPI service.
 
 ## 7. Repo layout
 
@@ -92,7 +92,6 @@ src/
   verification/       V1–V6 modules, VCS scoring, proof object builder
   evaluation/         metrics + ablation runners
   api/                FastAPI app (the only thing the UI talks to)
-  ui/                 legacy Streamlit debug app (optional, not the product UI)
 web/                  React SPA — Ingestion / Retrieval / Evaluation / Proof viewer views, calls src/api/ over HTTP
 data/                 small sample corpora only (gitignored: large corpora, model weights, lancedb data)
 experiments/          per-run configs + results

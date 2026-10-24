@@ -5,7 +5,6 @@ fastapi
 uvicorn
 python-multipart
 httpx
-streamlit
 pytest
 pypdf
 python-dotenv

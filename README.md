@@ -65,7 +65,6 @@ src/
   verification/       V1–V6 proof-chain modules, VCS scoring
   evaluation/         metrics + ablation runners
   api/                FastAPI app (the only thing the UI talks to)
-  ui/                 legacy Streamlit debug app (optional, not the product UI)
 web/                  React SPA — the product UI, calls src/api/ over HTTP
 data/                 small sample corpora only (large corpora/model weights are gitignored)
 experiments/          per-run configs + results
@@ -117,9 +116,6 @@ cd web && npm run dev                                 # UI on :5173, calls :8000
 python scripts/ingest_folder.py                      # the 27-file crime pack in data/demo_crime
 # Reference implementation (plain Python), instead of the LangChain one, same port:
 .venv\Scripts\activate && uvicorn src.api.main:app
-
-# optional: legacy Streamlit debug app, doesn't need the backend running
-streamlit run src/ui/app.py
 ```
 
 (Exact entry points land as each phase is built — see the phase docs for current status.)

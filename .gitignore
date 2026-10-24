@@ -66,3 +66,4 @@ lc/tests/
 .venv-lc/
 data/lancedb_lc*/
 data/chats_lc*/
+RE-HUMAN/
