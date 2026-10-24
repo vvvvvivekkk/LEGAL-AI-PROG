@@ -124,6 +124,12 @@ streamlit run src/ui/app.py
 
 (Exact entry points land as each phase is built — see the phase docs for current status.)
 
+## Hosting online
+
+The app can run for free on a Hugging Face Space (one Docker container serving the web
+app and the API, with the crime demo pack loaded on start). Steps: [docs/deploy.md](docs/deploy.md);
+the Space's files are in [`deploy/huggingface/`](deploy/huggingface/).
+
 ## Datasets & evaluation
 
 What has actually been run (every number is logged under `experiments/`):
