@@ -1,0 +1,24 @@
+{
+  // GitHub Codespaces: creates a cloud machine with Legal AI installed and running on
+  // port 7860, the crime demo pack loaded. Steps: docs/deploy.md.
+  "name": "Legal AI",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "20" },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  // The three local models need about 4 GB of memory: the 2-core, 8 GB machine.
+  "hostRequirements": { "cpus": 2, "memory": "8gb" },
+  "containerEnv": { "LLM_PROVIDER": "groq" },
+  "secrets": {
+    "GROQ_API_KEY": {
+      "description": "Your Groq API key, used to write the answers (https://console.groq.com/keys)."
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "postStartCommand": "bash .devcontainer/start.sh",
+  "forwardPorts": [7860],
+  "portsAttributes": {
+    "7860": { "label": "Legal AI", "onAutoForward": "openBrowser" }
+  }
+}

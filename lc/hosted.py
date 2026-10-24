@@ -1,6 +1,6 @@
 """One-process deployment: the API under /api and the built web app at /.
 
-For hosting on a single URL (Hugging Face Spaces: see deploy/huggingface/). The
+For hosting on a single URL (GitHub Codespaces or a Docker host: docs/deploy.md). The
 API is mounted under /api so its routes never collide with the web app's page
 URLs (/ingest, /evaluation, ...). Local development keeps using
 `uvicorn lc.api:app` with the Vite dev server.
@@ -11,6 +11,7 @@ and NLI models are loaded once, so a fresh container can answer straight away.
 Set LEGAL_AI_SEED=0 to skip this.
 
     uvicorn lc.hosted:app --host 0.0.0.0 --port 7860
+    python -m lc.hosted        # download the local models ahead of the first start
 """
 
 from __future__ import annotations
@@ -87,3 +88,18 @@ if WEB_DIST.is_dir():
         if path and file.is_file() and WEB_DIST in file.parents:
             return FileResponse(file)
         return FileResponse(WEB_DIST / "index.html")
+
+
+def load_models() -> None:
+    """Load the embedding, reranker and NLI models, downloading them on first use."""
+    from lc.embeddings import default_embeddings
+    from lc.retrieval import default_cross_encoder_compressor
+    from src.verification.nli import RobertaMNLI
+
+    default_embeddings().embed_query("warm up")
+    default_cross_encoder_compressor()
+    RobertaMNLI().classify("Theft is punishable.", "Theft is punishable.")
+
+
+if __name__ == "__main__":
+    load_models()

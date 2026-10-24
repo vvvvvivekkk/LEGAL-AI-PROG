@@ -126,9 +126,10 @@ streamlit run src/ui/app.py
 
 ## Hosting online
 
-The app can run for free on a Hugging Face Space (one Docker container serving the web
-app and the API, with the crime demo pack loaded on start). Steps: [docs/deploy.md](docs/deploy.md);
-the Space's files are in [`deploy/huggingface/`](deploy/huggingface/).
+The app can run for free on GitHub Codespaces: **Code → Codespaces → Create codespace**
+installs it and starts the web app and API on one public link, with the crime demo pack
+loaded. A Dockerfile for other hosts is in [`deploy/huggingface/`](deploy/huggingface/).
+Steps: [docs/deploy.md](docs/deploy.md).
 
 ## Datasets & evaluation
 

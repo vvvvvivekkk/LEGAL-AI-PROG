@@ -1,75 +1,111 @@
-# Host Legal AI online (free, Hugging Face Spaces)
+# Host Legal AI online
 
-The whole app (web pages and API) runs as one Docker container on a free Hugging Face
-Space: 2 CPUs and 16 GB of memory, enough for the three local models. It gets a public
-address like `https://<your-username>-legal-ai.hf.space`.
+The app needs about 4 GB of memory for its three local models (embeddings, reranker,
+NLI), so free plans with 512 MB (Render, Koyeb) cannot run it. The free way that fits
+is **GitHub Codespaces**: a cloud machine with 2 CPUs and 8 GB of memory, a public link,
+and no card needed.
 
-On start it loads the 27-file criminal-law demo pack (`data/demo_crime`) and the models
-by itself, so visitors can ask questions straight away.
+In both setups below the web app and the API run as one server: the pages at `/`, the
+API under `/api`. On start the 27-file criminal-law demo pack (`data/demo_crime`) is
+loaded by itself, so visitors can ask questions straight away.
 
-## What you need
+## GitHub Codespaces (free)
 
-- A free Hugging Face account: https://huggingface.co/join
-- Your Groq API key (the one in your local `.env`)
+**Free allowance (personal accounts):** 120 core-hours a month, about 60 hours on this
+2-core machine, and 15 GB of storage. The app uses about 5 GB of disk.
 
-## Create the Space (one time, about 10 minutes plus the build)
+### One-time setup
 
-1. On Hugging Face, click your profile picture → **New Space**.
-2. Fill in:
-   - **Space name:** `legal-ai`
-   - **License:** any (for example MIT)
-   - **SDK:** **Docker**, template **Blank**
-   - **Hardware:** **CPU basic · Free**
-   - **Visibility:** **Public**, so your guide can open it without an account
-3. Click **Create Space**.
-4. In the new Space, open **Files** → **Add file** → **Upload files** and upload these two
-   files from this repository's `deploy/huggingface/` folder:
-   - `Dockerfile`
-   - `README.md` (replaces the one Hugging Face created)
-
-   Click **Commit changes to main**. The build starts.
-5. Open **Settings** → **Variables and secrets** → **New secret**:
+1. **Add your Groq key as a secret.** On GitHub: profile picture → **Settings** →
+   **Codespaces** → **Secrets** → **New secret**.
    - **Name:** `GROQ_API_KEY`
    - **Value:** your Groq key
-
-   Never put the key in a file; a secret is hidden and only the running app can read it.
-6. Open the **Logs** tab. The first build takes about 10–20 minutes: it installs the
-   Python packages and downloads the models (about 2.5 GB). When the app starts you will see:
+   - **Repository access:** select `LEGAL-AI-PROG`
+2. **Give it longer before it sleeps (optional).** Same page, **Default idle timeout**: set
+   240 minutes (the default is 30).
+3. **Create the codespace.** On the repository page: **Code** → **Codespaces** → **⋯** →
+   **New with options**. Machine type **2-core**, then **Create codespace**.
+4. **Wait for the first setup (about 10–15 minutes).** The terminal shows it installing
+   the Python packages, building the web app and downloading the models. When it ends:
 
    ```
-   INFO:     seeded 27 files: 27 documents, 493 chunks
-   INFO:     models loaded; ready
+   Legal AI is starting on port 7860 (log: /tmp/legal-ai.log).
+   Port 7860 is public: https://<codespace-name>-7860.app.github.dev
    ```
 
-7. Open the **App** tab, or the direct address `https://<your-username>-legal-ai.hf.space`.
-   Home should show 27 documents and 493 chunks. Ask "What is the punishment for theft?":
-   it should be Verified, citing `ipc_theft` Section 379.
+5. **Check the port is public.** Open the **Ports** tab. Port 7860 ("Legal AI") should say
+   **Public**. If it says Private: right-click it → **Port visibility** → **Public**.
+   Private links ask visitors to sign in to GitHub.
+6. **Open the link** in the Ports tab (the globe icon), or the address the terminal printed.
+   Home should show 27 documents and 493 chunks (give it a minute after start). Ask
+   "What is the punishment for theft?": it should be Verified, citing `ipc_theft` Section 379.
 
-## After you change the code
+Send that link to your guide. It stays the same for this codespace.
 
-Push to `main` on GitHub as usual, then in the Space open **Settings** → **Factory
-rebuild**. The build downloads the latest code from GitHub; nothing needs uploading again.
+### Before a demo, and after
 
-## Good to know
+- **Start it:** go to https://github.com/codespaces and open your codespace. The app starts
+  by itself. Open the link once yourself to check it answers.
+- **Stop it when done:** https://github.com/codespaces → **⋯** → **Stop codespace**. A running
+  codespace uses your free hours even when nobody visits.
+- **It stops by itself** after the idle timeout without activity in the codespace window,
+  so start it shortly before the demo.
+- **It is deleted after 30 days unused** (GitHub's default). Create a new one the same way;
+  the link will change.
+
+### After you change the code
+
+In the codespace's terminal:
+
+```bash
+git pull
+bash .devcontainer/setup.sh                 # only if packages or the web app changed
+pkill -f "uvicorn lc.hosted:app"; bash .devcontainer/start.sh
+```
+
+### Good to know
 
 | | |
 |---|---|
-| **Sleep** | A free Space sleeps after about 48 hours with no visitors. The next visit wakes it, which takes a minute or two. Open it yourself shortly before a demo. |
-| **Uploads** | Files uploaded on the Ingest page stay only until the Space restarts or rebuilds; the demo pack is always loaded again on start. |
-| **Chat history** | Chats are saved on the server and listed on the Ask page for everyone who opens the Space, so visitors see each other's questions. They are cleared when the Space restarts. |
-| **Groq quota** | Every question anyone asks uses your free Groq quota. Share the link with the people who need it rather than publicly. |
-| **API docs** | The API is under `/api`, so the endpoint page is `https://<your-username>-legal-ai.hf.space/api/docs`. |
-| **Legal status** | The demo pack is the IPC, CrPC and Evidence Act as they stood before 1 July 2024. The Space's page says it is a demo, not legal advice. |
+| **Your documents** | Files uploaded on the Ingest page stay in the codespace until it is deleted. |
+| **Chat history** | Chats are saved on the server and listed on the Ask page for everyone who opens the link, so visitors see each other's questions. |
+| **Groq quota** | Every question anyone asks uses your free Groq quota. Share the link only with the people who need it. |
+| **API docs** | `https://<codespace-name>-7860.app.github.dev/api/docs` |
+| **Legal status** | The demo pack is the IPC, CrPC and Evidence Act as they stood before 1 July 2024. It is a demo, not legal advice. |
 
-## If something goes wrong
+### If something goes wrong
 
-- **Build error:** the **Logs** tab names the failing step. A temporary network error usually passes on **Factory rebuild**.
-- **Ask says the language model is not configured:** the `GROQ_API_KEY` secret is missing or misspelled. Fix it in **Settings**; the Space restarts by itself.
-- **Home shows 0 documents:** wait a minute after start (seeding runs in the background), then reload. If it stays at 0, look for a `seeding … failed` line in the logs.
+- **Ask says the language model is not configured:** the `GROQ_API_KEY` secret is missing,
+  misspelled or not given access to this repository. Fix it, then stop and start the
+  codespace so it reads the secret.
+- **The link shows nothing:** in the terminal, `tail -f /tmp/legal-ai.log` shows what the app
+  is doing. `bash .devcontainer/start.sh` starts it again.
+- **Home shows 0 documents:** loading runs in the background for about a minute after start;
+  reload. If it stays at 0, look for a `seeding … failed` line in the log.
+
+## Docker (any host with about 4 GB of memory)
+
+`deploy/huggingface/Dockerfile` builds the same app as one container listening on port
+7860. It downloads the code from GitHub during the build, so it needs no other files, and
+it downloads the models into the image. Set `GROQ_API_KEY` as a secret environment variable
+on the host.
+
+- **Hugging Face Spaces:** Docker Spaces now need a PRO plan. With one: create a Docker
+  Space, upload `deploy/huggingface/Dockerfile` and `deploy/huggingface/README.md`, add the
+  `GROQ_API_KEY` secret. **Factory rebuild** picks up new pushes.
+- **Oracle Cloud Always Free** (a free server with 24 GB of memory; sign-up needs a card for
+  identity checks), **Google Cloud Run** (free tier, needs billing set up), or any other
+  container host:
+
+  ```bash
+  docker build -t legal-ai deploy/huggingface
+  docker run -p 7860:7860 -e GROQ_API_KEY=your_key legal-ai
+  ```
 
 ## How it works
 
 `lc/hosted.py` serves the API under `/api` and the built React app at `/`, so the API's
-routes never collide with page addresses such as `/ingest` and `/evaluation`. The
-Dockerfile builds the web app with `VITE_API_BASE=/api`. Running locally is unchanged:
-`start.bat`, or `uvicorn lc.api:app` with `npm run dev`.
+routes never collide with page addresses such as `/ingest` and `/evaluation`. The web app is
+built with `VITE_API_BASE=/api`. `python -m lc.hosted` downloads the models ahead of the
+first start. Running locally is unchanged: `start.bat`, or `uvicorn lc.api:app` with
+`npm run dev`.

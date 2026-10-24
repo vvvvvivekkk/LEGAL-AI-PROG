@@ -1,4 +1,5 @@
-# Legal AI on Hugging Face Spaces (Docker Space, free CPU hardware).
+# Legal AI as one Docker container: Hugging Face Spaces (Docker Spaces now need a PRO
+# plan), or any host that runs containers with about 4 GB of memory.
 #
 # The Space holds only this file and README.md: the build downloads the code from
 # GitHub, so "Factory rebuild" in the Space's settings picks up the latest push.
@@ -46,10 +47,7 @@ COPY --from=web --chown=user /web/dist ./web/dist
 # Download the three local models into the image (about 2.5 GB), so a Space
 # waking from sleep does not fetch them again. PRELOAD_MODELS=0 skips it.
 ARG PRELOAD_MODELS=1
-RUN if [ "$PRELOAD_MODELS" = "1" ]; then python -c "\
-from lc.embeddings import default_embeddings; default_embeddings().embed_query('warm up'); \
-from lc.retrieval import default_cross_encoder_compressor; default_cross_encoder_compressor(); \
-from src.verification.nli import RobertaMNLI; RobertaMNLI().classify('a', 'a')"; fi
+RUN if [ "$PRELOAD_MODELS" = "1" ]; then python -m lc.hosted; fi
 
 EXPOSE 7860
 CMD ["uvicorn", "lc.hosted:app", "--host", "0.0.0.0", "--port", "7860"]
