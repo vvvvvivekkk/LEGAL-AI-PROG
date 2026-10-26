@@ -89,7 +89,7 @@ Each phase has its own doc under `docs/phases/` with goals, tasks, and a definit
 ## Running locally
 
 ```bash
-python -m venv .venv && source .venv/bin/activate
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 
 # build indexes from the sample corpus
