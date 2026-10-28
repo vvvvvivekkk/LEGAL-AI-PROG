@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import os
 
-DEFAULT_MODEL = "claude-sonnet-5-5"
+DEFAULT_MODEL = "claude-haiku-5-5"
 # The model thinks before it answers and thinking counts against max_tokens,
 # so the budget leaves room for both.
 DEFAULT_MAX_TOKENS = 16000

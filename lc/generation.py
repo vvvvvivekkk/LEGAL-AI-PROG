@@ -138,10 +138,10 @@ PROVIDERS = ("claude", "openai", "gemini", "groq")
 
 # Same models and output budgets as the src/ adapters. temperature is left at
 # the provider's own default, as src/ does, rather than LangChain's. Claude
-# Sonnet 5.5 thinks before it answers, and thinking counts against max_tokens,
+# Haiku 5.5 thinks before it answers, and thinking counts against max_tokens,
 # so its budget is large enough that the answer is never cut off.
 DEFAULTS = {
-    "claude": ("claude-sonnet-5-5", 16000),
+    "claude": ("claude-haiku-5-5", 16000),
     "openai": ("gpt-4o", 1024),
     "gemini": ("gemini-2.5-flash", 4096),
     "groq": ("openai/gpt-oss-120b", 4096),

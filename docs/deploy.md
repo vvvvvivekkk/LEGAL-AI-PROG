@@ -71,8 +71,8 @@ pkill -f "uvicorn lc.hosted:app"; bash .devcontainer/start.sh
 |---|---|
 | **Your documents** | Files uploaded on the Ingest page stay in the codespace until it is deleted. |
 | **Chat history** | Chats are saved on the server and listed on the Ask page for everyone who opens the link, so visitors see each other's questions. |
-| **Claude API cost** | Answers are written by Claude Sonnet 5.5 (`claude-sonnet-5-5`, $2 per million input tokens and $10 per million output tokens). Every question anyone asks is billed to your Anthropic account, so share the link only with the people who need it, and set a monthly spend limit under **Limits** in the Anthropic console. |
-| **Another model** | Add a Codespaces secret or variable `LLM_MODEL`, for example `claude-haiku-5-5` for a cheaper model, then restart the codespace. |
+| **Claude API cost** | Answers are written by Claude Haiku 5.5 (`claude-haiku-5-5`, $0.10 per million input tokens and $0.50 per million output tokens, about 0.2 cents a question). Every question anyone asks is billed to your Anthropic account, so share the link only with the people who need it, and set a monthly spend limit under **Limits** in the Anthropic console. |
+| **Another model** | Add a Codespaces secret or variable `LLM_MODEL`, for example `claude-sonnet-5-5` for a stronger but costlier model ($2 / $10 per million tokens), then restart the codespace. |
 | **API docs** | `https://<codespace-name>-7860.app.github.dev/api/docs` |
 | **Legal status** | The demo pack is the IPC, CrPC and Evidence Act as they stood before 1 July 2024. It is a demo, not legal advice. |
 
