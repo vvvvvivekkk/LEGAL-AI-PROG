@@ -45,7 +45,7 @@ Ingestion → SAC Chunking → Embedding → LanceDB (hybrid: vector + FTS + RRF
 | Vector DB | **LanceDB** — embedded, local, file-based, native hybrid search |
 | Sparse/lexical | LanceDB full-text index (BM25-backed) |
 | Reranker | cross-encoder (BGE-reranker) |
-| Generation LLM | pluggable — Claude / GPT-4o / Gemini (Flash) adapters, selected by `LLM_PROVIDER` |
+| Generation LLM | Claude Sonnet 5.5 (`claude-sonnet-5-5`) through the Claude API by default; GPT-4o / Gemini / Groq adapters remain selectable with `LLM_PROVIDER` |
 | NLI (verification) | roberta-large-mnli or legal-domain NLI model |
 | Backend | FastAPI |
 | UI | React (Vite + React Router) SPA "Legal AI" — Home / Ingest / Ask / Search / Evaluation; talks only to the FastAPI backend |

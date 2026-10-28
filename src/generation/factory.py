@@ -4,6 +4,7 @@ The pipeline calls get_adapter() and never names a provider itself. Which
 backend is used is decided entirely by env vars:
 
     LLM_PROVIDER     one of: claude, openai, gemini, groq   (default: claude)
+    ANTHROPIC_API_KEY the Anthropic key (claude); LLM_API_KEY is used if it is unset
     LLM_API_KEY      the provider API key (claude / openai / groq)
     GEMINI_API_KEY   the Google AI Studio key (gemini)
     GROQ_API_KEY     the Groq key (groq); LLM_API_KEY is used if it is unset
@@ -34,7 +35,9 @@ def get_adapter(
     if provider == "claude":
         from src.generation.adapters.claude import ClaudeAdapter
 
-        return ClaudeAdapter(api_key=api_key or env("LLM_API_KEY"), **model_kw)
+        return ClaudeAdapter(
+            api_key=api_key or env("ANTHROPIC_API_KEY") or env("LLM_API_KEY"), **model_kw
+        )
     if provider == "openai":
         from src.generation.adapters.openai import OpenAIAdapter
 
@@ -57,7 +60,7 @@ def get_adapter(
 # own variable; the generic LLM_API_KEY is accepted as a fallback for the
 # providers that have no separate key of their own historically.
 PROVIDER_KEY_ENV: dict[str, tuple[str, ...]] = {
-    "claude": ("LLM_API_KEY",),
+    "claude": ("ANTHROPIC_API_KEY", "LLM_API_KEY"),
     "openai": ("LLM_API_KEY",),
     "gemini": ("GEMINI_API_KEY",),
     "groq": ("GROQ_API_KEY", "LLM_API_KEY"),

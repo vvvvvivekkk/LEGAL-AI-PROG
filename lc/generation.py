@@ -137,9 +137,11 @@ class CitationOutputParser(BaseOutputParser[ParsedAnswer]):
 PROVIDERS = ("claude", "openai", "gemini", "groq")
 
 # Same models and output budgets as the src/ adapters. temperature is left at
-# the provider's own default, as src/ does, rather than LangChain's.
+# the provider's own default, as src/ does, rather than LangChain's. Claude
+# Sonnet 5.5 thinks before it answers, and thinking counts against max_tokens,
+# so its budget is large enough that the answer is never cut off.
 DEFAULTS = {
-    "claude": ("claude-sonnet-4-6", 1024),
+    "claude": ("claude-sonnet-5-5", 16000),
     "openai": ("gpt-4o", 1024),
     "gemini": ("gemini-2.5-flash", 4096),
     "groq": ("openai/gpt-oss-120b", 4096),
@@ -156,9 +158,9 @@ def chat_model_from_env(provider: str | None = None) -> BaseLanguageModel:
     if provider == "claude":
         from langchain_anthropic import ChatAnthropic
 
-        key = env("LLM_API_KEY")
+        key = env("ANTHROPIC_API_KEY") or env("LLM_API_KEY")
         if not key:
-            raise ValueError("ChatAnthropic requires an API key (LLM_API_KEY)")
+            raise ValueError("ChatAnthropic requires an API key: set ANTHROPIC_API_KEY (or LLM_API_KEY)")
         return ChatAnthropic(model=model, max_tokens=max_tokens, api_key=key)
     if provider == "openai":
         from langchain_openai import ChatOpenAI

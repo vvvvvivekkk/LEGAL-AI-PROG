@@ -9,14 +9,17 @@ from __future__ import annotations
 
 import os
 
-DEFAULT_MODEL = "claude-sonnet-4-6"
+DEFAULT_MODEL = "claude-sonnet-5-5"
+# The model thinks before it answers and thinking counts against max_tokens,
+# so the budget leaves room for both.
+DEFAULT_MAX_TOKENS = 16000
 
 
 class ClaudeAdapter:
-    def __init__(self, api_key: str | None = None, model: str = DEFAULT_MODEL, max_tokens: int = 1024):
-        self.api_key = api_key or os.environ.get("LLM_API_KEY")
+    def __init__(self, api_key: str | None = None, model: str = DEFAULT_MODEL, max_tokens: int = DEFAULT_MAX_TOKENS):
+        self.api_key = api_key or os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("LLM_API_KEY")
         if not self.api_key:
-            raise ValueError("ClaudeAdapter requires an API key (LLM_API_KEY env var or api_key arg)")
+            raise ValueError("ClaudeAdapter requires an API key (ANTHROPIC_API_KEY or LLM_API_KEY env var, or api_key arg)")
         self.model = model
         self.max_tokens = max_tokens
 

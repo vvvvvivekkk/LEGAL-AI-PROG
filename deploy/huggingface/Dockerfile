@@ -28,7 +28,7 @@ USER user
 ENV HOME=/home/user \
     PATH=/home/user/.local/bin:$PATH \
     PYTHONUNBUFFERED=1 \
-    LLM_PROVIDER=groq
+    LLM_PROVIDER=claude
 WORKDIR /home/user/app
 
 # CPU-only PyTorch first: the default wheel bundles GPU libraries a free Space has no use for.

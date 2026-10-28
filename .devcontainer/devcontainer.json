@@ -9,10 +9,10 @@
   },
   // The three local models need about 4 GB of memory: the 2-core, 8 GB machine.
   "hostRequirements": { "cpus": 2, "memory": "8gb" },
-  "containerEnv": { "LLM_PROVIDER": "groq" },
+  "containerEnv": { "LLM_PROVIDER": "claude" },
   "secrets": {
-    "GROQ_API_KEY": {
-      "description": "Your Groq API key, used to write the answers (https://console.groq.com/keys)."
+    "ANTHROPIC_API_KEY": {
+      "description": "Your Anthropic (Claude API) key, used to write the answers (https://console.anthropic.com/settings/keys)."
     }
   },
   "postCreateCommand": "bash .devcontainer/setup.sh",

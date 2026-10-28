@@ -16,10 +16,12 @@ loaded by itself, so visitors can ask questions straight away.
 
 ### One-time setup
 
-1. **Add your Groq key as a secret.** On GitHub: profile picture → **Settings** →
-   **Codespaces** → **Secrets** → **New secret**.
-   - **Name:** `GROQ_API_KEY`
-   - **Value:** your Groq key
+1. **Add your Claude API key as a secret.** Create a key at
+   https://console.anthropic.com/settings/keys (the account needs credits under
+   **Billing**). Then on GitHub: profile picture → **Settings** → **Codespaces** →
+   **Secrets** → **New secret**.
+   - **Name:** `ANTHROPIC_API_KEY`
+   - **Value:** your Anthropic key (it starts with `sk-ant-`)
    - **Repository access:** select `LEGAL-AI-PROG`
 2. **Give it longer before it sleeps (optional).** Same page, **Default idle timeout**: set
    240 minutes (the default is 30).
@@ -69,13 +71,14 @@ pkill -f "uvicorn lc.hosted:app"; bash .devcontainer/start.sh
 |---|---|
 | **Your documents** | Files uploaded on the Ingest page stay in the codespace until it is deleted. |
 | **Chat history** | Chats are saved on the server and listed on the Ask page for everyone who opens the link, so visitors see each other's questions. |
-| **Groq quota** | Every question anyone asks uses your free Groq quota. Share the link only with the people who need it. |
+| **Claude API cost** | Answers are written by Claude Sonnet 5.5 (`claude-sonnet-5-5`, $2 per million input tokens and $10 per million output tokens). Every question anyone asks is billed to your Anthropic account, so share the link only with the people who need it, and set a monthly spend limit under **Limits** in the Anthropic console. |
+| **Another model** | Add a Codespaces secret or variable `LLM_MODEL`, for example `claude-haiku-5-5` for a cheaper model, then restart the codespace. |
 | **API docs** | `https://<codespace-name>-7860.app.github.dev/api/docs` |
 | **Legal status** | The demo pack is the IPC, CrPC and Evidence Act as they stood before 1 July 2024. It is a demo, not legal advice. |
 
 ### If something goes wrong
 
-- **Ask says the language model is not configured:** the `GROQ_API_KEY` secret is missing,
+- **Ask says the language model is not configured:** the `ANTHROPIC_API_KEY` secret is missing,
   misspelled or not given access to this repository. Fix it, then stop and start the
   codespace so it reads the secret.
 - **The link shows nothing:** in the terminal, `tail -f /tmp/legal-ai.log` shows what the app
@@ -87,19 +90,19 @@ pkill -f "uvicorn lc.hosted:app"; bash .devcontainer/start.sh
 
 `deploy/huggingface/Dockerfile` builds the same app as one container listening on port
 7860. It downloads the code from GitHub during the build, so it needs no other files, and
-it downloads the models into the image. Set `GROQ_API_KEY` as a secret environment variable
+it downloads the models into the image. Set `ANTHROPIC_API_KEY` as a secret environment variable
 on the host.
 
 - **Hugging Face Spaces:** Docker Spaces now need a PRO plan. With one: create a Docker
   Space, upload `deploy/huggingface/Dockerfile` and `deploy/huggingface/README.md`, add the
-  `GROQ_API_KEY` secret. **Factory rebuild** picks up new pushes.
+  `ANTHROPIC_API_KEY` secret. **Factory rebuild** picks up new pushes.
 - **Oracle Cloud Always Free** (a free server with 24 GB of memory; sign-up needs a card for
   identity checks), **Google Cloud Run** (free tier, needs billing set up), or any other
   container host:
 
   ```bash
   docker build -t legal-ai deploy/huggingface
-  docker run -p 7860:7860 -e GROQ_API_KEY=your_key legal-ai
+  docker run -p 7860:7860 -e ANTHROPIC_API_KEY=your_key legal-ai
   ```
 
 ## How it works
