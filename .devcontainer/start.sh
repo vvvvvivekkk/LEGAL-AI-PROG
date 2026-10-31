@@ -9,6 +9,9 @@ cd "$(dirname "$0")/.."
 # Strip quotes and spaces a paste can leave around it.
 if [ -f .env ]; then
   k=$(grep -E '^ANTHROPIC_API_KEY=' .env | tail -1 | cut -d= -f2- | tr -d "\"' \r")
+  # A key pasted twice in a row: keep only the first copy.
+  rest="${k#sk-ant-}"
+  case "$rest" in *sk-ant-*) k="sk-ant-${rest%%sk-ant-*}";; esac
   [ -n "$k" ] && export ANTHROPIC_API_KEY="$k" && unset LLM_API_KEY
 fi
 [ -n "${ANTHROPIC_API_KEY:-}" ] && echo "Claude key in use: ${ANTHROPIC_API_KEY:0:11}...${ANTHROPIC_API_KEY: -4} (${#ANTHROPIC_API_KEY} characters)"
