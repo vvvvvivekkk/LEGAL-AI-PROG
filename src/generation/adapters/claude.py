@@ -17,7 +17,9 @@ DEFAULT_MAX_TOKENS = 16000
 
 class ClaudeAdapter:
     def __init__(self, api_key: str | None = None, model: str = DEFAULT_MODEL, max_tokens: int = DEFAULT_MAX_TOKENS):
-        self.api_key = api_key or os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("LLM_API_KEY")
+        key = api_key or os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("LLM_API_KEY") or ""
+        # Pasted secrets often carry a trailing newline or the quotes from an export line.
+        self.api_key = key.strip().strip("'\"") or None
         if not self.api_key:
             raise ValueError("ClaudeAdapter requires an API key (ANTHROPIC_API_KEY or LLM_API_KEY env var, or api_key arg)")
         self.model = model
