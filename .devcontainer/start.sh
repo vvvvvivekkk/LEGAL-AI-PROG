@@ -4,12 +4,14 @@
 # works for people without a GitHub login.
 cd "$(dirname "$0")/.."
 
-# A key saved in the repo-root .env (gitignored) survives restarts without a
-# Codespaces secret. Strip quotes and spaces a paste can leave around it.
-if [ -z "${ANTHROPIC_API_KEY:-}" ] && [ -f .env ]; then
+# A key saved in the repo-root .env (gitignored) survives restarts and takes
+# priority over a Codespaces secret, so a stale secret cannot shadow it.
+# Strip quotes and spaces a paste can leave around it.
+if [ -f .env ]; then
   k=$(grep -E '^ANTHROPIC_API_KEY=' .env | tail -1 | cut -d= -f2- | tr -d "\"' \r")
-  [ -n "$k" ] && export ANTHROPIC_API_KEY="$k"
+  [ -n "$k" ] && export ANTHROPIC_API_KEY="$k" && unset LLM_API_KEY
 fi
+[ -n "${ANTHROPIC_API_KEY:-}" ] && echo "Claude key in use: ${ANTHROPIC_API_KEY:0:11}...${ANTHROPIC_API_KEY: -4} (${#ANTHROPIC_API_KEY} characters)"
 
 # LLM_PROVIDER comes from devcontainer.json, but a codespace keeps the value it was
 # created with until it is rebuilt. Use Claude whenever its key is present.
