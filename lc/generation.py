@@ -23,7 +23,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import Runnable, RunnableLambda
 
 from src.config import env
-from src.generation.general_knowledge import GENERAL_KNOWLEDGE_SYSTEM
+from src.generation.general_knowledge import general_knowledge_system
 from src.generation.parser import split_citation_group
 from src.generation.prompt import ABSTENTION_MARKER, SYSTEM_PROMPT
 
@@ -69,7 +69,7 @@ def prompt_inputs(inputs: dict) -> dict:
 
 
 def general_inputs(inputs: dict) -> dict:
-    return {"system": GENERAL_KNOWLEDGE_SYSTEM, "question": inputs["question"]}
+    return {"system": general_knowledge_system(), "question": inputs["question"]}
 
 
 # ---------------------------------------------------------------------------

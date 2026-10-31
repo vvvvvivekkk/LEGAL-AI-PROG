@@ -28,6 +28,8 @@ fi
 
 # Reranking 100 candidates is slow on the 2-core machine; 40 keeps answers fast.
 export LEGAL_AI_RERANK_POOL="${LEGAL_AI_RERANK_POOL:-40}"
+# The demo pack is Indian law, so uncited general answers should be too.
+export LEGAL_AI_JURISDICTION="${LEGAL_AI_JURISDICTION:-India}"
 
 if pgrep -f "uvicorn lc.hosted:app" >/dev/null; then
   echo "Legal AI is already running."

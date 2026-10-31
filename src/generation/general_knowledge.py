@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import re
 
+from src.config import env
 from src.generation.base import LLMAdapter
 
 GENERAL_KNOWLEDGE_SYSTEM = """You are a legal information assistant answering a \
@@ -29,6 +30,20 @@ context for this answer.
 3. Do not claim anything about the user's own documents or agreements.
 4. If the question is not actually a general legal concept question, say so briefly.
 """
+
+
+
+def general_knowledge_system() -> str:
+    """The system prompt, pinned to LEGAL_AI_JURISDICTION when one is set
+    (the hosted Indian criminal law demo sets India), so an uncited answer
+    does not drift to another country's law."""
+    jurisdiction = env("LEGAL_AI_JURISDICTION")
+    if not jurisdiction:
+        return GENERAL_KNOWLEDGE_SYSTEM
+    return GENERAL_KNOWLEDGE_SYSTEM + (
+        f"5. Unless the question names another country, answer for the law of {jurisdiction}.\n"
+    )
+
 
 # "What is X" / "define X" style openers.
 _DEFINITIONAL = re.compile(
@@ -69,4 +84,4 @@ def is_general_concept_question(query: str) -> bool:
 
 def answer_from_general_knowledge(query: str, adapter: LLMAdapter) -> str:
     """Answer a conceptual question from the model's own knowledge (uncited)."""
-    return adapter.complete(GENERAL_KNOWLEDGE_SYSTEM, query).strip()
+    return adapter.complete(general_knowledge_system(), query).strip()
