@@ -4,6 +4,16 @@
 # works for people without a GitHub login.
 cd "$(dirname "$0")/.."
 
+# LLM_PROVIDER comes from devcontainer.json, but a codespace keeps the value it was
+# created with until it is rebuilt. Use Claude whenever its key is present.
+if [ -n "${ANTHROPIC_API_KEY:-}" ]; then
+  export LLM_PROVIDER=claude
+fi
+echo "Language model provider: ${LLM_PROVIDER:-claude}"
+if [ "${LLM_PROVIDER:-claude}" = "claude" ] && [ -z "${ANTHROPIC_API_KEY:-}${LLM_API_KEY:-}" ]; then
+  echo "WARNING: no ANTHROPIC_API_KEY secret. Add it (docs/deploy.md, step 1), then stop and start the codespace."
+fi
+
 if pgrep -f "uvicorn lc.hosted:app" >/dev/null; then
   echo "Legal AI is already running."
 else
