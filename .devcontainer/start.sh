@@ -43,6 +43,15 @@ for _ in $(seq 1 90); do
   sleep 2
 done
 
+# Health answers before the models finish loading; the first question would
+# then wait for them. Wait for the warm-up to finish (up to 4 minutes).
+echo "Loading the models (1-3 minutes)..."
+for _ in $(seq 1 120); do
+  grep -q "models loaded; ready\|warm-up failed" /tmp/legal-ai.log 2>/dev/null && break
+  sleep 2
+done
+grep -q "models loaded; ready" /tmp/legal-ai.log 2>/dev/null && echo "Models loaded; Legal AI is ready."
+
 if [ -n "${CODESPACE_NAME:-}" ]; then
   gh codespace ports visibility 7860:public -c "$CODESPACE_NAME" >/dev/null 2>&1 \
     && echo "Port 7860 is public: https://${CODESPACE_NAME}-7860.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN:-app.github.dev}" \
