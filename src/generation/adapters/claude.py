@@ -34,5 +34,6 @@ class ClaudeAdapter:
             max_tokens=self.max_tokens,
             system=system,
             messages=[{"role": "user", "content": user}],
+            **({"thinking": {"type": "disabled"}} if self.model.startswith("claude-haiku") else {}),
         )
         return "".join(block.text for block in message.content if block.type == "text")

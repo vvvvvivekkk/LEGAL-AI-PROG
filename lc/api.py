@@ -69,6 +69,9 @@ log = logging.getLogger("legal_ai.lc_api")
 
 # Floor on the /query candidate pool, as src/api/routes/query.py.
 QUERY_POOL_N = 100
+# A hosted 2-core machine can lower the pool to keep each question within the
+# proxy's time limit; reranking is the slowest local step.
+RERANK_POOL = os.environ.get("LEGAL_AI_RERANK_POOL")
 
 router = APIRouter()
 
@@ -243,7 +246,7 @@ def query(
         raise HTTPException(status_code=409, detail="Index is empty — ingest a document first")
 
     reranker = reranker_factory() if req.rerank else None
-    retriever = query_retriever(store, k=req.k, n=max(8 * req.k, QUERY_POOL_N), reranker=reranker)
+    retriever = query_retriever(store, k=req.k, n=max(req.k, int(RERANK_POOL)) if RERANK_POOL else max(8 * req.k, QUERY_POOL_N), reranker=reranker)
     try:
         llm = adapter_factory()
     except Exception as exc:  # noqa: BLE001

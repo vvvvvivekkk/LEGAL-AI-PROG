@@ -26,6 +26,9 @@ if [ "${LLM_PROVIDER:-claude}" = "claude" ] && [ -z "${ANTHROPIC_API_KEY:-}${LLM
   echo "WARNING: no ANTHROPIC_API_KEY secret. Add it (docs/deploy.md, step 1), then stop and start the codespace."
 fi
 
+# Reranking 100 candidates is slow on the 2-core machine; 40 keeps answers fast.
+export LEGAL_AI_RERANK_POOL="${LEGAL_AI_RERANK_POOL:-40}"
+
 if pgrep -f "uvicorn lc.hosted:app" >/dev/null; then
   echo "Legal AI is already running."
 else

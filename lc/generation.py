@@ -162,7 +162,10 @@ def chat_model_from_env(provider: str | None = None) -> BaseLanguageModel:
         key = (env("ANTHROPIC_API_KEY") or env("LLM_API_KEY") or "").strip().strip("'\"")
         if not key:
             raise ValueError("ChatAnthropic requires an API key: set ANTHROPIC_API_KEY (or LLM_API_KEY)")
-        return ChatAnthropic(model=model, max_tokens=max_tokens, api_key=key)
+        # Haiku answers this fixed citation format well without thinking, and
+        # skipping it keeps a question within the hosting proxy's time limit.
+        extra = {"thinking": {"type": "disabled"}} if model.startswith("claude-haiku") else {}
+        return ChatAnthropic(model=model, max_tokens=max_tokens, api_key=key, **extra)
     if provider == "openai":
         from langchain_openai import ChatOpenAI
 
